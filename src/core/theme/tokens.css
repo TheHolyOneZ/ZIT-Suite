@@ -1,0 +1,397 @@
+@import "tailwindcss";
+
+:root {
+  --window-radius: 8px;
+  --accent: #ff7a1a;
+  --accent-fg: #160a00;
+  --font-ui: "Inter Tight Variable", "Inter Tight", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
+  --radius: 4px;
+  --title-h: 44px;
+  --pillar-h: 36px;
+}
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b0e12;
+  --bg-grid: rgba(120, 150, 190, 0.045);
+  --bg-grid-major: rgba(120, 150, 190, 0.08);
+  --surface: #11151b;
+  --surface-2: #171c24;
+  --surface-3: #1e2530;
+  --overlay: rgba(4, 6, 9, 0.66);
+  --line: rgba(148, 163, 184, 0.12);
+  --line-strong: rgba(148, 163, 184, 0.24);
+  --text: #e4e8ee;
+  --text-dim: #8d97a6;
+  --text-faint: #5a6473;
+  --syn-keyword: #ff8a3d;
+  --syn-string: #8bd17c;
+  --syn-number: #e5b567;
+  --syn-function: #6cb6ff;
+  --syn-type: #d2a8ff;
+  --syn-property: #79c0ff;
+  --syn-tag: #ff7b72;
+  --ok: #3ddc97;
+  --warn: #f2c94c;
+  --danger: #ff5d5d;
+  --info: #5cc8ff;
+  --idle: #4a5462;
+  --done: #a78bfa;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #efede6;
+  --bg-grid: rgba(37, 78, 140, 0.06);
+  --bg-grid-major: rgba(37, 78, 140, 0.11);
+  --surface: #f9f8f4;
+  --surface-2: #f2f0ea;
+  --surface-3: #e7e4dc;
+  --overlay: rgba(30, 36, 48, 0.32);
+  --line: rgba(30, 41, 59, 0.12);
+  --line-strong: rgba(30, 41, 59, 0.24);
+  --text: #18202c;
+  --text-dim: #566173;
+  --syn-keyword: #c2410c;
+  --syn-string: #15803d;
+  --syn-number: #a16207;
+  --syn-function: #1d4ed8;
+  --syn-type: #7e22ce;
+  --syn-property: #0369a1;
+  --syn-tag: #b91c1c;
+  --text-faint: #8a93a1;
+  --ok: #12a46b;
+  --warn: #b98500;
+  --danger: #d93838;
+  --info: #1f86c7;
+  --idle: #a3abb7;
+  --done: #7c5cd6;
+  --shadow: 0 18px 48px rgba(30, 36, 48, 0.16), 0 2px 6px rgba(30, 36, 48, 0.08);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-text: var(--text);
+  --color-dim: var(--text-dim);
+  --color-faint: var(--text-faint);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+  --color-idle: var(--idle);
+  --font-sans: var(--font-ui);
+  --font-mono: var(--font-mono);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+
+  html,
+  body {
+    background: transparent;
+  }
+  #root {
+    background: var(--bg);
+    border-radius: var(--window-radius);
+
+    clip-path: inset(0 round var(--window-radius));
+    overflow: hidden;
+  }
+
+  #root::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--window-radius);
+    pointer-events: none;
+    z-index: 200;
+  }
+  html[data-maximized] #root {
+    border-radius: 0;
+    clip-path: none;
+  }
+  html[data-maximized] #root::after {
+    display: none;
+  }
+  body {
+    margin: 0;
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 13px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    user-select: none;
+  }
+  input,
+  textarea,
+  [data-selectable] {
+    user-select: text;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+  :focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 1px;
+  }
+
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: color-mix(in srgb, var(--line) 45%, transparent);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    min-height: 32px;
+    min-width: 32px;
+    background-color: color-mix(in srgb, var(--text-dim) 55%, transparent);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover,
+  ::-webkit-scrollbar-thumb:active {
+    background-color: var(--accent);
+  }
+  ::-webkit-scrollbar-corner,
+  ::-webkit-resizer {
+    background: transparent;
+  }
+}
+
+@layer components {
+
+  .blueprint-grid {
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(var(--bg-grid-major) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bg-grid-major) 1px, transparent 1px),
+      linear-gradient(var(--bg-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+    background-size:
+      96px 96px,
+      96px 96px,
+      12px 12px,
+      12px 12px;
+    background-position: -1px -1px;
+  }
+
+
+  .annot {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+
+  .plotter {
+    position: relative;
+    height: 2px;
+    overflow: hidden;
+    background: var(--line);
+  }
+  .plotter::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 40%;
+    background: var(--accent);
+    animation: plot 1.1s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+}
+
+
+.md {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.md > :first-child {
+  margin-top: 0;
+}
+.md > :last-child {
+  margin-bottom: 0;
+}
+.md p,
+.md ul,
+.md ol,
+.md pre,
+.md blockquote,
+.md table {
+  margin: 0 0 0.75em;
+}
+.md h1,
+.md h2,
+.md h3,
+.md h4 {
+  margin: 1.1em 0 0.5em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.md h1 {
+  font-size: 18px;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--line);
+}
+.md h2 {
+  font-size: 16px;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--line);
+}
+.md h3 {
+  font-size: 14px;
+}
+.md ul,
+.md ol {
+  padding-left: 1.4em;
+}
+.md ul {
+  list-style: square;
+}
+.md ol {
+  list-style: decimal;
+}
+.md li + li {
+  margin-top: 0.2em;
+}
+.md li input[type="checkbox"] {
+  margin-right: 0.4em;
+  accent-color: var(--accent);
+}
+.md a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.md code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  background: var(--surface-3);
+}
+.md pre {
+  padding: 10px 12px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+.md pre code {
+  padding: 0;
+  background: none;
+  font-size: 12px;
+}
+.md blockquote {
+  padding: 0 0 0 12px;
+  border-left: 2px solid var(--line-strong);
+  color: var(--text-dim);
+}
+.md table {
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.md th,
+.md td {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+}
+.md th {
+  background: var(--surface-2);
+  font-weight: 600;
+}
+.md img {
+  max-width: 100%;
+  border-radius: var(--radius);
+}
+.md hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 1em 0;
+}
+
+
+[cmdk-group-heading] {
+  padding: 10px 10px 4px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+@keyframes plot {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}
+
+
+.mark-sweep {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: mark-sweep 1.1s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+@keyframes mark-sweep {
+  0% {
+    transform: scaleX(0.15);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0.15);
+  }
+}
+
+@keyframes pulse-light {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

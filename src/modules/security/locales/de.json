@@ -1,0 +1,293 @@
+{
+  "title": "Sicherheit",
+  "nav": "Sicherheit",
+  "kicker": "Verwalten",
+  "subtitle": "Verwundbare Abhängigkeiten, Code-Befunde und geleakte Secrets in deinen Repositories — und die Schalter, die sie finden.",
+  "meta": {
+    "repos_one": "{{count}} Repo",
+    "repos_other": "{{count}} Repos",
+    "open_one": "{{count}} offene Warnung",
+    "open_other": "{{count}} offene Warnungen",
+    "critical_one": "{{count}} kritisch",
+    "critical_other": "{{count}} kritisch",
+    "overdue_one": "{{count}} überfällig",
+    "overdue_other": "{{count}} überfällig",
+    "gaps_one": "{{count}} Repo unter Basis",
+    "gaps_other": "{{count}} Repos unter Basis",
+    "scanned": "geprüft {{when}}"
+  },
+  "scope": {
+    "button_one": "{{count}} Repo",
+    "button_other": "{{count}} Repos",
+    "title": "Was geprüft wird",
+    "hint": "Repositories, die du administrierst. Warnungen und Schalter brauchen Admin-Rechte.",
+    "archived": "Archivierte einbeziehen",
+    "forks": "Forks einbeziehen",
+    "sla": "Beheben innerhalb",
+    "baseline": "Basis",
+    "baselineHint": "Was jedes Repo eingeschaltet haben sollte (wo GitHub es anbietet). Fehlende Schalter senken die Note."
+  },
+  "sla": {
+    "strict": "Streng",
+    "standard": "Standard",
+    "relaxed": "Locker",
+    "strictHint": "Kritisch 3 T · hoch 14 T · mittel 45 T · niedrig 90 T",
+    "standardHint": "Kritisch 7 T · hoch 30 T · mittel 90 T · niedrig 180 T",
+    "relaxedHint": "Kritisch 30 T · hoch 90 T · mittel 180 T · niedrig 365 T"
+  },
+  "rescan": "Neu prüfen",
+  "export": "Exportieren",
+  "exported": "Warnungen exportiert",
+  "switchFeatures": "Funktionen schalten",
+  "applyBaseline_one": "Basis anwenden ({{count}} Repo)",
+  "applyBaseline_other": "Basis anwenden ({{count}} Repos)",
+  "baselineMet": "Alle Repos erfüllen die Basis",
+  "searchPlaceholder": "Paket, Advisory, Regel, Repo suchen…",
+  "facets": {
+    "severity": "Schweregrad"
+  },
+  "atLeast": "{{severity}} oder schlimmer",
+  "flagged": {
+    "alerts": "Nur überfällige",
+    "repos": "Nur mit Handlungsbedarf"
+  },
+  "kind": {
+    "all": "Alle",
+    "dependency": "Abhängigkeiten",
+    "code": "Code",
+    "secret": "Secrets"
+  },
+  "views": {
+    "alerts": "Warnungen",
+    "repos": "Repositories",
+    "fixes": "Behebungsplan"
+  },
+  "severity": {
+    "critical": "Kritisch",
+    "high": "Hoch",
+    "medium": "Mittel",
+    "low": "Niedrig",
+    "unknown": "Ohne Wertung"
+  },
+  "scanning": "Prüfe",
+  "noTargets": "Keine Repositories in diesem Bereich, die du administrierst",
+  "empty": {
+    "noAlerts": "Keine offenen Warnungen",
+    "noAlertsGaps_one": "Aber {{count}} Repo fehlen Schalter, die Probleme finden würden.",
+    "noAlertsGaps_other": "Aber {{count}} Repos fehlen Schalter, die Probleme finden würden.",
+    "noAlertsBody": "In keinem geprüften Repository ist etwas offen.",
+    "seeRepos": "Repositories zeigen",
+    "filtered": "Nichts passt zu diesen Filtern",
+    "repos": "Keine Repositories"
+  },
+  "repos_one": "{{count}} Repo",
+  "repos_other": "{{count}} Repos",
+  "since": "seit {{when}}",
+  "overdue": "Länger offen als deine Behebungsfrist",
+  "overdueCount_one": "{{count}} überfällig",
+  "overdueCount_other": "{{count}} überfällig",
+  "columns": {
+    "grade": "Note",
+    "repo": "Repository",
+    "open": "Offene Warnungen"
+  },
+  "feature": {
+    "dependabot_alerts": {
+      "name": "Dependabot-Warnungen",
+      "short": "DA",
+      "what": "Warnt, wenn eine Abhängigkeit eine bekannte Schwachstelle hat."
+    },
+    "security_updates": {
+      "name": "Dependabot-Sicherheitsupdates",
+      "short": "SU",
+      "what": "Öffnet Pull Requests, die verwundbare Abhängigkeiten aktualisieren."
+    },
+    "secret_scanning": {
+      "name": "Secret Scanning",
+      "short": "SS",
+      "what": "Findet Tokens und Schlüssel, die ins Repository committet wurden."
+    },
+    "push_protection": {
+      "name": "Push-Schutz",
+      "short": "PP",
+      "what": "Blockiert Pushes mit einem Secret, bevor es leakt."
+    },
+    "private_reporting": {
+      "name": "Private Schwachstellenmeldung",
+      "short": "PR",
+      "what": "Andere können dir Schwachstellen vertraulich melden."
+    },
+    "code_scanning": {
+      "name": "Code Scanning (CodeQL)",
+      "short": "CS",
+      "what": "Untersucht deinen Code bei jedem Push auf Sicherheitsfehler."
+    }
+  },
+  "scanFailed": "Prüfung fehlgeschlagen",
+  "state": {
+    "on": "An",
+    "off": "Aus",
+    "gap": "Aus — gehört zu deiner Basis",
+    "unavailable": "Nicht verfügbar"
+  },
+  "noOpen": "nichts offen",
+  "group": {
+    "gone": "Hier ist nichts mehr offen",
+    "fixedIn": "behoben in {{version}}",
+    "noFix": "noch keine behobene Version",
+    "secretAdvice": "Behandle diese Zugangsdaten als kompromittiert: zuerst dort widerrufen oder erneuern, wo sie ausgestellt wurden, dann die Warnung als widerrufen auflösen. Aus dem Code entfernen entfernt sie nicht aus der Historie.",
+    "depAdvice": "Aktualisiere {{pkg}} in jedem Repo unten auf {{version}} oder neuer (oder schalte Sicherheitsupdates ein, dann öffnet Dependabot die Pull Requests).",
+    "depAdviceNoFix": "Es gibt noch keine behobene Version. Prüfe das Advisory auf Workarounds oder verwirf mit Begründung, wenn du nicht betroffen bist.",
+    "resolveAll_one": "Auflösen",
+    "resolveAll_other": "Alle {{count}} auflösen",
+    "dismissAll_one": "Verwerfen",
+    "dismissAll_other": "Alle {{count}} verwerfen",
+    "advisory": "Advisory",
+    "where": "Wo es offen ist",
+    "details": "Details",
+    "depAdviceBot": "Sicherheitsupdates sind hier an — Dependabot öffnet den Pull Request, der {{pkg}} aktualisiert. Prüfen und mergen."
+  },
+  "validity": {
+    "active": "funktioniert noch",
+    "inactive": "funktioniert nicht mehr",
+    "unknown": "Gültigkeit unbekannt"
+  },
+  "bypassed": "Push-Schutz umgangen",
+  "openOnGitHub": "Auf GitHub öffnen",
+  "resolve": "Auflösen",
+  "dismiss": "Verwerfen",
+  "reopen": "Wieder öffnen",
+  "repo": {
+    "kicker": "Repository-Sicherheit",
+    "scoreHint": "Punkte {{score}} · {{open}} offen · {{gaps}} Basis-Lücken",
+    "applyBaseline_one": "{{count}} fehlenden einschalten",
+    "applyBaseline_other": "{{count}} fehlende einschalten",
+    "features": "Schalter",
+    "featuresHint": "Änderungen laufen über die Warteschlange mit Probelauf",
+    "alerts": "Warnungen",
+    "showClosed": "Geschlossene zeigen",
+    "partial": "Nicht lesbar: {{kinds}}",
+    "noneAtAll": "Gar keine Warnungen",
+    "noneOpen": "Keine offenen Warnungen"
+  },
+  "baselineTag": "Basis",
+  "why": {
+    "archived": "Archivierte Repositories sind schreibgeschützt.",
+    "publicOnly": "Nur für öffentliche Repositories verfügbar.",
+    "needsGhas": "Private Repositories brauchen dafür GitHub Advanced Security.",
+    "notReadable": "GitHub hat diese Einstellung nicht gemeldet (fehlende Rechte oder nicht angeboten)."
+  },
+  "turnOn": "Einschalten",
+  "turnOff": "Ausschalten",
+  "stateLabel": {
+    "dismissed": "verworfen",
+    "fixed": "behoben",
+    "auto_dismissed": "automatisch verworfen",
+    "resolved": "aufgelöst"
+  },
+  "dismissDialog": {
+    "title_one": "{{count}} Warnung verwerfen",
+    "title_other": "{{count}} Warnungen verwerfen",
+    "resolveTitle_one": "{{count}} Warnung auflösen",
+    "resolveTitle_other": "{{count}} Warnungen auflösen",
+    "reason": "Grund",
+    "comment": "Kommentar",
+    "commentHint": "optional, auf GitHub sichtbar",
+    "secretWarn": "Nur wählen, wenn das Secret wirklich kein Risiko ist — geleakte Zugangsdaten sollten widerrufen werden."
+  },
+  "reasons": {
+    "fix_started": {
+      "label": "Eine Behebung läuft bereits",
+      "hint": "Du bist dran — z. B. ein Update ist in Arbeit."
+    },
+    "inaccurate": {
+      "label": "Diese Warnung ist unzutreffend",
+      "hint": "Das Advisory trifft auf die Nutzung hier nicht zu."
+    },
+    "no_bandwidth": {
+      "label": "Keine Kapazität zum Beheben",
+      "hint": "Bekanntes Risiko, verschoben."
+    },
+    "not_used": {
+      "label": "Verwundbarer Code wird nicht genutzt",
+      "hint": "Der betroffene Teil des Pakets ist nicht erreichbar."
+    },
+    "tolerable_risk": {
+      "label": "Risiko ist tragbar",
+      "hint": "Die Auswirkung ist für dieses Projekt akzeptabel."
+    },
+    "false_positive": {
+      "label": "Fehlalarm",
+      "hint": "Kein echtes Problem / kein echtes Secret."
+    },
+    "won_t_fix": {
+      "label": "Wird nicht behoben",
+      "hint": "So akzeptiert."
+    },
+    "wont_fix": {
+      "label": "Wird nicht behoben",
+      "hint": "So akzeptiert."
+    },
+    "used_in_tests": {
+      "label": "Nur in Tests",
+      "hint": "Nur Testcode oder Testdaten."
+    },
+    "revoked": {
+      "label": "Widerrufen",
+      "hint": "Die Zugangsdaten wurden widerrufen oder erneuert."
+    }
+  },
+  "featuresDialog": {
+    "title": "Eine Funktion in vielen Repositories schalten",
+    "submit": "Änderungen prüfen",
+    "feature": "Funktion",
+    "switch": "Schalten",
+    "targets": "Repositories",
+    "note": "Der Probelauf prüft jedes Repo zuerst: unveränderte werden übersprungen, wo GitHub die Funktion nicht anbietet, wird blockiert."
+  },
+  "fix": {
+    "kicker": "Behebungsplan",
+    "upgradeTo": "auf {{version}} aktualisieren",
+    "noTarget": "noch keine behobene Version",
+    "someUnfixable_one": "{{count}} ohne Fix",
+    "someUnfixable_other": "{{count}} ohne Fix",
+    "someUnfixableLong_one": "{{count}} Warnung hat noch keine behobene Version — das Update löst sie nicht.",
+    "someUnfixableLong_other": "{{count}} Warnungen haben noch keine behobene Version — das Update löst sie nicht.",
+    "alerts_one": "{{count}} Warnung",
+    "alerts_other": "{{count}} Warnungen",
+    "headline_one": "Auf {{version}} oder neuer aktualisieren — löst {{count}} Warnung",
+    "headline_other": "Auf {{version}} oder neuer aktualisieren — löst {{count}} Warnungen",
+    "updatesOff_one": "In {{count}} dieser Repos sind Sicherheitsupdates aus.",
+    "updatesOff_other": "In {{count}} dieser Repos sind Sicherheitsupdates aus.",
+    "turnOnUpdates": "Dependabot die Pull Requests öffnen lassen",
+    "where": "Wo aktualisieren",
+    "botOn": "Dependabot öffnet den Pull Request",
+    "botOff": "Sicherheitsupdates aus — von Hand aktualisieren",
+    "prs": "Dependabot-Pull-Requests",
+    "covers_one": "Deckt {{count}} Advisory ab",
+    "covers_other": "Deckt {{count}} Advisories ab",
+    "none": "Nichts zu aktualisieren",
+    "noneBody": "Keine offenen Abhängigkeits-Warnungen."
+  },
+  "dependabot": {
+    "open": "Dependabot-Updates…",
+    "title": "Dependabot-Versionsupdates einrichten",
+    "interval": "Auf neue Versionen prüfen",
+    "daily": "Täglich",
+    "weekly": "Wöchentlich",
+    "monthly": "Monatlich",
+    "group": "Ein Pull Request pro Ökosystem (gruppierte Updates)",
+    "detects": "Jedes Repository bekommt eine Konfiguration für seinen Inhalt: npm, Cargo, pip, Go, Maven, Gradle, Composer, Bundler, Docker, NuGet — jeder Ordner — plus GitHub Actions.",
+    "note": "Öffnet einen Pull Request pro Repository mit .github/dependabot.yml.",
+    "repos_one": "Repositorys · {{count}} gewählt",
+    "repos_other": "Repositorys · {{count}} gewählt",
+    "run_one": "{{count}} Pull Request öffnen",
+    "run_other": "{{count}} Pull Requests öffnen",
+    "exists": "hat schon eine dependabot.yml",
+    "nothing": "keine Manifeste gefunden",
+    "message": "Dependabot-Versionsupdates hinzufügen",
+    "prBody": "Dependabot hält das aktuell: {{list}} (erstellt mit ZIT-Suite).",
+    "finished_one": "Dependabot in {{count}} Repository eingerichtet",
+    "finished_other": "Dependabot in {{count}} Repositorys eingerichtet"
+  }
+}

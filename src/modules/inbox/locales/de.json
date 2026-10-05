@@ -1,0 +1,137 @@
+{
+  "title": "Posteingang",
+  "nav": "Posteingang",
+  "kicker": "Verwalten",
+  "subtitle": "Deine GitHub-Benachrichtigungen — was dich zuerst braucht.",
+  "refresh": "Aktualisieren",
+  "readAll": "Alle als gelesen",
+  "readAllRepo": "Repo als gelesen",
+  "searchPlaceholder": "Titel oder Repo suchen…",
+  "groupDone": "Alle erledigt",
+  "subjectState": {
+    "open": "offen",
+    "draft": "Entwurf",
+    "merged": "gemergt",
+    "closed": "geschlossen",
+    "completed": "erledigt",
+    "not_planned": "nicht geplant"
+  },
+  "meta": {
+    "checked": "geprüft {{when}}",
+    "unread_one": "{{count}} ungelesen",
+    "unread_other": "{{count}} ungelesen",
+    "total_one": "{{count}} angezeigt",
+    "total_other": "{{count}} angezeigt"
+  },
+  "facets": {
+    "reason": "Warum",
+    "kind": "Was",
+    "repo": "Repository",
+    "owner": "Konto / Organisation"
+  },
+  "group": {
+    "reason": "Nach Grund",
+    "repo": "Nach Repo",
+    "none": "Liste"
+  },
+  "view": {
+    "unread": "Ungelesen",
+    "participating": "Beteiligt",
+    "all": "Alle"
+  },
+  "actions": {
+    "read": "Als gelesen",
+    "done": "Erledigt",
+    "mute": "Thread stummschalten"
+  },
+  "reason": {
+    "review_requested": "Review angefragt",
+    "security_alert": "Sicherheitswarnung",
+    "mention": "Hat dich erwähnt",
+    "team_mention": "Hat dein Team erwähnt",
+    "assign": "Dir zugewiesen",
+    "approval_requested": "Freigabe angefragt",
+    "invitation": "Einladung",
+    "author": "Von dir eröffnet",
+    "comment": "Du hast kommentiert",
+    "state_change": "Von dir geändert",
+    "ci_activity": "CI-Lauf",
+    "manual": "Von dir abonniert",
+    "subscribed": "Du beobachtest das Repo",
+    "other": "Sonstiges"
+  },
+  "kind": {
+    "PullRequest": "Pull Request",
+    "Issue": "Issue",
+    "Release": "Release",
+    "Commit": "Commit",
+    "Discussion": "Diskussion",
+    "CheckSuite": "CI-Lauf",
+    "RepositoryVulnerabilityAlert": "Sicherheitswarnung",
+    "Other": "Sonstiges"
+  },
+  "empty": {
+    "zero": "Posteingang leer",
+    "none": "Keine Benachrichtigungen",
+    "zeroBody": "Gerade nichts Neues auf GitHub.",
+    "filtered": "Nichts passt zu diesen Filtern"
+  },
+  "noisy": {
+    "title": "Lauteste Repos",
+    "manage": "Beobachten verwalten →"
+  },
+  "desktop": {
+    "label": "Desktop-Hinweise",
+    "hint": "Eine Systembenachrichtigung, wenn dich jemand braucht: Review-Anfragen, Erwähnungen, Zuweisungen, Sicherheitswarnungen.",
+    "many_one": "{{count}} Benachrichtigung braucht dich",
+    "many_other": "{{count}} Benachrichtigungen brauchen dich"
+  },
+  "statusBar": {
+    "label": "Posteingang",
+    "urgent_one": "{{count}} braucht dich",
+    "urgent_other": "{{count}} brauchen dich"
+  },
+  "keys": {
+    "move": "Bewegen",
+    "open": "Öffnen",
+    "done": "Erledigt",
+    "read": "Als gelesen",
+    "mute": "Thread stummschalten",
+    "select": "Auswählen"
+  },
+  "watching": {
+    "button": "Beobachtet",
+    "kicker": "Posteingang",
+    "title": "Repositories, die du beobachtest",
+    "search": "Suchen…",
+    "unwatch": "Nur wenn ich beteiligt bin",
+    "ignore": "Nie benachrichtigen",
+    "participatingHint": "Nicht mehr beobachten: Threads, an denen du teilnimmst oder in denen du @erwähnt wirst, bekommst du weiter.",
+    "ignoreHint": "Gar keine Benachrichtigungen mehr aus diesen Repos, auch keine Erwähnungen.",
+    "none": "Du beobachtest keine Repositories",
+    "notYours": "nicht deins",
+    "archived": "archiviert",
+    "done": {
+      "participating_one": "{{count}} Repo nicht mehr beobachtet",
+      "participating_other": "{{count}} Repos nicht mehr beobachtet",
+      "ignoring_one": "{{count}} Repo ignoriert",
+      "ignoring_other": "{{count}} Repos ignoriert",
+      "watching_one": "{{count}} Repo beobachtet",
+      "watching_other": "{{count}} Repos beobachtet"
+    },
+    "hint_one": "Du beobachtest {{count}} Repository ({{others}} nicht deins). Beobachten heißt: jedes Issue, jeder PR und jedes Release landet im Posteingang.",
+    "hint_other": "Du beobachtest {{count}} Repositories ({{others}} nicht deine). Beobachten heißt: jedes Issue, jeder PR und jedes Release landet im Posteingang.",
+    "inInbox_one": "{{count}} ungelesen",
+    "inInbox_other": "{{count}} ungelesen",
+    "noMatch": "Kein beobachtetes Repository passt",
+    "tabWatched_one": "Beobachtet {{count}}",
+    "tabWatched_other": "Beobachtet {{count}}",
+    "tabNot_one": "Nicht beobachtet {{count}}",
+    "tabNot_other": "Nicht beobachtet {{count}}",
+    "watch": "Beobachten"
+  },
+  "selected_one": "{{count}} ausgewählt",
+  "selected_other": "{{count}} ausgewählt",
+  "groupDoneConfirm_one": "Nochmal klicken — erledigt {{count}}",
+  "groupDoneConfirm_other": "Nochmal klicken — erledigt {{count}}"
+}

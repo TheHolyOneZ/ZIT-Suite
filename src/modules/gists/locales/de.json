@@ -1,0 +1,91 @@
+{
+  "title": "Gists",
+  "nav": "Gists",
+  "kicker": "Verwalten",
+  "subtitle": "Snippets, Notizen und kleine Dateien — deine und die mit Stern.",
+  "refresh": "Aktualisieren",
+  "new": "Neuer Gist",
+  "searchPlaceholder": "Beschreibung oder Dateiname suchen…",
+  "meta": {
+    "count_one": "{{count}} Gist",
+    "count_other": "{{count}} Gists",
+    "secret_one": "{{count}} geheim",
+    "secret_other": "{{count}} geheim"
+  },
+  "facets": {
+    "language": "Sprache"
+  },
+  "visibility": {
+    "all": "Alle",
+    "public": "Öffentlich",
+    "secret": "Geheim"
+  },
+  "views": {
+    "mine": "Meine",
+    "starred": "Mit Stern"
+  },
+  "empty": {
+    "filtered": "Nichts passt",
+    "starred": "Du hast noch keine Gists mit Stern",
+    "mine": "Noch keine Gists",
+    "mineBody": "Ein Gist ist ein schneller Weg, ein Snippet, eine Konfiguration oder Notizen zu teilen — mit Verlauf."
+  },
+  "newTitle": "Neuer Gist",
+  "description": "Beschreibung",
+  "descriptionPlaceholder": "Was ist es?",
+  "publicLabel": "Öffentlich — im Profil gelistet und durchsuchbar",
+  "publicHint": "Jeder kann ihn finden.",
+  "secretHint": "Geheime Gists sind nicht gelistet oder durchsuchbar, aber jeder mit dem Link kann sie öffnen — keine Passwörter hier ablegen.",
+  "createPublic": "Öffentlichen Gist erstellen",
+  "createSecret": "Geheimen Gist erstellen",
+  "created": "Gist erstellt",
+  "problem": {
+    "empty": "Jede Datei braucht Inhalt",
+    "name": "Jede Datei braucht einen Namen (kein /)",
+    "duplicate": "Zwei Dateien haben denselben Namen",
+    "none": "Füge mindestens eine Datei hinzu"
+  },
+  "editor": {
+    "namePlaceholder": "Dateiname mit Endung, z. B. notizen.md",
+    "edit": "Bearbeiten",
+    "preview": "Vorschau",
+    "remove": "Datei entfernen",
+    "restore": "Datei behalten",
+    "willDelete": "Diese Datei wird beim Speichern gelöscht.",
+    "addFile": "Datei hinzufügen",
+    "fromDisk": "Von der Festplatte"
+  },
+  "oldRevision": "Revision {{sha}}",
+  "updated": "aktualisiert",
+  "edit": "Bearbeiten",
+  "copyLink": "Link kopieren",
+  "copied": "Kopiert",
+  "revisions": "Revisionen",
+  "current": "aktuell",
+  "star": "Stern geben",
+  "unstar": "Stern entfernen",
+  "starred": "Stern gegeben",
+  "unstarred": "Stern entfernt",
+  "openOnGitHub": "Auf GitHub öffnen",
+  "source": "Quelltext zeigen",
+  "copyContent": "Inhalt kopieren",
+  "raw": "Rohdatei",
+  "truncated": "Diese Datei ist über 1 MB — öffne die Rohdatei für den Rest.",
+  "saved": "Gist gespeichert",
+  "save": "Speichern",
+  "deleted": "Gist gelöscht",
+  "delete": "Löschen",
+  "confirmDelete": "Nochmal klicken zum Löschen",
+  "files_one": "{{count}} Datei",
+  "files_other": "{{count}} Dateien",
+  "changes_one": "{{count}} Änderung",
+  "changes_other": "{{count}} Änderungen",
+  "comments": {
+    "title_one": "{{count}} Kommentar",
+    "title_other": "{{count}} Kommentare",
+    "placeholder": "Kommentar schreiben…",
+    "send": "Kommentieren",
+    "delete": "Kommentar löschen",
+    "confirmDelete": "Nochmal klicken zum Löschen"
+  }
+}

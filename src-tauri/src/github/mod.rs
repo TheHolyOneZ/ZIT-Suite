@@ -1,0 +1,26 @@
+pub mod about;
+pub mod actions;
+pub mod branches;
+pub mod client;
+pub mod collaborators;
+pub mod deps;
+pub mod files;
+pub mod gists;
+pub mod hooks;
+pub mod issue_extras;
+pub mod issues;
+pub mod labels;
+pub mod notifications;
+pub mod pulls;
+pub mod releases;
+pub mod repos;
+pub mod rulesets;
+pub mod secrets;
+pub mod stars;
+pub mod stats;
+pub mod traffic;
+pub mod search;
+pub mod security;
+pub mod users;
+
+pub use client::GitHubClient;

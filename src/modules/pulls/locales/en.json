@@ -1,0 +1,280 @@
+{
+  "title": "Pull Requests",
+  "kicker": "Manage / Pull requests",
+  "subtitle": "Every PR you care about — CI, reviews and mergeability at a glance.",
+  "views": {
+    "reviewRequested": "Review requested",
+    "mine": "Created by me",
+    "myRepos": "Open in my repos",
+    "assigned": "Assigned to me",
+    "failing": "Failing checks",
+    "readyToMerge": "Ready to merge",
+    "drafts": "Drafts",
+    "recentlyMerged": "Recently merged"
+  },
+  "state": {
+    "open": "Open",
+    "draft": "Draft",
+    "merged": "Merged",
+    "closed": "Closed"
+  },
+  "stateFilter": {
+    "open": "Open",
+    "merged": "Merged",
+    "closed": "Closed",
+    "all": "All"
+  },
+  "checks": {
+    "passing": "Checks passing",
+    "failing": "Checks failing",
+    "running": "Checks running",
+    "none": "No checks",
+    "summaryFailed": "{{failed}} of {{total}} failing",
+    "summaryRunning": "{{running}} of {{total}} running",
+    "summaryPassed": "{{passed}}/{{total}} passed",
+    "headSha": "Checks for {{sha}} · updated {{when}}"
+  },
+  "checksFilter": {
+    "any": "Any",
+    "success": "Passing",
+    "failure": "Failing",
+    "pending": "Running"
+  },
+  "review": {
+    "approved": "approved",
+    "changes": "changes",
+    "required": "review",
+    "addHint": "Comment on this line (Shift+click another line for a range)",
+    "onLine": "Comment on line {{line}} · {{side}}",
+    "onRange": "Comment on lines {{from}}–{{to}} · {{side}}",
+    "side": {
+      "LEFT": "old file",
+      "RIGHT": "new file"
+    },
+    "placeholder": "Leave a review comment…",
+    "rangeHint": "Shift+click another line's + to comment on a range",
+    "add": "Add comment",
+    "reply": "Reply",
+    "replyPlaceholder": "Reply…",
+    "edit": "Edit",
+    "delete": "Delete (click twice)",
+    "outdatedAt": "Outdated · was line {{line}}",
+    "inline_one": "{{count}} inline comment",
+    "inline_other": "{{count}} inline comments",
+    "outdated": "outdated"
+  },
+  "reviewFilter": {
+    "any": "Any review state",
+    "none": "No reviews",
+    "required": "Review required",
+    "approved": "Approved",
+    "changes_requested": "Changes requested"
+  },
+  "reviewState": {
+    "APPROVED": "approved",
+    "CHANGES_REQUESTED": "requested changes",
+    "COMMENTED": "reviewed",
+    "DISMISSED": "review dismissed",
+    "PENDING": "pending review"
+  },
+  "draftFilter": {
+    "any": "Any",
+    "ready": "Ready",
+    "draft": "Draft"
+  },
+  "sort": {
+    "updated": "Recently updated",
+    "created": "Newest",
+    "comments": "Most commented",
+    "best": "Best match"
+  },
+  "scope": {
+    "mine": "My repos",
+    "repo": "Repository",
+    "everywhere": "Everywhere"
+  },
+  "facets": {
+    "scope": "Scope",
+    "state": "State",
+    "sort": "Sort",
+    "review": "Review",
+    "checks": "Checks",
+    "draft": "Draft",
+    "labels": "Labels",
+    "addLabel": "Add label…",
+    "people": "People",
+    "author": "Author",
+    "assignee": "Assignee",
+    "reviewRequested": "Review requested",
+    "involves": "Involves",
+    "text": "text",
+    "query": "query"
+  },
+  "people": {
+    "me": "me",
+    "meActive": "you"
+  },
+  "query": {
+    "label": "GitHub pull request search",
+    "refresh": "Refresh pull requests",
+    "results_one": "{{shown}} of {{total}} result",
+    "results_other": "{{shown}} of {{total}} results"
+  },
+  "list": {
+    "byAt": "{{login}} · {{when}}",
+    "empty": "No pull requests match",
+    "emptyHint": "Try another view or widen the scope."
+  },
+  "merge": {
+    "merged": "Merged",
+    "conflicts": "Has conflicts",
+    "behind": "Branch is behind",
+    "blocked": "Blocked by rules",
+    "clean": "Ready to merge",
+    "computing": "Checking…",
+    "choose": "Choose merge method",
+    "methods": {
+      "squash": "Squash and merge",
+      "merge": "Create merge commit",
+      "rebase": "Rebase and merge"
+    },
+    "hints": {
+      "squash": "One commit on the base branch",
+      "merge": "Keeps all commits + a merge commit",
+      "rebase": "Replays commits onto the base"
+    },
+    "notAllowed": "Turned off in this repository's settings"
+  },
+  "strip": {
+    "checks": "Checks",
+    "review": "Reviews",
+    "merge": "Mergeability",
+    "diff": "Diff",
+    "awaiting_one": "Awaiting {{count}} reviewer",
+    "awaiting_other": "Awaiting {{count}} reviewers",
+    "noRequests": "No pending requests",
+    "files_one": "{{count}} file",
+    "files_other": "{{count}} files"
+  },
+  "actions": {
+    "updateBranch": "Update branch",
+    "ready": "Ready for review",
+    "toDraft": "Convert to draft",
+    "close": "Close",
+    "reopen": "Reopen"
+  },
+  "triage": {
+    "reviewers": "Reviewers",
+    "labels": "Labels",
+    "assignees": "Assignees",
+    "milestone": "Milestone"
+  },
+  "tabs": {
+    "conversation": "Conversation",
+    "files": "Files",
+    "commits": "Commits",
+    "checks": "Checks"
+  },
+  "detail": {
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied",
+    "openGithub": "Open on GitHub",
+    "editTitle": "Edit title",
+    "opened": "opened {{when}}",
+    "mergedBy": "merged by {{login}} {{when}}",
+    "editBody": "Edit description",
+    "noBody": "No description provided."
+  },
+  "composer": {
+    "placeholder": "Comment or write a review…",
+    "comment": "Comment",
+    "review": "Review",
+    "approve": "Approve",
+    "requestChanges": "Request changes",
+    "reviewComment": "Review comment",
+    "ownPr": "You can't approve or request changes on your own pull request",
+    "submitted": {
+      "APPROVE": "Approved",
+      "REQUEST_CHANGES": "Changes requested",
+      "COMMENT": "Review submitted"
+    }
+  },
+  "files": {
+    "none": "No files changed",
+    "gone": "File not found in this pull request",
+    "prev": "Previous file",
+    "next": "Next file",
+    "noPatch": "No diff available",
+    "noPatchHint": "Binary or very large files have no inline diff — open on GitHub."
+  },
+  "create": {
+    "button": "New pull request",
+    "kicker": "Create",
+    "title": "New pull request",
+    "repo": "Repository",
+    "base": "Base (merge into)",
+    "head": "Compare (from)",
+    "pickHead": "Choose a branch…",
+    "nothing": "Nothing to compare — branches are identical",
+    "prTitle": "Title",
+    "body": "Description",
+    "draft": "Create as draft",
+    "submit": "Create pull request",
+    "submitDraft": "Create draft",
+    "created": "Pull request #{{number}} opened",
+    "ahead_one": "{{count}} commit ahead",
+    "ahead_other": "{{count}} commits ahead",
+    "behind_one": "{{count}} behind",
+    "behind_other": "{{count}} behind",
+    "files_one": "{{count}} file changed",
+    "files_other": "{{count}} files changed"
+  },
+  "bulk": {
+    "selected": "selected",
+    "merge": "Merge",
+    "requestReview": "Request review",
+    "request": "Request",
+    "more": "More bulk actions",
+    "export": "Export as CSV",
+    "clear": "Clear selection"
+  },
+  "commands": {
+    "search": "Search pull requests"
+  },
+  "shortcuts": {
+    "move": "Move cursor",
+    "select": "Toggle selection",
+    "open": "Open pull request",
+    "merge": "Merge (queued, dry run)",
+    "files": "Previous / next file",
+    "query": "Edit search query",
+    "new": "New pull request",
+    "selectAll": "Select all loaded"
+  },
+  "autoMerge": {
+    "label": "Auto-merge",
+    "enableWith": "Enable auto-merge · {{method}}",
+    "disable": "Disable auto-merge",
+    "on": "Auto-merge on · {{method}}",
+    "off": "Turned off in repo settings · private repos need GitHub Pro"
+  },
+  "suggest": {
+    "title": "Suggested change",
+    "apply": "Apply",
+    "cantApply": "can be applied on GitHub",
+    "applied": "Suggestion applied — committed to the pull request",
+    "message": "Apply suggestion to {{path}}",
+    "noFile": "The file isn't on the branch any more",
+    "deleteLines": "(delete these lines)",
+    "insert": "Suggest a change",
+    "insertHint": "Puts the selected lines into a suggestion block — edit them to what they should be"
+  },
+  "batch": {
+    "add": "Add to review",
+    "addHint": "Collect it and send all comments together with your review",
+    "pending": "pending",
+    "remove": "Remove from review",
+    "count_one": "{{count}} comment waiting for the review",
+    "count_other": "{{count}} comments waiting for the review"
+  }
+}

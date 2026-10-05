@@ -1,0 +1,63 @@
+{
+  "title": "Search",
+  "nav": "Search",
+  "kicker": "Manage",
+  "subtitle": "All of GitHub — repositories, code, issues & pull requests, commits, people. Press Enter to search.",
+  "placeholder": {
+    "repos": "e.g. markdown editor language:rust",
+    "code": "e.g. useEffect path:src/",
+    "issues": "e.g. crash on start is:open",
+    "commits": "e.g. fix login",
+    "users": "e.g. a name or login"
+  },
+  "go": "Search",
+  "mine": "Only mine (@{{login}})",
+  "hints": "Add:",
+  "kind": {
+    "repos": "Repos",
+    "code": "Code",
+    "issues": "Issues & PRs",
+    "commits": "Commits",
+    "users": "People"
+  },
+  "sort": {
+    "best-match": "Best match",
+    "stars": "Most stars",
+    "forks": "Most forks",
+    "updated": "Recently updated",
+    "created": "Newest",
+    "comments": "Most comments",
+    "reactions": "Most reactions",
+    "author-date": "Newest (author)",
+    "committer-date": "Newest (committer)",
+    "followers": "Most followers",
+    "repositories": "Most repos",
+    "joined": "Recently joined"
+  },
+  "state": {
+    "open": "open",
+    "closed": "closed",
+    "merged": "merged"
+  },
+  "pr": "PR",
+  "issue": "issue",
+  "more": "Load more",
+  "incomplete": "GitHub stopped early — results may be incomplete",
+  "cap": "GitHub shows at most 1,000",
+  "noResults": "Nothing found",
+  "noResultsBody": "Try fewer words or remove a filter.",
+  "rateHint": "GitHub allows 30 searches a minute (10 for code). Wait a moment and try again.",
+  "start": "Search all of GitHub",
+  "startBody": "Pick what to look for above, type, press Enter. The chips add filters for you.",
+  "recent": "Recent searches",
+  "clearRecent": "Clear",
+  "total_one": "{{count}} result · {{shown}} shown",
+  "total_other": "{{count}} results · {{shown}} shown",
+  "groupByRepo": "Group by repository",
+  "filesCount_one": "{{count}} file",
+  "filesCount_other": "{{count}} files",
+  "save": "Save search",
+  "saved": "Saved",
+  "unsave": "Remove",
+  "savedTitle": "Saved searches"
+}

@@ -1,0 +1,209 @@
+{
+  "title": "Webhooks",
+  "kicker": "Manage / Webhooks",
+  "subtitle": "Every endpoint your repositories call — status, deliveries and payloads.",
+  "meta": {
+    "repos_one": "{{count}} repo scanned",
+    "repos_other": "{{count}} repos scanned",
+    "hooks_one": "{{count}} webhook",
+    "hooks_other": "{{count}} webhooks",
+    "endpoints_one": "{{count}} endpoint",
+    "endpoints_other": "{{count}} endpoints",
+    "failing_one": "{{count}} failing",
+    "failing_other": "{{count}} failing",
+    "scanned": "scanned {{when}}"
+  },
+  "scope": {
+    "button_one": "Scope · {{count}} repo",
+    "button_other": "Scope · {{count}} repos",
+    "title": "Scan scope",
+    "hint": "Webhooks need admin rights, so only repositories you administer are scanned.",
+    "archived": "Include archived",
+    "forks": "Include forks"
+  },
+  "rescan": "Rescan",
+  "scanning": "Scanning",
+  "scanFailed": "Couldn't read this repository's webhooks",
+  "noTargets": "No repositories you administer",
+  "new": "New webhook",
+  "exported": "Exported",
+  "searchPlaceholder": "Search URL or repository…",
+  "views": {
+    "endpoints": "Endpoints",
+    "repos": "Repositories"
+  },
+  "facets": {
+    "state": "Status",
+    "event": "Event",
+    "anyState": "Any status",
+    "anyEvent": "Any event"
+  },
+  "states": {
+    "ok": "Delivering",
+    "failing": "Failing",
+    "unused": "No deliveries yet",
+    "inactive": "Paused"
+  },
+  "health": {
+    "button": "Check deliveries",
+    "running": "Checking deliveries",
+    "failed": "{{failed}} of {{checked}} failed",
+    "ok": "last {{checked}} ok",
+    "none": "no deliveries",
+    "depth": "Deliveries per webhook",
+    "hint": "Reads the latest deliveries of every webhook in scope (one request each) and flags failures.",
+    "run_one": "Check {{count}} webhook",
+    "run_other": "Check {{count}} webhooks"
+  },
+  "empty": {
+    "endpoints": "No webhooks in scope",
+    "endpointsHint": "Add one to start receiving events.",
+    "repos": "No repositories match"
+  },
+  "endpoint": {
+    "kicker": "Endpoint",
+    "onRepos_one": "on {{count}} repository",
+    "onRepos_other": "on {{count}} repositories",
+    "addRepos": "Add to more repos…",
+    "edit": "Edit on all…",
+    "pause": "Pause all",
+    "resume": "Resume all",
+    "remove": "Remove from all",
+    "ping": "Ping all",
+    "pinged_one": "Sent {{count}} ping",
+    "pinged_other": "Sent {{count}} pings",
+    "gone": "This endpoint is no longer in the scan"
+  },
+  "repo": {
+    "kicker": "Repository webhooks",
+    "count_one": "{{count}} webhook",
+    "count_other": "{{count}} webhooks",
+    "add": "Add webhook",
+    "none": "No webhooks on this repository"
+  },
+  "hook": {
+    "kicker": "Webhook",
+    "state": "Status",
+    "lastResponse": "Last response",
+    "events": "Events",
+    "format": "Format",
+    "never": "Never delivered",
+    "ping": "Ping",
+    "pinged": "Ping sent — it shows up under Deliveries in a moment",
+    "remove": "Remove",
+    "saved": "Webhook saved",
+    "save": "Save changes",
+    "reset": "Reset",
+    "sslOff": "SSL check off",
+    "signed": "signed",
+    "unsigned": "unsigned",
+    "gone": "This webhook no longer exists",
+    "testPush": "Send test push",
+    "testPushHint": "GitHub sends the latest push of this repository to the endpoint again",
+    "testPushed": "Test push sent"
+  },
+  "tabs": {
+    "deliveries": "Deliveries",
+    "settings": "Settings"
+  },
+  "deliveries": {
+    "all": "All",
+    "failed": "Failed",
+    "empty": "No deliveries yet — send a ping",
+    "emptyFailed": "No failed deliveries in what's loaded",
+    "older": "Load older",
+    "refresh": "Refresh",
+    "redelivery": "Redelivery"
+  },
+  "delivery": {
+    "kicker": "Delivery",
+    "redeliver": "Redeliver",
+    "redelivered": "Redelivery requested",
+    "request": "Request",
+    "response": "Response",
+    "headers": "Headers",
+    "payload": "Payload",
+    "noBody": "Empty response body",
+    "sentTo": "Sent to",
+    "copy": "Copy",
+    "copied": "Copied",
+    "guid": "Delivery ID",
+    "duration": "{{ms}} ms",
+    "size": "{{lines}} lines · {{kb}} kB"
+  },
+  "form": {
+    "url": "Payload URL",
+    "urlInvalid": "Enter an http(s) URL",
+    "contentType": "Content type",
+    "formEncoded": "Form",
+    "delivery": "Delivery",
+    "active": "Active",
+    "paused": "Paused",
+    "secret": "Secret",
+    "secretHint": "Signs every payload (X-Hub-Signature-256)",
+    "secretShort": "Use at least 8 characters",
+    "secretMode": {
+      "keep": "Keep current",
+      "set": "Replace",
+      "remove": "Remove"
+    },
+    "secretPlaceholder": "Optional — or generate one",
+    "reveal": "Show / hide",
+    "generate": "Generate",
+    "copy": "Copy",
+    "secretRemoveNote": "Payloads will no longer be signed.",
+    "verifySsl": "Verify SSL certificate",
+    "sslWarning": "Not recommended — payloads could be intercepted.",
+    "events": "Events",
+    "eventsRequired": "Pick at least one event"
+  },
+  "events": {
+    "everything": "everything",
+    "mode": {
+      "push": "Just push",
+      "all": "Everything",
+      "custom": "Choose events"
+    },
+    "selected_one": "{{count}} selected",
+    "selected_other": "{{count}} selected",
+    "search": "Filter events…"
+  },
+  "eventGroups": {
+    "code": "Code & releases",
+    "collaboration": "Issues & pull requests",
+    "ci": "CI / CD",
+    "security": "Security",
+    "repository": "Repository & people"
+  },
+  "create": {
+    "title": "New webhook",
+    "copyTitle": "Add this endpoint to more repositories",
+    "repos": "Repositories",
+    "exists": "has it",
+    "summary_one": "{{count}} repository",
+    "summary_other": "{{count}} repositories",
+    "submit": "Review in queue",
+    "note": "Created through the queue with a dry run; repositories that already call this URL are skipped.",
+    "secretNote": "The secret stays in memory only — it is never written to disk."
+  },
+  "edit": {
+    "title": "Edit endpoint everywhere",
+    "note_one": "Only the fields you change are applied to {{count}} repository; everything else stays as it is.",
+    "note_other": "Only the fields you change are applied to {{count}} repositories; everything else stays as it is per repository.",
+    "nothing": "Change something first",
+    "submit": "Review in queue"
+  },
+  "sig": {
+    "open": "Check a signature",
+    "title": "Check a webhook signature",
+    "secret": "Secret",
+    "secretHint": "the hook's secret — stays on this computer",
+    "payload": "Raw request body",
+    "payloadHint": "exactly as received, byte for byte",
+    "header": "Signature header",
+    "computed": "Expected signature",
+    "match": "Matches — the request came from GitHub with this secret",
+    "noMatch": "Doesn't match — wrong secret, or the body was changed (even whitespace counts)",
+    "note": "Your receiver must compute this over the raw body before parsing JSON. The payloads shown in deliveries are re-formatted by GitHub's API, so paste the body your server actually received."
+  }
+}

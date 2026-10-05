@@ -1,0 +1,68 @@
+{
+  "title": "Migration",
+  "kicker": "Ship",
+  "subtitle": "Rename many repositories by rules, or move them to another owner — planned here, checked and run through the queue.",
+  "modes": {
+    "rename": "Rename",
+    "transfer": "Transfer"
+  },
+  "pick_one": "Repositories · {{count}} picked",
+  "pick_other": "Repositories · {{count}} picked",
+  "adminOnly": "Only repositories you administer are listed.",
+  "rules": {
+    "title": "Rules",
+    "stripPrefix": "Remove prefix",
+    "stripSuffix": "Remove suffix",
+    "prefix": "Add prefix",
+    "suffix": "Add suffix",
+    "find": "Find",
+    "replace": "Replace with",
+    "regex": "Regular expression",
+    "case": "Case",
+    "order": "Applied in this order: remove prefix/suffix → find & replace → case → add prefix/suffix. Characters GitHub doesn't allow become “-”. Edit any new name by hand below."
+  },
+  "case": {
+    "keep": "Keep",
+    "lower": "lower",
+    "kebab": "kebab-case",
+    "snake": "snake_case"
+  },
+  "plan": {
+    "title_one": "Plan · {{count}} repository",
+    "title_other": "Plan · {{count}} repositories",
+    "run_one": "Rename {{count}}…",
+    "run_other": "Rename {{count}}…",
+    "pickFirst": "Pick repositories on the left.",
+    "resetEdits": "Reset hand edits"
+  },
+  "status": {
+    "ok": "ready",
+    "same": "unchanged",
+    "invalid": "invalid",
+    "duplicate": "used twice",
+    "taken": "name taken"
+  },
+  "transfer": {
+    "owner": "New owner",
+    "ownerHint": "a user or organization",
+    "badOwner": "Not a valid user / organization name",
+    "newName": "New name",
+    "newNameHint": "optional — keep the name if empty",
+    "newNameMany": "only when moving one repository",
+    "badName": "Not a valid repository name",
+    "run_one": "Transfer {{count}} to {{owner}}…",
+    "run_other": "Transfer {{count}} to {{owner}}…",
+    "runNoOwner_one": "Transfer {{count}}…",
+    "runNoOwner_other": "Transfer {{count}}…"
+  },
+  "notes": {
+    "title": "Good to know",
+    "renameRedirects": "GitHub redirects the old name — web links, git remotes and the API keep working until the old name is reused.",
+    "renamePages": "A GitHub Pages site moves to the new URL (that one isn't redirected).",
+    "renameClones": "Home folders follow a renamed repository automatically; other clones can keep working through the redirect or be pointed at the new URL.",
+    "transferMoves": "Issues, pull requests, wiki, stars and watchers move with the repository; links and git remotes redirect.",
+    "transferUser": "Moving to a person: they get an email and must accept (within a day) — until then nothing changes.",
+    "transferOrg": "Moving to an organization: you need permission to create repositories there; it happens right away.",
+    "transferAccess": "Afterwards you may no longer administer it — the dry run checks owner and names first, and you confirm by typing."
+  }
+}

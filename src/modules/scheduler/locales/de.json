@@ -1,0 +1,145 @@
+{
+  "title": "Planer",
+  "kicker": "Ship",
+  "subtitle": "Warteschlangen-Aktionen, die von selbst laufen — auf einer gespeicherten Ansicht, einer Aufräum-Vorlage, einem Tag oder einer Liste von Repositorys.",
+  "new": "Neuer Zeitplan",
+  "saved": "„{{name}}“ gespeichert",
+  "next": "nächster",
+  "paused": "pausiert",
+  "runNow": "Jetzt ausführen",
+  "editLabel": "Bearbeiten",
+  "delete": "Löschen",
+  "confirmDelete": "Zum Löschen erneut klicken",
+  "otherAccount": "anderes Konto — läuft, wenn es aktiv ist",
+  "howItRuns": "Zeitpläne laufen, solange ZIT-Suite geöffnet ist. Läufe, die verpasst wurden, während es geschlossen war, passieren einmal beim nächsten Start (nicht einmal pro verpasstem Termin). Jeder Lauf prüft zuerst (Probelauf) und fasst nur Repositorys an, bei denen sich etwas ändern würde.",
+  "empty": {
+    "title": "Noch keine Zeitpläne",
+    "body": "Zum Beispiel: jeden Montag tote Repositorys archivieren — mit Rückfrage. Oder jede Nacht Dependabot-Warnungen überall einschalten, wo sie aus sind."
+  },
+  "reviews": {
+    "title_one": "{{count}} Lauf wartet auf dich",
+    "title_other": "{{count}} Läufe warten auf dich",
+    "found_one": "{{count}} Repository würde sich ändern",
+    "found_other": "{{count}} Repositorys würden sich ändern",
+    "open": "Prüfen…",
+    "dismiss": "Verwerfen"
+  },
+  "edit": {
+    "new": "Neuer Zeitplan",
+    "title": "„{{name}}“ bearbeiten",
+    "save": "Zeitplan speichern",
+    "name": "Name",
+    "namePlaceholder": "Tote Repos archivieren",
+    "what": "Was tun",
+    "which": "Auf welchen Repositorys",
+    "when": "Wann",
+    "then": "Dann",
+    "on": "an",
+    "off": "aus",
+    "labelName": "Label-Name",
+    "protectNote": "Schützt den Standard-Branch jedes Repos: Pull Requests verlangt, neue Commits verwerfen Freigaben.",
+    "everyN": "Alle",
+    "hours": "Stunden",
+    "onDay": "am Tag",
+    "at": "um",
+    "catchUp": "Verpasst, während die App geschlossen war? Läuft einmal beim nächsten Start.",
+    "bump": {
+      "patch": "Patch",
+      "minor": "Minor",
+      "major": "Major",
+      "date": "Datum"
+    },
+    "releaseDraft": "Als Entwurf",
+    "releasePre": "Vorabversion",
+    "releaseNote": "Taggt den Standard-Branch mit der nächsten Version nach dem letzten Release und lässt GitHub die Notizen schreiben. Repos ohne neue Commits werden übersprungen."
+  },
+  "action": {
+    "archive": "Archivieren",
+    "unarchive": "Archivierung aufheben",
+    "set_private": "Privat machen",
+    "set_public": "Öffentlich machen",
+    "delete": "Löschen (fragt immer zuerst)",
+    "security_feature": "Sicherheitsfunktion schalten",
+    "label_upsert": "Label hinzufügen / ändern",
+    "branch_protect": "Standard-Branch schützen",
+    "release_next": "Nächste Version veröffentlichen"
+  },
+  "every": {
+    "hours": "Stunden",
+    "day": "Täglich",
+    "week": "Wöchentlich",
+    "month": "Monatlich"
+  },
+  "weekday": {
+    "0": "Montag",
+    "1": "Dienstag",
+    "2": "Mittwoch",
+    "3": "Donnerstag",
+    "4": "Freitag",
+    "5": "Samstag",
+    "6": "Sonntag"
+  },
+  "cadence": {
+    "everyHours_one": "jede Stunde",
+    "everyHours_other": "alle {{count}} Stunden",
+    "everyDay": "täglich um {{at}}",
+    "everyWeek": "jeden {{day}} um {{at}}",
+    "everyMonth": "monatlich am {{day}}. um {{at}}"
+  },
+  "mode": {
+    "review": "Erst fragen",
+    "auto": "Automatisch ausführen",
+    "reviewNote": "Findet die Repos und prüft sie, dann benachrichtigt es dich — nichts ändert sich, bis du in der Warteschlange bestätigst.",
+    "autoNote": "Bereite Einträge gehen direkt in die Warteschlange (mit Wartezeit, du kannst sie noch stoppen). Du bekommst eine Benachrichtigung.",
+    "deleteAlwaysAsks": "Löschen läuft nie von selbst — es wartet immer auf dich."
+  },
+  "target": {
+    "cleanup": "Aufräum-Vorlage",
+    "view": "Gespeicherte Ansicht",
+    "tag": "Tag",
+    "repos": "Repos wählen",
+    "noViews": "Noch keine gespeicherten Ansichten — speichere zuerst einen Filter als Ansicht unter Repositorys.",
+    "pick": "Repositorys",
+    "now_one": "Passt jetzt auf {{count}} Repository",
+    "now_other": "Passt jetzt auf {{count}} Repositorys",
+    "more": "…und {{count}} weitere",
+    "none": "Gerade keine",
+    "resolvedEachRun": "Wird bei jedem Lauf neu ermittelt — Repos, die später passen, sind dabei."
+  },
+  "targetText": {
+    "view": "Ansicht „{{name}}“",
+    "tag": "mit Tag „{{tag}}“",
+    "repos_one": "{{count}} Repository",
+    "repos_other": "{{count}} Repositorys"
+  },
+  "ran": {
+    "title": "Geplant: {{name}}",
+    "queued_one": "„{{name}}“ hat {{count}} Änderung eingereiht",
+    "queued_other": "„{{name}}“ hat {{count}} Änderungen eingereiht",
+    "review_one": "„{{name}}“ hat {{count}} Repository zum Ändern gefunden",
+    "review_other": "„{{name}}“ hat {{count}} Repositorys zum Ändern gefunden",
+    "reviewBody": "Öffne den Planer, um es zu prüfen."
+  },
+  "history": {
+    "none": "Ist noch nicht gelaufen.",
+    "counts": "{{matched}} passend · {{ready}} bereit · {{noop}} unverändert · {{blocked}} blockiert"
+  },
+  "trigger": {
+    "catch_up": "nachgeholt",
+    "manual": "von Hand",
+    "schedule": "pünktlich"
+  },
+  "outcome": {
+    "queued_one": "{{count}} eingereiht",
+    "queued_other": "{{count}} eingereiht",
+    "review_one": "wartete auf Prüfung ({{count}})",
+    "review_other": "wartete auf Prüfung ({{count}})",
+    "nothing": "nichts zu tun",
+    "skipped": "übersprungen",
+    "failed": "fehlgeschlagen"
+  },
+  "note": {
+    "other_account": "ein anderes Konto war aktiv",
+    "no_repos": "Repository-Liste nicht geladen"
+  }
+}

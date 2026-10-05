@@ -1,0 +1,113 @@
+{
+  "title": "Einstellungen",
+  "kicker": "System / Einstellungen",
+  "meta": "Lokal auf diesem Rechner gespeichert.",
+  "panel": {
+    "general": "Allgemein",
+    "modules": "Module"
+  },
+  "sections": {
+    "appearance": {
+      "title": "Darstellung",
+      "desc": "Theme und Akzentfarbe der Werkbank."
+    },
+    "language": {
+      "title": "Sprache",
+      "desc": "Sprache der Oberfläche."
+    },
+    "accounts": {
+      "title": "Konten",
+      "desc": "Verbundene GitHub-Konten. Tokens liegen im Schlüsselbund deines Systems."
+    },
+    "queue": {
+      "title": "Warteschlange & Sicherheit",
+      "desc": "Wie Massenaktionen bestätigt und ausgeführt werden."
+    },
+    "notifications": {
+      "title": "Benachrichtigungen",
+      "desc": "Desktop-Hinweise für lang laufende Vorgänge."
+    },
+    "modules": {
+      "title": "Module",
+      "desc": "Module der Werkbank ein- oder ausschalten."
+    },
+    "background": {
+      "title": "Hintergrund",
+      "desc": "ZIT-Suite im Infobereich weiterlaufen lassen, damit Zeitpläne und automatisches Hochladen auch bei geschlossenem Fenster funktionieren."
+    },
+    "about": {
+      "title": "Über",
+      "desc": "ZIT-Suite — frei und quelloffen."
+    }
+  },
+  "appearance": {
+    "theme": "Theme",
+    "accent": "Akzentfarbe",
+    "accentHint": "Für Fokus, Auswahl und Status-Hervorhebungen.",
+    "custom": "Eigene Farbe",
+    "accents": {
+      "signal": "Signalorange",
+      "blueprint": "Blaupausenblau",
+      "circuit": "Platinengrün",
+      "violet": "Violett",
+      "magenta": "Magenta",
+      "brass": "Messing"
+    }
+  },
+  "language": {
+    "contribute": "Sprachen sind einfache JSON-Dateien — füge einen Ordner unter src/locales sowie Modul-Übersetzungen hinzu."
+  },
+  "accounts": {
+    "active": "Aktiv",
+    "method": {
+      "pat": "Token",
+      "device": "Gerät"
+    },
+    "fineGrained": "Fein granuliertes Token (Scopes nicht gemeldet)",
+    "missingScopes": "Fehlende Scopes: {{scopes}}",
+    "scopesOk": "Alle benötigten Scopes vorhanden",
+    "added": "hinzugefügt am {{date}}",
+    "switch": "Wechseln",
+    "signOut": "Abmelden"
+  },
+  "queue": {
+    "grace": "Wartezeit (Sekunden)",
+    "graceHint": "Countdown vor dem Start eines bestätigten Laufs. 0 startet sofort.",
+    "typeToConfirm": "Löschen per Eingabe bestätigen",
+    "typeToConfirmHint": "Vor dem Löschen von Repositories muss ein Bestätigungswort eingegeben werden."
+  },
+  "notifications": {
+    "desktop": "Desktop-Benachrichtigungen",
+    "onFinish": "Wenn die Warteschlange fertig ist",
+    "onFailure": "Wenn Vorgänge fehlschlagen"
+  },
+  "modules": {
+    "configure": "Konfigurieren",
+    "core": "Kern",
+    "more": "Weitere Module (Issues, Pull Requests, Actions, Releases…) folgen, während die Suite wächst."
+  },
+  "background": {
+    "closeToTray": "Im Infobereich weiterlaufen, wenn das Fenster geschlossen wird",
+    "closeToTrayHint": "Der Schließen-Knopf versteckt das Fenster; beenden über das Menü des Tray-Symbols.",
+    "login": "ZIT-Suite bei der Anmeldung starten",
+    "loginHint": "Zeitpläne und die Home-Automatik laufen ab der Anmeldung.",
+    "startHidden": "…direkt in den Infobereich",
+    "startHiddenHint": "Beim Start mit der Anmeldung das Fenster nicht öffnen — ein Klick aufs Tray-Symbol öffnet es."
+  },
+  "about": {
+    "tagline": "Build. Manage. Ship. — alle GitHub-Repositories in einer Desktop-App.",
+    "author": "Autor",
+    "license": "Lizenz",
+    "licenseHint": "GNU General Public License v3.0 — frei nutzen, untersuchen, teilen und ändern.",
+    "builtWith": "Gebaut mit",
+    "source": "Quellcode",
+    "issues": "Problem melden",
+    "homepage": "Homepage",
+    "homepageHint": "Offizielle Downloads — der einzige Ort für fertige Installer. Dazu Screenshots und alle Funktionen.",
+    "download": "Download",
+    "more": "Mehr vom Autor",
+    "moreHint": "Weitere Projekte von TheHolyOneZ.",
+    "projects": "weitere Projekte",
+    "mods": "Game-Mods"
+  }
+}

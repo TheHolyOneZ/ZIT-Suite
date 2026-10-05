@@ -1,0 +1,115 @@
+{
+  "actions": {
+    "close": "Schließen",
+    "cancel": "Abbrechen",
+    "clear": "Leeren",
+    "retry": "Erneut versuchen",
+    "done": "Fertig",
+    "save": "Speichern",
+    "remove": "Entfernen"
+  },
+  "shell": {
+    "language": "Sprache",
+    "palette": "Befehlspalette",
+    "shortcuts": "Tastenkürzel",
+    "notifications": "Benachrichtigungen",
+    "noNotifications": "Noch nichts hier",
+    "booting": "Werkbank wird gestartet",
+    "noModules": "Keine Module aktiviert",
+    "crash": {
+      "title": "Diese Ansicht ist abgestürzt",
+      "retry": "Ansicht neu laden"
+    },
+    "breadcrumb": "Blattpfad",
+    "searchOrRun": "Suchen oder Befehl ausführen…",
+    "backTo": "Zurück zu {{title}}"
+  },
+  "theme": {
+    "system": "System",
+    "dark": "Dunkel",
+    "light": "Hell"
+  },
+  "pillars": {
+    "build": "Build",
+    "manage": "Manage",
+    "ship": "Ship",
+    "system": "System"
+  },
+  "account": {
+    "accounts": "Konten",
+    "add": "Konto hinzufügen",
+    "context": "Kontext",
+    "personal": "Persönlich",
+    "signOut": "{{login}} abmelden",
+    "confirmSignOut": "Zum Abmelden erneut klicken"
+  },
+  "states": {
+    "loading": "Lädt…"
+  },
+  "status": {
+    "api": "API",
+    "rateLine": "{{resource}}: {{remaining}} / {{limit}} · zurückgesetzt {{reset}}"
+  },
+  "palette": {
+    "placeholder": "Befehl eingeben oder zu einem Modul springen…",
+    "empty": "Keine Treffer",
+    "goTo": "Gehe zu",
+    "actions": "Aktionen",
+    "accounts": "Konten",
+    "preferences": "Einstellungen",
+    "switchTo": "Zu {{login}} wechseln",
+    "toggleTheme": "Hell / Dunkel umschalten",
+    "language": "Sprache: {{name}}",
+    "back": "Zurück (oberes Blatt falten)"
+  },
+  "shortcuts": {
+    "kicker": "Referenz",
+    "global": "Global",
+    "palette": "Befehlspalette öffnen",
+    "modules": "Zu Modul springen",
+    "help": "Diese Übersicht anzeigen",
+    "back": "Zurück / Blatt falten"
+  },
+  "markdown": {
+    "write": "Schreiben",
+    "preview": "Vorschau",
+    "hint": "Markdown · Strg+Enter zum Senden",
+    "nothing": "Nichts zur Vorschau"
+  },
+  "pickers": {
+    "repo": "Repository wählen…",
+    "searchRepos": "Repositories durchsuchen…"
+  },
+  "filters": {
+    "add": "Filter",
+    "reset": "Zurücksetzen"
+  },
+  "views": {
+    "title": "Ansichten",
+    "saveCurrent": "Aktuelle als Ansicht speichern…",
+    "saved": "Gespeichert",
+    "builtin": "Eingebaut",
+    "none": "Noch keine gespeicherten Ansichten",
+    "name": "Name der Ansicht…"
+  },
+  "query": {
+    "backToFilters": "Zurück zu den Filtern"
+  },
+  "window": {
+    "minimize": "Minimieren",
+    "maximize": "Maximieren",
+    "restore": "Wiederherstellen",
+    "close": "Schließen"
+  },
+  "tray": {
+    "show": "ZIT-Suite anzeigen",
+    "hide": "ZIT-Suite ausblenden",
+    "quit": "ZIT-Suite beenden",
+    "tooltip": "ZIT-Suite",
+    "hiddenTitle": "ZIT-Suite läuft weiter",
+    "hiddenBody": "Zeitpläne und automatisches Hochladen laufen weiter. Ein Klick aufs Tray-Symbol öffnet es wieder.",
+    "queue": "Warteschlange: noch {{count}}",
+    "next": "Nächster: {{name}} · {{when}}",
+    "idle": "Nichts geplant"
+  }
+}

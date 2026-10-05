@@ -1,0 +1,243 @@
+{
+  "title": "Insights",
+  "nav": "Insights",
+  "kicker": "Verwalten",
+  "includeArchived_one": "Archivierte einbeziehen ({{count}})",
+  "includeArchived_other": "Archivierte einbeziehen ({{count}})",
+  "subtitle_one": "{{count}} deiner Repositories — was da ist, was Aufmerksamkeit braucht, wer reinschaut.",
+  "subtitle_other": "{{count}} deiner Repositories — was da ist, was Aufmerksamkeit braucht, wer reinschaut.",
+  "views": {
+    "overview": "Überblick",
+    "checks": "Prüfungen",
+    "traffic": "Besucher",
+    "people": "Personen"
+  },
+  "empty": "Keine Repositories in dieser Ansicht",
+  "noLanguage": "Keine Sprache",
+  "noStars": "Noch keine Sterne",
+  "noTopics": "Nirgends Themen gesetzt",
+  "openOnGitHub": "Auf GitHub öffnen",
+  "kpi": {
+    "repos": "Repositories",
+    "stars": "Sterne",
+    "forks": "Forks deiner Repos",
+    "size": "Gesamtgröße",
+    "languages": "Sprachen",
+    "issues": "Offene Issues",
+    "forksOf": "Deine Forks",
+    "archived": "Archiviert",
+    "split": "{{pub}} öffentlich · {{priv}} privat"
+  },
+  "chart": {
+    "distribution": "Verteilung",
+    "languages": "Hauptsprachen",
+    "health": "Zustand",
+    "lifecycle": "Lebenszyklus",
+    "history": "Verlauf",
+    "created": "Angelegt pro Jahr",
+    "activity": "Aktivität",
+    "lastPush": "Letzter Push pro Monat (24 Monate)",
+    "attention": "Beachtung",
+    "topStarred": "Meiste Sterne",
+    "weight": "Gewicht",
+    "biggest": "Größte Repositories",
+    "taxonomy": "Einordnung",
+    "topics": "Häufigste Themen"
+  },
+  "health": {
+    "active": "Aktiv",
+    "dormant": "Ruhend",
+    "dead": "Tot",
+    "empty": "Leer",
+    "archived": "Archiviert"
+  },
+  "checks": {
+    "score": "Ordnungs-Wert",
+    "passing": "Alles gut",
+    "dismiss": "Passt so",
+    "restoreHint": "Als „passt so“ markierte Repos wieder zeigen",
+    "restore_one": "{{count}} ausgeblendet",
+    "restore_other": "{{count}} ausgeblendet",
+    "scoreHint_one": "Anteil deines {{count}} Repos ohne Warnung oder kritischen Befund.",
+    "scoreHint_other": "Anteil deiner {{count}} Repos ohne Warnung oder kritischen Befund."
+  },
+  "fix": {
+    "archive_one": "{{count}} archivieren",
+    "archive_other": "Alle {{count}} archivieren",
+    "set_private_one": "{{count}} privat machen",
+    "set_private_other": "Alle {{count}} privat machen",
+    "delete_one": "{{count}} löschen",
+    "delete_other": "Alle {{count}} löschen"
+  },
+  "rules": {
+    "sensitivePublic": {
+      "title": "Öffentliche Repos mit heiklen Namen",
+      "what": "Namen wie secret, token, keys, backup, internal — prüfen, ob sie öffentlich sein sollen."
+    },
+    "staleNotArchived": {
+      "title": "Seit über einem Jahr unberührt",
+      "what": "12+ Monate kein Push, aber nicht archiviert — archivieren zeigt, dass sie fertig sind."
+    },
+    "dormant": {
+      "title": "Seit 6–12 Monaten ruhig",
+      "what": "Noch offen, aber ein halbes Jahr kein Push."
+    },
+    "empty": {
+      "title": "Leere Repositories",
+      "what": "Angelegt, aber nie etwas gepusht."
+    },
+    "abandonedForks": {
+      "title": "Nie veränderte Forks",
+      "what": "Geforkt und so gelassen — meist gefahrlos löschbar."
+    },
+    "noDescription": {
+      "title": "Keine Beschreibung",
+      "what": "Die Info-Box ist leer — man sieht nicht, was es ist."
+    },
+    "noTopics": {
+      "title": "Öffentliche Repos ohne Themen",
+      "what": "Themen machen Repos auf GitHub auffindbar."
+    },
+    "noLicense": {
+      "title": "Öffentliche Repos ohne Lizenz",
+      "what": "Ohne Lizenz darf niemand den Code rechtlich weiterverwenden."
+    },
+    "manyIssues": {
+      "title": "20+ offene Issues",
+      "what": "Ein Rückstau, der einen Blick wert ist."
+    },
+    "oversized": {
+      "title": "Über 500 MB",
+      "what": "Sehr groß — evtl. wurden Build-Ausgaben oder Binärdateien committet."
+    },
+    "largePublic": {
+      "title": "Große öffentliche Repos (100–500 MB)",
+      "what": "Schwer zu klonen für Besucher."
+    },
+    "masterBranch": {
+      "title": "Standard-Branch noch \"master\"",
+      "what": "GitHubs Standard ist jetzt \"main\" — bei Bedarf in Branches umbenennen."
+    },
+    "nearDuplicates": {
+      "title": "Namen, die nach Duplikaten aussehen",
+      "what": "Dasselbe Projekt doppelt? (Groß/klein, Trennzeichen, -old/-copy ignoriert)"
+    }
+  },
+  "traffic": {
+    "title": "Wer schaut sich deine Repos an?",
+    "load": "Besucher laden",
+    "reload": "Neu laden",
+    "window": "Letzte 14 Tage, GitHubs eigene Zahlen (mehr speichert GitHub nicht — die App führt einen lokalen Verlauf).",
+    "views": "Aufrufe",
+    "clones": "Klone",
+    "visited": "Repos mit Besuchern",
+    "topRepo": "Meistgesehen",
+    "from": "Woher Besucher kommen",
+    "referrers": "Top-Verweise",
+    "noReferrers": "Noch keine Verweise",
+    "none": "Keine Aufrufe in den letzten 14 Tagen.",
+    "col": {
+      "repo": "Repository",
+      "trend": "Aufrufe / Tag",
+      "views": "Aufrufe",
+      "visitors": "Besucher",
+      "clones": "Klone"
+    },
+    "intro_one": "Aufrufe, Besucher, Klone und Verweise für {{count}} Repo, in das du pushen darfst — etwa {{requests}} API-Anfragen.",
+    "intro_other": "Aufrufe, Besucher, Klone und Verweise für {{count}} Repos, in die du pushen darfst — etwa {{requests}} API-Anfragen.",
+    "uniques_one": "{{count}} Besucher",
+    "uniques_other": "{{count}} Besucher",
+    "failed_one": "{{count}} Repo nicht lesbar",
+    "failed_other": "{{count}} Repos nicht lesbar",
+    "range": {
+      "14": "14 Tage",
+      "90": "90 Tage",
+      "365": "1 Jahr"
+    },
+    "history": "Aus dem lokalen Verlauf seit {{date}} — er wächst bei jedem Laden des Traffics hier.",
+    "noHistory": "Noch kein lokaler Verlauf — lade den Traffic ab und zu, dann baut er sich auf.",
+    "visitorDays_one": "{{count}} Besuchertag",
+    "visitorDays_other": "{{count}} Besuchertage"
+  },
+  "custom": {
+    "kicker": "Insights · Prüfungen",
+    "new": "Neue Regel",
+    "newHint": "Eigene Prüfung: Bedingungen auf Repo-Daten, optional mit Sammel-Korrektur",
+    "edit": "Regel bearbeiten",
+    "delete": "Regel löschen",
+    "confirmDelete": "Nochmal klicken zum Löschen",
+    "cancel": "Abbrechen",
+    "save": "Regel speichern",
+    "badge": "eigene",
+    "name": "Name",
+    "namePlaceholder": "z. B. Alte Experimente",
+    "severity": "Schwere",
+    "sev": {
+      "info": "Info",
+      "warning": "Warnung",
+      "critical": "Kritisch"
+    },
+    "fix": "Sammel-Korrektur",
+    "fixHint": "über die Warteschlange, mit Probelauf",
+    "noFix": "Keine — nur auflisten",
+    "fixKind": {
+      "archive": "Archivieren",
+      "set_private": "Privat machen",
+      "delete": "Löschen"
+    },
+    "when": "Trifft Repos, bei denen",
+    "allHint": "alle Bedingungen gelten müssen",
+    "addCond": "Bedingung hinzufügen",
+    "removeCond": "Bedingung entfernen",
+    "hits_one": "Trifft gerade {{count}} Repository",
+    "hits_other": "Trifft gerade {{count}} Repositories",
+    "field": {
+      "pushedDays": "Tage seit letztem Push",
+      "createdDays": "Tage seit Erstellung",
+      "sizeMb": "Größe (MB)",
+      "stars": "Sterne",
+      "forks": "Forks",
+      "openIssues": "Offene Issues",
+      "private": "Privat",
+      "fork": "Ist ein Fork",
+      "archived": "Archiviert",
+      "template": "Ist eine Vorlage",
+      "hasDescription": "Hat eine Beschreibung",
+      "hasLicense": "Hat eine Lizenz",
+      "hasTopics": "Hat Themen",
+      "hasHomepage": "Hat eine Homepage",
+      "language": "Sprache",
+      "name": "Name",
+      "topic": "Thema",
+      "defaultBranch": "Standard-Branch"
+    },
+    "op": {
+      "gt": "mehr als",
+      "lt": "weniger als",
+      "yes": "ja",
+      "no": "nein",
+      "is": "ist",
+      "isNot": "ist nicht",
+      "contains": "enthält",
+      "notContains": "enthält nicht"
+    }
+  },
+  "people": {
+    "kicker": "Letzte 52 Wochen",
+    "weekly": "Commits pro Woche, alle",
+    "reload": "Neu laden",
+    "hint": "Aus GitHubs Mitwirkenden-Statistik (Standard-Branch, ohne Merges).",
+    "pick": "Repository wählen",
+    "pending": "GitHub zählt noch",
+    "pendingBody": "Beim ersten Mal berechnet GitHub diese Statistik im Hintergrund. Versuch es in einer Minute nochmal.",
+    "none": "Noch keine Mitwirkenden",
+    "col": {
+      "who": "Wer",
+      "commits": "Commits",
+      "trend": "Letztes Jahr",
+      "added": "Hinzugefügt",
+      "removed": "Entfernt",
+      "active": "Aktiv"
+    }
+  }
+}

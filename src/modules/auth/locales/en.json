@@ -1,0 +1,44 @@
+{
+  "title": "Connect GitHub",
+  "back": "Back",
+  "sheet": "Sheet 01 — Access",
+  "addKicker": "Add another account",
+  "kicker": "Sign in",
+  "subtitle": "Connect a GitHub account to start managing your repositories. You can add more accounts later.",
+  "methods": {
+    "token": "Access token",
+    "device": "Device login"
+  },
+  "keychainNote": "Tokens are stored in your operating system's keychain — never in plain-text files.",
+  "token": {
+    "create": "Create token",
+    "label": "Personal access token",
+    "toggle": "Show / hide token",
+    "scopes": "Recommended scopes",
+    "verifying": "Verifying…",
+    "submit": "Connect"
+  },
+  "device": {
+    "enterCode": "Enter this code on GitHub",
+    "copied": "Copied",
+    "copy": "Copy code",
+    "open": "Open GitHub",
+    "waiting": "Waiting for authorization…",
+    "cancel": "Cancel",
+    "clientId": "OAuth App client ID",
+    "clientIdHint": "From your GitHub OAuth App",
+    "explain": "You'll get a one-time code to confirm in the browser. No token to copy and paste.",
+    "start": "Start device login"
+  },
+  "pillars": {
+    "build": "Build",
+    "manage": "Manage",
+    "ship": "Ship"
+  },
+  "tagline": "One workbench for every repository you own — inspect, clean up and ship in bulk, safely.",
+  "titleBlock": {
+    "drawing": "Drawing",
+    "sheet": "Sheet",
+    "scale": "Scale"
+  }
+}

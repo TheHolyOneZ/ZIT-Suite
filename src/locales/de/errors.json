@@ -1,0 +1,158 @@
+{
+  "unknown": "Etwas ist schiefgelaufen ({{code}})",
+  "network": {
+    "failed": "Netzwerkanfrage fehlgeschlagen",
+    "timeout": "Zeitüberschreitung der Anfrage",
+    "decode": "Unerwartete Antwort von GitHub"
+  },
+  "io": {
+    "failed": "Datei konnte nicht gelesen oder geschrieben werden"
+  },
+  "internal": {
+    "parse": "Daten konnten nicht verarbeitet werden",
+    "unknown": "Unerwarteter Fehler",
+    "bad_cursor": "Ungültiger Seiten-Cursor"
+  },
+  "auth": {
+    "not_signed_in": "Du bist nicht angemeldet",
+    "token_missing": "Das Token für dieses Konto fehlt im Schlüsselbund",
+    "keyring": "Der System-Schlüsselbund ist nicht verfügbar",
+    "invalid_token": "GitHub hat dieses Token abgelehnt",
+    "client_id_missing": "Gib eine OAuth-App-Client-ID ein",
+    "device_start_failed": "Geräte-Anmeldung konnte nicht gestartet werden — Client-ID prüfen",
+    "device_expired": "Der Code ist abgelaufen. Bitte neu starten.",
+    "device_denied": "Autorisierung wurde abgelehnt",
+    "device_failed": "Geräte-Anmeldung fehlgeschlagen",
+    "unknown_account": "Unbekanntes Konto"
+  },
+  "github": {
+    "unauthorized": "GitHub akzeptiert dieses Token nicht mehr — bitte neu anmelden",
+    "rate_limited": "GitHub-Ratenlimit erreicht. Gleich nochmal versuchen.",
+    "forbidden": "GitHub hat diese Aktion verweigert — Rechte und Token-Scopes prüfen",
+    "not_found": "Auf GitHub nicht gefunden (oder kein Zugriff)",
+    "conflict": "GitHub meldet einen Konflikt",
+    "validation": "GitHub hat die Eingabe abgelehnt",
+    "server": "GitHub hat gerade Probleme",
+    "http": "GitHub-Anfrage fehlgeschlagen",
+    "graphql": "GitHub-GraphQL-Anfrage fehlgeschlagen"
+  },
+  "export": {
+    "unsafe_name": "Unsicherer Dateiname übersprungen"
+  },
+  "pulls": {
+    "not_mergeable": "Derzeit nicht mergebar",
+    "auto_merge_disabled": "Auto-Merge ist für dieses Repository deaktiviert (Repo-Einstellungen → „Allow auto-merge“; private Repos brauchen GitHub Pro)",
+    "auto_merge_clean": "Nichts abzuwarten — der PR kann sofort gemergt werden"
+  },
+  "hooks": {
+    "secret_lost": "Das Webhook-Secret wurde nach einem Neustart nicht behalten (Secrets werden nie auf die Festplatte geschrieben) — bitte neu einreihen",
+    "not_found": "Kein Webhook mit dieser URL"
+  },
+  "security": {
+    "bad_reason": "Wähle einen gültigen Grund zum Schließen dieser Warnung"
+  },
+  "secrets": {
+    "bad_name": "Ungültiger Name — nur Buchstaben, Ziffern und _ (nicht mit Ziffer oder GITHUB_ beginnend)",
+    "bad_key": "GitHub hat einen unbrauchbaren Schlüssel geliefert",
+    "seal_failed": "Secret konnte nicht verschlüsselt werden",
+    "too_large": "Größer als GitHubs Limit von 48 KB",
+    "not_text": "Diese Datei ist kein Text (UTF-8)",
+    "env_plan": "Dein GitHub-Plan erlaubt diese Regel in privaten Repositories nicht — Wartezeiten und Pflicht-Reviewer brauchen GitHub Pro, Team oder Enterprise",
+    "too_many_reviewers": "Höchstens 6 Pflicht-Reviewer"
+  },
+  "workspace": {
+    "not_repo": "Dieser Ordner ist kein Git-Projekt",
+    "not_found": "In diesem Projekt nicht gefunden",
+    "conflicts": "Deine Änderungen und die neuen betreffen dieselben Zeilen — es wurde nichts verändert",
+    "auth": "GitHub hat die Anmeldung für dieses Repository abgelehnt",
+    "push_rejected": "Auf GitHub gibt es neuere Änderungen — hole zuerst die neueste Version, dann hochladen",
+    "locked": "Ein anderes Programm nutzt dieses Projekt gerade — gleich nochmal versuchen",
+    "network": "GitHub nicht erreichbar",
+    "git": "Git konnte das nicht ausführen",
+    "detached": "Du bist gerade auf keinem Branch",
+    "empty_message": "Beschreibe zuerst die Version",
+    "nothing_to_commit": "Es gibt nichts Neues zu speichern",
+    "uncommitted": "Speichere oder verwirf zuerst deine Änderungen",
+    "no_remote_branch": "Dieser Branch existiert dort noch nicht",
+    "no_branch": "Dieser Branch existiert nicht",
+    "dirty_switch": "Du hast ungespeicherte Änderungen, die der Wechsel überschreiben würde — speichere sie zuerst",
+    "bad_branch": "Das ist kein gültiger Branch-Name",
+    "bare": "Dieses Repository hat keinen Arbeitsordner",
+    "no_folder": "Den Ordner gibt es nicht mehr",
+    "unknown": "Dieses Projekt ist nicht mehr in Home",
+    "exists": "Dieser Ordner ist schon in Home",
+    "no_push_target": "Lege zuerst ein GitHub-Repo zum Hochladen fest",
+    "bad_workflow_name": "Nutze einen einfachen Dateinamen mit .yml",
+    "workflow_exists": "Ein Workflow mit diesem Dateinamen existiert bereits",
+    "io": "Datei konnte nicht geschrieben werden",
+    "clone_target_not_empty": "Dieser Ordner existiert schon und ist nicht leer",
+    "bad_repo": "Kein GitHub-Repository",
+    "bad_folder": "Kein brauchbarer Ordnername",
+    "no_terminal": "Kein Terminal-Programm gefunden",
+    "no_editor": "Kein Code-Editor gefunden",
+    "nothing_to_undo": "Es gibt keine Version zum Rückgängigmachen",
+    "undo_first": "Die allererste Version kann hier nicht rückgängig gemacht werden",
+    "undo_merge": "Eine Version, die andere Änderungen hereingeholt hat, kann hier nicht rückgängig gemacht werden",
+    "undo_uploaded": "Diese Version ist schon auf GitHub — sie hier zurückzunehmen würde deine Kopie und GitHub auseinanderbringen",
+    "nothing_to_park": "Es gibt keine ungespeicherten Änderungen zum Parken",
+    "unpark_conflict": "Das Zurückholen würde Änderungen überschreiben, die du seitdem gemacht hast. Speichere oder parke sie zuerst.",
+    "unresolved": "Wähle für jede Datei mit Konflikt meine oder ihre Fassung"
+  },
+  "releases": {
+    "bad_tag": "Dieser Tag-Name ist nicht erlaubt (keine Leerzeichen, ~ ^ : ? * [ oder ..)",
+    "read_failed": "Datei konnte nicht gelesen werden",
+    "asset_exists": "Das Release hat schon eine Datei mit diesem Namen",
+    "tag_exists": "Dieser Tag existiert bereits",
+    "empty_repo": "Das Repository ist leer — es gibt keinen Branch für ein Release"
+  },
+  "about": {
+    "too_many_topics": "GitHub erlaubt höchstens 20 Themen"
+  },
+  "actions": {
+    "not_dispatchable": "Dieser Workflow kann nicht von Hand gestartet werden (kein workflow_dispatch-Auslöser)"
+  },
+  "gists": {
+    "empty_file": "Jede Datei braucht Inhalt",
+    "bad_name": "Dateinamen dürfen nicht leer sein, kein / enthalten und nicht mit \"gistfile\" beginnen",
+    "duplicate_name": "Zwei Dateien haben denselben Namen"
+  },
+  "files": {
+    "too_large": "Die Datei ist größer als 1 MB",
+    "not_text": "Das ist keine Textdatei",
+    "no_branch": "Diesen Branch gibt es (nicht mehr)",
+    "decode": "GitHub hat eine nicht lesbare Datei geschickt",
+    "bad_path": "Dieser Dateipfad ist nicht erlaubt",
+    "missing": "Eine Datei, die du verschiebst, existiert nicht mehr",
+    "no_message": "Beschreibe zuerst die Änderung",
+    "nothing": "Nichts zu speichern",
+    "stale": "Jemand anderes hat inzwischen auf diesem Branch gespeichert — neu laden, um seine Änderungen zu holen; deine bleiben vorgemerkt",
+    "branch_exists": "Ein Branch mit diesem Namen existiert bereits",
+    "not_folder": "Das ist kein Ordner"
+  },
+  "audit": {
+    "io": "Audit-Cache konnte nicht geschrieben werden",
+    "empty": "Dieses Repository hat noch keine Commits",
+    "not_git": "Dieser Ordner ist kein Git-Repository"
+  },
+  "branches": {
+    "bad_name": "Das ist kein gültiger Branch-Name",
+    "exists": "Ein Branch mit diesem Namen existiert bereits",
+    "empty_repo": "Das Repository ist leer — es gibt keinen Branch als Ausgangspunkt",
+    "protection_unavailable": "Branch-Schutz ist hier nicht verfügbar: private Repositorys brauchen GitHub Pro, Team oder Enterprise.",
+    "ruleset_name": "Gib dem Regelsatz einen Namen",
+    "ruleset_target": "Gib an, für welche Branches der Regelsatz gilt"
+  },
+  "scheduler": {
+    "no_name": "Gib dem Zeitplan einen Namen",
+    "not_found": "Diesen Zeitplan gibt es nicht mehr"
+  },
+  "migration": {
+    "bad_name": "Kein gültiger Repository-Name (nur Buchstaben, Ziffern, - _ .)"
+  },
+  "tray": {
+    "autostart": "Start bei der Anmeldung konnte nicht geändert werden"
+  },
+  "repos": {
+    "name_exists": "Ein Repository mit diesem Namen existiert bereits"
+  }
+}

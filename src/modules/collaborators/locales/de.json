@@ -1,0 +1,117 @@
+{
+  "title": "Mitwirkende",
+  "kicker": "Manage / Zugriff",
+  "subtitle": "Wer auf welches Repository zugreifen kann — über alles, was du administrierst.",
+  "meta": {
+    "repos_one": "{{count}} Repo gescannt",
+    "repos_other": "{{count}} Repos gescannt",
+    "pending_one": "{{count}} offene Einladung",
+    "pending_other": "{{count}} offene Einladungen",
+    "scanned": "gescannt {{when}}",
+    "people_one": "{{count}} Person",
+    "people_other": "{{count}} Personen"
+  },
+  "scope": {
+    "button_one": "Umfang · {{count}} Repo",
+    "button_other": "Umfang · {{count}} Repos",
+    "title": "Scan-Umfang",
+    "hint": "Repositories, in denen du Admin-Rechte hast.",
+    "archived": "Archivierte einbeziehen",
+    "forks": "Forks einbeziehen"
+  },
+  "rescan": "Neu scannen",
+  "scanning": "Zugriffe werden gescannt",
+  "scanFailed": "Zugriff für dieses Repo nicht lesbar",
+  "noTargets": "Du administrierst in diesem Kontext keine Repositories",
+  "searchPlaceholder": "Personen oder Repos suchen…",
+  "exported": "Zugriffe exportiert",
+  "views": {
+    "people": "Personen",
+    "repos": "Repositories",
+    "matrix": "Matrix"
+  },
+  "roles": {
+    "read": "Lesen",
+    "triage": "Triage",
+    "write": "Schreiben",
+    "maintain": "Verwalten",
+    "admin": "Admin"
+  },
+  "kinds": {
+    "any": "Alle",
+    "users": "Nutzer",
+    "bots": "Bots"
+  },
+  "facets": {
+    "minRole": "Rolle",
+    "anyRole": "Beliebige Rolle",
+    "atLeast": "Mindestens {{role}}",
+    "kind": "Konto",
+    "status": "Status",
+    "pendingOnly": "Nur offene Einladungen"
+  },
+  "invited": "eingeladen",
+  "invitedAgo": "eingeladen {{when}}",
+  "expired": "abgelaufen",
+  "pendingCount_one": "{{count}} offen",
+  "pendingCount_other": "{{count}} offen",
+  "repoCount_one": "{{count}} Repo",
+  "repoCount_other": "{{count}} Repos",
+  "emptyPeople": "Niemand sonst hat Zugriff",
+  "emptyPeopleHint": "Nur du (und Repo-Besitzer) haben Zugriff auf die gescannten Repositories.",
+  "emptyRepos": "Keine passenden Repositories",
+  "selected": "ausgewählt",
+  "revokeAll": "Alle Zugriffe entziehen",
+  "clearSelection": "Auswahl aufheben",
+  "revoke": "Zugriff entziehen",
+  "cancelInvite": "Einladung zurückziehen",
+  "person": {
+    "kicker": "Person",
+    "highest": "höchste Rolle",
+    "grantMore": "Weitere gewähren…",
+    "noAccess": "@{{login}} hat keinen Zugriff auf gescannte Repositories"
+  },
+  "repo": {
+    "kicker": "Repository-Zugriff",
+    "addPlaceholder": "GitHub-Login",
+    "add": "Einladen / Rolle setzen",
+    "copyTo": "Zugriff übertragen…",
+    "collaborators": "Mitwirkende",
+    "invitations": "Offene Einladungen",
+    "none": "Keine Mitwirkenden außer dem Besitzer",
+    "noInvites": "Keine offenen Einladungen",
+    "collabCount_one": "{{count}} Person mit Zugriff",
+    "collabCount_other": "{{count}} Personen mit Zugriff",
+    "inviteCount_one": "{{count}} offene Einladung",
+    "inviteCount_other": "{{count}} offene Einladungen"
+  },
+  "compare": {
+    "title": "Vergleichen mit",
+    "pick": "Anderes Repository wählen…",
+    "onlyHere": "Nur hier",
+    "onlyThere": "Nur dort",
+    "different": "Andere Rolle",
+    "same_one": "{{count}} identisch",
+    "same_other": "{{count}} identisch",
+    "align": "{{repo}} an dieses Repo angleichen"
+  },
+  "grant": {
+    "button": "Zugriff gewähren",
+    "kicker": "Massen-Zugriff",
+    "titleAdd": "Zugriff gewähren",
+    "titleRemove": "Zugriff entziehen",
+    "add": "Gewähren",
+    "remove": "Entziehen",
+    "people": "Personen",
+    "peopleHint": "GitHub-Logins, durch Komma oder Leerzeichen getrennt.",
+    "role": "Rolle",
+    "repos": "Repositories",
+    "addNote": "Neue Personen erhalten eine Einladung; bestehende Mitwirkende bekommen die neue Rolle. Alles läuft durch den Probelauf.",
+    "removeNote": "Entfernt die Personen aus den gewählten Repositories (ihre Forks bleiben).",
+    "review": "In Warteschlange prüfen",
+    "peopleCount_one": "{{count}} Person",
+    "peopleCount_other": "{{count}} Personen",
+    "repoCount_one": "{{count}} Repo",
+    "repoCount_other": "{{count}} Repos"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "title": "Sterne",
+  "nav": "Sterne",
+  "kicker": "Verwalten",
+  "subtitle": "Jedes Repository mit deinem Stern — finden, in Listen sortieren, aufräumen.",
+  "refresh": "Aktualisieren",
+  "export": "Exportieren",
+  "exportMd": "Markdown-Liste (nach Sprache)",
+  "exportCsv": "CSV",
+  "exportTitle": "Meine GitHub-Sterne",
+  "starRepo": "Repo mit Stern",
+  "star": "Stern geben",
+  "unstar": "Stern entfernen",
+  "repo": "Repository",
+  "repoHint": "owner/name oder ein GitHub-Link",
+  "badRepo": "Nutze owner/name oder einen github.com-Link",
+  "searchPlaceholder": "Name, Beschreibung, Thema suchen…",
+  "meta": {
+    "count_one": "{{count}} Stern",
+    "count_other": "{{count}} Sterne",
+    "languages_one": "{{count}} Sprache",
+    "languages_other": "{{count}} Sprachen",
+    "archived_one": "{{count}} archiviert",
+    "archived_other": "{{count}} archiviert",
+    "stale_one": "{{count}} verwaist",
+    "stale_other": "{{count}} verwaist"
+  },
+  "facets": {
+    "language": "Sprache",
+    "list": "Liste",
+    "flag": "Nur"
+  },
+  "flags": {
+    "archived": "archiviert",
+    "stale": "2 Jahre kein Push",
+    "fork": "Forks"
+  },
+  "sort": {
+    "starred": "Zuletzt markiert",
+    "stars": "Meiste Sterne",
+    "pushed": "Zuletzt gepusht",
+    "name": "Name"
+  },
+  "empty": {
+    "filtered": "Nichts passt",
+    "none": "Noch keine Sterne"
+  },
+  "pushed": "Letzter Push",
+  "starredAt": "Markiert",
+  "open": "Auf GitHub öffnen",
+  "lists": {
+    "button": "Listen",
+    "manage": "Deine Stern-Listen",
+    "none": "Noch keine Listen",
+    "newPlaceholder": "Name der neuen Liste",
+    "create": "Erstellen",
+    "created": "Liste erstellt",
+    "delete": "Liste löschen",
+    "confirmDelete": "Nochmal klicken zum Löschen der Liste",
+    "addTo": "Zu {{name}} hinzufügen",
+    "removeFrom": "Aus {{name}} entfernen",
+    "title_one": "Listen {{count}}",
+    "title_other": "Listen {{count}}",
+    "private": "Private Liste (nur für dich sichtbar)"
+  },
+  "selected_one": "{{count}} ausgewählt",
+  "selected_other": "{{count}} ausgewählt",
+  "unstarred_one": "{{count}} Stern entfernt",
+  "unstarred_other": "{{count}} Sterne entfernt",
+  "confirmUnstar_one": "Nochmal klicken — {{count}} entfernen",
+  "confirmUnstar_other": "Nochmal klicken — {{count}} entfernen",
+  "exported_one": "{{count}} Repo exportiert",
+  "exported_other": "{{count}} Repos exportiert",
+  "addedToList_one": "{{count}} Repo hinzugefügt",
+  "addedToList_other": "{{count}} Repos hinzugefügt",
+  "removedFromList_one": "{{count}} Repo entfernt",
+  "removedFromList_other": "{{count}} Repos entfernt",
+  "starredRepo": "{{repo}} mit Stern markiert",
+  "starFailed": "{{repo}} konnte nicht markiert werden — Name prüfen"
+}

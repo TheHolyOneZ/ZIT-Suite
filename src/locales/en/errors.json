@@ -1,0 +1,158 @@
+{
+  "unknown": "Something went wrong ({{code}})",
+  "network": {
+    "failed": "Network request failed",
+    "timeout": "The request timed out",
+    "decode": "Unexpected response from GitHub"
+  },
+  "io": {
+    "failed": "Could not read or write a file"
+  },
+  "internal": {
+    "parse": "Could not parse data",
+    "unknown": "Unexpected error",
+    "bad_cursor": "Invalid page cursor"
+  },
+  "auth": {
+    "not_signed_in": "You're not signed in",
+    "token_missing": "The token for this account is missing from the keychain",
+    "keyring": "The OS keychain is unavailable",
+    "invalid_token": "GitHub rejected this token",
+    "client_id_missing": "Enter an OAuth App client ID",
+    "device_start_failed": "Could not start the device login — check the client ID",
+    "device_expired": "The code expired. Start again.",
+    "device_denied": "Authorization was denied",
+    "device_failed": "Device login failed",
+    "unknown_account": "Unknown account"
+  },
+  "github": {
+    "unauthorized": "GitHub no longer accepts this token — sign in again",
+    "rate_limited": "GitHub rate limit reached. Try again shortly.",
+    "forbidden": "GitHub denied this action — check permissions and token scopes",
+    "not_found": "Not found on GitHub (or no access)",
+    "conflict": "GitHub reported a conflict",
+    "validation": "GitHub rejected the input",
+    "server": "GitHub is having trouble right now",
+    "http": "GitHub request failed",
+    "graphql": "GitHub GraphQL request failed"
+  },
+  "export": {
+    "unsafe_name": "Skipped an unsafe file name"
+  },
+  "pulls": {
+    "not_mergeable": "Not mergeable right now",
+    "auto_merge_disabled": "Auto-merge is turned off for this repository (repo settings → “Allow auto-merge”; private repos need GitHub Pro)",
+    "auto_merge_clean": "Nothing to wait for — the PR can be merged right now"
+  },
+  "hooks": {
+    "secret_lost": "The webhook secret was not kept after a restart (secrets are never written to disk) — queue it again",
+    "not_found": "No webhook with this URL"
+  },
+  "security": {
+    "bad_reason": "Choose a valid reason for closing this alert"
+  },
+  "secrets": {
+    "bad_name": "Invalid name — use letters, digits and _ (not starting with a digit or GITHUB_)",
+    "bad_key": "GitHub returned an unusable encryption key",
+    "seal_failed": "Couldn't encrypt the secret",
+    "too_large": "Larger than GitHub's 48 KB limit",
+    "not_text": "That file isn't text (UTF-8)",
+    "env_plan": "Your GitHub plan doesn't allow this rule on private repositories — wait timers and required reviewers need GitHub Pro, Team or Enterprise",
+    "too_many_reviewers": "At most 6 required reviewers"
+  },
+  "workspace": {
+    "not_repo": "This folder isn't a Git project",
+    "not_found": "Not found in this project",
+    "conflicts": "Your changes and the new ones touch the same lines — nothing was changed",
+    "auth": "GitHub refused the sign-in for this repository",
+    "push_rejected": "GitHub has newer changes — get the latest first, then upload",
+    "locked": "Another program is using this project right now — try again in a moment",
+    "network": "Couldn't reach GitHub",
+    "git": "Git couldn't do that",
+    "detached": "You're not on a branch right now",
+    "empty_message": "Describe the version first",
+    "nothing_to_commit": "There's nothing new to save",
+    "uncommitted": "Save or undo your changes first",
+    "no_remote_branch": "That branch doesn't exist over there yet",
+    "no_branch": "That branch doesn't exist",
+    "dirty_switch": "You have unsaved changes that switching would overwrite — save them first",
+    "bad_branch": "That isn't a valid branch name",
+    "bare": "This repository has no working folder",
+    "no_folder": "The folder doesn't exist anymore",
+    "unknown": "This project isn't in Home anymore",
+    "exists": "This folder is already in Home",
+    "no_push_target": "Set a GitHub repo to upload to first",
+    "bad_workflow_name": "Use a plain file name ending in .yml",
+    "workflow_exists": "A workflow with this file name already exists",
+    "io": "Couldn't write the file",
+    "clone_target_not_empty": "That folder already exists and isn't empty",
+    "bad_repo": "Not a GitHub repository",
+    "bad_folder": "Not a usable folder name",
+    "no_terminal": "No terminal program found",
+    "no_editor": "No code editor found",
+    "nothing_to_undo": "There's no save to undo",
+    "undo_first": "The very first save can't be undone here",
+    "undo_merge": "A save that brought other changes in can't be undone here",
+    "undo_uploaded": "This save is already on GitHub — undoing it here would make your copy disagree with GitHub",
+    "nothing_to_park": "There are no unsaved changes to park",
+    "unpark_conflict": "Bringing these changes back would overwrite edits you made since. Save or park those first.",
+    "unresolved": "Pick mine or theirs for every conflicting file"
+  },
+  "releases": {
+    "bad_tag": "That tag name isn't allowed (no spaces, ~ ^ : ? * [ or ..)",
+    "read_failed": "Couldn't read the file",
+    "asset_exists": "The release already has a file with this name",
+    "tag_exists": "This tag already exists",
+    "empty_repo": "The repository is empty — there's no branch to release from"
+  },
+  "about": {
+    "too_many_topics": "GitHub allows at most 20 topics"
+  },
+  "actions": {
+    "not_dispatchable": "This workflow can't be started by hand (it has no workflow_dispatch trigger)"
+  },
+  "gists": {
+    "empty_file": "Every file needs some content",
+    "bad_name": "File names can't be empty, contain / or start with \"gistfile\"",
+    "duplicate_name": "Two files have the same name"
+  },
+  "files": {
+    "too_large": "The file is bigger than 1 MB",
+    "not_text": "That isn't a text file",
+    "no_branch": "That branch doesn't exist (anymore)",
+    "decode": "GitHub sent a file that couldn't be read",
+    "bad_path": "That file path isn't allowed",
+    "missing": "A file you're moving no longer exists",
+    "no_message": "Describe the change first",
+    "nothing": "Nothing to save",
+    "stale": "Someone else saved to this branch in the meantime — reload to get their changes, your edits stay staged",
+    "branch_exists": "A branch with that name already exists",
+    "not_folder": "That isn't a folder"
+  },
+  "audit": {
+    "io": "Couldn't write the audit cache",
+    "empty": "This repository has no commits yet",
+    "not_git": "This folder isn't a Git repository"
+  },
+  "branches": {
+    "bad_name": "That isn't a valid branch name",
+    "exists": "A branch with this name already exists",
+    "empty_repo": "The repository is empty — there's no branch to start from",
+    "protection_unavailable": "Branch protection isn't available here: private repositories need GitHub Pro, Team or Enterprise.",
+    "ruleset_name": "Give the ruleset a name",
+    "ruleset_target": "Say which branches the ruleset applies to"
+  },
+  "scheduler": {
+    "no_name": "Give the schedule a name",
+    "not_found": "That schedule doesn't exist any more"
+  },
+  "migration": {
+    "bad_name": "Not a valid repository name (letters, digits, - _ . only)"
+  },
+  "tray": {
+    "autostart": "Couldn't change start at login"
+  },
+  "repos": {
+    "name_exists": "A repository with this name already exists"
+  }
+}

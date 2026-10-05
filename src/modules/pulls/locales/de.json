@@ -1,0 +1,280 @@
+{
+  "title": "Pull Requests",
+  "kicker": "Manage / Pull Requests",
+  "subtitle": "Alle relevanten PRs — CI, Reviews und Mergebarkeit auf einen Blick.",
+  "views": {
+    "reviewRequested": "Review angefragt",
+    "mine": "Von mir erstellt",
+    "myRepos": "Offen in meinen Repos",
+    "assigned": "Mir zugewiesen",
+    "failing": "Fehlgeschlagene Checks",
+    "readyToMerge": "Bereit zum Mergen",
+    "drafts": "Entwürfe",
+    "recentlyMerged": "Kürzlich gemergt"
+  },
+  "state": {
+    "open": "Offen",
+    "draft": "Entwurf",
+    "merged": "Gemergt",
+    "closed": "Geschlossen"
+  },
+  "stateFilter": {
+    "open": "Offen",
+    "merged": "Gemergt",
+    "closed": "Geschlossen",
+    "all": "Alle"
+  },
+  "checks": {
+    "passing": "Checks bestanden",
+    "failing": "Checks fehlgeschlagen",
+    "running": "Checks laufen",
+    "none": "Keine Checks",
+    "summaryFailed": "{{failed}} von {{total}} fehlgeschlagen",
+    "summaryRunning": "{{running}} von {{total}} laufen",
+    "summaryPassed": "{{passed}}/{{total}} bestanden",
+    "headSha": "Checks für {{sha}} · aktualisiert {{when}}"
+  },
+  "checksFilter": {
+    "any": "Alle",
+    "success": "Bestanden",
+    "failure": "Fehlgeschlagen",
+    "pending": "Laufend"
+  },
+  "review": {
+    "approved": "genehmigt",
+    "changes": "Änderungen",
+    "required": "Review",
+    "addHint": "Diese Zeile kommentieren (Shift+Klick auf weitere Zeile für Bereich)",
+    "onLine": "Kommentar zu Zeile {{line}} · {{side}}",
+    "onRange": "Kommentar zu Zeilen {{from}}–{{to}} · {{side}}",
+    "side": {
+      "LEFT": "alte Datei",
+      "RIGHT": "neue Datei"
+    },
+    "placeholder": "Review-Kommentar schreiben…",
+    "rangeHint": "Shift+Klick auf das + einer weiteren Zeile für einen Bereich",
+    "add": "Kommentar hinzufügen",
+    "reply": "Antworten",
+    "replyPlaceholder": "Antworten…",
+    "edit": "Bearbeiten",
+    "delete": "Löschen (zweimal klicken)",
+    "outdatedAt": "Veraltet · war Zeile {{line}}",
+    "inline_one": "{{count}} Inline-Kommentar",
+    "inline_other": "{{count}} Inline-Kommentare",
+    "outdated": "veraltet"
+  },
+  "reviewFilter": {
+    "any": "Beliebiger Review-Status",
+    "none": "Keine Reviews",
+    "required": "Review erforderlich",
+    "approved": "Genehmigt",
+    "changes_requested": "Änderungen angefragt"
+  },
+  "reviewState": {
+    "APPROVED": "hat genehmigt",
+    "CHANGES_REQUESTED": "hat Änderungen angefragt",
+    "COMMENTED": "hat reviewt",
+    "DISMISSED": "Review verworfen",
+    "PENDING": "Review ausstehend"
+  },
+  "draftFilter": {
+    "any": "Alle",
+    "ready": "Bereit",
+    "draft": "Entwurf"
+  },
+  "sort": {
+    "updated": "Zuletzt aktualisiert",
+    "created": "Neueste",
+    "comments": "Meiste Kommentare",
+    "best": "Beste Übereinstimmung"
+  },
+  "scope": {
+    "mine": "Meine Repos",
+    "repo": "Repository",
+    "everywhere": "Überall"
+  },
+  "facets": {
+    "scope": "Bereich",
+    "state": "Status",
+    "sort": "Sortierung",
+    "review": "Review",
+    "checks": "Checks",
+    "draft": "Entwurf",
+    "labels": "Labels",
+    "addLabel": "Label hinzufügen…",
+    "people": "Personen",
+    "author": "Autor",
+    "assignee": "Zugewiesen",
+    "reviewRequested": "Review angefragt",
+    "involves": "Beteiligt",
+    "text": "Text",
+    "query": "Anfrage"
+  },
+  "people": {
+    "me": "ich",
+    "meActive": "du"
+  },
+  "query": {
+    "label": "GitHub-Pull-Request-Suche",
+    "refresh": "Pull Requests aktualisieren",
+    "results_one": "{{shown}} von {{total}} Ergebnis",
+    "results_other": "{{shown}} von {{total}} Ergebnissen"
+  },
+  "list": {
+    "byAt": "{{login}} · {{when}}",
+    "empty": "Keine passenden Pull Requests",
+    "emptyHint": "Andere Ansicht wählen oder Bereich erweitern."
+  },
+  "merge": {
+    "merged": "Gemergt",
+    "conflicts": "Hat Konflikte",
+    "behind": "Branch ist veraltet",
+    "blocked": "Durch Regeln blockiert",
+    "clean": "Bereit zum Mergen",
+    "computing": "Wird geprüft…",
+    "choose": "Merge-Methode wählen",
+    "methods": {
+      "squash": "Squash und mergen",
+      "merge": "Merge-Commit erstellen",
+      "rebase": "Rebase und mergen"
+    },
+    "hints": {
+      "squash": "Ein Commit auf dem Basis-Branch",
+      "merge": "Behält alle Commits + Merge-Commit",
+      "rebase": "Spielt Commits auf die Basis neu ein"
+    },
+    "notAllowed": "In den Repo-Einstellungen deaktiviert"
+  },
+  "strip": {
+    "checks": "Checks",
+    "review": "Reviews",
+    "merge": "Mergebarkeit",
+    "diff": "Diff",
+    "awaiting_one": "Wartet auf {{count}} Reviewer",
+    "awaiting_other": "Wartet auf {{count}} Reviewer",
+    "noRequests": "Keine offenen Anfragen",
+    "files_one": "{{count}} Datei",
+    "files_other": "{{count}} Dateien"
+  },
+  "actions": {
+    "updateBranch": "Branch aktualisieren",
+    "ready": "Bereit für Review",
+    "toDraft": "In Entwurf umwandeln",
+    "close": "Schließen",
+    "reopen": "Wieder öffnen"
+  },
+  "triage": {
+    "reviewers": "Reviewer",
+    "labels": "Labels",
+    "assignees": "Zuständige",
+    "milestone": "Meilenstein"
+  },
+  "tabs": {
+    "conversation": "Unterhaltung",
+    "files": "Dateien",
+    "commits": "Commits",
+    "checks": "Checks"
+  },
+  "detail": {
+    "copyLink": "Link kopieren",
+    "linkCopied": "Link kopiert",
+    "openGithub": "Auf GitHub öffnen",
+    "editTitle": "Titel bearbeiten",
+    "opened": "eröffnet {{when}}",
+    "mergedBy": "gemergt von {{login}} {{when}}",
+    "editBody": "Beschreibung bearbeiten",
+    "noBody": "Keine Beschreibung."
+  },
+  "composer": {
+    "placeholder": "Kommentieren oder Review schreiben…",
+    "comment": "Kommentieren",
+    "review": "Review",
+    "approve": "Genehmigen",
+    "requestChanges": "Änderungen anfragen",
+    "reviewComment": "Review-Kommentar",
+    "ownPr": "Eigene Pull Requests kannst du nicht genehmigen oder ablehnen",
+    "submitted": {
+      "APPROVE": "Genehmigt",
+      "REQUEST_CHANGES": "Änderungen angefragt",
+      "COMMENT": "Review abgeschickt"
+    }
+  },
+  "files": {
+    "none": "Keine Dateien geändert",
+    "gone": "Datei nicht in diesem Pull Request",
+    "prev": "Vorherige Datei",
+    "next": "Nächste Datei",
+    "noPatch": "Kein Diff verfügbar",
+    "noPatchHint": "Binäre oder sehr große Dateien haben keinen Inline-Diff — auf GitHub öffnen."
+  },
+  "create": {
+    "button": "Neuer Pull Request",
+    "kicker": "Erstellen",
+    "title": "Neuer Pull Request",
+    "repo": "Repository",
+    "base": "Basis (mergen in)",
+    "head": "Vergleichen (von)",
+    "pickHead": "Branch wählen…",
+    "nothing": "Nichts zu vergleichen — Branches sind identisch",
+    "prTitle": "Titel",
+    "body": "Beschreibung",
+    "draft": "Als Entwurf erstellen",
+    "submit": "Pull Request erstellen",
+    "submitDraft": "Entwurf erstellen",
+    "created": "Pull Request #{{number}} eröffnet",
+    "ahead_one": "{{count}} Commit voraus",
+    "ahead_other": "{{count}} Commits voraus",
+    "behind_one": "{{count}} zurück",
+    "behind_other": "{{count}} zurück",
+    "files_one": "{{count}} Datei geändert",
+    "files_other": "{{count}} Dateien geändert"
+  },
+  "bulk": {
+    "selected": "ausgewählt",
+    "merge": "Mergen",
+    "requestReview": "Review anfragen",
+    "request": "Anfragen",
+    "more": "Weitere Massenaktionen",
+    "export": "Als CSV exportieren",
+    "clear": "Auswahl aufheben"
+  },
+  "commands": {
+    "search": "Pull Requests durchsuchen"
+  },
+  "shortcuts": {
+    "move": "Cursor bewegen",
+    "select": "Auswahl umschalten",
+    "open": "Pull Request öffnen",
+    "merge": "Mergen (Warteschlange, Probelauf)",
+    "files": "Vorherige / nächste Datei",
+    "query": "Suchanfrage bearbeiten",
+    "new": "Neuer Pull Request",
+    "selectAll": "Alle geladenen auswählen"
+  },
+  "autoMerge": {
+    "label": "Auto-Merge",
+    "enableWith": "Auto-Merge aktivieren · {{method}}",
+    "disable": "Auto-Merge deaktivieren",
+    "on": "Auto-Merge aktiv · {{method}}",
+    "off": "In den Repo-Einstellungen aus · private Repos brauchen GitHub Pro"
+  },
+  "suggest": {
+    "title": "Vorgeschlagene Änderung",
+    "apply": "Übernehmen",
+    "cantApply": "kann auf GitHub übernommen werden",
+    "applied": "Vorschlag übernommen — in den Pull Request committet",
+    "message": "Vorschlag für {{path}} übernehmen",
+    "noFile": "Die Datei ist nicht mehr auf dem Branch",
+    "deleteLines": "(diese Zeilen löschen)",
+    "insert": "Änderung vorschlagen",
+    "insertHint": "Setzt die gewählten Zeilen in einen Vorschlagsblock — ändere sie auf das, was sie sein sollen"
+  },
+  "batch": {
+    "add": "Zum Review hinzufügen",
+    "addHint": "Sammeln und alle Kommentare zusammen mit deinem Review senden",
+    "pending": "ausstehend",
+    "remove": "Aus dem Review entfernen",
+    "count_one": "{{count}} Kommentar wartet auf das Review",
+    "count_other": "{{count}} Kommentare warten auf das Review"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "actions": {
+    "close": "Close",
+    "cancel": "Cancel",
+    "clear": "Clear",
+    "retry": "Retry",
+    "done": "Done",
+    "save": "Save",
+    "remove": "Remove"
+  },
+  "shell": {
+    "language": "Language",
+    "palette": "Command palette",
+    "shortcuts": "Keyboard shortcuts",
+    "notifications": "Notifications",
+    "noNotifications": "Nothing here yet",
+    "booting": "Starting workbench",
+    "noModules": "No modules enabled",
+    "crash": {
+      "title": "This view crashed",
+      "retry": "Reload view"
+    },
+    "breadcrumb": "Sheet path",
+    "searchOrRun": "Search or run a command…",
+    "backTo": "Back to {{title}}"
+  },
+  "theme": {
+    "system": "System",
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "pillars": {
+    "build": "Build",
+    "manage": "Manage",
+    "ship": "Ship",
+    "system": "System"
+  },
+  "account": {
+    "accounts": "Accounts",
+    "add": "Add account",
+    "context": "Context",
+    "personal": "Personal",
+    "signOut": "Sign out {{login}}",
+    "confirmSignOut": "Click again to sign out"
+  },
+  "states": {
+    "loading": "Loading…"
+  },
+  "status": {
+    "api": "API",
+    "rateLine": "{{resource}}: {{remaining}} / {{limit}} · resets {{reset}}"
+  },
+  "palette": {
+    "placeholder": "Type a command or jump to a module…",
+    "empty": "No matches",
+    "goTo": "Go to",
+    "actions": "Actions",
+    "accounts": "Accounts",
+    "preferences": "Preferences",
+    "switchTo": "Switch to {{login}}",
+    "toggleTheme": "Toggle light / dark",
+    "language": "Language: {{name}}",
+    "back": "Back (fold top sheet)"
+  },
+  "shortcuts": {
+    "kicker": "Reference",
+    "global": "Global",
+    "palette": "Open command palette",
+    "modules": "Jump to module",
+    "help": "Show this sheet",
+    "back": "Back / fold sheet"
+  },
+  "markdown": {
+    "write": "Write",
+    "preview": "Preview",
+    "hint": "Markdown · Ctrl+Enter to submit",
+    "nothing": "Nothing to preview"
+  },
+  "pickers": {
+    "repo": "Choose a repository…",
+    "searchRepos": "Search repositories…"
+  },
+  "filters": {
+    "add": "Filter",
+    "reset": "Reset"
+  },
+  "views": {
+    "title": "Views",
+    "saveCurrent": "Save current as view…",
+    "saved": "Saved",
+    "builtin": "Built-in",
+    "none": "No saved views yet",
+    "name": "View name…"
+  },
+  "query": {
+    "backToFilters": "Back to filters"
+  },
+  "window": {
+    "minimize": "Minimize",
+    "maximize": "Maximize",
+    "restore": "Restore",
+    "close": "Close"
+  },
+  "tray": {
+    "show": "Show ZIT-Suite",
+    "hide": "Hide ZIT-Suite",
+    "quit": "Quit ZIT-Suite",
+    "tooltip": "ZIT-Suite",
+    "hiddenTitle": "ZIT-Suite is still running",
+    "hiddenBody": "Schedules and automatic uploads keep going. Click the tray icon to open it again.",
+    "queue": "Queue: {{count}} to go",
+    "next": "Next: {{name}} · {{when}}",
+    "idle": "Nothing scheduled"
+  }
+}

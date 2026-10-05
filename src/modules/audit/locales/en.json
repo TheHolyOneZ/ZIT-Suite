@@ -1,0 +1,89 @@
+{
+  "title": "Code Audit",
+  "nav": "Audit",
+  "kicker": "Manage",
+  "subtitle": "Pick a repository and see what it's made of — lines, files, history, like tree with numbers.",
+  "pick": "Choose a repository…",
+  "analyze": "Analyze",
+  "again": "Analyze again",
+  "recent": "Recent:",
+  "start": "What is a repo made of?",
+  "startBody": "Pick one of your repositories and press Analyze. The first run downloads it once (no files are checked out); after that it only fetches what's new.",
+  "stage": {
+    "download": "Downloading the repository…",
+    "files": "Counting lines in every file…",
+    "history": "Reading the whole history…"
+  },
+  "workingHint": "Big repositories can take a minute the first time.",
+  "measured": "measured",
+  "skipNoise": "Leave out lock files & vendored code",
+  "noiseHint": "Cargo.lock, package-lock.json, minified files, node_modules/vendor/dist folders…",
+  "exportTree": "Export tree (.txt)",
+  "exportJson": "Export structure (.json)",
+  "exported": "Exported",
+  "stat": {
+    "code": "Lines of code",
+    "files": "Files",
+    "size": "Size",
+    "commits": "Commits",
+    "added": "Lines added",
+    "removed": "Lines removed",
+    "net": "Net",
+    "people": "People",
+    "since": "since {{date}}",
+    "churn": "{{pct}}% rewritten",
+    "ofLines_one": "of {{count}} lines",
+    "ofLines_other": "of {{count}} lines",
+    "binary_one": "{{count}} binary",
+    "binary_other": "{{count}} binary"
+  },
+  "capped": "Very large history — added / removed lines count the newest 50,000 commits.",
+  "languages": "Languages (code lines)",
+  "tree": "Files",
+  "sort": {
+    "lines": "Most lines",
+    "size": "Biggest",
+    "name": "Name"
+  },
+  "col": {
+    "name": "Name",
+    "size": "Size",
+    "lines": "Lines",
+    "share": "Share of lines"
+  },
+  "people": "Contributors",
+  "cacheHint": "Downloaded copies kept for faster re-runs. Click twice to delete them.",
+  "clearConfirm": "Click again to delete",
+  "cleared": "Downloaded copies deleted",
+  "commitsN_one": "{{count}} commit",
+  "commitsN_other": "{{count}} commits",
+  "commitsSoFar_one": "{{count}} commit read",
+  "commitsSoFar_other": "{{count}} commits read",
+  "activity_one": "Activity · last {{count}} month",
+  "activity_other": "Activity · last {{count}} months",
+  "cache_one": "Cache {{size}} · {{count}} repo",
+  "cache_other": "Cache {{size}} · {{count}} repos",
+  "source": {
+    "github": "GitHub",
+    "local": "Home folder"
+  },
+  "pickLocal": "Pick a Home workspace…",
+  "noWorkspaces": "No Home workspaces yet",
+  "hot": {
+    "title": "Most changed files",
+    "hint": "touched by the most commits",
+    "gone": "No longer in the repository"
+  },
+  "compare": {
+    "title": "Since an earlier audit",
+    "with": "compared with",
+    "metric": {
+      "code": "Code lines",
+      "lines": "All lines",
+      "files": "Files",
+      "size": "Size",
+      "commits": "Commits",
+      "people": "People"
+    }
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "title": "Repositories",
+  "kicker": "Manage / Repositories",
+  "meta": {
+    "count": "{{shown}} von {{total}}",
+    "synced": "synchronisiert {{when}}"
+  },
+  "actions": {
+    "cleanup": "Aufräumen",
+    "refresh": "Aktualisieren",
+    "archive": "Archivieren",
+    "unarchive": "Dearchivieren",
+    "makePrivate": "Privat machen",
+    "makePublic": "Öffentlich machen",
+    "delete": "Löschen",
+    "tag": "Tag",
+    "export": "Exportieren…"
+  },
+  "view": {
+    "table": "Tabellenansicht",
+    "grid": "Rasteransicht"
+  },
+  "states": {
+    "loading": "Repositories werden geladen",
+    "noMatch": "Keine Repositories passen zu diesen Filtern",
+    "empty": "Keine Repositories in diesem Kontext"
+  },
+  "panel": {
+    "title": "Filter",
+    "reset_one": "{{count}} zurücksetzen",
+    "reset_other": "{{count}} zurücksetzen",
+    "resetAll": "Filter zurücksetzen",
+    "search": "Name, Topic, Tag suchen…",
+    "health": "Zustand",
+    "visibility": "Sichtbarkeit",
+    "type": "Typ",
+    "languages": "Sprachen",
+    "ranges": "Bereiche",
+    "views": "Gespeicherte Ansichten",
+    "tags": "Tags"
+  },
+  "health": {
+    "active": "Aktiv",
+    "dormant": "Ruhend",
+    "dead": "Inaktiv",
+    "empty": "Leer",
+    "archived": "Archiviert"
+  },
+  "visibility": {
+    "all": "Alle",
+    "public": "Öffentlich",
+    "private": "Privat"
+  },
+  "filters": {
+    "forks": "Forks",
+    "templates": "Vorlagen",
+    "hasIssues": "Hat offene Issues",
+    "noLanguage": "Keine Sprache",
+    "stars": "Sterne",
+    "sizeMb": "Größe (MB)",
+    "created": "Erstellt zwischen",
+    "min": "min",
+    "max": "max"
+  },
+  "tri": {
+    "any": "Alle",
+    "only": "Nur",
+    "exclude": "Ohne"
+  },
+  "presets": {
+    "save": "Aktuelle Filter speichern",
+    "name": "Name der Ansicht…",
+    "empty": "Speichere Filterkombinationen zur Wiederverwendung.",
+    "delete": "Ansicht löschen"
+  },
+  "tags": {
+    "new": "Neuer Tag",
+    "name": "Tag-Name…",
+    "removeHint": "Rechtsklick löscht diesen Tag",
+    "clearFilter": "Tag-Filter leeren",
+    "builtin": {
+      "keep": "behalten",
+      "delete": "löschen",
+      "review": "prüfen"
+    }
+  },
+  "columns": {
+    "name": "Name",
+    "language": "Sprache",
+    "issues": "Issues",
+    "size": "Größe",
+    "updated": "Gepusht",
+    "health": "Zustand",
+    "tags": "Tags"
+  },
+  "badges": {
+    "fork": "Fork",
+    "template": "Vorlage",
+    "noAdmin": "Nur lesen"
+  },
+  "detail": {
+    "noDescription": "Keine Beschreibung",
+    "openGithub": "Auf GitHub öffnen",
+    "cloneCopied": "Clone-URL kopiert",
+    "copyClone": "Clone-URL kopieren",
+    "stars": "Sterne",
+    "forks": "Forks",
+    "watchers": "Beobachter",
+    "issues": "Offene Issues",
+    "size": "Größe",
+    "branch": "Standard-Branch",
+    "health": "Zustand",
+    "lastPush": "Letzter Push {{when}}",
+    "languages": "Sprachen",
+    "topics": "Topics",
+    "created": "Erstellt",
+    "updated": "Aktualisiert",
+    "pushed": "Gepusht",
+    "license": "Lizenz",
+    "gone": "Dieses Repository ist nicht mehr in der Liste",
+    "jumpTo": "In diesem Repository",
+    "jumpIssues": "Issues",
+    "jumpLabels": "Labels",
+    "jumpMilestones": "Meilensteine",
+    "operations": "Vorgänge",
+    "operationsHint": "Läuft über die Warteschlange, zuerst mit Probelauf.",
+    "jumpAccess": "Zugriff",
+    "jumpHooks": "Webhooks",
+    "jumpSecrets": "Secrets & Variablen",
+    "jumpSecurity": "Sicherheit",
+    "jumpFiles": "Dateien & Editor",
+    "jumpActions": "Workflows & Läufe",
+    "jumpBranches": "Branches",
+    "jumpReleases": "Releases"
+  },
+  "selection": {
+    "selected": "ausgewählt",
+    "more": "Weitere Aktionen",
+    "clear": "Auswahl aufheben"
+  },
+  "cleanup": {
+    "kicker": "Aufräum-Vorlagen",
+    "title": "Portfolio aufräumen",
+    "review_one": "{{count}} Repository prüfen",
+    "review_other": "{{count}} Repositories prüfen",
+    "candidates_one": "{{count}} Kandidat",
+    "candidates_other": "{{count}} Kandidaten",
+    "action": "Aktion",
+    "none": "Nichts aufzuräumen — sehr gut.",
+    "presets": {
+      "spring": {
+        "name": "Frühjahrsputz",
+        "desc": "Inaktive und leere Repositories, die dir gehören."
+      },
+      "portfolio": {
+        "name": "Portfolio-Modus",
+        "desc": "Öffentliche, inaktive Repos ohne Sterne — ausblenden."
+      },
+      "minimal": {
+        "name": "Minimal-Modus",
+        "desc": "Die 20 Repositories mit dem schlechtesten Zustand."
+      }
+    },
+    "picked": "{{count}} gewählt"
+  },
+  "export": {
+    "kicker": "Export",
+    "title_one": "{{count}} Repository exportieren",
+    "title_other": "{{count}} Repositories exportieren",
+    "done_one": "{{count}} Datei geschrieben",
+    "done_other": "{{count}} Dateien geschrieben",
+    "start": "Exportieren",
+    "include": "Enthalten",
+    "folder": "Zielordner",
+    "pickFolder": "Ordner wählen…",
+    "browse": "Durchsuchen",
+    "kinds": {
+      "readme": "README",
+      "metadata": "Metadaten (JSON)",
+      "release_info": "Infos zum neuesten Release",
+      "release_assets": "Assets des neuesten Release"
+    }
+  },
+  "settings": {
+    "activeDays": "Schwelle aktiv (Tage)",
+    "activeDaysHint": "Push innerhalb dieser Tage gilt als aktiv.",
+    "dormantDays": "Schwelle ruhend (Tage)",
+    "dormantDaysHint": "Älter als das gilt als inaktiv."
+  },
+  "commands": {
+    "search": "Repositories durchsuchen",
+    "resetFilters": "Repository-Filter zurücksetzen"
+  },
+  "shortcuts": {
+    "move": "Cursor bewegen",
+    "select": "Auswahl umschalten",
+    "open": "Details öffnen",
+    "selectAll": "Alle sichtbaren auswählen",
+    "archive": "Archivieren (Auswahl oder Cursor)",
+    "delete": "Löschen (Auswahl oder Cursor)",
+    "refresh": "Aktualisieren",
+    "search": "Suche fokussieren",
+    "escape": "Auswahl aufheben / Blatt falten"
+  },
+  "views": {
+    "all": "Alle Repositories"
+  },
+  "create": {
+    "open": "Neues Repository",
+    "title": "Neues Repository",
+    "button": "Repository anlegen",
+    "owner": "Besitzer",
+    "name": "Name",
+    "badName": "Nur Buchstaben, Ziffern, - _ .",
+    "taken": "Du hast schon ein Repository mit diesem Namen",
+    "becomes": "Wird als {{name}} angelegt",
+    "description": "Beschreibung",
+    "descriptionPlaceholder": "Wofür ist es? (optional)",
+    "visibility": "Sichtbarkeit",
+    "private": "Privat",
+    "public": "Öffentlich",
+    "publicNote": "Öffentliche Repositorys kann jeder sehen.",
+    "start": "Beginnen mit",
+    "empty": "Leer",
+    "fromTemplate_one": "Einer Vorlage ({{count}})",
+    "fromTemplate_other": "Einer Vorlage ({{count}})",
+    "readme": "README hinzufügen",
+    "license": "Lizenz",
+    "none": "Keine",
+    "pickTemplate": "Vorlage-Repository wählen…",
+    "allBranches": "Alle Branches kopieren, nicht nur den Standard-Branch",
+    "noTemplates": "Keins deiner Repositorys ist als Vorlage markiert (Repository-Einstellungen → Template repository).",
+    "done": "{{name}} angelegt"
+  },
+  "bulkMeta": {
+    "kicker_one": "{{count}} Repository",
+    "kicker_other": "{{count}} Repositorys",
+    "descriptionTitle": "Beschreibung setzen",
+    "topicsTitle": "Topics hinzufügen / entfernen",
+    "descriptionHint": "ersetzt die aktuelle — leer löscht sie",
+    "topicsHint": "durch Kommas getrennt; bereinigt wie bei GitHub",
+    "add": "Hinzufügen",
+    "remove": "Entfernen",
+    "review_one": "Für {{count}} Repository prüfen…",
+    "review_other": "Für {{count}} Repositorys prüfen…",
+    "descriptionMenu": "Beschreibung…",
+    "topicsMenu": "Topics…",
+    "cloneMenu": "Auf diesen Computer klonen…"
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "title": "Branches",
+  "kicker": "Build",
+  "subtitle": "Jeder Branch: wie weit er vom Standard entfernt ist, gemergt oder veraltet, geschützt, in einem PR — umbenennen, schützen, aufräumen.",
+  "pickRepo": "Repository wählen…",
+  "start": "Wähle ein Repository",
+  "startBody": "Seine Branches mit letztem Commit, offenem Pull Request und Vorsprung / Rückstand zum Standard-Branch. Oder wechsle zu mehreren Repositorys, um Branches überall auf einmal anzulegen oder zu schützen.",
+  "openOnGitHub": "Auf GitHub öffnen",
+  "refresh": "Erneut prüfen",
+  "views": {
+    "repo": "Ein Repository",
+    "many": "Mehrere Repositorys"
+  },
+  "stats": {
+    "branches": "Branches",
+    "stale": "Veraltet ({{days}}+ Tage)",
+    "merged": "Gemergt",
+    "protected": "Geschützt",
+    "rulesets": "Rulesets"
+  },
+  "filter": {
+    "all": "Alle",
+    "stale": "Veraltet",
+    "merged": "Gemergt",
+    "pr": "In einem PR",
+    "protected": "Geschützt"
+  },
+  "find": "Branch suchen…",
+  "legend": "← zurück · voraus →",
+  "cleanup_one": "{{count}} gemergten Branch aufräumen",
+  "cleanup_other": "{{count}} gemergte Branches aufräumen",
+  "selected_one": "{{count}} ausgewählt",
+  "selected_other": "{{count}} ausgewählt",
+  "clear": "Leeren",
+  "deleteSelected_one": "{{count}} Branch löschen…",
+  "deleteSelected_other": "{{count}} Branches löschen…",
+  "truncated": "Dieses Repository hat mehr als 1.000 Branches — nur die neuesten 1.000 werden gezeigt.",
+  "noMatch": "Kein Branch passt.",
+  "none": "Keine Branches — das Repository ist leer.",
+  "aheadBehind": "{{ahead}} Commits voraus, {{behind}} hinter dem Standard-Branch",
+  "isBase": "Basis",
+  "badge": {
+    "default": "Standard",
+    "protected": "Geschützt",
+    "protectedBy": "Geschützt durch die Regel „{{rule}}“",
+    "merged": "gemergt",
+    "stale": "Seit {{days}} Tagen kein Commit",
+    "draft": "Entwurf"
+  },
+  "open": {
+    "files": "In Dateien & Editor öffnen",
+    "compare": "Auf GitHub vergleichen",
+    "newPr": "Vergleichen / Pull Request öffnen"
+  },
+  "makeDefault": "Zum Standard-Branch machen",
+  "confirmDefault": "Erneut klicken, um ihn zum Standard zu machen",
+  "defaultSet": "{{name}} ist jetzt der Standard-Branch",
+  "delete": "Löschen…",
+  "created": "{{name}} aus {{from}} angelegt",
+  "renamed": "{{from}} in {{to}} umbenannt",
+  "name": {
+    "invalid": "Kein gültiger Branch-Name (keine Leerzeichen, „..“, „~ ^ : ? * [ \\“, kein „/“ oder „.“ am Anfang / Ende)",
+    "taken": "Ein Branch mit diesem Namen existiert"
+  },
+  "new": {
+    "button": "Neuer Branch",
+    "title": "Neuer Branch",
+    "name": "Name",
+    "from": "Ausgehend von",
+    "fromHint": "der neue Branch beginnt mit dem neuesten Commit dieses Branches",
+    "create": "Branch anlegen"
+  },
+  "rename": {
+    "title": "{{name}} umbenennen",
+    "button": "Umbenennen",
+    "note": "Echtes Umbenennen: GitHub übernimmt offene Pull Requests und Schutzregeln, Links auf den alten Namen funktionieren weiter.",
+    "defaultNote": "Das ist der Standard-Branch — er bleibt es unter dem neuen Namen. Lokale Kopien müssen auf den neuen Namen wechseln."
+  },
+  "protect": {
+    "title": "{{name}} schützen",
+    "button": "Schützen",
+    "edit": "Schutz…",
+    "update": "Regeln speichern",
+    "saved": "{{name}} ist geschützt",
+    "removed": "Schutz von {{name}} entfernt",
+    "remove": "Schutz entfernen",
+    "confirmRemove": "Zum Entfernen erneut klicken",
+    "byPattern": "Derzeit durch die Regel „{{rule}}“ geschützt. Speichern legt Regeln für diesen Branch per Namen an."
+  },
+  "rules": {
+    "approvals": "Nötige Freigaben",
+    "removeCheck": "Entfernen",
+    "noChecks": "Mindestens einen Check-Namen hinzufügen",
+    "checkName": "Check-Name, z. B. build",
+    "addCheck": "Hinzufügen",
+    "seen": "Lief auf diesem Branch:",
+    "allow": "Erlauben (sonst gesperrt)",
+    "require_pr": {
+      "name": "Pull Request verlangen",
+      "what": "Niemand pusht direkt auf den Branch — Änderungen kommen über PRs."
+    },
+    "dismiss_stale": {
+      "name": "Neue Commits verwerfen Freigaben",
+      "what": "Eine Freigabe gilt nur für das, was geprüft wurde."
+    },
+    "code_owners": {
+      "name": "Review der Code-Owner verlangen",
+      "what": "In CODEOWNERS gelistete Dateien brauchen die Freigabe ihres Owners."
+    },
+    "last_push_approval": {
+      "name": "Letzter Push muss von jemand anderem freigegeben werden",
+      "what": "Wer zuletzt gepusht hat, kann die eigene Änderung nicht freigeben."
+    },
+    "status_checks": {
+      "name": "Status-Checks verlangen",
+      "what": "Gelistete Checks (CI-Jobs) müssen vor dem Mergen bestehen."
+    },
+    "strict": {
+      "name": "Muss aktuell sein",
+      "what": "Der PR-Branch muss die neuesten Änderungen dieses Branches enthalten."
+    },
+    "conversation_resolution": {
+      "name": "Gelöste Unterhaltungen verlangen",
+      "what": "Jeder Review-Kommentar-Thread muss gelöst sein."
+    },
+    "linear_history": {
+      "name": "Lineare Historie",
+      "what": "Keine Merge-Commits — nur Squash oder Rebase."
+    },
+    "enforce_admins": {
+      "name": "Auch für Admins",
+      "what": "Die Regeln gelten auch für Administratoren."
+    },
+    "force_pushes": {
+      "name": "Force-Pushes",
+      "what": "Die Historie des Branches umschreiben."
+    },
+    "deletions": {
+      "name": "Branch löschen",
+      "what": "Jeder mit Schreibrechten könnte ihn löschen."
+    }
+  },
+  "many": {
+    "create": "Branch anlegen",
+    "protect": "Standard-Branch schützen",
+    "fromHint": "ein Branch-Name — leer = Standard-Branch des jeweiligen Repositorys",
+    "fromDefault": "Standard-Branch",
+    "createNote": "Läuft über die Warteschlange: der Probelauf zeigt, wo der Branch schon existiert oder die Quelle fehlt.",
+    "createIn_one": "In {{count}} Repository anlegen…",
+    "createIn_other": "In {{count}} Repositorys anlegen…",
+    "protectNote": "Diese Regeln kommen auf den Standard-Branch jedes Repositorys (braucht Admin-Rechte; private Repositorys brauchen GitHub Pro / Team).",
+    "protectIn_one": "In {{count}} Repository schützen…",
+    "protectIn_other": "In {{count}} Repositorys schützen…",
+    "unprotectIn_one": "Schutz in {{count}} entfernen…",
+    "unprotectIn_other": "Schutz in {{count}} entfernen…",
+    "planNote": "Der Probelauf zeigt, wo die Regeln schon identisch sind oder Schutz nicht verfügbar ist.",
+    "reposWrite": "Repositorys mit Schreibrechten",
+    "reposAdmin": "Repositorys, die du verwaltest"
+  },
+  "settings": {
+    "staleDays": "Veraltet nach (Tagen)",
+    "staleDaysHint": "Ein Branch ohne neuen Commit seit so langer Zeit gilt als veraltet."
+  },
+  "rulesets": {
+    "title": "Regelsätze",
+    "intro": "Regeln, die GitHub auf Branches durchsetzt — wie Branch-Schutz, aber für viele Branches auf einmal und mit Probemodus („Auswerten“). Regelsätze der Organisation erscheinen hier, werden aber dort bearbeitet.",
+    "none": "Noch keine Regelsätze",
+    "new": "Neuer Regelsatz",
+    "onGitHub": "Auf GitHub öffnen",
+    "fromOrg": "Organisation",
+    "enf": {
+      "active": "Aktiv",
+      "evaluate": "Auswerten",
+      "disabled": "Aus"
+    },
+    "back": "Alle Regelsätze",
+    "name": "Name",
+    "namePlaceholder": "z. B. main schützen",
+    "enforcement": "Durchsetzung",
+    "include": "Gilt für",
+    "exclude": "Außer",
+    "patternHint": "eins pro Zeile: ~DEFAULT_BRANCH, ~ALL, refs/heads/release/*",
+    "rules": "Regeln",
+    "rule": {
+      "block_deletion": "Löschen verhindern",
+      "block_force_push": "Force-Pushes verhindern",
+      "linear_history": "Lineare Historie verlangen",
+      "signed_commits": "Signierte Commits verlangen",
+      "restrict_creation": "Anlegen passender Branches einschränken",
+      "restrict_update": "Aktualisieren einschränken (schreibgeschützt)",
+      "pull_request": "Pull Request vor dem Zusammenführen verlangen",
+      "status_checks": "Erfolgreiche Status-Checks verlangen"
+    },
+    "approvals": "nötige Freigaben",
+    "dismissStale": "Freigaben bei neuen Pushes verwerfen",
+    "codeOwners": "Review der Code-Owner verlangen",
+    "lastPush": "Neuesten Push freigeben lassen",
+    "resolveThreads": "Alle Diskussionen auflösen",
+    "checksPlaceholder": "Check-Namen, einer pro Zeile (z. B. build, test)",
+    "strict": "Branch muss vorher aktuell sein",
+    "otherRules": "Hat außerdem Regeln, die nur auf GitHub bearbeitet werden (bleiben unverändert): {{list}}",
+    "delete": "Regelsatz löschen",
+    "confirmDelete": "Nochmal klicken zum Löschen",
+    "cancel": "Abbrechen",
+    "create": "Regelsatz anlegen",
+    "save": "Speichern",
+    "saved": "Regelsatz „{{name}}“ gespeichert",
+    "deleted": "Regelsatz „{{name}}“ gelöscht"
+  }
+}

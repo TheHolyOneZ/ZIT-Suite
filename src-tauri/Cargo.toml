@@ -1,0 +1,64 @@
+[package]
+name = "zit-suite"
+version = "0.1.0"
+description = "ZIT-Suite — Build. Manage. Ship. A GitHub desktop app to manage every repository at once."
+authors = ["TheHolyOneZ"]
+license = "GPL-3.0-only"
+repository = "https://github.com/TheHolyOneZ/ZIT-Suite"
+homepage = "https://zsync.eu/zit-suite/"
+readme = "../README.md"
+keywords = ["github", "tauri", "git", "repository-manager", "desktop"]
+categories = ["development-tools", "gui"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "zit_suite_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-opener = "2"
+tauri-plugin-store = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-notification = "2"
+tauri-plugin-log = "2"
+tauri-plugin-single-instance = "2"
+tauri-plugin-window-state = "2"
+tauri-plugin-autostart = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+log = "0.4"
+tokio = { version = "1", features = ["sync", "time", "macros", "rt", "fs", "io-util"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "stream"] }
+futures-util = { version = "0.3", default-features = false, features = ["std"] }
+chrono = { version = "0.4", features = ["serde"] }
+# libsodium-compatible sealed boxes for GitHub Actions secrets.
+crypto_box = { version = "0.9", features = ["seal", "getrandom", "std"] }
+base64 = "0.22"
+# Dependency Scanner: Cargo.toml / pyproject.toml manifests.
+ignore = "0.4"
+toml = { version = "0.8", default-features = false, features = ["parse"] }
+# Built-in Git for the Home workspace: no installed git needed (libgit2 + OpenSSL vendored on Unix;
+# Windows uses its native HTTPS stack).
+git2 = { version = "0.20", default-features = false, features = ["https", "vendored-libgit2", "vendored-openssl"] }
+keyring = { version = "3", features = ["linux-native-sync-persistent", "apple-native", "windows-native", "crypto-rust"] }
+specta = { version = "=2.0.0-rc.22", features = ["chrono", "serde_json"] }
+tauri-specta = { version = "=2.0.0-rc.21", features = ["derive", "typescript"] }
+specta-typescript = "=0.0.9"
+
+# Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "abort"
+strip = true

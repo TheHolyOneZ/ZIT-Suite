@@ -1,0 +1,165 @@
+{
+  "title": "Dependencies",
+  "nav": "Deps",
+  "kicker": "Build",
+  "subtitle": "Every package your repositories depend on — where, at which version, and how far behind the latest release.",
+  "scope": {
+    "days_one": "Pushed in the last day",
+    "days_other": "Pushed in the last {{count}} days",
+    "all": "All repositories",
+    "forks": "Include forks"
+  },
+  "rescan": "Scan again",
+  "start": {
+    "title": "Scan your repositories' dependencies",
+    "body": "Reads package.json, Cargo.toml, pyproject.toml / requirements*.txt, go.mod and pom.xml anywhere in each repository (monorepos too; node_modules, vendor and build folders are skipped). One request per repository plus one per manifest — repeat scans are nearly free.",
+    "button_one": "Scan {{count}} repository",
+    "button_other": "Scan {{count}} repositories"
+  },
+  "scanning": "Reading manifests · {{done}} / {{total}}",
+  "kpi": {
+    "repos": "With manifests",
+    "ofScanned_one": "of {{count}} scanned",
+    "ofScanned_other": "of {{count}} scanned",
+    "packages": "Packages",
+    "major": "Major behind",
+    "minor": "Minor behind",
+    "patch": "Patch behind",
+    "conflicts": "Version conflicts"
+  },
+  "latest": {
+    "check": "Check latest versions",
+    "again": "Check again",
+    "privacy": "Asks npm, crates.io, PyPI, the Go proxy and Maven Central for the newest releases — only package names are sent, never your token or code.",
+    "hint": "Check latest versions to see what's outdated.",
+    "needed": "Latest versions not checked yet",
+    "progress": "Asking registries · {{done}} / {{total}}",
+    "error": {
+      "notFound": "Not on the public registry (private or renamed)",
+      "failed": "Registry didn't answer"
+    }
+  },
+  "views": {
+    "packages": "Packages",
+    "outdated": "Outdated",
+    "conflicts": "Conflicts",
+    "repos": "Repositories"
+  },
+  "eco": {
+    "all": "All",
+    "npm": "npm",
+    "cargo": "Cargo",
+    "pypi": "PyPI",
+    "go": "Go",
+    "maven": "Maven"
+  },
+  "find": "Find a package or repository…",
+  "dev": "Dev dependencies",
+  "col": {
+    "package": "Package",
+    "repos": "Repos",
+    "declared": "Declared",
+    "latest": "Latest"
+  },
+  "none": "Nothing here.",
+  "more_one": "Show {{count}} more",
+  "more_other": "Show {{count}} more",
+  "conflictHint": "Declared at different versions: {{list}}",
+  "registryPage": "Open on {{registry}}",
+  "openManifest": "Open the manifest in Files & Editor",
+  "openOnGitHub": "Open on GitHub",
+  "kind": {
+    "normal": "runtime",
+    "dev": "dev",
+    "build": "build",
+    "peer": "peer",
+    "optional": "optional",
+    "indirect": "indirect",
+    "workspace": "workspace"
+  },
+  "fresh": {
+    "current": {
+      "name": "Up to date",
+      "what": "declares the newest release"
+    },
+    "allowed": {
+      "name": "Within range",
+      "what": "a newer release exists, and the declared range already accepts it"
+    },
+    "patch": {
+      "name": "Patch behind",
+      "what": "bug-fix releases are missing"
+    },
+    "minor": {
+      "name": "Minor behind",
+      "what": "newer features are missing"
+    },
+    "major": {
+      "name": "Major behind",
+      "what": "a new major version — may need changes to upgrade"
+    },
+    "any": {
+      "name": "Any version",
+      "what": "no version constraint"
+    },
+    "local": {
+      "name": "Local",
+      "what": "a path, git or workspace link — not from a registry"
+    },
+    "unknown": {
+      "name": "Unknown",
+      "what": "no latest version known"
+    }
+  },
+  "repoCounts": "{{manifests}} manifests · {{deps}} deps",
+  "parseError": "couldn't read: {{error}}",
+  "unreadable_one": "Couldn't read {{list}}.",
+  "unreadable_other": "Couldn't read {{count}} repositories: {{list}}…",
+  "truncated": "Very large repositories, not every manifest read: {{list}}",
+  "tool": {
+    "all": "All",
+    "pnpm": "pnpm",
+    "yarn": "Yarn",
+    "bun": "Bun",
+    "npm": "npm",
+    "deno": "Deno",
+    "pip": "pip",
+    "poetry": "Poetry",
+    "uv": "uv",
+    "pdm": "PDM",
+    "pipenv": "Pipenv",
+    "hatch": "Hatch",
+    "flit": "Flit",
+    "pixi": "pixi",
+    "cargo": "Cargo",
+    "go": "Go",
+    "maven": "Maven",
+    "gradle": "Gradle"
+  },
+  "toolGuess": "no lockfile or packageManager field found — assumed",
+  "toolDeclared": "declared in the manifest",
+  "toolLockfile": "from the lockfile",
+  "registryOf": "registry: {{registry}}",
+  "bump": {
+    "open": "Bump to {{version}} in these repos…",
+    "openNoLatest": "Bump in these repos…",
+    "title": "Bump {{name}}",
+    "to": "To version",
+    "latestIs": "latest is {{version}}",
+    "modePr": "A pull request per repository",
+    "modeCommit": "Straight onto the branch",
+    "runPr_one": "Open {{count}} pull request",
+    "runPr_other": "Open {{count}} pull requests",
+    "runCommit_one": "Commit in {{count}} repository",
+    "runCommit_other": "Commit in {{count}} repositories",
+    "message": "Bump {{name}} to {{version}}",
+    "prBody": "Updates the declared version (made with ZIT-Suite). Lockfiles are refreshed by the next install ({{manager}}) — CI on this PR shows whether everything still builds.",
+    "nothing": "already on it / not found",
+    "lockNote": "Manifests only — the lockfile updates on the next install.",
+    "noneEditable": "None of its manifests can be edited here (only package.json, Cargo.toml and requirements*.txt).",
+    "someSkipped_one": "{{count}} use left out: a local / workspace link or a manifest type we don't edit.",
+    "someSkipped_other": "{{count}} uses left out: local / workspace links or manifest types we don't edit.",
+    "finished_one": "Bumped in {{count}} repository",
+    "finished_other": "Bumped in {{count}} repositories"
+  }
+}

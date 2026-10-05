@@ -1,0 +1,113 @@
+{
+  "title": "Settings",
+  "kicker": "System / Preferences",
+  "meta": "Stored locally on this machine.",
+  "panel": {
+    "general": "General",
+    "modules": "Modules"
+  },
+  "sections": {
+    "appearance": {
+      "title": "Appearance",
+      "desc": "Theme and accent color of the workbench."
+    },
+    "language": {
+      "title": "Language",
+      "desc": "Interface language."
+    },
+    "accounts": {
+      "title": "Accounts",
+      "desc": "Connected GitHub accounts. Tokens live in your OS keychain."
+    },
+    "queue": {
+      "title": "Queue & safety",
+      "desc": "How bulk operations are confirmed and executed."
+    },
+    "notifications": {
+      "title": "Notifications",
+      "desc": "Desktop alerts for long-running work."
+    },
+    "modules": {
+      "title": "Modules",
+      "desc": "Turn workbench modules on or off."
+    },
+    "background": {
+      "title": "Background",
+      "desc": "Keep ZIT-Suite running in the tray, so schedules and automatic uploads work while the window is closed."
+    },
+    "about": {
+      "title": "About",
+      "desc": "ZIT-Suite — free and open source."
+    }
+  },
+  "appearance": {
+    "theme": "Theme",
+    "accent": "Accent color",
+    "accentHint": "Used for focus, selection and status highlights.",
+    "custom": "Custom color",
+    "accents": {
+      "signal": "Signal orange",
+      "blueprint": "Blueprint blue",
+      "circuit": "Circuit green",
+      "violet": "Violet",
+      "magenta": "Magenta",
+      "brass": "Brass"
+    }
+  },
+  "language": {
+    "contribute": "Languages are plain JSON files — add a folder under src/locales and module locales to ship a new one."
+  },
+  "accounts": {
+    "active": "Active",
+    "method": {
+      "pat": "Token",
+      "device": "Device"
+    },
+    "fineGrained": "Fine-grained token (scopes not reported)",
+    "missingScopes": "Missing scopes: {{scopes}}",
+    "scopesOk": "All required scopes granted",
+    "added": "added {{date}}",
+    "switch": "Switch",
+    "signOut": "Sign out"
+  },
+  "queue": {
+    "grace": "Grace period (seconds)",
+    "graceHint": "Countdown before a confirmed run starts. 0 runs immediately.",
+    "typeToConfirm": "Type to confirm deletes",
+    "typeToConfirmHint": "Require typing a confirmation word before deleting repositories."
+  },
+  "notifications": {
+    "desktop": "Desktop notifications",
+    "onFinish": "When the queue finishes",
+    "onFailure": "When operations fail"
+  },
+  "modules": {
+    "configure": "Configure",
+    "core": "Core",
+    "more": "More modules (issues, pull requests, actions, releases…) arrive as the suite grows."
+  },
+  "background": {
+    "closeToTray": "Keep running in the tray when the window is closed",
+    "closeToTrayHint": "The close button hides the window; quit from the tray icon's menu.",
+    "login": "Start ZIT-Suite when you log in",
+    "loginHint": "Schedules and Home's automation run from the moment you log in.",
+    "startHidden": "…straight into the tray",
+    "startHiddenHint": "When started at login, don't open the window — click the tray icon to open it."
+  },
+  "about": {
+    "tagline": "Build. Manage. Ship. — every GitHub repository in one desktop app.",
+    "author": "Author",
+    "license": "License",
+    "licenseHint": "GNU General Public License v3.0 — free to use, study, share and change.",
+    "builtWith": "Built with",
+    "source": "Source code",
+    "issues": "Report an issue",
+    "homepage": "Homepage",
+    "homepageHint": "Official downloads — the only place for prebuilt installers. Plus screenshots and every feature.",
+    "download": "Download",
+    "more": "More from the author",
+    "moreHint": "Other projects by TheHolyOneZ.",
+    "projects": "more projects",
+    "mods": "game mods"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "title": "Migration",
+  "kicker": "Ship",
+  "subtitle": "Viele Repositorys per Regeln umbenennen oder zu einem anderen Besitzer verschieben — hier geplant, über die Warteschlange geprüft und ausgeführt.",
+  "modes": {
+    "rename": "Umbenennen",
+    "transfer": "Übertragen"
+  },
+  "pick_one": "Repositorys · {{count}} gewählt",
+  "pick_other": "Repositorys · {{count}} gewählt",
+  "adminOnly": "Nur Repositorys, die du verwaltest, sind gelistet.",
+  "rules": {
+    "title": "Regeln",
+    "stripPrefix": "Präfix entfernen",
+    "stripSuffix": "Suffix entfernen",
+    "prefix": "Präfix anhängen",
+    "suffix": "Suffix anhängen",
+    "find": "Suchen",
+    "replace": "Ersetzen durch",
+    "regex": "Regulärer Ausdruck",
+    "case": "Schreibweise",
+    "order": "In dieser Reihenfolge: Präfix/Suffix entfernen → Suchen & Ersetzen → Schreibweise → Präfix/Suffix anhängen. Zeichen, die GitHub nicht erlaubt, werden zu „-“. Jeden neuen Namen kannst du unten von Hand ändern."
+  },
+  "case": {
+    "keep": "Behalten",
+    "lower": "klein",
+    "kebab": "kebab-case",
+    "snake": "snake_case"
+  },
+  "plan": {
+    "title_one": "Plan · {{count}} Repository",
+    "title_other": "Plan · {{count}} Repositorys",
+    "run_one": "{{count}} umbenennen…",
+    "run_other": "{{count}} umbenennen…",
+    "pickFirst": "Wähle links Repositorys.",
+    "resetEdits": "Handänderungen zurücksetzen"
+  },
+  "status": {
+    "ok": "bereit",
+    "same": "unverändert",
+    "invalid": "ungültig",
+    "duplicate": "doppelt",
+    "taken": "Name vergeben"
+  },
+  "transfer": {
+    "owner": "Neuer Besitzer",
+    "ownerHint": "ein Benutzer oder eine Organisation",
+    "badOwner": "Kein gültiger Benutzer-/Organisationsname",
+    "newName": "Neuer Name",
+    "newNameHint": "optional — leer lässt den Namen",
+    "newNameMany": "nur beim Verschieben eines Repositorys",
+    "badName": "Kein gültiger Repository-Name",
+    "run_one": "{{count}} an {{owner}} übertragen…",
+    "run_other": "{{count}} an {{owner}} übertragen…",
+    "runNoOwner_one": "{{count}} übertragen…",
+    "runNoOwner_other": "{{count}} übertragen…"
+  },
+  "notes": {
+    "title": "Gut zu wissen",
+    "renameRedirects": "GitHub leitet den alten Namen weiter — Weblinks, Git-Remotes und die API funktionieren weiter, bis der alte Name neu vergeben wird.",
+    "renamePages": "Eine GitHub-Pages-Seite zieht auf die neue URL um (die wird nicht weitergeleitet).",
+    "renameClones": "Home-Ordner folgen einem umbenannten Repository automatisch; andere Klone laufen über die Weiterleitung oder werden auf die neue URL umgestellt.",
+    "transferMoves": "Issues, Pull Requests, Wiki, Sterne und Beobachter ziehen mit um; Links und Git-Remotes leiten weiter.",
+    "transferUser": "An eine Person: sie bekommt eine E-Mail und muss annehmen (innerhalb eines Tages) — bis dahin ändert sich nichts.",
+    "transferOrg": "An eine Organisation: du brauchst dort das Recht, Repositorys anzulegen; es passiert sofort.",
+    "transferAccess": "Danach verwaltest du es evtl. nicht mehr — der Probelauf prüft Besitzer und Namen vorher, und du bestätigst per Eingabe."
+  }
+}

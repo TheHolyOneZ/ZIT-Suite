@@ -1,0 +1,89 @@
+{
+  "title": "Code-Audit",
+  "nav": "Audit",
+  "kicker": "Verwalten",
+  "subtitle": "Wähle ein Repository und sieh, woraus es besteht — Zeilen, Dateien, Verlauf, wie tree mit Zahlen.",
+  "pick": "Repository wählen…",
+  "analyze": "Analysieren",
+  "again": "Erneut analysieren",
+  "recent": "Zuletzt:",
+  "start": "Woraus besteht ein Repo?",
+  "startBody": "Wähle eines deiner Repositories und drücke Analysieren. Beim ersten Mal wird es einmal heruntergeladen (keine Dateien ausgecheckt); danach nur noch Neues geholt.",
+  "stage": {
+    "download": "Repository wird heruntergeladen…",
+    "files": "Zeilen in jeder Datei werden gezählt…",
+    "history": "Der ganze Verlauf wird gelesen…"
+  },
+  "workingHint": "Große Repositories brauchen beim ersten Mal etwa eine Minute.",
+  "measured": "gemessen",
+  "skipNoise": "Lock-Dateien & fremden Code weglassen",
+  "noiseHint": "Cargo.lock, package-lock.json, minifizierte Dateien, node_modules/vendor/dist…",
+  "exportTree": "Baum exportieren (.txt)",
+  "exportJson": "Struktur exportieren (.json)",
+  "exported": "Exportiert",
+  "stat": {
+    "code": "Codezeilen",
+    "files": "Dateien",
+    "size": "Größe",
+    "commits": "Commits",
+    "added": "Zeilen hinzugefügt",
+    "removed": "Zeilen entfernt",
+    "net": "Netto",
+    "people": "Personen",
+    "since": "seit {{date}}",
+    "churn": "{{pct}} % neu geschrieben",
+    "ofLines_one": "von {{count}} Zeile",
+    "ofLines_other": "von {{count}} Zeilen",
+    "binary_one": "{{count}} binär",
+    "binary_other": "{{count}} binär"
+  },
+  "capped": "Sehr großer Verlauf — hinzugefügte / entfernte Zeilen zählen die neuesten 50.000 Commits.",
+  "languages": "Sprachen (Codezeilen)",
+  "tree": "Dateien",
+  "sort": {
+    "lines": "Meiste Zeilen",
+    "size": "Größte",
+    "name": "Name"
+  },
+  "col": {
+    "name": "Name",
+    "size": "Größe",
+    "lines": "Zeilen",
+    "share": "Anteil Zeilen"
+  },
+  "people": "Mitwirkende",
+  "cacheHint": "Heruntergeladene Kopien für schnellere Wiederholungen. Zweimal klicken zum Löschen.",
+  "clearConfirm": "Nochmal klicken zum Löschen",
+  "cleared": "Heruntergeladene Kopien gelöscht",
+  "commitsN_one": "{{count}} Commit",
+  "commitsN_other": "{{count}} Commits",
+  "commitsSoFar_one": "{{count}} Commit gelesen",
+  "commitsSoFar_other": "{{count}} Commits gelesen",
+  "activity_one": "Aktivität · letzter {{count}} Monat",
+  "activity_other": "Aktivität · letzte {{count}} Monate",
+  "cache_one": "Cache {{size}} · {{count}} Repo",
+  "cache_other": "Cache {{size}} · {{count}} Repos",
+  "source": {
+    "github": "GitHub",
+    "local": "Home-Ordner"
+  },
+  "pickLocal": "Home-Arbeitsbereich wählen…",
+  "noWorkspaces": "Noch keine Home-Arbeitsbereiche",
+  "hot": {
+    "title": "Am häufigsten geänderte Dateien",
+    "hint": "von den meisten Commits berührt",
+    "gone": "Nicht mehr im Repository"
+  },
+  "compare": {
+    "title": "Seit einem früheren Audit",
+    "with": "verglichen mit",
+    "metric": {
+      "code": "Codezeilen",
+      "lines": "Alle Zeilen",
+      "files": "Dateien",
+      "size": "Größe",
+      "commits": "Commits",
+      "people": "Personen"
+    }
+  }
+}

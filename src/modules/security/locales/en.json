@@ -1,0 +1,293 @@
+{
+  "title": "Security",
+  "nav": "Security",
+  "kicker": "Manage",
+  "subtitle": "Vulnerable dependencies, code findings and leaked secrets across your repositories — and the switches that catch them.",
+  "meta": {
+    "repos_one": "{{count}} repo",
+    "repos_other": "{{count}} repos",
+    "open_one": "{{count}} open alert",
+    "open_other": "{{count}} open alerts",
+    "critical_one": "{{count}} critical",
+    "critical_other": "{{count}} critical",
+    "overdue_one": "{{count}} overdue",
+    "overdue_other": "{{count}} overdue",
+    "gaps_one": "{{count}} repo below baseline",
+    "gaps_other": "{{count}} repos below baseline",
+    "scanned": "scanned {{when}}"
+  },
+  "scope": {
+    "button_one": "{{count}} repo",
+    "button_other": "{{count}} repos",
+    "title": "What gets scanned",
+    "hint": "Repositories you administer. Alerts and switches need admin rights.",
+    "archived": "Include archived",
+    "forks": "Include forks",
+    "sla": "Fix within",
+    "baseline": "Baseline",
+    "baselineHint": "What every repo should have switched on (where GitHub offers it). Missing switches lower the grade."
+  },
+  "sla": {
+    "strict": "Strict",
+    "standard": "Standard",
+    "relaxed": "Relaxed",
+    "strictHint": "Critical 3 d · high 14 d · medium 45 d · low 90 d",
+    "standardHint": "Critical 7 d · high 30 d · medium 90 d · low 180 d",
+    "relaxedHint": "Critical 30 d · high 90 d · medium 180 d · low 365 d"
+  },
+  "rescan": "Rescan",
+  "export": "Export",
+  "exported": "Alerts exported",
+  "switchFeatures": "Switch features",
+  "applyBaseline_one": "Apply baseline ({{count}} repo)",
+  "applyBaseline_other": "Apply baseline ({{count}} repos)",
+  "baselineMet": "Every repo meets the baseline",
+  "searchPlaceholder": "Search package, advisory, rule, repo…",
+  "facets": {
+    "severity": "Severity"
+  },
+  "atLeast": "{{severity}} or worse",
+  "flagged": {
+    "alerts": "Only overdue",
+    "repos": "Only needing attention"
+  },
+  "kind": {
+    "all": "All",
+    "dependency": "Dependencies",
+    "code": "Code",
+    "secret": "Secrets"
+  },
+  "views": {
+    "alerts": "Alerts",
+    "repos": "Repositories",
+    "fixes": "Fix plan"
+  },
+  "severity": {
+    "critical": "Critical",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low",
+    "unknown": "Unrated"
+  },
+  "scanning": "Scanning",
+  "noTargets": "No repositories you administer in this scope",
+  "empty": {
+    "noAlerts": "No open alerts",
+    "noAlertsGaps_one": "But {{count}} repo is missing switches that would catch problems.",
+    "noAlertsGaps_other": "But {{count}} repos are missing switches that would catch problems.",
+    "noAlertsBody": "Nothing open in any scanned repository.",
+    "seeRepos": "Show repositories",
+    "filtered": "Nothing matches these filters",
+    "repos": "No repositories"
+  },
+  "repos_one": "{{count}} repo",
+  "repos_other": "{{count}} repos",
+  "since": "since {{when}}",
+  "overdue": "Open longer than your fix-within time",
+  "overdueCount_one": "{{count}} overdue",
+  "overdueCount_other": "{{count}} overdue",
+  "columns": {
+    "grade": "Grade",
+    "repo": "Repository",
+    "open": "Open alerts"
+  },
+  "feature": {
+    "dependabot_alerts": {
+      "name": "Dependabot alerts",
+      "short": "DA",
+      "what": "Warns when a dependency has a known vulnerability."
+    },
+    "security_updates": {
+      "name": "Dependabot security updates",
+      "short": "SU",
+      "what": "Opens pull requests that bump vulnerable dependencies."
+    },
+    "secret_scanning": {
+      "name": "Secret scanning",
+      "short": "SS",
+      "what": "Finds tokens and keys committed to the repository."
+    },
+    "push_protection": {
+      "name": "Push protection",
+      "short": "PP",
+      "what": "Blocks pushes that contain a secret before it leaks."
+    },
+    "private_reporting": {
+      "name": "Private vulnerability reporting",
+      "short": "PR",
+      "what": "Lets people report vulnerabilities to you privately."
+    },
+    "code_scanning": {
+      "name": "Code scanning (CodeQL)",
+      "short": "CS",
+      "what": "Analyses your code for security bugs on every push."
+    }
+  },
+  "scanFailed": "couldn't scan",
+  "state": {
+    "on": "On",
+    "off": "Off",
+    "gap": "Off — part of your baseline",
+    "unavailable": "Not available"
+  },
+  "noOpen": "none open",
+  "group": {
+    "gone": "Nothing open here anymore",
+    "fixedIn": "fixed in {{version}}",
+    "noFix": "no fixed version yet",
+    "secretAdvice": "Treat this credential as compromised: revoke or rotate it where it was issued first, then resolve the alert as revoked. Removing it from the code doesn't remove it from history.",
+    "depAdvice": "Update {{pkg}} to {{version}} or later in each repo below (or turn on security updates and let Dependabot open the pull requests).",
+    "depAdviceNoFix": "There is no fixed version yet. Check the advisory for workarounds, or dismiss with a reason if you're not affected.",
+    "resolveAll_one": "Resolve",
+    "resolveAll_other": "Resolve all {{count}}",
+    "dismissAll_one": "Dismiss",
+    "dismissAll_other": "Dismiss all {{count}}",
+    "advisory": "Advisory",
+    "where": "Where it's open",
+    "details": "Details",
+    "depAdviceBot": "Security updates are on here, so Dependabot opens the pull request that upgrades {{pkg}} — review and merge it."
+  },
+  "validity": {
+    "active": "still works",
+    "inactive": "no longer works",
+    "unknown": "validity unknown"
+  },
+  "bypassed": "push protection bypassed",
+  "openOnGitHub": "Open on GitHub",
+  "resolve": "Resolve",
+  "dismiss": "Dismiss",
+  "reopen": "Reopen",
+  "repo": {
+    "kicker": "Repository security",
+    "scoreHint": "Score {{score}} · {{open}} open · {{gaps}} baseline gaps",
+    "applyBaseline_one": "Turn on {{count}} missing",
+    "applyBaseline_other": "Turn on {{count}} missing",
+    "features": "Switches",
+    "featuresHint": "Changes go through the queue with a dry run",
+    "alerts": "Alerts",
+    "showClosed": "Show closed",
+    "partial": "Couldn't read: {{kinds}}",
+    "noneAtAll": "No alerts at all",
+    "noneOpen": "No open alerts"
+  },
+  "baselineTag": "baseline",
+  "why": {
+    "archived": "Archived repositories are read-only.",
+    "publicOnly": "Only available for public repositories.",
+    "needsGhas": "Private repositories need GitHub Advanced Security for this.",
+    "notReadable": "GitHub didn't report this setting (missing rights or not offered)."
+  },
+  "turnOn": "Turn on",
+  "turnOff": "Turn off",
+  "stateLabel": {
+    "dismissed": "dismissed",
+    "fixed": "fixed",
+    "auto_dismissed": "auto-dismissed",
+    "resolved": "resolved"
+  },
+  "dismissDialog": {
+    "title_one": "Dismiss {{count}} alert",
+    "title_other": "Dismiss {{count}} alerts",
+    "resolveTitle_one": "Resolve {{count}} alert",
+    "resolveTitle_other": "Resolve {{count}} alerts",
+    "reason": "Why",
+    "comment": "Comment",
+    "commentHint": "optional, shown on GitHub",
+    "secretWarn": "Only use this if the secret really isn't a risk — a leaked credential should be revoked."
+  },
+  "reasons": {
+    "fix_started": {
+      "label": "A fix has already been started",
+      "hint": "You're on it — e.g. an update is in progress."
+    },
+    "inaccurate": {
+      "label": "This alert is inaccurate",
+      "hint": "The advisory doesn't apply to how the package is used here."
+    },
+    "no_bandwidth": {
+      "label": "No bandwidth to fix this",
+      "hint": "Known risk, postponed."
+    },
+    "not_used": {
+      "label": "Vulnerable code is not used",
+      "hint": "The affected part of the package isn't reachable."
+    },
+    "tolerable_risk": {
+      "label": "Risk is tolerable",
+      "hint": "The impact is acceptable for this project."
+    },
+    "false_positive": {
+      "label": "False positive",
+      "hint": "Not actually a problem / not a real secret."
+    },
+    "won_t_fix": {
+      "label": "Won't fix",
+      "hint": "Accepted as is."
+    },
+    "wont_fix": {
+      "label": "Won't fix",
+      "hint": "Accepted as is."
+    },
+    "used_in_tests": {
+      "label": "Used in tests",
+      "hint": "Only test code or test data."
+    },
+    "revoked": {
+      "label": "Revoked",
+      "hint": "The credential has been revoked or rotated."
+    }
+  },
+  "featuresDialog": {
+    "title": "Switch a feature on many repositories",
+    "submit": "Review changes",
+    "feature": "Feature",
+    "switch": "Switch",
+    "targets": "Repositories",
+    "note": "The dry run checks each repo first: unchanged ones are skipped, ones where GitHub doesn't offer the feature are marked blocked."
+  },
+  "fix": {
+    "kicker": "Fix plan",
+    "upgradeTo": "upgrade to {{version}}",
+    "noTarget": "no fixed version yet",
+    "someUnfixable_one": "{{count}} without fix",
+    "someUnfixable_other": "{{count}} without fix",
+    "someUnfixableLong_one": "{{count}} alert has no fixed version yet — the upgrade won't clear it.",
+    "someUnfixableLong_other": "{{count}} alerts have no fixed version yet — the upgrade won't clear them.",
+    "alerts_one": "{{count}} alert",
+    "alerts_other": "{{count}} alerts",
+    "headline_one": "Upgrade to {{version}} or later — clears {{count}} alert",
+    "headline_other": "Upgrade to {{version}} or later — clears {{count}} alerts",
+    "updatesOff_one": "Security updates are off in {{count}} of these repos.",
+    "updatesOff_other": "Security updates are off in {{count}} of these repos.",
+    "turnOnUpdates": "Let Dependabot open the pull requests",
+    "where": "Where to upgrade",
+    "botOn": "Dependabot opens the pull request",
+    "botOff": "security updates off — upgrade by hand",
+    "prs": "Dependabot pull requests",
+    "covers_one": "Covers {{count}} advisory",
+    "covers_other": "Covers {{count}} advisories",
+    "none": "Nothing to upgrade",
+    "noneBody": "No open dependency alerts."
+  },
+  "dependabot": {
+    "open": "Dependabot updates…",
+    "title": "Set up Dependabot version updates",
+    "interval": "Check for new versions",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "group": "One pull request per ecosystem (grouped updates)",
+    "detects": "Each repository gets a config for what it contains: npm, Cargo, pip, Go, Maven, Gradle, Composer, Bundler, Docker, NuGet — every folder — plus GitHub Actions.",
+    "note": "Opens one pull request per repository with .github/dependabot.yml.",
+    "repos_one": "Repositories · {{count}} picked",
+    "repos_other": "Repositories · {{count}} picked",
+    "run_one": "Open {{count}} pull request",
+    "run_other": "Open {{count}} pull requests",
+    "exists": "already has a dependabot.yml",
+    "nothing": "no manifests found",
+    "message": "Add Dependabot version updates",
+    "prBody": "Dependabot keeps these up to date: {{list}} (made with ZIT-Suite).",
+    "finished_one": "Dependabot set up in {{count}} repository",
+    "finished_other": "Dependabot set up in {{count}} repositories"
+  }
+}

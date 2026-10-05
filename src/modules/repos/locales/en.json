@@ -1,0 +1,250 @@
+{
+  "title": "Repositories",
+  "kicker": "Manage / Repositories",
+  "meta": {
+    "count": "{{shown}} of {{total}}",
+    "synced": "synced {{when}}"
+  },
+  "actions": {
+    "cleanup": "Cleanup",
+    "refresh": "Refresh",
+    "archive": "Archive",
+    "unarchive": "Unarchive",
+    "makePrivate": "Make private",
+    "makePublic": "Make public",
+    "delete": "Delete",
+    "tag": "Tag",
+    "export": "Export…"
+  },
+  "view": {
+    "table": "Table view",
+    "grid": "Grid view"
+  },
+  "states": {
+    "loading": "Fetching repositories",
+    "noMatch": "No repositories match these filters",
+    "empty": "No repositories in this context"
+  },
+  "panel": {
+    "title": "Filters",
+    "reset_one": "Reset {{count}}",
+    "reset_other": "Reset {{count}}",
+    "resetAll": "Reset filters",
+    "search": "Search name, topic, tag…",
+    "health": "Health",
+    "visibility": "Visibility",
+    "type": "Type",
+    "languages": "Languages",
+    "ranges": "Ranges",
+    "views": "Saved views",
+    "tags": "Tags"
+  },
+  "health": {
+    "active": "Active",
+    "dormant": "Dormant",
+    "dead": "Dead",
+    "empty": "Empty",
+    "archived": "Archived"
+  },
+  "visibility": {
+    "all": "All",
+    "public": "Public",
+    "private": "Private"
+  },
+  "filters": {
+    "forks": "Forks",
+    "templates": "Templates",
+    "hasIssues": "Has open issues",
+    "noLanguage": "No language",
+    "stars": "Stars",
+    "sizeMb": "Size (MB)",
+    "created": "Created between",
+    "min": "min",
+    "max": "max"
+  },
+  "tri": {
+    "any": "Any",
+    "only": "Only",
+    "exclude": "Hide"
+  },
+  "presets": {
+    "save": "Save current filters",
+    "name": "View name…",
+    "empty": "Save filter combinations to reuse them.",
+    "delete": "Delete view"
+  },
+  "tags": {
+    "new": "New tag",
+    "name": "Tag name…",
+    "removeHint": "Right-click to delete this tag",
+    "clearFilter": "Clear tag filter",
+    "builtin": {
+      "keep": "keep",
+      "delete": "delete",
+      "review": "review"
+    }
+  },
+  "columns": {
+    "name": "Name",
+    "language": "Language",
+    "issues": "Issues",
+    "size": "Size",
+    "updated": "Pushed",
+    "health": "Health",
+    "tags": "Tags"
+  },
+  "badges": {
+    "fork": "Fork",
+    "template": "Template",
+    "noAdmin": "Read only"
+  },
+  "detail": {
+    "noDescription": "No description",
+    "openGithub": "Open on GitHub",
+    "cloneCopied": "Clone URL copied",
+    "copyClone": "Copy clone URL",
+    "stars": "Stars",
+    "forks": "Forks",
+    "watchers": "Watchers",
+    "issues": "Open issues",
+    "size": "Size",
+    "branch": "Default branch",
+    "health": "Health",
+    "lastPush": "Last push {{when}}",
+    "languages": "Languages",
+    "topics": "Topics",
+    "created": "Created",
+    "updated": "Updated",
+    "pushed": "Pushed",
+    "license": "License",
+    "gone": "This repository is no longer in the list",
+    "jumpTo": "In this repository",
+    "jumpIssues": "Issues",
+    "jumpLabels": "Labels",
+    "jumpMilestones": "Milestones",
+    "operations": "Operations",
+    "operationsHint": "Runs through the queue with a dry run first.",
+    "jumpAccess": "Access",
+    "jumpHooks": "Webhooks",
+    "jumpSecrets": "Secrets & variables",
+    "jumpSecurity": "Security",
+    "jumpFiles": "Files & editor",
+    "jumpActions": "Workflows & runs",
+    "jumpBranches": "Branches",
+    "jumpReleases": "Releases"
+  },
+  "selection": {
+    "selected": "selected",
+    "more": "More actions",
+    "clear": "Clear selection"
+  },
+  "cleanup": {
+    "kicker": "Cleanup presets",
+    "title": "Tidy up your portfolio",
+    "review_one": "Review {{count}} repository",
+    "review_other": "Review {{count}} repositories",
+    "candidates_one": "{{count}} candidate",
+    "candidates_other": "{{count}} candidates",
+    "action": "Action",
+    "none": "Nothing to clean up — nice.",
+    "presets": {
+      "spring": {
+        "name": "Spring clean",
+        "desc": "Dead and empty repositories you own."
+      },
+      "portfolio": {
+        "name": "Portfolio mode",
+        "desc": "Public, inactive, unstarred repos — hide them."
+      },
+      "minimal": {
+        "name": "Minimal mode",
+        "desc": "The 20 lowest-health repositories."
+      }
+    },
+    "picked": "{{count}} picked"
+  },
+  "export": {
+    "kicker": "Export",
+    "title_one": "Export {{count}} repository",
+    "title_other": "Export {{count}} repositories",
+    "done_one": "{{count}} file written",
+    "done_other": "{{count}} files written",
+    "start": "Export",
+    "include": "Include",
+    "folder": "Destination",
+    "pickFolder": "Choose a folder…",
+    "browse": "Browse",
+    "kinds": {
+      "readme": "README",
+      "metadata": "Metadata (JSON)",
+      "release_info": "Latest release info",
+      "release_assets": "Latest release assets"
+    }
+  },
+  "settings": {
+    "activeDays": "Active threshold (days)",
+    "activeDaysHint": "Pushed within this many days counts as active.",
+    "dormantDays": "Dormant threshold (days)",
+    "dormantDaysHint": "Older than this counts as dead."
+  },
+  "commands": {
+    "search": "Search repositories",
+    "resetFilters": "Reset repository filters"
+  },
+  "shortcuts": {
+    "move": "Move cursor",
+    "select": "Toggle selection",
+    "open": "Open details",
+    "selectAll": "Select all visible",
+    "archive": "Archive (selection or cursor)",
+    "delete": "Delete (selection or cursor)",
+    "refresh": "Refresh",
+    "search": "Focus search",
+    "escape": "Clear selection / fold sheet"
+  },
+  "views": {
+    "all": "All repositories"
+  },
+  "create": {
+    "open": "New repository",
+    "title": "New repository",
+    "button": "Create repository",
+    "owner": "Owner",
+    "name": "Name",
+    "badName": "Letters, digits, - _ . only",
+    "taken": "You already have a repository with this name",
+    "becomes": "Will be created as {{name}}",
+    "description": "Description",
+    "descriptionPlaceholder": "What is it for? (optional)",
+    "visibility": "Visibility",
+    "private": "Private",
+    "public": "Public",
+    "publicNote": "Everyone can see public repositories.",
+    "start": "Start with",
+    "empty": "Empty",
+    "fromTemplate_one": "A template ({{count}})",
+    "fromTemplate_other": "A template ({{count}})",
+    "readme": "Add a README",
+    "license": "License",
+    "none": "None",
+    "pickTemplate": "Pick a template repository…",
+    "allBranches": "Copy all branches, not only the default one",
+    "noTemplates": "None of your repositories is marked as a template (repository settings → Template repository).",
+    "done": "Created {{name}}"
+  },
+  "bulkMeta": {
+    "kicker_one": "{{count}} repository",
+    "kicker_other": "{{count}} repositories",
+    "descriptionTitle": "Set the description",
+    "topicsTitle": "Add / remove topics",
+    "descriptionHint": "replaces the current one — empty clears it",
+    "topicsHint": "separated by commas; cleaned up like GitHub does",
+    "add": "Add",
+    "remove": "Remove",
+    "review_one": "Review for {{count}} repository…",
+    "review_other": "Review for {{count}} repositories…",
+    "descriptionMenu": "Description…",
+    "topicsMenu": "Topics…",
+    "cloneMenu": "Clone to this computer…"
+  }
+}

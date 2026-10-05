@@ -1,0 +1,80 @@
+{
+  "title": "Stars",
+  "nav": "Stars",
+  "kicker": "Manage",
+  "subtitle": "Every repository you starred — find, sort into lists, clean up.",
+  "refresh": "Refresh",
+  "export": "Export",
+  "exportMd": "Markdown list (by language)",
+  "exportCsv": "CSV",
+  "exportTitle": "My GitHub stars",
+  "starRepo": "Star a repo",
+  "star": "Star",
+  "unstar": "Unstar",
+  "repo": "Repository",
+  "repoHint": "owner/name or a GitHub link",
+  "badRepo": "Use owner/name or a github.com link",
+  "searchPlaceholder": "Search name, description, topic…",
+  "meta": {
+    "count_one": "{{count}} star",
+    "count_other": "{{count}} stars",
+    "languages_one": "{{count}} language",
+    "languages_other": "{{count}} languages",
+    "archived_one": "{{count}} archived",
+    "archived_other": "{{count}} archived",
+    "stale_one": "{{count}} stale",
+    "stale_other": "{{count}} stale"
+  },
+  "facets": {
+    "language": "Language",
+    "list": "List",
+    "flag": "Only"
+  },
+  "flags": {
+    "archived": "archived",
+    "stale": "no push in 2 years",
+    "fork": "forks"
+  },
+  "sort": {
+    "starred": "Recently starred",
+    "stars": "Most stars",
+    "pushed": "Recently pushed",
+    "name": "Name"
+  },
+  "empty": {
+    "filtered": "Nothing matches",
+    "none": "No stars yet"
+  },
+  "pushed": "Last push",
+  "starredAt": "Starred",
+  "open": "Open on GitHub",
+  "lists": {
+    "button": "Lists",
+    "manage": "Your star lists",
+    "none": "No lists yet",
+    "newPlaceholder": "New list name",
+    "create": "Create",
+    "created": "List created",
+    "delete": "Delete list",
+    "confirmDelete": "Click again to delete the list",
+    "addTo": "Add to {{name}}",
+    "removeFrom": "Remove from {{name}}",
+    "title_one": "Lists {{count}}",
+    "title_other": "Lists {{count}}",
+    "private": "Private list (only you see it)"
+  },
+  "selected_one": "{{count}} selected",
+  "selected_other": "{{count}} selected",
+  "unstarred_one": "Removed {{count}} star",
+  "unstarred_other": "Removed {{count}} stars",
+  "confirmUnstar_one": "Click again — unstar {{count}}",
+  "confirmUnstar_other": "Click again — unstar {{count}}",
+  "exported_one": "Exported {{count}} repo",
+  "exported_other": "Exported {{count}} repos",
+  "addedToList_one": "Added {{count}} repo",
+  "addedToList_other": "Added {{count}} repos",
+  "removedFromList_one": "Removed {{count}} repo",
+  "removedFromList_other": "Removed {{count}} repos",
+  "starredRepo": "Starred {{repo}}",
+  "starFailed": "Couldn't star {{repo}} — check the name"
+}

@@ -1,0 +1,145 @@
+{
+  "title": "Scheduler",
+  "kicker": "Ship",
+  "subtitle": "Queue actions that run on their own — on a saved view, a cleanup preset, a tag or a list of repositories.",
+  "new": "New schedule",
+  "saved": "Saved “{{name}}”",
+  "next": "next",
+  "paused": "paused",
+  "runNow": "Run now",
+  "editLabel": "Edit",
+  "delete": "Delete",
+  "confirmDelete": "Click again to delete",
+  "otherAccount": "other account — runs when it's active",
+  "howItRuns": "Schedules run while ZIT-Suite is open. Runs missed while it was closed happen once at the next start (not once per missed slot). Each run checks first (dry run) and only touches repos where something would change.",
+  "empty": {
+    "title": "No schedules yet",
+    "body": "For example: every Monday, archive dead repositories — asking you first. Or every night, switch on Dependabot alerts wherever they're off."
+  },
+  "reviews": {
+    "title_one": "{{count}} run waits for you",
+    "title_other": "{{count}} runs wait for you",
+    "found_one": "{{count}} repository would change",
+    "found_other": "{{count}} repositories would change",
+    "open": "Review…",
+    "dismiss": "Dismiss"
+  },
+  "edit": {
+    "new": "New schedule",
+    "title": "Edit “{{name}}”",
+    "save": "Save schedule",
+    "name": "Name",
+    "namePlaceholder": "Archive dead repos",
+    "what": "What to do",
+    "which": "On which repositories",
+    "when": "When",
+    "then": "Then",
+    "on": "on",
+    "off": "off",
+    "labelName": "Label name",
+    "protectNote": "Protects each repo's default branch: pull requests required, new commits dismiss approvals.",
+    "everyN": "Every",
+    "hours": "hours",
+    "onDay": "on day",
+    "at": "at",
+    "catchUp": "Missed while the app was closed? It runs once at the next start.",
+    "bump": {
+      "patch": "Patch",
+      "minor": "Minor",
+      "major": "Major",
+      "date": "Date"
+    },
+    "releaseDraft": "As draft",
+    "releasePre": "Pre-release",
+    "releaseNote": "Tags the default branch with the next version after the latest release and lets GitHub write the notes. Repos with no new commits are skipped."
+  },
+  "action": {
+    "archive": "Archive",
+    "unarchive": "Unarchive",
+    "set_private": "Make private",
+    "set_public": "Make public",
+    "delete": "Delete (always asks first)",
+    "security_feature": "Switch a security feature",
+    "label_upsert": "Add / update a label",
+    "branch_protect": "Protect the default branch",
+    "release_next": "Release the next version"
+  },
+  "every": {
+    "hours": "Hours",
+    "day": "Daily",
+    "week": "Weekly",
+    "month": "Monthly"
+  },
+  "weekday": {
+    "0": "Monday",
+    "1": "Tuesday",
+    "2": "Wednesday",
+    "3": "Thursday",
+    "4": "Friday",
+    "5": "Saturday",
+    "6": "Sunday"
+  },
+  "cadence": {
+    "everyHours_one": "every hour",
+    "everyHours_other": "every {{count}} hours",
+    "everyDay": "daily at {{at}}",
+    "everyWeek": "every {{day}} at {{at}}",
+    "everyMonth": "monthly on day {{day}} at {{at}}"
+  },
+  "mode": {
+    "review": "Ask me first",
+    "auto": "Run automatically",
+    "reviewNote": "Finds the repos and checks them, then notifies you — nothing changes until you confirm in the queue.",
+    "autoNote": "Ready items go straight into the queue (with the grace period, so you can still stop them). You get a notification.",
+    "deleteAlwaysAsks": "Deleting never runs on its own — it always waits for you."
+  },
+  "target": {
+    "cleanup": "Cleanup preset",
+    "view": "Saved view",
+    "tag": "Tag",
+    "repos": "Pick repos",
+    "noViews": "No saved views yet — save a filter as a view in Repositories first.",
+    "pick": "Repositories",
+    "now_one": "Matches {{count}} repository now",
+    "now_other": "Matches {{count}} repositories now",
+    "more": "…and {{count}} more",
+    "none": "None right now",
+    "resolvedEachRun": "Worked out again at every run — repos that start matching later are included."
+  },
+  "targetText": {
+    "view": "view “{{name}}”",
+    "tag": "tagged “{{tag}}”",
+    "repos_one": "{{count}} repository",
+    "repos_other": "{{count}} repositories"
+  },
+  "ran": {
+    "title": "Scheduled: {{name}}",
+    "queued_one": "“{{name}}” queued {{count}} change",
+    "queued_other": "“{{name}}” queued {{count}} changes",
+    "review_one": "“{{name}}” found {{count}} repository to change",
+    "review_other": "“{{name}}” found {{count}} repositories to change",
+    "reviewBody": "Open the Scheduler to review it."
+  },
+  "history": {
+    "none": "Hasn't run yet.",
+    "counts": "{{matched}} matched · {{ready}} ready · {{noop}} unchanged · {{blocked}} blocked"
+  },
+  "trigger": {
+    "catch_up": "caught up",
+    "manual": "by hand",
+    "schedule": "on time"
+  },
+  "outcome": {
+    "queued_one": "queued {{count}}",
+    "queued_other": "queued {{count}}",
+    "review_one": "waited for review ({{count}})",
+    "review_other": "waited for review ({{count}})",
+    "nothing": "nothing to do",
+    "skipped": "skipped",
+    "failed": "failed"
+  },
+  "note": {
+    "other_account": "another account was active",
+    "no_repos": "repository list didn't load"
+  }
+}

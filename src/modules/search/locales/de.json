@@ -1,0 +1,63 @@
+{
+  "title": "Suche",
+  "nav": "Suche",
+  "kicker": "Verwalten",
+  "subtitle": "Ganz GitHub — Repositories, Code, Issues & Pull Requests, Commits, Personen. Enter drücken zum Suchen.",
+  "placeholder": {
+    "repos": "z. B. markdown editor language:rust",
+    "code": "z. B. useEffect path:src/",
+    "issues": "z. B. absturz beim start is:open",
+    "commits": "z. B. fix login",
+    "users": "z. B. ein Name oder Login"
+  },
+  "go": "Suchen",
+  "mine": "Nur meine (@{{login}})",
+  "hints": "Hinzufügen:",
+  "kind": {
+    "repos": "Repos",
+    "code": "Code",
+    "issues": "Issues & PRs",
+    "commits": "Commits",
+    "users": "Personen"
+  },
+  "sort": {
+    "best-match": "Beste Treffer",
+    "stars": "Meiste Sterne",
+    "forks": "Meiste Forks",
+    "updated": "Zuletzt aktualisiert",
+    "created": "Neueste",
+    "comments": "Meiste Kommentare",
+    "reactions": "Meiste Reaktionen",
+    "author-date": "Neueste (Autor)",
+    "committer-date": "Neueste (Committer)",
+    "followers": "Meiste Follower",
+    "repositories": "Meiste Repos",
+    "joined": "Zuletzt beigetreten"
+  },
+  "state": {
+    "open": "offen",
+    "closed": "geschlossen",
+    "merged": "gemergt"
+  },
+  "pr": "PR",
+  "issue": "Issue",
+  "more": "Mehr laden",
+  "incomplete": "GitHub hat früh abgebrochen — Ergebnisse evtl. unvollständig",
+  "cap": "GitHub zeigt höchstens 1.000",
+  "noResults": "Nichts gefunden",
+  "noResultsBody": "Versuch es mit weniger Wörtern oder ohne Filter.",
+  "rateHint": "GitHub erlaubt 30 Suchen pro Minute (10 für Code). Kurz warten und nochmal versuchen.",
+  "start": "Ganz GitHub durchsuchen",
+  "startBody": "Oben wählen, wonach du suchst, tippen, Enter drücken. Die Chips fügen Filter für dich hinzu.",
+  "recent": "Letzte Suchen",
+  "clearRecent": "Leeren",
+  "total_one": "{{count}} Treffer · {{shown}} angezeigt",
+  "total_other": "{{count}} Treffer · {{shown}} angezeigt",
+  "groupByRepo": "Nach Repository gruppieren",
+  "filesCount_one": "{{count}} Datei",
+  "filesCount_other": "{{count}} Dateien",
+  "save": "Suche speichern",
+  "saved": "Gespeichert",
+  "unsave": "Entfernen",
+  "savedTitle": "Gespeicherte Suchen"
+}

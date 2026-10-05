@@ -1,0 +1,44 @@
+{
+  "title": "GitHub verbinden",
+  "back": "Zurück",
+  "sheet": "Blatt 01 — Zugang",
+  "addKicker": "Weiteres Konto hinzufügen",
+  "kicker": "Anmelden",
+  "subtitle": "Verbinde ein GitHub-Konto, um deine Repositories zu verwalten. Weitere Konten kannst du später hinzufügen.",
+  "methods": {
+    "token": "Zugriffstoken",
+    "device": "Geräte-Login"
+  },
+  "keychainNote": "Tokens werden im Schlüsselbund deines Betriebssystems gespeichert — niemals in Klartextdateien.",
+  "token": {
+    "create": "Token erstellen",
+    "label": "Persönliches Zugriffstoken",
+    "toggle": "Token ein-/ausblenden",
+    "scopes": "Empfohlene Scopes",
+    "verifying": "Wird geprüft…",
+    "submit": "Verbinden"
+  },
+  "device": {
+    "enterCode": "Gib diesen Code auf GitHub ein",
+    "copied": "Kopiert",
+    "copy": "Code kopieren",
+    "open": "GitHub öffnen",
+    "waiting": "Warte auf Autorisierung…",
+    "cancel": "Abbrechen",
+    "clientId": "OAuth-App-Client-ID",
+    "clientIdHint": "Aus deiner GitHub-OAuth-App",
+    "explain": "Du erhältst einen Einmal-Code zur Bestätigung im Browser. Kein Token zum Kopieren nötig.",
+    "start": "Geräte-Login starten"
+  },
+  "pillars": {
+    "build": "Build",
+    "manage": "Manage",
+    "ship": "Ship"
+  },
+  "tagline": "Eine Werkbank für all deine Repositories — prüfen, aufräumen und gebündelt ausliefern, sicher.",
+  "titleBlock": {
+    "drawing": "Zeichnung",
+    "sheet": "Blatt",
+    "scale": "Maßstab"
+  }
+}

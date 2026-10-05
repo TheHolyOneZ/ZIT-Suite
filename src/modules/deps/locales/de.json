@@ -1,0 +1,165 @@
+{
+  "title": "Abhängigkeiten",
+  "nav": "Deps",
+  "kicker": "Build",
+  "subtitle": "Jedes Paket, von dem deine Repositorys abhängen — wo, in welcher Version und wie weit hinter dem neuesten Release.",
+  "scope": {
+    "days_one": "Am letzten Tag gepusht",
+    "days_other": "In den letzten {{count}} Tagen gepusht",
+    "all": "Alle Repositorys",
+    "forks": "Forks einbeziehen"
+  },
+  "rescan": "Erneut scannen",
+  "start": {
+    "title": "Abhängigkeiten deiner Repositorys scannen",
+    "body": "Liest package.json, Cargo.toml, pyproject.toml / requirements*.txt, go.mod und pom.xml überall im Repository (auch Monorepos; node_modules-, vendor- und Build-Ordner werden übersprungen). Eine Anfrage pro Repository plus eine pro Manifest — wiederholte Scans kosten fast nichts.",
+    "button_one": "{{count}} Repository scannen",
+    "button_other": "{{count}} Repositorys scannen"
+  },
+  "scanning": "Manifeste werden gelesen · {{done}} / {{total}}",
+  "kpi": {
+    "repos": "Mit Manifesten",
+    "ofScanned_one": "von {{count}} gescannt",
+    "ofScanned_other": "von {{count}} gescannt",
+    "packages": "Pakete",
+    "major": "Major zurück",
+    "minor": "Minor zurück",
+    "patch": "Patch zurück",
+    "conflicts": "Versionskonflikte"
+  },
+  "latest": {
+    "check": "Neueste Versionen prüfen",
+    "again": "Erneut prüfen",
+    "privacy": "Fragt npm, crates.io, PyPI, den Go-Proxy und Maven Central nach den neuesten Releases — es werden nur Paketnamen gesendet, nie dein Token oder Code.",
+    "hint": "Prüfe die neuesten Versionen, um Veraltetes zu sehen.",
+    "needed": "Neueste Versionen noch nicht geprüft",
+    "progress": "Registries werden gefragt · {{done}} / {{total}}",
+    "error": {
+      "notFound": "Nicht in der öffentlichen Registry (privat oder umbenannt)",
+      "failed": "Registry hat nicht geantwortet"
+    }
+  },
+  "views": {
+    "packages": "Pakete",
+    "outdated": "Veraltet",
+    "conflicts": "Konflikte",
+    "repos": "Repositorys"
+  },
+  "eco": {
+    "all": "Alle",
+    "npm": "npm",
+    "cargo": "Cargo",
+    "pypi": "PyPI",
+    "go": "Go",
+    "maven": "Maven"
+  },
+  "find": "Paket oder Repository suchen…",
+  "dev": "Dev-Abhängigkeiten",
+  "col": {
+    "package": "Paket",
+    "repos": "Repos",
+    "declared": "Angegeben",
+    "latest": "Neueste"
+  },
+  "none": "Nichts hier.",
+  "more_one": "{{count}} weiteres zeigen",
+  "more_other": "{{count}} weitere zeigen",
+  "conflictHint": "In verschiedenen Versionen angegeben: {{list}}",
+  "registryPage": "Auf {{registry}} öffnen",
+  "openManifest": "Manifest in Dateien & Editor öffnen",
+  "openOnGitHub": "Auf GitHub öffnen",
+  "kind": {
+    "normal": "Laufzeit",
+    "dev": "Dev",
+    "build": "Build",
+    "peer": "Peer",
+    "optional": "optional",
+    "indirect": "indirekt",
+    "workspace": "Workspace"
+  },
+  "fresh": {
+    "current": {
+      "name": "Aktuell",
+      "what": "gibt das neueste Release an"
+    },
+    "allowed": {
+      "name": "Im Bereich",
+      "what": "es gibt ein neueres Release, und der angegebene Bereich akzeptiert es bereits"
+    },
+    "patch": {
+      "name": "Patch zurück",
+      "what": "Bugfix-Releases fehlen"
+    },
+    "minor": {
+      "name": "Minor zurück",
+      "what": "neuere Funktionen fehlen"
+    },
+    "major": {
+      "name": "Major zurück",
+      "what": "eine neue Hauptversion — das Upgrade braucht evtl. Änderungen"
+    },
+    "any": {
+      "name": "Beliebige Version",
+      "what": "keine Versionsangabe"
+    },
+    "local": {
+      "name": "Lokal",
+      "what": "ein Pfad-, Git- oder Workspace-Link — nicht aus einer Registry"
+    },
+    "unknown": {
+      "name": "Unbekannt",
+      "what": "keine neueste Version bekannt"
+    }
+  },
+  "repoCounts": "{{manifests}} Manifeste · {{deps}} Abh.",
+  "parseError": "nicht lesbar: {{error}}",
+  "unreadable_one": "{{list}} konnte nicht gelesen werden.",
+  "unreadable_other": "{{count}} Repositorys konnten nicht gelesen werden: {{list}}…",
+  "truncated": "Sehr große Repositorys, nicht jedes Manifest gelesen: {{list}}",
+  "tool": {
+    "all": "Alle",
+    "pnpm": "pnpm",
+    "yarn": "Yarn",
+    "bun": "Bun",
+    "npm": "npm",
+    "deno": "Deno",
+    "pip": "pip",
+    "poetry": "Poetry",
+    "uv": "uv",
+    "pdm": "PDM",
+    "pipenv": "Pipenv",
+    "hatch": "Hatch",
+    "flit": "Flit",
+    "pixi": "pixi",
+    "cargo": "Cargo",
+    "go": "Go",
+    "maven": "Maven",
+    "gradle": "Gradle"
+  },
+  "toolGuess": "keine Lockdatei und kein packageManager-Feld gefunden — angenommen",
+  "toolDeclared": "im Manifest angegeben",
+  "toolLockfile": "aus der Lockdatei",
+  "registryOf": "Registry: {{registry}}",
+  "bump": {
+    "open": "In diesen Repos auf {{version}} anheben…",
+    "openNoLatest": "In diesen Repos anheben…",
+    "title": "{{name}} anheben",
+    "to": "Auf Version",
+    "latestIs": "neueste ist {{version}}",
+    "modePr": "Ein Pull Request pro Repository",
+    "modeCommit": "Direkt auf den Branch",
+    "runPr_one": "{{count}} Pull Request öffnen",
+    "runPr_other": "{{count}} Pull Requests öffnen",
+    "runCommit_one": "In {{count}} Repository committen",
+    "runCommit_other": "In {{count}} Repositorys committen",
+    "message": "{{name}} auf {{version}} anheben",
+    "prBody": "Aktualisiert die angegebene Version (erstellt mit ZIT-Suite). Lockdateien aktualisiert die nächste Installation ({{manager}}) — CI auf diesem PR zeigt, ob alles noch baut.",
+    "nothing": "schon darauf / nicht gefunden",
+    "lockNote": "Nur Manifeste — die Lockdatei aktualisiert die nächste Installation.",
+    "noneEditable": "Keins seiner Manifeste kann hier bearbeitet werden (nur package.json, Cargo.toml und requirements*.txt).",
+    "someSkipped_one": "{{count}} Verwendung ausgelassen: ein lokaler / Workspace-Link oder ein Manifest-Typ, den wir nicht bearbeiten.",
+    "someSkipped_other": "{{count}} Verwendungen ausgelassen: lokale / Workspace-Links oder Manifest-Typen, die wir nicht bearbeiten.",
+    "finished_one": "In {{count}} Repository angehoben",
+    "finished_other": "In {{count}} Repositorys angehoben"
+  }
+}

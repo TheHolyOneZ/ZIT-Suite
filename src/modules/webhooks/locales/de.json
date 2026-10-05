@@ -1,0 +1,209 @@
+{
+  "title": "Webhooks",
+  "kicker": "Manage / Webhooks",
+  "subtitle": "Jeder Endpunkt, den deine Repositories aufrufen — Status, Zustellungen und Payloads.",
+  "meta": {
+    "repos_one": "{{count}} Repo gescannt",
+    "repos_other": "{{count}} Repos gescannt",
+    "hooks_one": "{{count}} Webhook",
+    "hooks_other": "{{count}} Webhooks",
+    "endpoints_one": "{{count}} Endpunkt",
+    "endpoints_other": "{{count}} Endpunkte",
+    "failing_one": "{{count}} fehlerhaft",
+    "failing_other": "{{count}} fehlerhaft",
+    "scanned": "gescannt {{when}}"
+  },
+  "scope": {
+    "button_one": "Umfang · {{count}} Repo",
+    "button_other": "Umfang · {{count}} Repos",
+    "title": "Scan-Umfang",
+    "hint": "Webhooks brauchen Admin-Rechte, daher werden nur Repositories gescannt, die du verwaltest.",
+    "archived": "Archivierte einbeziehen",
+    "forks": "Forks einbeziehen"
+  },
+  "rescan": "Neu scannen",
+  "scanning": "Scanne",
+  "scanFailed": "Webhooks dieses Repositorys konnten nicht gelesen werden",
+  "noTargets": "Keine Repositories, die du verwaltest",
+  "new": "Neuer Webhook",
+  "exported": "Exportiert",
+  "searchPlaceholder": "URL oder Repository suchen…",
+  "views": {
+    "endpoints": "Endpunkte",
+    "repos": "Repositories"
+  },
+  "facets": {
+    "state": "Status",
+    "event": "Event",
+    "anyState": "Jeder Status",
+    "anyEvent": "Jedes Event"
+  },
+  "states": {
+    "ok": "Liefert",
+    "failing": "Fehlerhaft",
+    "unused": "Noch keine Zustellung",
+    "inactive": "Pausiert"
+  },
+  "health": {
+    "button": "Zustellungen prüfen",
+    "running": "Prüfe Zustellungen",
+    "failed": "{{failed}} von {{checked}} fehlgeschlagen",
+    "ok": "letzte {{checked}} ok",
+    "none": "keine Zustellungen",
+    "depth": "Zustellungen pro Webhook",
+    "hint": "Liest die letzten Zustellungen jedes Webhooks im Umfang (eine Anfrage pro Webhook) und markiert Fehler.",
+    "run_one": "{{count}} Webhook prüfen",
+    "run_other": "{{count}} Webhooks prüfen"
+  },
+  "empty": {
+    "endpoints": "Keine Webhooks im Umfang",
+    "endpointsHint": "Lege einen an, um Events zu empfangen.",
+    "repos": "Keine passenden Repositories"
+  },
+  "endpoint": {
+    "kicker": "Endpunkt",
+    "onRepos_one": "in {{count}} Repository",
+    "onRepos_other": "in {{count}} Repositories",
+    "addRepos": "Zu weiteren Repos…",
+    "edit": "Überall bearbeiten…",
+    "pause": "Alle pausieren",
+    "resume": "Alle fortsetzen",
+    "remove": "Überall entfernen",
+    "ping": "Alle anpingen",
+    "pinged_one": "{{count}} Ping gesendet",
+    "pinged_other": "{{count}} Pings gesendet",
+    "gone": "Dieser Endpunkt ist nicht mehr im Scan"
+  },
+  "repo": {
+    "kicker": "Repository-Webhooks",
+    "count_one": "{{count}} Webhook",
+    "count_other": "{{count}} Webhooks",
+    "add": "Webhook hinzufügen",
+    "none": "Keine Webhooks in diesem Repository"
+  },
+  "hook": {
+    "kicker": "Webhook",
+    "state": "Status",
+    "lastResponse": "Letzte Antwort",
+    "events": "Events",
+    "format": "Format",
+    "never": "Noch nie zugestellt",
+    "ping": "Ping",
+    "pinged": "Ping gesendet — erscheint gleich unter Zustellungen",
+    "remove": "Entfernen",
+    "saved": "Webhook gespeichert",
+    "save": "Änderungen speichern",
+    "reset": "Zurücksetzen",
+    "sslOff": "SSL-Prüfung aus",
+    "signed": "signiert",
+    "unsigned": "unsigniert",
+    "gone": "Dieser Webhook existiert nicht mehr",
+    "testPush": "Test-Push senden",
+    "testPushHint": "GitHub sendet den letzten Push dieses Repositorys erneut an den Endpunkt",
+    "testPushed": "Test-Push gesendet"
+  },
+  "tabs": {
+    "deliveries": "Zustellungen",
+    "settings": "Einstellungen"
+  },
+  "deliveries": {
+    "all": "Alle",
+    "failed": "Fehlgeschlagen",
+    "empty": "Noch keine Zustellungen — sende einen Ping",
+    "emptyFailed": "Keine fehlgeschlagenen Zustellungen im geladenen Bereich",
+    "older": "Ältere laden",
+    "refresh": "Aktualisieren",
+    "redelivery": "Erneute Zustellung"
+  },
+  "delivery": {
+    "kicker": "Zustellung",
+    "redeliver": "Erneut zustellen",
+    "redelivered": "Erneute Zustellung angefordert",
+    "request": "Anfrage",
+    "response": "Antwort",
+    "headers": "Header",
+    "payload": "Payload",
+    "noBody": "Leerer Antwort-Body",
+    "sentTo": "Gesendet an",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "guid": "Zustellungs-ID",
+    "duration": "{{ms}} ms",
+    "size": "{{lines}} Zeilen · {{kb}} kB"
+  },
+  "form": {
+    "url": "Payload-URL",
+    "urlInvalid": "Gib eine http(s)-URL ein",
+    "contentType": "Content-Type",
+    "formEncoded": "Formular",
+    "delivery": "Zustellung",
+    "active": "Aktiv",
+    "paused": "Pausiert",
+    "secret": "Secret",
+    "secretHint": "Signiert jede Payload (X-Hub-Signature-256)",
+    "secretShort": "Mindestens 8 Zeichen",
+    "secretMode": {
+      "keep": "Beibehalten",
+      "set": "Ersetzen",
+      "remove": "Entfernen"
+    },
+    "secretPlaceholder": "Optional — oder generieren",
+    "reveal": "Anzeigen / verbergen",
+    "generate": "Generieren",
+    "copy": "Kopieren",
+    "secretRemoveNote": "Payloads werden dann nicht mehr signiert.",
+    "verifySsl": "SSL-Zertifikat prüfen",
+    "sslWarning": "Nicht empfohlen — Payloads könnten abgefangen werden.",
+    "events": "Events",
+    "eventsRequired": "Wähle mindestens ein Event"
+  },
+  "events": {
+    "everything": "alles",
+    "mode": {
+      "push": "Nur Push",
+      "all": "Alles",
+      "custom": "Events wählen"
+    },
+    "selected_one": "{{count}} ausgewählt",
+    "selected_other": "{{count}} ausgewählt",
+    "search": "Events filtern…"
+  },
+  "eventGroups": {
+    "code": "Code & Releases",
+    "collaboration": "Issues & Pull Requests",
+    "ci": "CI / CD",
+    "security": "Sicherheit",
+    "repository": "Repository & Personen"
+  },
+  "create": {
+    "title": "Neuer Webhook",
+    "copyTitle": "Endpunkt zu weiteren Repositories hinzufügen",
+    "repos": "Repositories",
+    "exists": "vorhanden",
+    "summary_one": "{{count}} Repository",
+    "summary_other": "{{count}} Repositories",
+    "submit": "In der Queue prüfen",
+    "note": "Wird über die Queue mit Probelauf angelegt; Repositories, die diese URL schon aufrufen, werden übersprungen.",
+    "secretNote": "Das Secret bleibt nur im Arbeitsspeicher — es wird nie auf die Festplatte geschrieben."
+  },
+  "edit": {
+    "title": "Endpunkt überall bearbeiten",
+    "note_one": "Nur die Felder, die du änderst, werden auf {{count}} Repository angewendet; alles andere bleibt.",
+    "note_other": "Nur die Felder, die du änderst, werden auf {{count}} Repositories angewendet; alles andere bleibt je Repository erhalten.",
+    "nothing": "Ändere zuerst etwas",
+    "submit": "In der Queue prüfen"
+  },
+  "sig": {
+    "open": "Signatur prüfen",
+    "title": "Webhook-Signatur prüfen",
+    "secret": "Secret",
+    "secretHint": "das Secret des Hooks — bleibt auf diesem Computer",
+    "payload": "Roher Request-Body",
+    "payloadHint": "genau wie empfangen, Byte für Byte",
+    "header": "Signatur-Header",
+    "computed": "Erwartete Signatur",
+    "match": "Passt — die Anfrage kam von GitHub mit diesem Secret",
+    "noMatch": "Passt nicht — falsches Secret oder der Body wurde verändert (auch Leerzeichen zählen)",
+    "note": "Dein Empfänger muss das über den rohen Body berechnen, bevor JSON geparst wird. Die Payloads in den Zustellungen formatiert GitHubs API neu, also füge den Body ein, den dein Server tatsächlich empfangen hat."
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "title": "Insights",
+  "nav": "Insights",
+  "kicker": "Manage",
+  "includeArchived_one": "Include archived ({{count}})",
+  "includeArchived_other": "Include archived ({{count}})",
+  "subtitle_one": "{{count}} of your repositories — what's there, what needs attention, who's looking.",
+  "subtitle_other": "{{count}} of your repositories — what's there, what needs attention, who's looking.",
+  "views": {
+    "overview": "Overview",
+    "checks": "Checks",
+    "traffic": "Traffic",
+    "people": "People"
+  },
+  "empty": "No repositories in this view",
+  "noLanguage": "No language",
+  "noStars": "No stars yet",
+  "noTopics": "No topics set anywhere",
+  "openOnGitHub": "Open on GitHub",
+  "kpi": {
+    "repos": "Repositories",
+    "stars": "Stars",
+    "forks": "Forks of yours",
+    "size": "Total size",
+    "languages": "Languages",
+    "issues": "Open issues",
+    "forksOf": "Forks you made",
+    "archived": "Archived",
+    "split": "{{pub}} public · {{priv}} private"
+  },
+  "chart": {
+    "distribution": "Distribution",
+    "languages": "Primary languages",
+    "health": "Health",
+    "lifecycle": "Lifecycle mix",
+    "history": "History",
+    "created": "Created per year",
+    "activity": "Activity",
+    "lastPush": "Last push per month (24 months)",
+    "attention": "Attention",
+    "topStarred": "Most starred",
+    "weight": "Weight",
+    "biggest": "Biggest repositories",
+    "taxonomy": "Taxonomy",
+    "topics": "Most used topics"
+  },
+  "health": {
+    "active": "Active",
+    "dormant": "Dormant",
+    "dead": "Dead",
+    "empty": "Empty",
+    "archived": "Archived"
+  },
+  "checks": {
+    "score": "Tidy score",
+    "passing": "All good",
+    "dismiss": "It's fine",
+    "restoreHint": "Show the repos you marked as fine again",
+    "restore_one": "{{count}} hidden",
+    "restore_other": "{{count}} hidden",
+    "scoreHint_one": "Share of your {{count}} repo without a warning or critical finding.",
+    "scoreHint_other": "Share of your {{count}} repos without a warning or critical finding."
+  },
+  "fix": {
+    "archive_one": "Archive {{count}}",
+    "archive_other": "Archive all {{count}}",
+    "set_private_one": "Make {{count}} private",
+    "set_private_other": "Make all {{count}} private",
+    "delete_one": "Delete {{count}}",
+    "delete_other": "Delete all {{count}}"
+  },
+  "rules": {
+    "sensitivePublic": {
+      "title": "Public repos with sensitive-sounding names",
+      "what": "Names like secret, token, keys, backup, internal — double-check they should be public."
+    },
+    "staleNotArchived": {
+      "title": "Not touched for over a year",
+      "what": "No push in 12+ months but not archived — archive to show they're finished."
+    },
+    "dormant": {
+      "title": "Quiet for 6–12 months",
+      "what": "Still open, but no push for half a year."
+    },
+    "empty": {
+      "title": "Empty repositories",
+      "what": "Created, but nothing was ever pushed."
+    },
+    "abandonedForks": {
+      "title": "Forks you never changed",
+      "what": "Forked and left as they were — safe to delete in most cases."
+    },
+    "noDescription": {
+      "title": "No description",
+      "what": "The About box is empty — people can't tell what it is."
+    },
+    "noTopics": {
+      "title": "Public repos without topics",
+      "what": "Topics make repos findable on GitHub."
+    },
+    "noLicense": {
+      "title": "Public repos without a license",
+      "what": "Without a license nobody may legally reuse the code."
+    },
+    "manyIssues": {
+      "title": "20+ open issues",
+      "what": "A backlog worth a look."
+    },
+    "oversized": {
+      "title": "Over 500 MB",
+      "what": "Very large — maybe build output or binaries got committed."
+    },
+    "largePublic": {
+      "title": "Large public repos (100–500 MB)",
+      "what": "Heavy to clone for visitors."
+    },
+    "masterBranch": {
+      "title": "Default branch still \"master\"",
+      "what": "GitHub's default is \"main\" now — rename in Branches if you like."
+    },
+    "nearDuplicates": {
+      "title": "Names that look like duplicates",
+      "what": "Same project twice? (case, separators, -old/-copy ignored)"
+    }
+  },
+  "traffic": {
+    "title": "Who's looking at your repos?",
+    "load": "Load traffic",
+    "reload": "Reload",
+    "window": "Last 14 days, GitHub's own numbers (it keeps no more — this app keeps a local history).",
+    "views": "Views",
+    "clones": "Clones",
+    "visited": "Repos with visitors",
+    "topRepo": "Most viewed",
+    "from": "Where visitors come from",
+    "referrers": "Top referrers",
+    "noReferrers": "No referrers yet",
+    "none": "No views in the last 14 days.",
+    "col": {
+      "repo": "Repository",
+      "trend": "Views / day",
+      "views": "Views",
+      "visitors": "Visitors",
+      "clones": "Clones"
+    },
+    "intro_one": "Views, unique visitors, clones and referrers for {{count}} repo you can push to — about {{requests}} API requests.",
+    "intro_other": "Views, unique visitors, clones and referrers for {{count}} repos you can push to — about {{requests}} API requests.",
+    "uniques_one": "{{count}} visitor",
+    "uniques_other": "{{count}} visitors",
+    "failed_one": "{{count}} repo couldn't be read",
+    "failed_other": "{{count}} repos couldn't be read",
+    "range": {
+      "14": "14 days",
+      "90": "90 days",
+      "365": "1 year"
+    },
+    "history": "From the local history since {{date}} — it grows each time you load traffic here.",
+    "noHistory": "No local history yet — load traffic now and then and it builds up.",
+    "visitorDays_one": "{{count}} visitor-day",
+    "visitorDays_other": "{{count}} visitor-days"
+  },
+  "custom": {
+    "kicker": "Insights · checks",
+    "new": "New rule",
+    "newHint": "Your own check: conditions on repo metadata, optional bulk fix",
+    "edit": "Edit rule",
+    "delete": "Delete rule",
+    "confirmDelete": "Click again to delete",
+    "cancel": "Cancel",
+    "save": "Save rule",
+    "badge": "yours",
+    "name": "Name",
+    "namePlaceholder": "e.g. Old experiments",
+    "severity": "Severity",
+    "sev": {
+      "info": "Info",
+      "warning": "Warning",
+      "critical": "Critical"
+    },
+    "fix": "Bulk fix",
+    "fixHint": "through the queue, with dry run",
+    "noFix": "None — just list them",
+    "fixKind": {
+      "archive": "Archive",
+      "set_private": "Make private",
+      "delete": "Delete"
+    },
+    "when": "Matches repos where",
+    "allHint": "all conditions must hold",
+    "addCond": "Add condition",
+    "removeCond": "Remove condition",
+    "hits_one": "Matches {{count}} repository now",
+    "hits_other": "Matches {{count}} repositories now",
+    "field": {
+      "pushedDays": "Days since last push",
+      "createdDays": "Days since created",
+      "sizeMb": "Size (MB)",
+      "stars": "Stars",
+      "forks": "Forks",
+      "openIssues": "Open issues",
+      "private": "Private",
+      "fork": "Is a fork",
+      "archived": "Archived",
+      "template": "Is a template",
+      "hasDescription": "Has a description",
+      "hasLicense": "Has a license",
+      "hasTopics": "Has topics",
+      "hasHomepage": "Has a homepage",
+      "language": "Language",
+      "name": "Name",
+      "topic": "Topic",
+      "defaultBranch": "Default branch"
+    },
+    "op": {
+      "gt": "more than",
+      "lt": "less than",
+      "yes": "yes",
+      "no": "no",
+      "is": "is",
+      "isNot": "is not",
+      "contains": "contains",
+      "notContains": "doesn't contain"
+    }
+  },
+  "people": {
+    "kicker": "Last 52 weeks",
+    "weekly": "Commits per week, everyone",
+    "reload": "Reload",
+    "hint": "From GitHub's contributor statistics (default branch, merges left out).",
+    "pick": "Pick a repository",
+    "pending": "GitHub is still counting",
+    "pendingBody": "It computes these statistics in the background the first time. Try again in a minute.",
+    "none": "No contributors yet",
+    "col": {
+      "who": "Who",
+      "commits": "Commits",
+      "trend": "Last year",
+      "added": "Added",
+      "removed": "Removed",
+      "active": "Active"
+    }
+  }
+}

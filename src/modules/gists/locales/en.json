@@ -1,0 +1,91 @@
+{
+  "title": "Gists",
+  "nav": "Gists",
+  "kicker": "Manage",
+  "subtitle": "Snippets, notes and small files — yours and the ones you starred.",
+  "refresh": "Refresh",
+  "new": "New gist",
+  "searchPlaceholder": "Search description or file name…",
+  "meta": {
+    "count_one": "{{count}} gist",
+    "count_other": "{{count}} gists",
+    "secret_one": "{{count}} secret",
+    "secret_other": "{{count}} secret"
+  },
+  "facets": {
+    "language": "Language"
+  },
+  "visibility": {
+    "all": "All",
+    "public": "Public",
+    "secret": "Secret"
+  },
+  "views": {
+    "mine": "Mine",
+    "starred": "Starred"
+  },
+  "empty": {
+    "filtered": "Nothing matches",
+    "starred": "You haven't starred any gists",
+    "mine": "No gists yet",
+    "mineBody": "A gist is a quick way to share a snippet, a config or notes — with history."
+  },
+  "newTitle": "New gist",
+  "description": "Description",
+  "descriptionPlaceholder": "What is it?",
+  "publicLabel": "Public — listed on your profile and searchable",
+  "publicHint": "Anyone can find it.",
+  "secretHint": "Secret gists aren't listed or searchable, but anyone with the link can open them — don't put passwords here.",
+  "createPublic": "Create public gist",
+  "createSecret": "Create secret gist",
+  "created": "Gist created",
+  "problem": {
+    "empty": "Every file needs some content",
+    "name": "Every file needs a name (no /)",
+    "duplicate": "Two files have the same name",
+    "none": "Add at least one file"
+  },
+  "editor": {
+    "namePlaceholder": "file name with extension, e.g. notes.md",
+    "edit": "Edit",
+    "preview": "Preview",
+    "remove": "Remove file",
+    "restore": "Keep file",
+    "willDelete": "This file will be deleted when you save.",
+    "addFile": "Add file",
+    "fromDisk": "Add from disk"
+  },
+  "oldRevision": "revision {{sha}}",
+  "updated": "updated",
+  "edit": "Edit",
+  "copyLink": "Copy link",
+  "copied": "Copied",
+  "revisions": "Revisions",
+  "current": "current",
+  "star": "Star",
+  "unstar": "Unstar",
+  "starred": "Starred",
+  "unstarred": "Star removed",
+  "openOnGitHub": "Open on GitHub",
+  "source": "Show source",
+  "copyContent": "Copy content",
+  "raw": "Raw file",
+  "truncated": "This file is over 1 MB — open the raw file for the rest.",
+  "saved": "Gist saved",
+  "save": "Save",
+  "deleted": "Gist deleted",
+  "delete": "Delete",
+  "confirmDelete": "Click again to delete",
+  "files_one": "{{count}} file",
+  "files_other": "{{count}} files",
+  "changes_one": "{{count}} change",
+  "changes_other": "{{count}} changes",
+  "comments": {
+    "title_one": "{{count}} comment",
+    "title_other": "{{count}} comments",
+    "placeholder": "Leave a comment…",
+    "send": "Comment",
+    "delete": "Delete comment",
+    "confirmDelete": "Click again to delete"
+  }
+}

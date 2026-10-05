@@ -1,0 +1,117 @@
+{
+  "title": "Collaborators",
+  "kicker": "Manage / Access",
+  "subtitle": "Who can touch which repository — across everything you administer.",
+  "meta": {
+    "repos_one": "{{count}} repo scanned",
+    "repos_other": "{{count}} repos scanned",
+    "pending_one": "{{count}} pending invite",
+    "pending_other": "{{count}} pending invites",
+    "scanned": "scanned {{when}}",
+    "people_one": "{{count}} person",
+    "people_other": "{{count}} people"
+  },
+  "scope": {
+    "button_one": "Scope · {{count}} repo",
+    "button_other": "Scope · {{count}} repos",
+    "title": "Scan scope",
+    "hint": "Repositories where you have admin rights.",
+    "archived": "Include archived",
+    "forks": "Include forks"
+  },
+  "rescan": "Rescan",
+  "scanning": "Scanning access",
+  "scanFailed": "Could not read access for this repo",
+  "noTargets": "You don't administer any repositories in this context",
+  "searchPlaceholder": "Search people or repos…",
+  "exported": "Access exported",
+  "views": {
+    "people": "People",
+    "repos": "Repositories",
+    "matrix": "Matrix"
+  },
+  "roles": {
+    "read": "Read",
+    "triage": "Triage",
+    "write": "Write",
+    "maintain": "Maintain",
+    "admin": "Admin"
+  },
+  "kinds": {
+    "any": "All",
+    "users": "Users",
+    "bots": "Bots"
+  },
+  "facets": {
+    "minRole": "Role",
+    "anyRole": "Any role",
+    "atLeast": "At least {{role}}",
+    "kind": "Account",
+    "status": "Status",
+    "pendingOnly": "Pending invitations only"
+  },
+  "invited": "invited",
+  "invitedAgo": "invited {{when}}",
+  "expired": "expired",
+  "pendingCount_one": "{{count}} pending",
+  "pendingCount_other": "{{count}} pending",
+  "repoCount_one": "{{count}} repo",
+  "repoCount_other": "{{count}} repos",
+  "emptyPeople": "Nobody else has access",
+  "emptyPeopleHint": "Only you (and repo owners) can access the scanned repositories.",
+  "emptyRepos": "No repositories match",
+  "selected": "selected",
+  "revokeAll": "Revoke all access",
+  "clearSelection": "Clear selection",
+  "revoke": "Revoke access",
+  "cancelInvite": "Cancel invitation",
+  "person": {
+    "kicker": "Person",
+    "highest": "highest role",
+    "grantMore": "Grant more…",
+    "noAccess": "@{{login}} has no access to scanned repositories"
+  },
+  "repo": {
+    "kicker": "Repository access",
+    "addPlaceholder": "GitHub login",
+    "add": "Invite / set role",
+    "copyTo": "Copy access to…",
+    "collaborators": "Collaborators",
+    "invitations": "Pending invitations",
+    "none": "No collaborators besides the owner",
+    "noInvites": "No pending invitations",
+    "collabCount_one": "{{count}} collaborator",
+    "collabCount_other": "{{count}} collaborators",
+    "inviteCount_one": "{{count}} pending invitation",
+    "inviteCount_other": "{{count}} pending invitations"
+  },
+  "compare": {
+    "title": "Compare with",
+    "pick": "Choose another repository…",
+    "onlyHere": "Only here",
+    "onlyThere": "Only there",
+    "different": "Different role",
+    "same_one": "{{count}} identical",
+    "same_other": "{{count}} identical",
+    "align": "Align {{repo}} with this repo"
+  },
+  "grant": {
+    "button": "Grant access",
+    "kicker": "Bulk access",
+    "titleAdd": "Grant access",
+    "titleRemove": "Revoke access",
+    "add": "Grant",
+    "remove": "Revoke",
+    "people": "People",
+    "peopleHint": "Comma or space separated GitHub logins.",
+    "role": "Role",
+    "repos": "Repositories",
+    "addNote": "New people receive an invitation; existing collaborators get their role changed. Everything runs through the dry run.",
+    "removeNote": "Removes the people from the selected repositories (they keep forks).",
+    "review": "Review in queue",
+    "peopleCount_one": "{{count}} person",
+    "peopleCount_other": "{{count}} people",
+    "repoCount_one": "{{count}} repo",
+    "repoCount_other": "{{count}} repos"
+  }
+}

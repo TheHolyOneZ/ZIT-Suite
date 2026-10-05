@@ -1,0 +1,137 @@
+{
+  "title": "Inbox",
+  "nav": "Inbox",
+  "kicker": "Manage",
+  "subtitle": "Your GitHub notifications — what needs you first.",
+  "refresh": "Refresh",
+  "readAll": "Mark all read",
+  "readAllRepo": "Mark repo read",
+  "searchPlaceholder": "Search title or repo…",
+  "groupDone": "Done with all",
+  "subjectState": {
+    "open": "open",
+    "draft": "draft",
+    "merged": "merged",
+    "closed": "closed",
+    "completed": "done",
+    "not_planned": "not planned"
+  },
+  "meta": {
+    "checked": "checked {{when}}",
+    "unread_one": "{{count}} unread",
+    "unread_other": "{{count}} unread",
+    "total_one": "{{count}} shown",
+    "total_other": "{{count}} shown"
+  },
+  "facets": {
+    "reason": "Why",
+    "kind": "What",
+    "repo": "Repository",
+    "owner": "Account / organization"
+  },
+  "group": {
+    "reason": "By why",
+    "repo": "By repo",
+    "none": "List"
+  },
+  "view": {
+    "unread": "Unread",
+    "participating": "Participating",
+    "all": "All"
+  },
+  "actions": {
+    "read": "Mark read",
+    "done": "Done",
+    "mute": "Mute thread"
+  },
+  "reason": {
+    "review_requested": "Review requested",
+    "security_alert": "Security alert",
+    "mention": "Mentioned you",
+    "team_mention": "Mentioned your team",
+    "assign": "Assigned to you",
+    "approval_requested": "Approval requested",
+    "invitation": "Invitation",
+    "author": "You opened it",
+    "comment": "You commented",
+    "state_change": "You changed it",
+    "ci_activity": "CI run",
+    "manual": "You subscribed",
+    "subscribed": "Watching the repo",
+    "other": "Other"
+  },
+  "kind": {
+    "PullRequest": "Pull request",
+    "Issue": "Issue",
+    "Release": "Release",
+    "Commit": "Commit",
+    "Discussion": "Discussion",
+    "CheckSuite": "CI run",
+    "RepositoryVulnerabilityAlert": "Security alert",
+    "Other": "Other"
+  },
+  "empty": {
+    "zero": "Inbox zero",
+    "none": "No notifications",
+    "zeroBody": "Nothing new on GitHub right now.",
+    "filtered": "Nothing matches these filters"
+  },
+  "noisy": {
+    "title": "Loudest repos",
+    "manage": "Manage watching →"
+  },
+  "desktop": {
+    "label": "Desktop alerts",
+    "hint": "A system notification when someone needs you: review requests, mentions, assignments, security alerts.",
+    "many_one": "{{count}} notification needs you",
+    "many_other": "{{count}} notifications need you"
+  },
+  "statusBar": {
+    "label": "Inbox",
+    "urgent_one": "{{count}} needs you",
+    "urgent_other": "{{count}} need you"
+  },
+  "keys": {
+    "move": "Move",
+    "open": "Open",
+    "done": "Done",
+    "read": "Mark read",
+    "mute": "Mute thread",
+    "select": "Select"
+  },
+  "watching": {
+    "button": "Watching",
+    "kicker": "Inbox",
+    "title": "Repositories you watch",
+    "search": "Search…",
+    "unwatch": "Only when I'm involved",
+    "ignore": "Never notify",
+    "participatingHint": "Stop watching: you still hear about threads you take part in or are @mentioned in.",
+    "ignoreHint": "No notifications at all from these repos, not even mentions.",
+    "none": "You don't watch any repositories",
+    "notYours": "not yours",
+    "archived": "archived",
+    "done": {
+      "participating_one": "Stopped watching {{count}} repo",
+      "participating_other": "Stopped watching {{count}} repos",
+      "ignoring_one": "Ignoring {{count}} repo",
+      "ignoring_other": "Ignoring {{count}} repos",
+      "watching_one": "Watching {{count}} repo",
+      "watching_other": "Watching {{count}} repos"
+    },
+    "hint_one": "You watch {{count}} repository ({{others}} not yours). Watching means every issue, PR and release lands in your inbox.",
+    "hint_other": "You watch {{count}} repositories ({{others}} not yours). Watching means every issue, PR and release lands in your inbox.",
+    "inInbox_one": "{{count}} unread",
+    "inInbox_other": "{{count}} unread",
+    "noMatch": "No watched repository matches",
+    "tabWatched_one": "Watched {{count}}",
+    "tabWatched_other": "Watched {{count}}",
+    "tabNot_one": "Not watched {{count}}",
+    "tabNot_other": "Not watched {{count}}",
+    "watch": "Watch"
+  },
+  "selected_one": "{{count}} selected",
+  "selected_other": "{{count}} selected",
+  "groupDoneConfirm_one": "Click again — clears {{count}}",
+  "groupDoneConfirm_other": "Click again — clears {{count}}"
+}

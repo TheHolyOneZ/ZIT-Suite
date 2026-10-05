@@ -1,0 +1,210 @@
+{
+  "title": "Branches",
+  "kicker": "Build",
+  "subtitle": "Every branch: how far it is from the default, merged or stale, protected, in a PR — rename, protect, clean up.",
+  "pickRepo": "Pick a repository…",
+  "start": "Pick a repository",
+  "startBody": "Its branches with last commit, open pull request and ahead / behind the default branch. Or switch to many repositories to create or protect branches everywhere at once.",
+  "openOnGitHub": "Open on GitHub",
+  "refresh": "Check again",
+  "views": {
+    "repo": "One repository",
+    "many": "Many repositories"
+  },
+  "stats": {
+    "branches": "Branches",
+    "stale": "Stale ({{days}}+ days)",
+    "merged": "Merged",
+    "protected": "Protected",
+    "rulesets": "Rulesets"
+  },
+  "filter": {
+    "all": "All",
+    "stale": "Stale",
+    "merged": "Merged",
+    "pr": "In a PR",
+    "protected": "Protected"
+  },
+  "find": "Find a branch…",
+  "legend": "← behind · ahead →",
+  "cleanup_one": "Clean up {{count}} merged branch",
+  "cleanup_other": "Clean up {{count}} merged branches",
+  "selected_one": "{{count}} selected",
+  "selected_other": "{{count}} selected",
+  "clear": "Clear",
+  "deleteSelected_one": "Delete {{count}} branch…",
+  "deleteSelected_other": "Delete {{count}} branches…",
+  "truncated": "This repository has more than 1,000 branches — only the newest 1,000 are shown.",
+  "noMatch": "No branch matches.",
+  "none": "No branches — the repository is empty.",
+  "aheadBehind": "{{ahead}} commits ahead, {{behind}} behind the default branch",
+  "isBase": "base",
+  "badge": {
+    "default": "default",
+    "protected": "Protected",
+    "protectedBy": "Protected by the rule “{{rule}}”",
+    "merged": "merged",
+    "stale": "No commit for {{days}} days",
+    "draft": "draft"
+  },
+  "open": {
+    "files": "Open in Files & Editor",
+    "compare": "Compare on GitHub",
+    "newPr": "Compare / open a pull request"
+  },
+  "makeDefault": "Make this the default branch",
+  "confirmDefault": "Click again to make it the default",
+  "defaultSet": "{{name}} is now the default branch",
+  "delete": "Delete…",
+  "created": "Created {{name}} from {{from}}",
+  "renamed": "Renamed {{from}} to {{to}}",
+  "name": {
+    "invalid": "Not a valid branch name (no spaces, “..”, “~ ^ : ? * [ \\”, or a leading / trailing “/” or “.”)",
+    "taken": "A branch with this name exists"
+  },
+  "new": {
+    "button": "New branch",
+    "title": "New branch",
+    "name": "Name",
+    "from": "Start from",
+    "fromHint": "the new branch begins with this branch's latest commit",
+    "create": "Create branch"
+  },
+  "rename": {
+    "title": "Rename {{name}}",
+    "button": "Rename",
+    "note": "A real rename: GitHub moves open pull requests and protection rules over, and links to the old name keep working.",
+    "defaultNote": "This is the default branch — it stays the default under the new name. Local copies need to switch to the new name."
+  },
+  "protect": {
+    "title": "Protect {{name}}",
+    "button": "Protect",
+    "edit": "Protection…",
+    "update": "Save rules",
+    "saved": "{{name}} is protected",
+    "removed": "Removed the protection of {{name}}",
+    "remove": "Remove protection",
+    "confirmRemove": "Click again to remove",
+    "byPattern": "Currently protected by the rule “{{rule}}”. Saving adds rules for this branch by name."
+  },
+  "rules": {
+    "approvals": "Approvals needed",
+    "removeCheck": "Remove",
+    "noChecks": "Add at least one check name",
+    "checkName": "Check name, e.g. build",
+    "addCheck": "Add",
+    "seen": "Ran on this branch:",
+    "allow": "Allow (otherwise blocked)",
+    "require_pr": {
+      "name": "Require a pull request",
+      "what": "Nobody pushes straight to the branch — changes come in through PRs."
+    },
+    "dismiss_stale": {
+      "name": "New commits dismiss approvals",
+      "what": "An approval only counts for what was reviewed."
+    },
+    "code_owners": {
+      "name": "Require code owner review",
+      "what": "Files listed in CODEOWNERS need their owner's approval."
+    },
+    "last_push_approval": {
+      "name": "Last push must be approved by someone else",
+      "what": "The person who pushed last can't approve their own change."
+    },
+    "status_checks": {
+      "name": "Require status checks",
+      "what": "Listed checks (CI jobs) must pass before merging."
+    },
+    "strict": {
+      "name": "Must be up to date",
+      "what": "The PR branch has to contain the latest changes of this branch."
+    },
+    "conversation_resolution": {
+      "name": "Require resolved conversations",
+      "what": "Every review comment thread must be resolved."
+    },
+    "linear_history": {
+      "name": "Linear history",
+      "what": "No merge commits — squash or rebase only."
+    },
+    "enforce_admins": {
+      "name": "Also for admins",
+      "what": "The rules apply to administrators too."
+    },
+    "force_pushes": {
+      "name": "Force pushes",
+      "what": "Rewriting the branch's history."
+    },
+    "deletions": {
+      "name": "Deleting the branch",
+      "what": "Anyone with write access could delete it."
+    }
+  },
+  "many": {
+    "create": "Create a branch",
+    "protect": "Protect the default branch",
+    "fromHint": "a branch name — empty = each repository's default branch",
+    "fromDefault": "default branch",
+    "createNote": "Goes through the queue: the dry run shows where the branch already exists or the source is missing.",
+    "createIn_one": "Create in {{count}} repository…",
+    "createIn_other": "Create in {{count}} repositories…",
+    "protectNote": "These rules go onto each repository's default branch (needs admin rights; private repositories need GitHub Pro / Team).",
+    "protectIn_one": "Protect in {{count}} repository…",
+    "protectIn_other": "Protect in {{count}} repositories…",
+    "unprotectIn_one": "Remove protection in {{count}}…",
+    "unprotectIn_other": "Remove protection in {{count}}…",
+    "planNote": "The dry run shows where rules are already identical or protection isn't available.",
+    "reposWrite": "Repositories you can write to",
+    "reposAdmin": "Repositories you administer"
+  },
+  "settings": {
+    "staleDays": "Stale after (days)",
+    "staleDaysHint": "A branch without a new commit for this long is marked stale."
+  },
+  "rulesets": {
+    "title": "Rulesets",
+    "intro": "Rules GitHub enforces on branches — like protection, but for many branches at once and with a dry-run mode (\"Evaluate\"). Organization rulesets show here but are edited on the organization.",
+    "none": "No rulesets yet",
+    "new": "New ruleset",
+    "onGitHub": "Open on GitHub",
+    "fromOrg": "organization",
+    "enf": {
+      "active": "Active",
+      "evaluate": "Evaluate",
+      "disabled": "Off"
+    },
+    "back": "All rulesets",
+    "name": "Name",
+    "namePlaceholder": "e.g. Protect main",
+    "enforcement": "Enforcement",
+    "include": "Applies to",
+    "exclude": "Except",
+    "patternHint": "one per line: ~DEFAULT_BRANCH, ~ALL, refs/heads/release/*",
+    "rules": "Rules",
+    "rule": {
+      "block_deletion": "Block deletion",
+      "block_force_push": "Block force pushes",
+      "linear_history": "Require linear history",
+      "signed_commits": "Require signed commits",
+      "restrict_creation": "Restrict creating matching branches",
+      "restrict_update": "Restrict updates (read-only)",
+      "pull_request": "Require a pull request before merging",
+      "status_checks": "Require status checks to pass"
+    },
+    "approvals": "required approvals",
+    "dismissStale": "Dismiss approvals on new pushes",
+    "codeOwners": "Require code owner review",
+    "lastPush": "Approve the most recent push",
+    "resolveThreads": "Resolve all conversations",
+    "checksPlaceholder": "Check names, one per line (e.g. build, test)",
+    "strict": "Branch must be up to date first",
+    "otherRules": "Also has rules edited only on GitHub (kept unchanged): {{list}}",
+    "delete": "Delete ruleset",
+    "confirmDelete": "Click again to delete",
+    "cancel": "Cancel",
+    "create": "Create ruleset",
+    "save": "Save",
+    "saved": "Ruleset \"{{name}}\" saved",
+    "deleted": "Ruleset \"{{name}}\" deleted"
+  }
+}
