@@ -26,7 +26,6 @@ dist-ssr
 /.github/
 /src-tauri/gen/
 /ROADMAP.md
-/README.md
 /note.txt
 /Idea.txt
 /scripts/i18n-check.ts
