@@ -1,0 +1,154 @@
+name: Build ZIT-Suite (Windows + Linux)
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: short
+  COREPACK_ENABLE_AUTO_PIN: "0"
+  COREPACK_ENABLE_STRICT: "0"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  ZIT_GITHUB_CLIENT_ID: ${{ secrets.ZIT_GITHUB_CLIENT_ID }}
+
+jobs:
+  build-windows:
+    name: Windows x64 (NSIS installer)
+    runs-on: windows-2025
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Set up Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust build cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          cache-on-failure: true
+          workspaces: "src-tauri -> target"
+          key: windows-x64
+
+      - name: Install frontend dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Rust tests (on real Windows)
+        continue-on-error: true
+        working-directory: src-tauri
+        run: cargo test --locked
+
+      - name: Build installer (NSIS)
+        run: pnpm tauri build --bundles nsis
+
+      - name: List bundle output
+        if: always()
+        shell: pwsh
+        run: Get-ChildItem -Recurse src-tauri/target/release/bundle -Include *.exe -ErrorAction SilentlyContinue | Select-Object FullName, Length
+
+      - name: Upload Windows installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-x64
+          path: src-tauri/target/release/bundle/nsis/*.exe
+          if-no-files-found: error
+          retention-days: 30
+
+  build-linux:
+    name: Linux x86_64 (.deb + .rpm)
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Set up Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential pkg-config curl wget file patchelf rpm perl \
+            libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev libxdo-dev libssl-dev libdbus-1-dev
+
+      - name: Rust build cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          cache-on-failure: true
+          workspaces: "src-tauri -> target"
+          key: linux-x64
+
+      - name: Install frontend dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Checks (typecheck, lint, i18n, tests)
+        run: pnpm check
+
+      - name: Rust tests
+        working-directory: src-tauri
+        run: cargo test --locked
+
+      - name: Build packages (.deb + .rpm)
+        run: pnpm tauri build --bundles deb,rpm
+
+      - name: List bundle output
+        if: always()
+        run: find src-tauri/target/release/bundle -type f \( -name '*.deb' -o -name '*.rpm' \) -exec ls -la {} \; 2>/dev/null || true
+
+      - name: Upload Linux packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-x64
+          path: |
+            src-tauri/target/release/bundle/deb/*.deb
+            src-tauri/target/release/bundle/rpm/*.rpm
+          if-no-files-found: error
+          retention-days: 30
+
+  website-bundle:
+    name: Installers for zsync.eu
+    needs: [build-windows, build-linux]
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+
+      - name: Collect installers + checksums
+        run: |
+          mkdir -p release
+          find dist -type f \( -name '*.exe' -o -name '*.deb' -o -name '*.rpm' \) -exec cp {} release/ \;
+          test -n "$(ls -A release)" || { echo "::error::No installers found"; exit 1; }
+          (cd release && sha256sum * > SHA256SUMS.txt)
+          ls -lah release/
+          cat release/SHA256SUMS.txt
+
+      - name: Upload website bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: zit-suite-installers
+          path: release/*
+          if-no-files-found: error
+          retention-days: 30

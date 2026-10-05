@@ -23,7 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .vscode/
-/.github/
 /src-tauri/gen/
 /ROADMAP.md
 /note.txt
@@ -34,3 +33,6 @@ dist-ssr
 /.gitignore
 /src-tauri/.gitignore
 /strip-comments.mjs
+/GITHUB-INFO.txt
+/.github/workflows/ci.yml
+/.github/workflows/workflow.yml
