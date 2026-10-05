@@ -102,8 +102,14 @@ jobs:
       - name: Install frontend dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Checks (typecheck, lint, i18n, tests)
-        run: pnpm check
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Frontend tests
+        run: pnpm test
 
       - name: Rust tests
         working-directory: src-tauri
