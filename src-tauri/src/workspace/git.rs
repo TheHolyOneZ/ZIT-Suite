@@ -123,6 +123,9 @@ pub fn fetch(repo: &Repository, remote: &str, token: Option<&str>) -> AppResult<
 
 pub fn push(repo: &Repository, remote: &str, token: Option<&str>) -> AppResult<()> {
     let branch = current_branch(repo)?.ok_or_else(|| AppError::new("workspace.detached"))?;
+    if head_commit(repo).is_none() {
+        return Err(AppError::new("workspace.nothing_to_upload"));
+    }
     let rejected: RefCell<Option<String>> = RefCell::new(None);
     {
         let mut cb = callbacks(token);
@@ -421,6 +424,72 @@ pub enum UpdateKind {
 }
 
 
+fn unsaved_in_the_way(repo: &Repository, target: &git2::Tree) -> AppResult<(Vec<String>, Vec<String>)> {
+    let root = repo.workdir().map(Path::to_path_buf).ok_or_else(|| AppError::new("workspace.bare"))?;
+    let (mut same, mut different) = (vec![], vec![]);
+    for c in changes(repo)?.into_iter().filter(|c| c.kind == ChangeKind::New) {
+        let Ok(entry) = target.get_path(Path::new(&c.path)) else { continue };
+        let on_disk = git2::Oid::hash_file(git2::ObjectType::Blob, root.join(&c.path)).ok();
+        if on_disk == Some(entry.id()) {
+            same.push(c.path);
+        } else {
+            different.push(c.path);
+        }
+    }
+    Ok((same, different))
+}
+
+fn clear_identical(repo: &Repository, paths: &[String]) -> AppResult<()> {
+    if paths.is_empty() {
+        return Ok(());
+    }
+    let root = repo.workdir().map(Path::to_path_buf).ok_or_else(|| AppError::new("workspace.bare"))?;
+    let mut index = repo.index()?;
+    for p in paths {
+        let _ = index.remove_path(Path::new(p));
+        let _ = fs::remove_file(root.join(p));
+    }
+    index.write()?;
+    Ok(())
+}
+
+fn adopt_remote(repo: &Repository, theirs: &git2::Commit, local: &str) -> AppResult<UpdateKind> {
+    let root = repo.workdir().map(Path::to_path_buf).ok_or_else(|| AppError::new("workspace.bare"))?;
+    let tree = theirs.tree()?;
+    let mut missing: Vec<(PathBuf, git2::Oid, i32)> = vec![];
+    tree.walk(git2::TreeWalkMode::PreOrder, |dir, e| {
+        if e.kind() == Some(git2::ObjectType::Blob) {
+            let rel = PathBuf::from(format!("{dir}{}", e.name().unwrap_or("")));
+            if !root.join(&rel).exists() {
+                missing.push((rel, e.id(), e.filemode()));
+            }
+        }
+        git2::TreeWalkResult::Ok
+    })?;
+    for (rel, id, mode) in missing {
+        if mode == 0o120000 {
+            continue;
+        }
+        let full = root.join(&rel);
+        if let Some(parent) = full.parent() {
+            fs::create_dir_all(parent).map_err(|e| AppError::new("workspace.io").detail(e.to_string()))?;
+        }
+        fs::write(&full, repo.find_blob(id)?.content()).map_err(|e| AppError::new("workspace.io").detail(e.to_string()))?;
+        #[cfg(unix)]
+        if mode == 0o100755 {
+            use std::os::unix::fs::PermissionsExt;
+            let _ = fs::set_permissions(&full, fs::Permissions::from_mode(0o755));
+        }
+    }
+    let mut index = repo.index()?;
+    index.read_tree(&tree)?;
+    index.write()?;
+    let refname = format!("refs/heads/{local}");
+    repo.reference(&refname, theirs.id(), true, "ZIT-Suite: get latest (start from GitHub)")?;
+    repo.set_head(&refname)?;
+    Ok(UpdateKind::FastForward)
+}
+
 pub fn get_latest(repo: &Repository, remote: &str, branch: &str, sig: &Signature) -> AppResult<UpdateKind> {
     if changes(repo)?.iter().any(|c| c.kind != ChangeKind::New) {
         return Err(AppError::new("workspace.uncommitted"));
@@ -436,10 +505,19 @@ pub fn get_latest(repo: &Repository, remote: &str, branch: &str, sig: &Signature
     if analysis.is_up_to_date() {
         return Ok(UpdateKind::UpToDate);
     }
-    if analysis.is_unborn() || analysis.is_fast_forward() {
+    if analysis.is_unborn() || head_commit(repo).is_none() {
+        let local = current_branch(repo)?.ok_or_else(|| AppError::new("workspace.detached"))?;
+        return adopt_remote(repo, &repo.find_commit(theirs.id())?, &local);
+    }
+    if analysis.is_fast_forward() {
         let target = theirs.id();
         let local = current_branch(repo)?.ok_or_else(|| AppError::new("workspace.detached"))?;
         let refname = format!("refs/heads/{local}");
+        let (same, different) = unsaved_in_the_way(repo, &repo.find_commit(target)?.tree()?)?;
+        if !different.is_empty() {
+            return Err(AppError::new("workspace.unsaved_in_the_way").detail(different.join(", ")));
+        }
+        clear_identical(repo, &same)?;
 
         repo.checkout_tree(&repo.find_object(target, None)?, Some(&mut checkout))?;
         match repo.find_reference(&refname) {
@@ -467,6 +545,11 @@ pub fn get_latest(repo: &Repository, remote: &str, branch: &str, sig: &Signature
         return Err(AppError::new("workspace.conflicts").detail(files.into_iter().collect::<Vec<_>>().join(", ")));
     }
     let tree = repo.find_tree(idx.write_tree_to(repo)?)?;
+    let (same, different) = unsaved_in_the_way(repo, &tree)?;
+    if !different.is_empty() {
+        return Err(AppError::new("workspace.unsaved_in_the_way").detail(different.join(", ")));
+    }
+    clear_identical(repo, &same)?;
 
     let msg = match remote_slug(repo, remote) {
         Some(slug) if branch == "main" || branch == "master" => format!("Get latest from {slug}"),
@@ -829,6 +912,97 @@ mod tests {
     }
     fn sig() -> Signature<'static> {
         Signature::now("Tester", "t@example.com").unwrap()
+    }
+
+    #[test]
+    fn get_latest_with_unrelated_histories() {
+        let remote = Tmp::new("unrel-remote");
+        Repository::init_bare(remote.s()).unwrap();
+        let web = Tmp::new("unrel-web");
+        let w = init(web.s()).unwrap();
+        set_remote(&w, "origin", remote.s()).unwrap();
+        web.write("a.txt", "same");
+        commit(&w, None, "Add files via upload", &sig()).unwrap();
+        push(&w, "origin", None).unwrap();
+
+        let t = Tmp::new("unrel-local");
+        let repo = init(t.s()).unwrap();
+        set_remote(&repo, "origin", remote.s()).unwrap();
+        t.write("a.txt", "same");
+        commit(&repo, None, "local version", &sig()).unwrap();
+        assert_eq!(push(&repo, "origin", None).unwrap_err().code, "workspace.push_rejected");
+        fetch(&repo, "origin", None).unwrap();
+        let r = get_latest(&repo, "origin", "main", &sig());
+        println!("get_latest unrelated same content: {r:?}");
+        assert!(r.is_ok(), "{r:?}");
+        push(&repo, "origin", None).unwrap();
+    }
+
+    #[test]
+    fn get_latest_when_nothing_is_saved_locally() {
+        for (case, stage, mine) in [("untracked-same", false, "same"), ("staged-same", true, "same"), ("untracked-diff", false, "mine"), ("staged-diff", true, "mine")] {
+            let remote = Tmp::new("adopt-remote");
+            Repository::init_bare(remote.s()).unwrap();
+            let web = Tmp::new("adopt-web");
+            let w = init(web.s()).unwrap();
+            set_remote(&w, "origin", remote.s()).unwrap();
+            web.write("a.txt", "same");
+            web.write("docs/only-on-github.md", "hi");
+            commit(&w, None, "Add files via upload", &sig()).unwrap();
+            push(&w, "origin", None).unwrap();
+
+            let t = Tmp::new("adopt-local");
+            let repo = init(t.s()).unwrap();
+            set_remote(&repo, "origin", remote.s()).unwrap();
+            t.write("a.txt", mine);
+            t.write("local-only.txt", "new here");
+            if stage {
+                let mut i = repo.index().unwrap();
+                i.add_path(Path::new("a.txt")).unwrap();
+                i.write().unwrap();
+            }
+            assert_eq!(push(&repo, "origin", None).unwrap_err().code, "workspace.nothing_to_upload", "{case}");
+            fetch(&repo, "origin", None).unwrap();
+            assert_eq!(get_latest(&repo, "origin", "main", &sig()).unwrap(), UpdateKind::FastForward, "{case}");
+            assert_eq!(fs::read_to_string(t.0.join("a.txt")).unwrap(), mine, "{case}: local file kept");
+            assert_eq!(fs::read_to_string(t.0.join("docs/only-on-github.md")).unwrap(), "hi", "{case}");
+            let ch: Vec<_> = changes(&repo).unwrap().into_iter().map(|c| (c.path, c.kind)).collect();
+            let mut want = vec![("local-only.txt".to_string(), ChangeKind::New)];
+            if mine != "same" {
+                want.insert(0, ("a.txt".to_string(), ChangeKind::Modified));
+            }
+            assert_eq!(ch, want, "{case}");
+            commit(&repo, None, "my changes", &sig()).unwrap();
+            push(&repo, "origin", None).unwrap();
+        }
+    }
+
+    #[test]
+    fn unsaved_files_in_the_way_of_get_latest() {
+        let remote = Tmp::new("way-remote");
+        Repository::init_bare(remote.s()).unwrap().set_head("refs/heads/main").unwrap();
+        let t = Tmp::new("way-local");
+        let repo = init(t.s()).unwrap();
+        set_remote(&repo, "origin", remote.s()).unwrap();
+        t.write("a.txt", "1");
+        commit(&repo, None, "base", &sig()).unwrap();
+        push(&repo, "origin", None).unwrap();
+        let other = Tmp::new("way-other");
+        let o = clone(remote.s(), &other.0, None).unwrap();
+        other.write("same.txt", "x");
+        other.write("diff.txt", "theirs");
+        commit(&o, None, "added on GitHub", &sig()).unwrap();
+        push(&o, "origin", None).unwrap();
+
+        t.write("same.txt", "x");
+        t.write("diff.txt", "mine");
+        fetch(&repo, "origin", None).unwrap();
+        let e = get_latest(&repo, "origin", "main", &sig()).unwrap_err();
+        assert_eq!((e.code.as_str(), e.detail.as_deref()), ("workspace.unsaved_in_the_way", Some("diff.txt")));
+        fs::remove_file(t.0.join("diff.txt")).unwrap();
+        assert_eq!(get_latest(&repo, "origin", "main", &sig()).unwrap(), UpdateKind::FastForward);
+        assert_eq!(fs::read_to_string(t.0.join("diff.txt")).unwrap(), "theirs");
+        assert!(changes(&repo).unwrap().is_empty());
     }
 
     #[test]

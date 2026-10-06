@@ -1,7 +1,7 @@
 {
   "name": "zit-suite",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Free, open-source GitHub desktop app for Linux and Windows: manage every repository at once — bulk actions with dry run, cross-repo issues & pull requests, Actions CI board, releases, security, insights and built-in Git.",
   "author": {
     "name": "TheHolyOneZ",

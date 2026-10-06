@@ -1,6 +1,6 @@
 [package]
 name = "zit-suite"
-version = "0.1.0"
+version = "0.2.0"
 description = "ZIT-Suite — Build. Manage. Ship. A GitHub desktop app to manage every repository at once."
 authors = ["TheHolyOneZ"]
 license = "GPL-3.0-only"

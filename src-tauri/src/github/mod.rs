@@ -19,6 +19,7 @@ pub mod secrets;
 pub mod stars;
 pub mod stats;
 pub mod traffic;
+pub mod upload;
 pub mod search;
 pub mod security;
 pub mod users;

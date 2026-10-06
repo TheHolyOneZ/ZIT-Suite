@@ -97,6 +97,7 @@ export function DepsPage() {
         .finally(() => setChecking(false));
     }
 
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ui.autoLatest, scan.data]);
 

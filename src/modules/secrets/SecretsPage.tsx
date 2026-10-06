@@ -76,6 +76,7 @@ export function SecretsPage() {
       ),
     }),
 
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [index, q, ui.onlyFlagged],
   );

@@ -167,3 +167,36 @@ pub async fn files_dir(state: State<'_, AppState>, repo: String, path: String, g
 pub async fn files_read_text(state: State<'_, AppState>, repo: String, path: String, git_ref: Option<String>) -> AppResult<Option<String>> {
     files::read_text(&state.active_client()?, &repo, &path, git_ref.as_deref()).await
 }
+
+#[derive(Debug, Clone, Serialize, Deserialize, Type, tauri_specta::Event)]
+pub struct UploadProgress {
+    pub done: u32,
+    pub total: u32,
+}
+
+#[tauri::command]
+#[specta::specta]
+pub async fn upload_plan(state: State<'_, AppState>, repo: String, branch: String, folder: String, into: String) -> AppResult<crate::github::upload::UploadPlan> {
+    crate::github::upload::plan(&state.active_client()?, &repo, &branch, &folder, &into).await
+}
+
+#[allow(clippy::too_many_arguments)]
+#[tauri::command]
+#[specta::specta]
+pub async fn upload_run(
+    app: tauri::AppHandle,
+    state: State<'_, AppState>,
+    repo: String,
+    branch: String,
+    base_commit: Option<String>,
+    folder: String,
+    into: String,
+    files: Vec<String>,
+    message: String,
+) -> AppResult<CommitResult> {
+    use tauri_specta::Event;
+    let emit = |done, total| {
+        let _ = UploadProgress { done, total }.emit(&app);
+    };
+    crate::github::upload::run(&state.active_client()?, &repo, &branch, base_commit.as_deref(), &folder, &into, &files, &message, &emit).await
+}

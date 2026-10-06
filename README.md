@@ -12,7 +12,7 @@ Manage hundreds of repositories at once, triage issues and pull requests across 
 **built-in Git** — no terminal, no installed `git` needed.
 
 <p>
-  <a href="https://zsync.eu/zit-suite/#download"><img alt="Version 0.1.0" src="https://img.shields.io/badge/version-0.1.0-FF7A1A?style=for-the-badge&labelColor=0f1115"></a>
+  <a href="https://zsync.eu/zit-suite/#download"><img alt="Version 0.2.0" src="https://img.shields.io/badge/version-0.2.0-FF7A1A?style=for-the-badge&labelColor=0f1115"></a>
   <a href="LICENSE"><img alt="License: GPL-3.0" src="https://img.shields.io/badge/license-GPL--3.0-FF7A1A?style=for-the-badge&labelColor=0f1115"></a>
   <img alt="Platforms: Linux and Windows" src="https://img.shields.io/badge/platform-Linux%20%7C%20Windows-FF7A1A?style=for-the-badge&labelColor=0f1115">
 </p>
@@ -37,6 +37,7 @@ Manage hundreds of repositories at once, triage issues and pull requests across 
   <a href="#-build-from-source">Build from source</a> ·
   <a href="#-architecture">Architecture</a> ·
   <a href="#-faq">FAQ</a> ·
+  <a href="CHANGELOG.md">Changelog</a> ·
   <a href="ROADMAP.md">Roadmap</a>
 </p>
 
@@ -123,7 +124,7 @@ Settings). Every tab is a self-contained module; everything bulk or destructive 
 - **Workspaces**: any folder on your computer becomes a project card with a one-line status (unsaved changes, not uploaded, new on GitHub, all good)
 - **One-click setup** for a plain folder: `git init`, a suggested `.gitignore`, a new **private** GitHub repo, first version and upload
 - **Save versions** (commit) with a message that follows your selection, **Save & upload** (push), discard per file, secret-file warnings with a one-click "Don't share"
-- **Per-file diff view**, **undo last save** (while it's only on your computer), **park my changes** (stash) and bring them back
+- **Per-file diff view**, **undo last save** or **"Undo from here"** for several versions at once (while they're only on your computer — your files stay, the next save is one clean commit), **park my changes** (stash) and bring them back
 - **Get latest** (fast-forward or clean merge) with a **conflict helper** — pick *mine* or *theirs* per file
 - **Push target + reference repo**: compare your copy with the original you forked — new on GitHub, not uploaded yet, only in your copy — and bring upstream changes in
 - **Watching** (1 s – 5 min) and **automation**: save every N minutes or after N quiet minutes, optional auto-upload, message templates
@@ -132,6 +133,14 @@ Settings). Every tab is a self-contained module; everything bulk or destructive 
 - **History** with "uploaded" marks, commits signed with your GitHub noreply identity, **pushes never forced**
 - **About**, **Releases** and **Actions** tabs per project, **clone** any repo into a workspace, **open in VS Code / your terminal**
 - Runs in the background from the **system tray** so automation keeps going with the window closed
+
+#### Upload — upload and forget
+- Pick a repository, a branch and a **folder on your computer** (optionally into a subfolder of the repo) — no workspace, no history to manage
+- Every file is compared with GitHub and marked **new**, **changed** or **same**; new and changed files are ticked for you
+- **Tick or untick** single files or whole folders in a tree · *New & changed* / *All* / *None* · *Show unchanged*
+- Commit message (suggested from your selection) + optional description → **one commit**, with a progress bar
+- `.gitignore`, `node_modules`, `target` and `.git` are skipped · executable files keep their bit · empty repositories get one first commit
+- Recent repository + folder pairs are one click away
 
 #### Files & Editor — edit any repository on GitHub
 - Browse any repo and branch, **CodeMirror 6** editor with syntax highlighting, search, tabs and a focus mode
@@ -264,7 +273,7 @@ Managing 200 repositories means one wrong click could hurt. ZIT-Suite is built s
 
 ## ✦ Install
 
-> **Version 0.1.0** — Linux and Windows.
+> **Version 0.2.0** — Linux and Windows.
 
 > [!IMPORTANT]
 > **Precompiled installers are only available on the official website: [zsync.eu/zit-suite](https://zsync.eu/zit-suite/#download).**
@@ -276,9 +285,9 @@ Managing 200 repositories means one wrong click could hurt. ZIT-Suite is built s
 
    | System | File | Install |
    |---|---|---|
-   | Windows 10 / 11 (64-bit) | `ZIT-Suite_0.1.0_x64-setup.exe` | run the installer |
-   | Debian, Ubuntu, Linux Mint, Pop!_OS | `ZIT-Suite_0.1.0_amd64.deb` | `sudo apt install ./ZIT-Suite_0.1.0_amd64.deb` |
-   | Fedora, openSUSE, RHEL | `ZIT-Suite-0.1.0-1.x86_64.rpm` | `sudo dnf install ./ZIT-Suite-0.1.0-1.x86_64.rpm` |
+   | Windows 10 / 11 (64-bit) | `ZIT-Suite_0.2.0_x64-setup.exe` | run the installer |
+   | Debian, Ubuntu, Linux Mint, Pop!_OS | `ZIT-Suite_0.2.0_amd64.deb` | `sudo apt install ./ZIT-Suite_0.2.0_amd64.deb` |
+   | Fedora, openSUSE, RHEL | `ZIT-Suite-0.2.0-1.x86_64.rpm` | `sudo dnf install ./ZIT-Suite-0.2.0-1.x86_64.rpm` |
 
    …or [build it yourself from source](#-build-from-source) — the only alternative to the website.
 2. Start ZIT-Suite and sign in with a **GitHub personal access token** (classic) or the device flow.

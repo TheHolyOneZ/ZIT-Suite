@@ -36,3 +36,4 @@ dist-ssr
 /GITHUB-INFO.txt
 /.github/workflows/ci.yml
 /.github/workflows/workflow.yml
+/.github/

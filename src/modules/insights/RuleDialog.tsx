@@ -46,6 +46,7 @@ export function RuleDialog({
     const now = Date.now();
     return repos.filter((x) => r.test(x, now));
 
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [repos, conds]);
   const ok = !!draft.name && conds.length > 0 && conds.every(condComplete);

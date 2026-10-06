@@ -22,6 +22,7 @@ import type deps from "@/modules/deps/locales/en.json";
 import type releases from "@/modules/releases/locales/en.json";
 import type scheduler from "@/modules/scheduler/locales/en.json";
 import type migration from "@/modules/migration/locales/en.json";
+import type upload from "@/modules/upload/locales/en.json";
 import type security from "@/modules/security/locales/en.json";
 import type settings from "@/modules/settings/locales/en.json";
 import type webhooks from "@/modules/webhooks/locales/en.json";
@@ -53,6 +54,7 @@ declare module "i18next" {
       releases: typeof releases;
       scheduler: typeof scheduler;
       migration: typeof migration;
+      upload: typeof upload;
       security: typeof security;
       settings: typeof settings;
       webhooks: typeof webhooks;

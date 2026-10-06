@@ -1050,6 +1050,22 @@ async filesScanFolder(path: string) : Promise<Result<FolderScan, AppError>> {
     else return { status: "error", error: e  as any };
 }
 },
+async uploadPlan(repo: string, branch: string, folder: string, into: string) : Promise<Result<UploadPlan, AppError>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("upload_plan", { repo, branch, folder, into }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async uploadRun(repo: string, branch: string, baseCommit: string | null, folder: string, into: string, files: string[], message: string) : Promise<Result<CommitResult, AppError>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("upload_run", { repo, branch, baseCommit, folder, into, files, message }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
 async filesBlame(repo: string, branch: string, path: string) : Promise<Result<BlameRange[], AppError>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("files_blame", { repo, branch, path }) };
@@ -1746,6 +1762,7 @@ schedulesChanged: SchedulesChanged,
 secretsScanProgress: SecretsScanProgress,
 securityScanProgress: SecurityScanProgress,
 trafficProgress: TrafficProgress,
+uploadProgress: UploadProgress,
 workspaceAutoCommit: WorkspaceAutoCommit,
 workspaceChanged: WorkspaceChanged
 }>({
@@ -1765,6 +1782,7 @@ schedulesChanged: "schedules-changed",
 secretsScanProgress: "secrets-scan-progress",
 securityScanProgress: "security-scan-progress",
 trafficProgress: "traffic-progress",
+uploadProgress: "upload-progress",
 workspaceAutoCommit: "workspace-auto-commit",
 workspaceChanged: "workspace-changed"
 })
@@ -1845,6 +1863,7 @@ export type FileChurn = { path: string; commits: number; additions: number; dele
 export type FileCommit = { sha: string; message: string; author: string; date: string; url: string }
 export type FileEdit = { name: string; new_name: string | null; content: string | null; delete: boolean }
 export type FileStat = { path: string; size: number; lines: number; blank: number; language: string | null; binary: boolean }
+export type FileState = "new" | "changed" | "same"
 export type FolderInfo = { path: string; name: string; is_repo: boolean; root: string | null; branch: string | null; has_commits: boolean; origin: string | null; upstream: string | null; entries: number; suggestions: Suggestion[]; existing: string | null }
 export type FolderScan = { name: string; files: LocalFile[]; skipped: string[]; skipped_count: number; too_large: string[]; truncated: boolean }
 export type Fragment = { text: string; matches: ([number, number])[] }
@@ -1894,6 +1913,7 @@ export type PackageRef = { ecosystem: string; name: string }
 export type Parked = { index: number; message: string; branch: string | null; time: string }
 export type PatchLine = { kind: LineKind; old: number | null; new: number | null; text: string }
 export type Pick = "mine" | "theirs"
+export type PlanFile = { rel: string; size: number; state: FileState }
 export type Posture = { dependabot_alerts: FeatureState; security_updates: FeatureState; secret_scanning: FeatureState; push_protection: FeatureState; private_reporting: FeatureState; code_scanning: FeatureState }
 export type PrRule = { approvals: number; dismiss_stale: boolean; code_owners: boolean; last_push: boolean; resolve_threads: boolean }
 export type Protection = { require_pr: boolean; approvals: number; dismiss_stale: boolean; code_owners: boolean; last_push_approval: boolean; status_checks: boolean; strict: boolean; contexts: string[]; enforce_admins: boolean; linear_history: boolean; conversation_resolution: boolean; force_pushes: boolean; deletions: boolean }
@@ -1973,6 +1993,8 @@ export type TreeEntry = { name: string; path: string; dir: boolean; ignored: boo
 export type TreeItem = { path: string; kind: string; mode: string; sha: string; size: number }
 export type Unreleased = { base: string; head: string; total: number; commits: CommitLine[] }
 export type UpdateKind = "up_to_date" | "fast_forward" | "merged"
+export type UploadPlan = { name: string; base_commit: string | null; files: PlanFile[]; skipped: string[]; skipped_count: number; too_large: string[]; truncated: boolean }
+export type UploadProgress = { done: number; total: number }
 export type UploadResult = { uploaded: Asset[]; failed: ([string, AppError])[] }
 export type Variable = { name: string; value: string; created_at: string; updated_at: string }
 export type WatchMode = "watching" | "ignoring" | "participating"

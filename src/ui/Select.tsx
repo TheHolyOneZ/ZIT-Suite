@@ -27,6 +27,7 @@ export function Select({ className, children, value, onChange, disabled, title }
   useEffect(() => {
     if (open) setHi(Math.max(0, opts.findIndex((o) => o.value === current?.value)));
 
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
   useEffect(() => {

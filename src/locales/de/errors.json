@@ -96,7 +96,9 @@
     "undo_uploaded": "Diese Version ist schon auf GitHub — sie hier zurückzunehmen würde deine Kopie und GitHub auseinanderbringen",
     "nothing_to_park": "Es gibt keine ungespeicherten Änderungen zum Parken",
     "unpark_conflict": "Das Zurückholen würde Änderungen überschreiben, die du seitdem gemacht hast. Speichere oder parke sie zuerst.",
-    "unresolved": "Wähle für jede Datei mit Konflikt meine oder ihre Fassung"
+    "unresolved": "Wähle für jede Datei mit Konflikt meine oder ihre Fassung",
+    "unsaved_in_the_way": "GitHub hat eigene Fassungen von Dateien, die du hier noch nicht gespeichert hast. Speichere sie zuerst als Version (oder verschiebe sie) und hol dann erneut das Neueste",
+    "nothing_to_upload": "Noch nichts hochzuladen — speichere zuerst eine Version"
   },
   "releases": {
     "bad_tag": "Dieser Tag-Name ist nicht erlaubt (keine Leerzeichen, ~ ^ : ? * [ oder ..)",
@@ -127,7 +129,8 @@
     "nothing": "Nichts zu speichern",
     "stale": "Jemand anderes hat inzwischen auf diesem Branch gespeichert — neu laden, um seine Änderungen zu holen; deine bleiben vorgemerkt",
     "branch_exists": "Ein Branch mit diesem Namen existiert bereits",
-    "not_folder": "Das ist kein Ordner"
+    "not_folder": "Das ist kein Ordner",
+    "read_failed": "Eine lokale Datei konnte nicht gelesen werden"
   },
   "audit": {
     "io": "Audit-Cache konnte nicht geschrieben werden",

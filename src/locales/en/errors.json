@@ -96,7 +96,9 @@
     "undo_uploaded": "This save is already on GitHub — undoing it here would make your copy disagree with GitHub",
     "nothing_to_park": "There are no unsaved changes to park",
     "unpark_conflict": "Bringing these changes back would overwrite edits you made since. Save or park those first.",
-    "unresolved": "Pick mine or theirs for every conflicting file"
+    "unresolved": "Pick mine or theirs for every conflicting file",
+    "unsaved_in_the_way": "GitHub has its own version of files you haven't saved here yet. Save them as a version first (or move them away), then get latest again",
+    "nothing_to_upload": "Nothing to upload yet — save a version first"
   },
   "releases": {
     "bad_tag": "That tag name isn't allowed (no spaces, ~ ^ : ? * [ or ..)",
@@ -127,7 +129,8 @@
     "nothing": "Nothing to save",
     "stale": "Someone else saved to this branch in the meantime — reload to get their changes, your edits stay staged",
     "branch_exists": "A branch with that name already exists",
-    "not_folder": "That isn't a folder"
+    "not_folder": "That isn't a folder",
+    "read_failed": "Couldn't read a local file"
   },
   "audit": {
     "io": "Couldn't write the audit cache",

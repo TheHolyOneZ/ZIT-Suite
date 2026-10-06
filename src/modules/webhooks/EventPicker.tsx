@@ -26,6 +26,7 @@ export function EventPicker({
     if (implied === "all" || implied === "custom") setMode(implied);
     else if (mode === "all") setMode("push");
 
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [implied]);
 
