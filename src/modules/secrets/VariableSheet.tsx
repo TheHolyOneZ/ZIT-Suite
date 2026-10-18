@@ -9,7 +9,6 @@ import { UsageFinder } from "./UsageFinder";
 import { PlaceLabel } from "./shared";
 import { useSecretsUi } from "./store";
 
-
 export function VariableSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["secrets", "common"]);
   const name = String(params.name);

@@ -50,7 +50,6 @@ pub async fn tree(c: &GitHubClient, repo: &str, branch: &str, fresh: bool) -> Ap
     Ok(RepoTree { branch: branch.to_string(), commit, items, truncated: t.get("truncated").and_then(Value::as_bool).unwrap_or(false) })
 }
 
-
 pub async fn items_at(c: &GitHubClient, repo: &str, commit: &str) -> AppResult<Vec<TreeItem>> {
     let cm: Value = c.get_json(&format!("/repos/{repo}/git/commits/{commit}")).await?;
     let tree = cm.pointer("/tree/sha").and_then(Value::as_str).unwrap_or_default();
@@ -79,7 +78,6 @@ pub struct Blob {
     pub base64: Option<String>,
 }
 
-
 pub async fn blob(c: &GitHubClient, repo: &str, sha: &str) -> AppResult<Blob> {
     let (v, _) = c.get_page(&format!("/repos/{repo}/git/blobs/{sha}"), false).await?;
     let raw: String = v.get("content").and_then(Value::as_str).unwrap_or_default().chars().filter(|c| !c.is_whitespace()).collect();
@@ -101,7 +99,6 @@ pub struct FileCommit {
     pub url: String,
 }
 
-
 pub async fn history(c: &GitHubClient, repo: &str, branch: &str, path: &str) -> AppResult<Vec<FileCommit>> {
     let q = [("sha", branch.to_string()), ("path", path.to_string()), ("per_page", "40".to_string())];
     let v: Vec<Value> = c.get_json_query(&format!("/repos/{repo}/commits"), &q).await?;
@@ -116,7 +113,6 @@ pub async fn history(c: &GitHubClient, repo: &str, branch: &str, path: &str) -> 
         .collect())
 }
 
-
 pub async fn at_commit(c: &GitHubClient, repo: &str, commit: &str, path: &str) -> AppResult<Option<Blob>> {
     let p = path.split('/').map(enc).collect::<Vec<_>>().join("/");
     match c.get_json::<Value>(&format!("/repos/{repo}/contents/{p}?ref={}", enc(commit))).await {
@@ -129,11 +125,9 @@ pub async fn at_commit(c: &GitHubClient, repo: &str, commit: &str, path: &str) -
     }
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 #[serde(tag = "kind", rename_all = "snake_case")]
 pub enum Change {
-
     Text { path: String, text: String, executable: Option<bool> },
 
     Binary { path: String, base64: String },
@@ -150,7 +144,6 @@ pub fn valid_path(p: &str) -> bool {
         && p.split('/').all(|s| !s.is_empty() && s != "." && s != ".." && s != ".git")
         && !p.chars().any(|c| c.is_control() || c == '\\')
 }
-
 
 pub fn tree_entries(changes: &[Change], existing: &dyn Fn(&str) -> Option<(String, String)>, blob_for: &dyn Fn(usize) -> Option<String>) -> AppResult<Vec<Value>> {
     let mut out: Vec<Value> = Vec::new();
@@ -200,7 +193,6 @@ pub struct CommitResult {
     pub branch: String,
     pub url: String,
 }
-
 
 #[allow(clippy::too_many_arguments)]
 pub async fn commit(c: &GitHubClient, repo: &str, branch: &str, base_commit: &str, new_branch: bool, message: &str, changes: &[Change], base_items: &[TreeItem]) -> AppResult<CommitResult> {
@@ -262,7 +254,6 @@ pub struct DirEntry {
     pub kind: String,
 }
 
-
 pub async fn list_dir(c: &GitHubClient, repo: &str, path: &str, git_ref: Option<&str>) -> AppResult<Vec<DirEntry>> {
     let p = path.trim_matches('/').split('/').map(enc).collect::<Vec<_>>().join("/");
     let q = git_ref.map(|r| format!("?ref={}", enc(r))).unwrap_or_default();
@@ -281,7 +272,6 @@ pub async fn list_dir(c: &GitHubClient, repo: &str, path: &str, git_ref: Option<
         Err(e) => Err(e),
     }
 }
-
 
 pub async fn read_text(c: &GitHubClient, repo: &str, path: &str, git_ref: Option<&str>) -> AppResult<Option<String>> {
     let p = path.trim_matches('/').split('/').map(enc).collect::<Vec<_>>().join("/");
@@ -357,7 +347,6 @@ query($owner: String!, $name: String!, $ref: String!, $path: String!) {
     }
   }
 }"#;
-
 
 pub async fn blame(c: &GitHubClient, repo: &str, branch: &str, path: &str) -> AppResult<Vec<BlameRange>> {
     let (owner, name) = repo.split_once('/').ok_or_else(|| AppError::new("github.not_found"))?;

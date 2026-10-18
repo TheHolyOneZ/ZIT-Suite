@@ -5,7 +5,6 @@ import { useScopeKey, useSession } from "@/core/store/session";
 
 let freshNext = false;
 
-
 export function refreshRepos() {
   freshNext = true;
   return queryClient.invalidateQueries({ queryKey: ["repos"] });

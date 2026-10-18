@@ -10,7 +10,6 @@ use crate::error::{AppError, AppResult};
 pub struct TimelineEvent {
     pub id: String,
 
-
     pub event: String,
     pub actor: Option<String>,
     pub created_at: String,
@@ -24,7 +23,6 @@ pub struct TimelineEvent {
     pub source_url: Option<String>,
     pub state_reason: Option<String>,
 }
-
 
 const SHOWN: &[&str] = &[
     "labeled", "unlabeled", "assigned", "unassigned", "milestoned", "demilestoned", "renamed", "closed", "reopened", "cross-referenced",
@@ -72,7 +70,6 @@ pub struct Reaction {
     pub content: String,
     pub user: String,
 }
-
 
 fn reactions_path(repo: &str, target: &str) -> AppResult<String> {
     match target.split_once('/') {
@@ -131,7 +128,6 @@ pub async fn set_pinned(c: &GitHubClient, node_id: &str, pinned: bool) -> AppRes
     c.graphql(m, json!({ "id": node_id })).await.map(drop)
 }
 
-
 pub async fn transfer(c: &GitHubClient, node_id: &str, to_repo: &str) -> AppResult<String> {
     let (owner, name) = split(to_repo)?;
     let r = c.graphql("query($o:String!,$n:String!){repository(owner:$o,name:$n){id}}", json!({ "o": owner, "n": name })).await?;
@@ -168,7 +164,6 @@ pub async fn sub_issues(c: &GitHubClient, repo: &str, number: u32) -> AppResult<
         Err(e) => Err(e),
     }
 }
-
 
 pub async fn add_sub_issue(c: &GitHubClient, repo: &str, number: u32, child: u32) -> AppResult<()> {
     let v: Value = c.get_json(&format!("/repos/{repo}/issues/{child}")).await?;

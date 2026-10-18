@@ -106,10 +106,8 @@ pub async fn create(c: &GitHubClient, description: &str, public: bool, files: &[
     Ok(gist_of(&v.unwrap_or_default()))
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct FileEdit {
-
     pub name: String,
     pub new_name: Option<String>,
     pub content: Option<String>,
@@ -174,7 +172,6 @@ pub async fn revisions(c: &GitHubClient, id: &str) -> AppResult<Vec<Revision>> {
         })
         .collect())
 }
-
 
 fn comment_of(gist: &str, v: &Value) -> Comment {
     let id = v.get("id").and_then(Value::as_u64).unwrap_or(0);

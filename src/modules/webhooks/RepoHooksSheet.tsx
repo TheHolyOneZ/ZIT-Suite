@@ -10,7 +10,6 @@ import { EventList, StateMark } from "./HookMarks";
 import { hookState, splitUrl } from "./model";
 import { useHooksUi } from "./store";
 
-
 export function RepoHooksSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["webhooks", "common"]);
   const repo = String(params.repo);

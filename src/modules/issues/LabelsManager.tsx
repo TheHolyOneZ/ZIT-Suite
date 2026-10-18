@@ -213,7 +213,6 @@ function LabelEditor({ repo, initial, onDone }: { repo: string; initial?: Label;
   );
 }
 
-
 function LabelSyncDialog({
   source,
   fromRepo,
@@ -233,7 +232,6 @@ function LabelSyncDialog({
   const managerRepo = useIssuesPrefs((s) => s.managerRepo);
 
   useEffect(() => {
-
     if (!fromRepo && managerRepo) setTargets(new Set([managerRepo]));
   }, [fromRepo, managerRepo]);
 

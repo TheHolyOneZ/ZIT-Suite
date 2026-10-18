@@ -5,7 +5,6 @@ export interface Thread {
   replies: ReviewComment[];
 }
 
-
 export function buildThreads(comments: ReviewComment[]): Thread[] {
   const byId = new Map(comments.map((c) => [c.id, c]));
   const rootOf = (c: ReviewComment): ReviewComment => {
@@ -25,7 +24,6 @@ export function buildThreads(comments: ReviewComment[]): Thread[] {
   }
   return [...threads.values()];
 }
-
 
 export const anchorKey = (side: string | null | undefined, line: number | null | undefined) =>
   `${side ?? "RIGHT"}:${line}`;

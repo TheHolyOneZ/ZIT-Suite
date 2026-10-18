@@ -31,7 +31,6 @@ import { firstErrorBlock, jobMs, parseLog, pickJob, type LogBlock } from "./mode
 const look = (x: { status: string; conclusion: string | null }) =>
   runLook({ status: x.status, conclusion: x.conclusion } as Run);
 
-
 export function RunSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["actions", "home", "common"]);
   const repo = String(params.repo);
@@ -285,7 +284,6 @@ function ArtifactList({ repo, q }: { repo: string; q: ReturnType<typeof useArtif
     </div>
   );
 }
-
 
 function LogPane({ repo, job }: { repo: string; job: Job }) {
   const { t } = useTranslation(["actions", "home"]);

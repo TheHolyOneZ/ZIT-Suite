@@ -2,7 +2,6 @@ import type { Cadence, QueueAction } from "@/core/ipc";
 import { applyFilter, type RepoFilter, type RepoRow } from "@/modules/repos/filters";
 import { CLEANUP_PRESETS, type CleanupPresetId } from "@/modules/repos/cleanup";
 
-
 export type Target =
   | { kind: "view"; presetId: string; name: string; filter: RepoFilter }
   | { kind: "cleanup"; preset: CleanupPresetId }
@@ -10,7 +9,6 @@ export type Target =
   | { kind: "repos"; repos: string[] };
 
 const SORT = { key: "name", dir: "asc" } as const;
-
 
 export function resolveTarget(t: Target, rows: RepoRow[]): string[] {
   switch (t.kind) {
@@ -28,7 +26,6 @@ export function resolveTarget(t: Target, rows: RepoRow[]): string[] {
     }
   }
 }
-
 
 export type ActionKind =
   | "archive"
@@ -55,7 +52,6 @@ export const ACTION_KINDS: ActionKind[] = [
 export const mustAsk = (a: QueueAction) => a.kind === "delete";
 
 export const DEFAULT_CADENCE: Cadence = { every: "week", hours: 6, at: "09:00", weekday: 0, day: 1 };
-
 
 export function describeCadence(c: Cadence, t: (k: string, o?: Record<string, unknown>) => string): string {
   switch (c.every) {

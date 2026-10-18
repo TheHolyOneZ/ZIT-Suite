@@ -1,7 +1,6 @@
 import type { Label } from "@/core/ipc";
 import { cn } from "@/core/cn";
 
-
 export function LabelChip({
   label,
   className,

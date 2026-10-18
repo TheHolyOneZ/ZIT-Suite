@@ -1,6 +1,5 @@
 import type { Label } from "@/core/ipc";
 
-
 export const STARTER_LABELS: Label[] = [
   { name: "bug", color: "d73a4a", description: "Something isn't working" },
   { name: "enhancement", color: "a2eeef", description: "New feature or request" },

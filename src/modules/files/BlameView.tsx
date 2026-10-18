@@ -6,7 +6,6 @@ import { commands, unwrap } from "@/core/ipc";
 import { errorMessage } from "@/core/errors";
 import { EmptyState, Plotter, RelTime } from "@/ui";
 
-
 export function BlameView({
   repo,
   branch,

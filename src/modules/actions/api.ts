@@ -13,7 +13,6 @@ export const actionsKey = {
   log: (repo: string, job: number) => ["actions", "log", repo, job] as const,
 };
 
-
 export function useBoardRepos(days: number) {
   const { data = [] } = useRepoList();
   return useMemo(() => {
@@ -24,7 +23,6 @@ export function useBoardRepos(days: number) {
       .sort();
   }, [data, days]);
 }
-
 
 export function useBoard(repos: string[], days: number) {
   const scope = useScopeKey();
@@ -64,7 +62,6 @@ export const useArtifacts = (repo: string, run: number, done: boolean) =>
     queryFn: () => unwrap(commands.actionsArtifacts(repo, run, false)),
     staleTime: 30_000,
   });
-
 
 export const useJobLog = (repo: string, job: number | null, finished: boolean) =>
   useQuery({

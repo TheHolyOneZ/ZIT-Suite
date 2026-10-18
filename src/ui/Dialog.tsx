@@ -10,7 +10,6 @@ function useEscape(open: boolean, onClose: () => void) {
   useEffect(() => {
     if (!open) return;
     const h = (e: KeyboardEvent) => {
-
       if (e.key === "Escape" && !document.querySelector("[data-popover]")) {
         e.stopPropagation();
         onClose();
@@ -80,7 +79,6 @@ export function Dialog({
     document.body,
   );
 }
-
 
 export function Drawer({
   open,

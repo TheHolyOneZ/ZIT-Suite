@@ -1,7 +1,6 @@
 import type { ComponentType } from "react";
 import type { LucideIcon } from "lucide-react";
 
-
 export type Pillar = "build" | "manage" | "ship" | "system";
 export const PILLARS: Pillar[] = ["build", "manage", "ship", "system"];
 
@@ -24,7 +23,6 @@ export type ModuleSettingField =
   | { key: string; type: "boolean"; labelKey: string; hintKey?: string; default: boolean }
   | { key: string; type: "select"; labelKey: string; hintKey?: string; default: string; options: { value: string; labelKey: string }[] };
 
-
 export interface SheetDef {
   component: ComponentType<{ params: import("../sheets/store").SheetParams }>;
 
@@ -34,7 +32,6 @@ export interface SheetDef {
 }
 
 export interface ModuleManifest {
-
   id: string;
   pillar: Pillar;
 

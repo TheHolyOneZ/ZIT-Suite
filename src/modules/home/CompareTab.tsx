@@ -9,7 +9,6 @@ import { useHistory } from "./api";
 import { CommitRow } from "./HistoryTab";
 import { AheadBehind, GitTerm } from "./parts";
 
-
 export function CompareTab({
   ws,
   sync,

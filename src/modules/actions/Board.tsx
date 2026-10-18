@@ -15,7 +15,6 @@ import { useActionsUi } from "./store";
 
 const DAYS = [7, 30, 90, 365, 0];
 
-
 export function Board() {
   const { t } = useTranslation(["actions", "common"]);
   const ui = useActionsUi();

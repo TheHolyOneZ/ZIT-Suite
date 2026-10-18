@@ -15,7 +15,6 @@ import { openRepo } from "./RepoSheet";
 const validName = (n: string) =>
   !!n && n.length <= 100 && n !== "." && n !== ".." && /^[A-Za-z0-9._-]+$/.test(n);
 
-
 export function CreateRepoDialog({ onClose }: { onClose: () => void }) {
   const { t } = useTranslation(["repos", "common"]);
   const me = useActiveAccount()?.login ?? "";

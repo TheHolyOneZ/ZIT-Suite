@@ -4,7 +4,6 @@ import { sheets, type SheetParams } from "@/core/sheets/store";
 import { IssueDetail } from "./IssueDetail";
 import { issueKey } from "./query";
 
-
 export function IssueSheet({ params }: { params: SheetParams }) {
   const key = issueKey(String(params.repo), Number(params.number));
   const cached = queryClient.getQueryData<Issue>(["issues", "one", params.repo, params.number]);

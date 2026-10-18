@@ -9,7 +9,6 @@ import { useHomeUi } from "./store";
 
 type Busy = "save" | "upload" | "latest" | "check" | null;
 
-
 export function useWorkspaceActions(ws: Workspace) {
   const { t } = useTranslation(["home", "common"]);
   const [busy, setBusy] = useState<Busy>(null);
@@ -25,7 +24,6 @@ export function useWorkspaceActions(ws: Workspace) {
       setBusy(null);
     }
   };
-
 
   const save = (message: string, paths: string[] | null, upload: boolean) =>
     run("save", async () => {

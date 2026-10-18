@@ -13,7 +13,6 @@ import { AheadBehind, AutomationLine, BranchChip, GitTerm, HeadlineText } from "
 export const openWorkspace = (ws: Workspace, tab?: string) =>
   sheets.push("home", "workspace", { id: ws.id, title: ws.name, ...(tab ? { tab } : {}) });
 
-
 export function WorkspaceCard({ ws }: { ws: Workspace }) {
   const { t } = useTranslation(["home", "common"]);
   const status = useStatus(ws.id).data;
@@ -25,7 +24,6 @@ export function WorkspaceCard({ ws }: { ws: Workspace }) {
   const ref = sync?.reference;
 
   return (
-
     <Panel
       ticks
       role="button"

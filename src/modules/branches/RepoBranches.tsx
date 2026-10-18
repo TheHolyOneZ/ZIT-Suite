@@ -50,7 +50,6 @@ type Open =
 const deleteAll = (repo: string, names: string[]) =>
   useQueue.getState().requestRun(names.map((name) => ({ repo, action: { kind: "branch_delete", name } })));
 
-
 export function RepoBranches({ repo }: { repo: string }) {
   const { t } = useTranslation(["branches", "common"]);
   const ui = useBranchesUi();
@@ -230,7 +229,6 @@ function Stat({ label, value, tone }: { label: string; value: string; tone?: "wa
     </div>
   );
 }
-
 
 function AheadBehind({ ahead, behind, max }: { ahead: number | null; behind: number | null; max: number }) {
   const { t } = useTranslation("branches");

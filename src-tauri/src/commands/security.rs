@@ -14,7 +14,6 @@ pub struct SecurityScanProgress {
     pub total: u32,
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn security_scan(app: AppHandle, state: State<'_, AppState>, repos: Vec<String>, fresh: bool) -> AppResult<Vec<RepoSecurity>> {
@@ -31,7 +30,6 @@ pub async fn security_scan(app: AppHandle, state: State<'_, AppState>, repos: Ve
     )
     .await)
 }
-
 
 #[tauri::command]
 #[specta::specta]

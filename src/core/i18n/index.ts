@@ -26,7 +26,6 @@ export const languages = Object.keys(resources).sort((a, b) =>
 );
 export const namespaces = Object.keys(resources[FALLBACK_LANGUAGE] ?? {});
 
-
 export function languageName(lng: string): string {
   try {
     const name = new Intl.DisplayNames([lng], { type: "language" }).of(lng);
@@ -59,7 +58,6 @@ export async function initI18n(lng: string) {
   i18n.on("languageChanged", (l) => (document.documentElement.lang = l));
   return i18n;
 }
-
 
 export function tDynamic(key: string, options?: Record<string, unknown>): string {
   return (i18n.t as unknown as (k: string, o?: Record<string, unknown>) => string)(key, options);

@@ -1,6 +1,5 @@
 import type { EnvConfig, Environment, RepoSecrets, Scope } from "@/core/ipc";
 
-
 export interface Place {
   repo: string;
   env: string | null;
@@ -50,7 +49,6 @@ const DAY = 86_400_000;
 export const ageDays = (iso: string, now = Date.now()) =>
   Math.max(0, Math.floor((now - Date.parse(iso)) / DAY));
 
-
 export const validName = (n: string) =>
   /^[A-Za-z_][A-Za-z0-9_]*$/.test(n) && !n.toUpperCase().startsWith("GITHUB_");
 
@@ -64,7 +62,6 @@ export function configOf(e: Environment): EnvConfig {
     can_admins_bypass: e.can_admins_bypass,
   };
 }
-
 
 export function configKey(c: EnvConfig): string {
   const reviewers = [
@@ -144,7 +141,6 @@ export function buildIndex(scan: RepoSecrets[], staleDays: number, now = Date.no
       ),
   };
 }
-
 
 export function findUses(text: string, kind: "secrets" | "vars", name: string): number[] {
   const n = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

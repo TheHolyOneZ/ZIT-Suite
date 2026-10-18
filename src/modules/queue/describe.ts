@@ -1,11 +1,9 @@
 import type { QueueAction } from "@/core/ipc";
 import { tDynamic } from "@/core/i18n";
 
-
 export function shortUrl(url: string) {
   return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 }
-
 
 export function describeAction(a: QueueAction): { label: string; detail: string | null } {
   const label = tDynamic(`queue:actions.${a.kind}`);

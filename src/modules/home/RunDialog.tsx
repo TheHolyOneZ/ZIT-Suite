@@ -9,7 +9,6 @@ import { Button, Checkbox, Dialog, Input, Label, Plotter, Select } from "@/ui";
 import { refreshGh } from "./ghapi";
 import { dispatchInputs, type DispatchInput } from "./ghmodel";
 
-
 export function RunDialog({
   repo,
   wf,
@@ -41,7 +40,6 @@ export function RunDialog({
     setError(null);
     void (async () => {
       try {
-
         const local = readLocal ? await readLocal(wf.path).catch(() => null) : null;
         const text = local ?? (await unwrap(commands.actionsSource(repo, wf.path, null)));
         const found = dispatchInputs(parse(text));
@@ -59,7 +57,6 @@ export function RunDialog({
         setInputs(null);
       }
     })();
-
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wf]);

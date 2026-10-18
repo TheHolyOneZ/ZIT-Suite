@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { events } from "@/core/ipc";
 import { refreshRepoAccess } from "./api";
 
-
 export function AccessSync() {
   useEffect(() => {
     const seen = new Set<string>();

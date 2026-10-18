@@ -5,7 +5,6 @@ import { useRepoList } from "@/core/data/repos";
 import { cn } from "@/core/cn";
 import { Input, Popover } from "@/ui";
 
-
 export function RepoPicker({
   value,
   onChange,

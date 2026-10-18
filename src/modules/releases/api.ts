@@ -10,7 +10,6 @@ export interface Target {
   branch: string;
 }
 
-
 export function useBoardTargets(days: number): Target[] {
   const { data = [] } = useRepoList();
   return useMemo(() => {
@@ -52,7 +51,6 @@ export function useBoard(targets: Target[]) {
 }
 
 export const reloadBoard = () => void queryClient.invalidateQueries({ queryKey: ["releases", "board"] });
-
 
 export const useUnreleased = (repo: string, base: string | null, head: string | null) =>
   useQuery({

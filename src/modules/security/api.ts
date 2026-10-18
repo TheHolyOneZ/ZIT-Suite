@@ -7,7 +7,6 @@ import { useScopeKey } from "@/core/store/session";
 import { buildIndex, SLA, type SecurityIndex } from "./model";
 import { useSecurityPrefs } from "./store";
 
-
 export function useSecurityTargets(): string[] {
   const { data = [] } = useRepoList();
   const includeArchived = useSecurityPrefs((s) => s.includeArchived);
@@ -29,7 +28,6 @@ const scanKey = (scope: string[], targets: string[]) => [
   targets.length,
   targets.join("|").length,
 ];
-
 
 let freshNext = false;
 export function rescanSecurity() {
@@ -67,7 +65,6 @@ export function useSecurityIndex(): { index: SecurityIndex; scan: ReturnType<typ
   return { index, scan };
 }
 
-
 export function useRepoSecurity(repo: string, closed: boolean) {
   return useQuery({
     queryKey: ["security", "repo", repo, closed],
@@ -75,7 +72,6 @@ export function useRepoSecurity(repo: string, closed: boolean) {
     staleTime: 15_000,
   });
 }
-
 
 export async function refreshRepoSecurity(repo: string) {
   const fresh = await unwrap(commands.securityRepo(repo, false, true));

@@ -11,7 +11,6 @@ export function useTagLabel() {
       : tag;
 }
 
-
 export function TagMenu({ repos, size = "sm" }: { repos: string[]; size?: "sm" | "md" }) {
   const { t } = useTranslation("repos");
   const tags = useReposPrefs((s) => s.tags);

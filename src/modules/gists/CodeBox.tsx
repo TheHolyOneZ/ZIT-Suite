@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { cn } from "@/core/cn";
 
-
 export function CodeBox({
   value,
   onChange,

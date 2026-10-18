@@ -18,7 +18,6 @@ const EMPTY: EnvConfig = {
   can_admins_bypass: true,
 };
 
-
 export function EnvDialog() {
   const { t } = useTranslation(["secrets", "common", "errors"]);
   const req = useSecretsUi((s) => s.env);

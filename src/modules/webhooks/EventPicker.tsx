@@ -5,7 +5,6 @@ import { cn } from "@/core/cn";
 import { Checkbox, Input, Segmented } from "@/ui";
 import { EVENT_GROUPS, eventMode, type EventGroup, type EventMode } from "./events";
 
-
 export function EventPicker({
   value,
   onChange,
@@ -20,12 +19,10 @@ export function EventPicker({
   const [q, setQ] = useState("");
   const chosen = value.filter((e) => e !== "*");
 
-
   const implied = eventMode(value);
   useEffect(() => {
     if (implied === "all" || implied === "custom") setMode(implied);
     else if (mode === "all") setMode("push");
-
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [implied]);

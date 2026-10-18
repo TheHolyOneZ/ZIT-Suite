@@ -15,7 +15,6 @@ pub struct TrafficProgress {
     pub total: u32,
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn insights_traffic(app: AppHandle, state: State<'_, AppState>, repos: Vec<String>, fresh: bool) -> AppResult<Vec<Traffic>> {
@@ -32,7 +31,6 @@ pub async fn insights_traffic(app: AppHandle, state: State<'_, AppState>, repos:
     )
     .await)
 }
-
 
 #[tauri::command]
 #[specta::specta]

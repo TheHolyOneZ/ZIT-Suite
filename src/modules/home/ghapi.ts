@@ -46,7 +46,6 @@ export const useRuns = (repo: string) =>
     refetchInterval: (q) => ((q.state.data ?? []).some(active) ? 8_000 : 60_000),
   });
 
-
 export async function refreshGh(repo: string, what: "about" | "releases" | "actions") {
   if (what === "about")
     queryClient.setQueryData(ghKey.about(repo), await unwrap(commands.aboutGet(repo, true)));
@@ -59,7 +58,6 @@ export async function refreshGh(repo: string, what: "about" | "releases" | "acti
     queryClient.setQueryData(ghKey.workflows(repo), await unwrap(commands.actionsWorkflows(repo, true)));
   }
 }
-
 
 export function patchReleases(
   repo: string,
@@ -82,7 +80,6 @@ export function patchReleases(
   for (const ms of [3000, 8000])
     setTimeout(() => void refreshGh(repo, "releases").catch(() => undefined), ms);
 }
-
 
 export async function writeNotes(
   repo: string,

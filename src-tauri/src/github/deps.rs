@@ -25,7 +25,6 @@ pub struct Manifest {
 
     pub ecosystem: String,
 
-
     pub manager: String,
 
     pub manager_from: String,
@@ -54,7 +53,6 @@ const MAX_MANIFESTS: usize = 40;
 
 const SKIP: &[&str] = &["node_modules", "vendor", "target", "dist", "build", "out", ".git", "third_party", "third-party", "bower_components", ".venv", "venv", "site-packages", ".next", ".nuxt"];
 
-
 pub fn manifest_kind(path: &str) -> Option<&'static str> {
     if path.split('/').any(|seg| SKIP.contains(&seg)) {
         return None;
@@ -75,7 +73,6 @@ fn dir_of(path: &str) -> &str {
     path.rsplit_once('/').map(|(d, _)| d).unwrap_or("")
 }
 
-
 const LOCKFILES: &[(&str, &str, &str)] = &[
     ("npm", "pnpm-lock.yaml", "pnpm"),
     ("npm", "pnpm-workspace.yaml", "pnpm"),
@@ -95,7 +92,6 @@ const LOCKFILES: &[(&str, &str, &str)] = &[
     ("maven", "build.gradle.kts", "gradle"),
 ];
 
-
 pub fn default_manager(ecosystem: &str) -> &'static str {
     match ecosystem {
         "npm" => "npm",
@@ -105,7 +101,6 @@ pub fn default_manager(ecosystem: &str) -> &'static str {
         _ => "maven",
     }
 }
-
 
 fn lockfile_manager(items: &[TreeItem], manifest: &str, ecosystem: &str) -> Option<&'static str> {
     let paths: std::collections::HashSet<&str> = items.iter().map(|i| i.path.as_str()).collect();
@@ -123,7 +118,6 @@ fn lockfile_manager(items: &[TreeItem], manifest: &str, ecosystem: &str) -> Opti
     }
 }
 
-
 pub fn declared_manager(ecosystem: &str, path: &str, text: &str) -> Option<String> {
     match ecosystem {
         "npm" => {
@@ -140,7 +134,6 @@ pub fn declared_manager(ecosystem: &str, path: &str, text: &str) -> Option<Strin
         _ => None,
     }
 }
-
 
 pub fn manager_of(items: &[TreeItem], manifest: &str, ecosystem: &str, text: Option<&str>) -> (String, String) {
     if let Some(m) = text.and_then(|t| declared_manager(ecosystem, manifest, t)) {
@@ -227,7 +220,6 @@ pub fn parse_cargo(text: &str) -> Result<Vec<Dep>, String> {
     }
     Ok(out)
 }
-
 
 fn pep508(line: &str) -> Option<(String, String)> {
     let line = line.split(';').next()?.trim();
@@ -334,7 +326,6 @@ fn xml_tag<'a>(s: &'a str, tag: &str) -> Option<&'a str> {
 }
 
 pub fn parse_pom(text: &str) -> Vec<Dep> {
-
     let props: HashMap<String, String> = xml_tag(text, "properties")
         .map(|p| {
             p.split('<')
@@ -362,7 +353,6 @@ pub fn parse_pom(text: &str) -> Vec<Dep> {
     }
     out
 }
-
 
 pub async fn scan(c: &GitHubClient, target: &DepsTarget, fresh: bool) -> RepoDeps {
     let mut out = RepoDeps { repo: target.repo.clone(), branch: target.branch.clone(), manifests: vec![], truncated: false, error: None };
@@ -395,7 +385,6 @@ pub async fn scan(c: &GitHubClient, target: &DepsTarget, fresh: bool) -> RepoDep
     }
     out
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq, Eq, Hash)]
 pub struct PackageRef {
@@ -436,11 +425,9 @@ fn pct(s: &str) -> String {
         .collect()
 }
 
-
 pub fn go_escape(module: &str) -> String {
     module.chars().map(|c| if c.is_ascii_uppercase() { format!("!{}", c.to_ascii_lowercase()) } else { c.to_string() }).collect()
 }
-
 
 pub fn registry_url(p: &PackageRef) -> Option<(String, &'static str)> {
     Some(match p.ecosystem.as_str() {

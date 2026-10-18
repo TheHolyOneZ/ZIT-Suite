@@ -55,7 +55,6 @@ import { FRESH_LOOK, useDepsUi, type DepsView } from "./store";
 
 const DAYS = [30, 90, 365, 0];
 
-
 export function DepsPage() {
   const { t } = useTranslation(["deps", "common"]);
   const ui = useDepsUi();
@@ -90,13 +89,11 @@ export function DepsPage() {
   );
   useEffect(() => {
     if (ui.autoLatest && scan.data && missing.length && !checking) {
-
       setChecking(true);
       void checkLatest(missing)
         .catch(() => undefined)
         .finally(() => setChecking(false));
     }
-
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ui.autoLatest, scan.data]);
@@ -538,7 +535,6 @@ function UseRow({ u, p, checked }: { u: Use; p: Package; checked: boolean }) {
   );
 }
 
-
 function ToolTag({ tool, from }: { tool: string; from: string }) {
   const { t } = useTranslation("deps");
   const why =
@@ -567,7 +563,6 @@ function registryPage(ecosystem: string, name: string) {
     }
   }
 }
-
 
 function Repos({ data, packages }: { data: RepoDeps[]; packages: Package[] }) {
   const { t } = useTranslation("deps");

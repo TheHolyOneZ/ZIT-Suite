@@ -10,7 +10,6 @@ import { RoleSelect } from "./RoleSelect";
 import { useAccessUi } from "./store";
 import { formatRelative } from "@/core/i18n/format";
 
-
 export function PersonSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation("collaborators");
   const login = String(params.login);

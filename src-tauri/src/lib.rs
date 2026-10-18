@@ -268,7 +268,6 @@ fn specta_builder() -> tauri_specta::Builder<tauri::Wry> {
         ])
 }
 
-
 pub fn export_bindings() {
     specta_builder()
         .export(

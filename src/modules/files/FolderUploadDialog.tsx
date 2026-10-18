@@ -8,9 +8,7 @@ import { Button, Checkbox, Dialog, Input, Label, Meter } from "@/ui";
 import { formatBytes } from "@/modules/home/model";
 import type { StagedMap } from "./model";
 
-
 const BIG_TOTAL = 50 * 1024 * 1024;
-
 
 export function FolderUploadDialog({
   scan,

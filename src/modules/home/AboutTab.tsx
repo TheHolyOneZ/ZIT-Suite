@@ -30,7 +30,6 @@ const formOf = (a: About): Form => ({
   has_discussions: a.has_discussions,
 });
 
-
 export function AboutTab({ ws, repo }: { ws: Workspace; repo: string }) {
   const { t } = useTranslation(["home", "common"]);
   const { data, isLoading, error } = useAbout(repo);

@@ -5,7 +5,6 @@ import { Popover } from "./Popover";
 
 type Opt = { value: string; label: ReactNode; disabled: boolean };
 
-
 function optionsOf(children: ReactNode): Opt[] {
   return Children.toArray(children)
     .filter((c): c is ReactElement<{ value?: string | number; children?: ReactNode; disabled?: boolean }> => isValidElement(c) && c.type === "option")
@@ -13,7 +12,6 @@ function optionsOf(children: ReactNode): Opt[] {
 }
 
 const textOf = (n: ReactNode): string => (typeof n === "string" || typeof n === "number" ? String(n) : Array.isArray(n) ? n.map(textOf).join("") : "");
-
 
 export function Select({ className, children, value, onChange, disabled, title }: SelectHTMLAttributes<HTMLSelectElement>) {
   const opts = optionsOf(children);
@@ -26,7 +24,6 @@ export function Select({ className, children, value, onChange, disabled, title }
 
   useEffect(() => {
     if (open) setHi(Math.max(0, opts.findIndex((o) => o.value === current?.value)));
-
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);

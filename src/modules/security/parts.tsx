@@ -47,7 +47,6 @@ export function KindLabel({ kind, className }: { kind: AlertKind; className?: st
   );
 }
 
-
 export function FeatureMark({
   state,
   gap,
@@ -70,7 +69,6 @@ export function FeatureMark({
     );
   return <Mark glyph="slash" tone="idle" size={size} title={t("state.unavailable")} />;
 }
-
 
 export function Counts({ c, className }: { c: SeverityCounts; className?: string }) {
   const { t } = useTranslation("security");

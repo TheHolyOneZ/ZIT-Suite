@@ -36,7 +36,6 @@ import { useBranches, useStatus, useSync } from "./api";
 import { useWorkspaceActions } from "./actions";
 import { ReleaseDialog, type NotUploaded, type ReleaseRequest } from "./ReleaseDialog";
 
-
 export function ReleasesTab({ ws, repo }: { ws: Workspace; repo: string }) {
   const branches = useBranches(ws.id).data ?? [];
   const status = useStatus(ws.id).data;
@@ -55,7 +54,6 @@ export function ReleasesTab({ ws, repo }: { ws: Workspace; repo: string }) {
     />
   );
 }
-
 
 export function ReleasesView({
   repo,

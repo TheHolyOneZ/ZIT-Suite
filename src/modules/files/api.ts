@@ -18,7 +18,6 @@ export const useRepoTree = (repo: string | null, branch: string | null) =>
     staleTime: 30_000,
   });
 
-
 export const useBlob = (repo: string | null, sha: string | null) =>
   useQuery({
     queryKey: ["files", "blob", repo, sha],

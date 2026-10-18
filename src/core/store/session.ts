@@ -26,7 +26,6 @@ export function useActiveAccount(): Account | null {
   return useSession((s) => s.session?.accounts.find((a) => a.id === s.session?.active) ?? null);
 }
 
-
 export function useScopeKey(): [string, string] {
   const account = useSession((s) => s.session?.active ?? "none");
   const org = useSession((s) => s.org ?? "~");

@@ -17,7 +17,6 @@ export interface UpdateTarget {
   directory: string;
 }
 
-
 export function detectTargets(paths: string[]): UpdateTarget[] {
   const seen = new Set<string>();
   const out: UpdateTarget[] = [];
@@ -41,7 +40,6 @@ export function detectTargets(paths: string[]): UpdateTarget[] {
 }
 
 export type Interval = "daily" | "weekly" | "monthly";
-
 
 export function dependabotYml(targets: UpdateTarget[], interval: Interval, group: boolean): string {
   const lines = ["version: 2", "updates:"];

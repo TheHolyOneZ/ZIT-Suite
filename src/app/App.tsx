@@ -31,7 +31,6 @@ function Gate() {
     loadSession().catch(setError);
   }, []);
 
-
   useEffect(
     () =>
       useSheets.subscribe((s, prev) => {

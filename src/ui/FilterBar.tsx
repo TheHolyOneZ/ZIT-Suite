@@ -13,7 +13,6 @@ export interface FilterChip {
   negative?: boolean;
 }
 
-
 export const FilterBar = forwardRef<
   HTMLInputElement,
   {
@@ -123,7 +122,6 @@ export const FilterBar = forwardRef<
     </div>
   );
 });
-
 
 export function FacetGrid({ children }: { children: ReactNode }) {
   return <div className="grid grid-cols-3 divide-x divide-[var(--line)]">{children}</div>;

@@ -5,7 +5,6 @@ import { useSession } from "@/core/store/session";
 import { useQueue } from "@/modules/queue/store";
 import { useSchedules } from "@/modules/scheduler/api";
 
-
 export function TrayBridge() {
   const { t, i18n } = useTranslation();
   const items = useQueue((s) => s.snapshot.items);

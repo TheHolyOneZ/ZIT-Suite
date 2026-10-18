@@ -47,7 +47,6 @@ export function ReposPage() {
     [presets, ui.filter],
   );
 
-
   useEffect(() => {
     if (!query.isSuccess || ui.selected.size === 0) return;
     const names = new Set(rows.map((r) => r.repo.full_name));
@@ -182,7 +181,6 @@ export function ReposPage() {
     </div>
   );
 }
-
 
 function HealthStrip() {
   const { t } = useTranslation(["repos", "common"]);

@@ -455,7 +455,6 @@ function CommentCard({
   );
 }
 
-
 function Composer({ issue }: { issue: Issue }) {
   const { t } = useTranslation(["issues", "common"]);
   const qc = useQueryClient();

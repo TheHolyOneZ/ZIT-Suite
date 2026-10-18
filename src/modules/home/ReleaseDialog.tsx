@@ -14,7 +14,6 @@ export type ReleaseRequest =
 
 const fileName = (p: string) => p.split(/[\\/]/).pop() ?? p;
 
-
 export interface NotUploaded {
   count: number;
   busy: boolean;
@@ -84,7 +83,6 @@ export function ReleaseDialog({
       });
     }
 
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [req]);
 
@@ -137,7 +135,6 @@ export function ReleaseDialog({
     }
   };
 
-
   const upload = async (release: Release): Promise<Release["assets"]> => {
     if (!files.length) return [];
     const r = await unwrap(commands.releaseUpload(repo, release.id, files));
@@ -149,7 +146,6 @@ export function ReleaseDialog({
   const submit = async () => {
     setBusy("save");
     try {
-
       const withFiles = (r: Release, added: Release["assets"]) => ({
         ...r,
         assets: [...r.assets.filter((a) => !added.some((x) => x.name === a.name)), ...added],

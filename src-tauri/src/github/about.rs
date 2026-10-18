@@ -34,9 +34,7 @@ pub struct AboutInput {
     pub has_discussions: bool,
 }
 
-
 pub const MAX_TOPICS: usize = 20;
-
 
 pub fn normalize_topic(raw: &str) -> String {
     let mut s: String = raw
@@ -89,7 +87,6 @@ pub async fn get(c: &GitHubClient, repo: &str, fresh: bool) -> AppResult<About> 
         watchers: n("subscribers_count"),
     })
 }
-
 
 pub fn normalize_homepage(h: &str) -> String {
     let h = h.trim();

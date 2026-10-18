@@ -24,7 +24,6 @@ interface Plan {
   url?: string;
 }
 
-
 export function BulkDialog({
   rows,
   onClose,
@@ -54,7 +53,6 @@ export function BulkDialog({
     plans.every((p) => p.state === "done" || p.state === "failed") && plans.some((p) => p.state !== "idle");
   const patch = (repo: string, p: Partial<Plan>) =>
     setPlans((cur) => cur.map((x) => (x.repo === repo ? { ...x, ...p } : x)));
-
 
   useEffect(() => {
     for (const r of rows) {

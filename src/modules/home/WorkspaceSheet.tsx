@@ -43,7 +43,6 @@ import { RepoGone } from "./RepoGone";
 type Tab = "changes" | "files" | "history" | "compare" | "settings" | "about" | "releases" | "actions";
 const GH_TABS: Tab[] = ["about", "releases", "actions"];
 
-
 export function WorkspaceSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["home", "common", "errors"]);
   useNow();

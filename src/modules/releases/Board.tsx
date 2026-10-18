@@ -26,7 +26,6 @@ import { useReleasesUi } from "./store";
 
 const DAYS = [30, 90, 365, 0];
 
-
 export function Board() {
   const { t } = useTranslation(["releases", "common"]);
   const ui = useReleasesUi();

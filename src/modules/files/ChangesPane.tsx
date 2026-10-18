@@ -21,7 +21,6 @@ const SIGN: Record<Staged["kind"], { sign: string; color: string }> = {
   delete: { sign: "−", color: "var(--danger)" },
 };
 
-
 export function ChangesPane({
   repo,
   branch,
@@ -64,7 +63,6 @@ export function ChangesPane({
       onStage({});
       setTouched(false);
       if (target === "new") {
-
         ui.set({ branch: to, pane: "editor" });
         if (openPr) {
           const pr = await unwrap(

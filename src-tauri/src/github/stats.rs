@@ -21,7 +21,6 @@ pub struct ContributorStat {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct ContributorStats {
-
     pub pending: bool,
 
     pub contributors: Vec<ContributorStat>,
@@ -61,7 +60,6 @@ pub fn parse(v: &Value) -> Option<Vec<ContributorStat>> {
     out.sort_by(|a, b| b.commits.cmp(&a.commits).then(a.login.cmp(&b.login)));
     Some(out)
 }
-
 
 pub fn week_starts(v: &Value) -> Vec<f64> {
     let last = v

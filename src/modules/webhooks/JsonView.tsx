@@ -5,7 +5,6 @@ import { IconButton } from "@/ui";
 
 const TOKEN = /("(?:\\.|[^"\\])*")(\s*:)?|\b(true|false|null)\b|(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)/g;
 
-
 export function tokenize(
   src: string,
 ): { text: string; kind: "plain" | "key" | "string" | "literal" | "number" }[] {
@@ -32,7 +31,6 @@ const COLOR = {
   literal: "text-accent",
   number: "text-warn",
 } as const;
-
 
 export function JsonView({
   source,

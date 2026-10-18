@@ -10,7 +10,6 @@ import { Badge, Button, Checkbox, EmptyState, Input, Plotter, RelTime, Segmented
 import { useRepoList } from "@/core/data/repos";
 import { useUnreadCount, useWatched } from "./api";
 
-
 export function WatchingSheet() {
   const { t } = useTranslation(["inbox", "common"]);
   const q = useWatched(true);

@@ -7,7 +7,6 @@ import { useScopeKey } from "@/core/store/session";
 import { buildIndex, type SecretsIndex } from "./model";
 import { useSecretsPrefs } from "./store";
 
-
 export function useSecretTargets(): string[] {
   const { data = [] } = useRepoList();
   const includeArchived = useSecretsPrefs((s) => s.includeArchived);
@@ -29,7 +28,6 @@ const scanKey = (scope: string[], targets: string[]) => [
   targets.length,
   targets.join("|").length,
 ];
-
 
 let freshNext = false;
 export function rescanSecrets() {
@@ -73,7 +71,6 @@ export function useRepoSecrets(repo: string) {
     staleTime: 15_000,
   });
 }
-
 
 export async function refreshRepoSecrets(repo: string) {
   const fresh = await unwrap(commands.secretsRepo(repo, true));

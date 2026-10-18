@@ -27,7 +27,6 @@ export interface AccessIndex {
   repos: { repo: string; owner: string; people: number; invites: number; error: boolean }[];
 }
 
-
 export function buildIndex(scan: RepoAccess[], me: string): AccessIndex {
   const people = new Map<string, Person>();
   const add = (login: string, avatar: string, kind: string, g: Grant) => {
@@ -64,7 +63,6 @@ export interface AccessDiff {
   changed: { login: string; a: Role; b: Role }[];
   same: number;
 }
-
 
 export function diffAccess(a: RepoAccess, b: RepoAccess): AccessDiff {
   const map = (r: RepoAccess) => {

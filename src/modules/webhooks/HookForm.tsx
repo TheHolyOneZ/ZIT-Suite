@@ -5,7 +5,6 @@ import { IconButton, Input, Label, Segmented, Toggle, Checkbox } from "@/ui";
 import { draftErrors, generateSecret, type HookDraft, type SecretMode } from "./draft";
 import { EventPicker } from "./EventPicker";
 
-
 export function HookForm({
   value,
   onChange,

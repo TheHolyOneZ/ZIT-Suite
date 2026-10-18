@@ -80,7 +80,6 @@ export const useSheets = create<SheetsState>()((set, get) => ({
     }),
 }));
 
-
 const defaults = new Map<string, SheetRef[]>();
 const defaultStack = (m: string) => {
   if (!defaults.has(m)) defaults.set(m, [rootSheet(m)]);
@@ -90,7 +89,6 @@ const defaultStack = (m: string) => {
 export function useActiveStack(): SheetRef[] {
   return useSheets((s) => s.stacks[s.active] ?? defaultStack(s.active));
 }
-
 
 export function useTopSheet(module: string, view: string): SheetParams | null {
   return useSheets((s) => {
@@ -106,7 +104,6 @@ export const sheets = {
   open: (module: string) => useSheets.getState().open(module),
   openWith: (module: string, intent: SheetParams) => useSheets.getState().openWith(module, intent),
 };
-
 
 export function useIntent(module: string, handler: (intent: SheetParams) => void) {
   const pending = useSheets((s) => s.intents[module]);

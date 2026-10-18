@@ -10,7 +10,6 @@ import { Board } from "./Board";
 import { RepoView } from "./RepoView";
 import { useActionsUi, type ActionsView } from "./store";
 
-
 export function ActionsPage() {
   const { t } = useTranslation(["actions", "common"]);
   const ui = useActionsUi();

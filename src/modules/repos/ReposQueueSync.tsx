@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { events } from "@/core/ipc";
 import { refreshRepos } from "./api";
 
-
 export function ReposQueueSync() {
   useEffect(() => {
     let lastDone: Set<string> | null = null;

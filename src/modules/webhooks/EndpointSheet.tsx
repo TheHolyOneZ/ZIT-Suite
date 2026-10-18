@@ -14,7 +14,6 @@ import { EventList, StateMark, StateSpread } from "./HookMarks";
 import { hookState } from "./model";
 import { useHooksUi } from "./store";
 
-
 export function EndpointSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["webhooks", "common"]);
   const e = useEndpoint(String(params.key));

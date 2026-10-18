@@ -3,7 +3,6 @@ import { events } from "@/core/ipc";
 import { queryClient } from "@/core/query";
 import { refreshIssues } from "./api";
 
-
 export function IssuesQueueSync() {
   useEffect(() => {
     const seen = new Set<string>();

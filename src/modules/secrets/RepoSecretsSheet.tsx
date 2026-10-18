@@ -12,7 +12,6 @@ import { configOf, scopeOf, type Place } from "./model";
 import { RuleSummary } from "./shared";
 import { useSecretsUi } from "./store";
 
-
 export function RepoSecretsSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["secrets", "common"]);
   const repo = String(params.repo);

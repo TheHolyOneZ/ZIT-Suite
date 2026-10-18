@@ -46,7 +46,6 @@ export interface HooksFilter {
 
 export const DEFAULT_HOOKS_FILTER: HooksFilter = { search: "", state: null, event: null };
 
-
 export interface CreateRequest {
   repos: string[];
   config?: HookInput;

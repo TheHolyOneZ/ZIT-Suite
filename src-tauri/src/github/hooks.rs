@@ -8,7 +8,6 @@ use crate::error::{AppError, AppResult};
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq)]
 pub struct HookResponse {
-
     pub code: Option<u16>,
 
     pub status: String,
@@ -31,7 +30,6 @@ pub struct Hook {
     pub last_response: HookResponse,
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq, Eq)]
 pub struct HookInput {
     pub url: String,
@@ -42,7 +40,6 @@ pub struct HookInput {
     pub events: Vec<String>,
     pub active: bool,
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq, Eq, Default)]
 pub struct HookPatch {
@@ -89,7 +86,6 @@ pub fn parse_hook(v: &Value) -> Hook {
     }
 }
 
-
 pub fn same_url(a: &str, b: &str) -> bool {
     let n = |x: &str| x.trim().trim_end_matches('/').to_lowercase();
     n(a) == n(b)
@@ -105,7 +101,6 @@ fn config_json(url: &str, content_type: &str, insecure_ssl: bool, secret: Option
     }
     Value::Object(cfg)
 }
-
 
 pub async fn list(c: &GitHubClient, repo: &str, fresh: bool) -> AppResult<Vec<Hook>> {
     let raw: Vec<Value> = c.paginate_with(&format!("/repos/{repo}/hooks?per_page=100"), fresh).await?;
@@ -129,7 +124,6 @@ pub async fn create(c: &GitHubClient, repo: &str, input: &HookInput) -> AppResul
     let v = c.send_json(Method::POST, &format!("/repos/{repo}/hooks"), Some(&body)).await?;
     Ok(parse_hook(&v.unwrap_or_default()))
 }
-
 
 pub async fn patch(c: &GitHubClient, repo: &str, id: u64, p: &HookPatch) -> AppResult<()> {
     let mut hook = Map::new();
@@ -161,7 +155,6 @@ pub async fn patch(c: &GitHubClient, repo: &str, id: u64, p: &HookPatch) -> AppR
     Ok(())
 }
 
-
 pub fn effective_patch(h: &Hook, p: &HookPatch) -> HookPatch {
     let mut events_sorted = h.events.clone();
     events_sorted.sort();
@@ -191,12 +184,10 @@ pub async fn delete(c: &GitHubClient, repo: &str, id: u64) -> AppResult<()> {
     Ok(())
 }
 
-
 pub async fn ping(c: &GitHubClient, repo: &str, id: u64) -> AppResult<()> {
     c.send_json::<()>(Method::POST, &format!("/repos/{repo}/hooks/{id}/pings"), None).await?;
     Ok(())
 }
-
 
 pub async fn test_push(c: &GitHubClient, repo: &str, id: u64) -> AppResult<()> {
     c.send_json::<()>(Method::POST, &format!("/repos/{repo}/hooks/{id}/tests"), None).await?;
@@ -205,7 +196,6 @@ pub async fn test_push(c: &GitHubClient, repo: &str, id: u64) -> AppResult<()> {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct Delivery {
-
     pub id: String,
     pub guid: String,
     pub delivered_at: String,
@@ -247,9 +237,7 @@ impl Delivery {
     }
 }
 
-
 pub async fn deliveries(c: &GitHubClient, repo: &str, id: u64, page: Option<String>, per_page: u32, fresh: bool) -> AppResult<DeliveryPage> {
-
     let prefix = format!("/repos/{repo}/hooks/{id}/deliveries");
     let path = match page {
         Some(p) if p.starts_with(&format!("{}{prefix}", super::client::API)) => p,
@@ -313,7 +301,6 @@ pub fn parse_delivery_detail(v: &Value) -> DeliveryDetail {
     }
 }
 
-
 fn delivery_id(raw: &str) -> AppResult<u64> {
     raw.parse::<u64>().map_err(|_| AppError::new("internal.bad_cursor").detail(raw.to_string()))
 }
@@ -343,7 +330,6 @@ pub async fn repo_hooks(c: &GitHubClient, repo: &str, fresh: bool) -> RepoHooks 
         Err(error) => RepoHooks { repo: repo.into(), hooks: vec![], error: Some(error) },
     }
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct HookHealth {

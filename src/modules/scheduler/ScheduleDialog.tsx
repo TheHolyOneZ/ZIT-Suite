@@ -76,7 +76,6 @@ function buildAction(x: ReturnType<typeof initialAction>): QueueAction {
   }
 }
 
-
 export function ScheduleDialog({ schedule, onClose }: { schedule: Schedule | null; onClose: () => void }) {
   const { t } = useTranslation(["scheduler", "repos", "security", "common"]);
   const { rows } = useRepoRows();

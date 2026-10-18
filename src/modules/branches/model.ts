@@ -63,7 +63,6 @@ export function filterBranches(
   });
 }
 
-
 export const sortBranches = (list: RemoteBranch[], defaultBranch: string | null) =>
   [...list].sort(
     (a, b) =>
@@ -71,13 +70,11 @@ export const sortBranches = (list: RemoteBranch[], defaultBranch: string | null)
       (b.date ?? "").localeCompare(a.date ?? ""),
   );
 
-
 export function validBranchName(name: string): boolean {
   if (!name || name.length > 250 || name === "@") return false;
   if (/^[/.-]/.test(name) || /[/.]$/.test(name) || name.endsWith(".lock")) return false;
   if (name.includes("..") || name.includes("//") || name.includes("@{")) return false;
   return ![...name].some((c) => c.charCodeAt(0) < 33 || c.charCodeAt(0) === 127 || "~^:?*[\\".includes(c));
 }
-
 
 export const cleanBranchName = (s: string) => s.replace(/\s+/g, "-").replace(/[~^:?*[\\]/g, "");

@@ -1,6 +1,5 @@
 import { toAppError } from "../ipc";
 
-
 export function isUncertain(e: unknown): boolean {
   const code = toAppError(e).code;
   return code === "network.timeout" || code === "network.failed";
@@ -8,9 +7,7 @@ export function isUncertain(e: unknown): boolean {
 
 const norm = (s: string) => s.replace(/\r\n/g, "\n").trim();
 
-
 export const sameBody = (a: string, b: string) => norm(a) === norm(b);
-
 
 export async function createReconciled<T extends { id: number }>(
   send: () => Promise<T>,

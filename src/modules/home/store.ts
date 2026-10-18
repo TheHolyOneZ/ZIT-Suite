@@ -2,7 +2,6 @@ import type { Source } from "@/core/ipc";
 import { create } from "zustand";
 
 interface HomeUi {
-
   add: string | null;
 
   clone: string[] | null;

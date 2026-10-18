@@ -1,6 +1,5 @@
 import type { Job, RepoRuns, Run, Step } from "@/core/ipc";
 
-
 export type RunBucket = "running" | "failed" | "ok" | "other";
 
 export function bucketOf(r: { status: string | null; conclusion: string | null }): RunBucket {
@@ -42,7 +41,6 @@ export const spanMs = (start: string | null, end: string | null): number | null 
   return d >= 0 ? d : null;
 };
 export const jobMs = (j: Job | Step) => spanMs(j.started_at, j.completed_at);
-
 
 export interface BoardRow {
   repo: string;
@@ -88,7 +86,6 @@ export function board(data: RepoRuns[]): BoardRow[] {
   );
 }
 
-
 export type LineKind = "plain" | "error" | "warning" | "notice" | "debug" | "command";
 export interface LogLine {
   n: number;
@@ -104,12 +101,10 @@ export interface LogBlock {
   warnings: number;
 }
 
-
 // eslint-disable-next-line no-control-regex
 const ANSI = /\u001b\[[0-9;]*[A-Za-z]/g;
 const TS = /^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z) ?/;
 const MARK = /^##\[(group|endgroup|error|warning|notice|debug|command)\]/;
-
 
 export function parseLog(raw: string): LogBlock[] {
   const blocks: LogBlock[] = [];
@@ -151,9 +146,7 @@ export function parseLog(raw: string): LogBlock[] {
   return blocks.filter((b) => b.title !== null || b.lines.length);
 }
 
-
 export const firstErrorBlock = (blocks: LogBlock[]) => blocks.findIndex((b) => b.errors > 0);
-
 
 export function pickJob(jobs: Job[]): Job | null {
   return (
@@ -163,6 +156,5 @@ export function pickJob(jobs: Job[]): Job | null {
     null
   );
 }
-
 
 export const workflowPath = (name: string) => `.github/workflows/${name}`;

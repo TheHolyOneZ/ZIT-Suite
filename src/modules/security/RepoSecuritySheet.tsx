@@ -24,7 +24,6 @@ import { SLA, SEVERITIES, gapsOf, gradeOf, isOverdue, scoreOf } from "./model";
 import { FEATURE_ORDER, FeatureMark, Grade, KindLabel, SeverityMark } from "./parts";
 import { useSecurityPrefs, useSecurityUi } from "./store";
 
-
 function unavailableWhy(
   r: RepoSecurity,
   f: Feature,
@@ -35,7 +34,6 @@ function unavailableWhy(
     return "needsGhas";
   return "notReadable";
 }
-
 
 export function RepoSecuritySheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["security", "common"]);

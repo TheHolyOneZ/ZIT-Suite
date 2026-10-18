@@ -13,7 +13,6 @@ interface Hit {
   lines: number[];
 }
 
-
 export function UsageFinder({
   kind,
   name,

@@ -8,7 +8,6 @@ use specta::Type;
 use super::client::{enc, GitHubClient};
 use crate::error::{AppError, AppResult};
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq, Eq, Hash)]
 #[serde(tag = "kind", rename_all = "snake_case")]
 pub enum Scope {
@@ -24,7 +23,6 @@ impl Scope {
         }
     }
 }
-
 
 pub fn valid_name(name: &str) -> bool {
     let n = name.to_ascii_uppercase();
@@ -62,10 +60,8 @@ pub async fn list_secrets(c: &GitHubClient, repo: &str, scope: &Scope, fresh: bo
 }
 
 pub async fn list_variables(c: &GitHubClient, repo: &str, scope: &Scope, fresh: bool) -> AppResult<Vec<Variable>> {
-
     c.paginate_key(&format!("{}/variables?per_page=30", scope.base(repo)), "variables", fresh).await
 }
-
 
 pub fn seal(public_key_b64: &str, value: &str) -> AppResult<String> {
     let raw = B64.decode(public_key_b64.trim()).map_err(|e| AppError::new("secrets.bad_key").detail(e.to_string()))?;
@@ -82,7 +78,6 @@ struct PublicKey {
     key_id: String,
     key: String,
 }
-
 
 pub const MAX_SECRET_BYTES: usize = 48 * 1024;
 
@@ -103,7 +98,6 @@ pub async fn delete_secret(c: &GitHubClient, repo: &str, scope: &Scope, name: &s
     Ok(())
 }
 
-
 pub async fn set_variable(c: &GitHubClient, repo: &str, scope: &Scope, name: &str, value: &str) -> AppResult<()> {
     let name = check_name(name)?;
     let base = scope.base(repo);
@@ -120,11 +114,9 @@ pub async fn delete_variable(c: &GitHubClient, repo: &str, scope: &Scope, name: 
     Ok(())
 }
 
-
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, Type, PartialEq, Eq, Default)]
 #[serde(rename_all = "snake_case")]
 pub enum BranchPolicy {
-
     #[default]
     All,
 
@@ -135,7 +127,6 @@ pub enum BranchPolicy {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq)]
 pub struct Reviewer {
-
     pub kind: String,
 
     pub name: String,
@@ -213,7 +204,6 @@ async fn patterns(c: &GitHubClient, repo: &str, env: &str, fresh: bool) -> AppRe
     c.paginate_key(&format!("/repos/{repo}/environments/{}/deployment-branch-policies?per_page=100", enc(env)), "branch_policies", fresh).await
 }
 
-
 pub async fn list_environments(c: &GitHubClient, repo: &str, fresh: bool) -> AppResult<Vec<Environment>> {
     let raw: Vec<Value> = c.paginate_key(&format!("/repos/{repo}/environments?per_page=100"), "environments", fresh).await?;
     let mut out = Vec::with_capacity(raw.len());
@@ -242,7 +232,6 @@ pub async fn get_environment(c: &GitHubClient, repo: &str, name: &str) -> AppRes
         Err(e) => Err(e),
     }
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq, Eq, Default)]
 pub struct EnvConfig {
@@ -276,7 +265,6 @@ impl EnvConfig {
     }
 }
 
-
 pub fn config_of(e: &Environment) -> EnvConfig {
     EnvConfig {
         wait_timer: e.wait_timer,
@@ -297,7 +285,6 @@ struct UserId {
     id: u64,
 }
 
-
 fn plan_gate(e: AppError) -> AppError {
     let d = e.detail.clone().unwrap_or_default().to_lowercase();
     if d.contains("upgrade") || d.contains("not available") || d.contains("github pro") || d.contains("billing plan") {
@@ -306,7 +293,6 @@ fn plan_gate(e: AppError) -> AppError {
         e
     }
 }
-
 
 pub fn env_body(cfg: &EnvConfig, current: Option<&Environment>, reviewer_ids: &[u64]) -> Value {
     let mut body = serde_json::Map::new();
@@ -360,7 +346,6 @@ pub async fn delete_environment(c: &GitHubClient, repo: &str, name: &str) -> App
     c.send_json::<()>(Method::DELETE, &format!("/repos/{repo}/environments/{}", enc(name)), None).await?;
     Ok(())
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct EnvScan {

@@ -39,7 +39,6 @@ pub struct DryRunResult {
 
 type Verdict = (DryRunOutcome, Option<&'static str>);
 
-
 async fn concurrent<T, R, F, Fut>(inputs: Vec<T>, f: F) -> Vec<R>
 where
     T: Send + 'static,
@@ -147,7 +146,6 @@ pub fn evaluate_pull(action: &QueueAction, pr: &Pull) -> Verdict {
     }
 }
 
-
 async fn evaluate_collab_set(c: &GitHubClient, repo: &str, user: &str, role: Role) -> Result<Verdict, AppError> {
     let current = if collaborators::is_collaborator(c, repo, user).await? { collaborators::permission_of(c, repo, user).await? } else { None };
     if current == Some(role) {
@@ -162,7 +160,6 @@ async fn evaluate_collab_set(c: &GitHubClient, repo: &str, user: &str, role: Rol
     }
     Ok((DryRunOutcome::Ready, Some("will_change_role")))
 }
-
 
 pub fn evaluate_hooks(action: &QueueAction, existing: &[Hook]) -> Verdict {
     use DryRunOutcome::*;
@@ -179,7 +176,6 @@ pub fn evaluate_hooks(action: &QueueAction, existing: &[Hook]) -> Verdict {
         _ => (Ready, None),
     }
 }
-
 
 pub enum SecretsState {
     Secrets(Vec<String>),
@@ -233,7 +229,6 @@ async fn secrets_state(c: &GitHubClient, repo: &str, action: &QueueAction) -> Re
     })
 }
 
-
 pub fn evaluate_feature(feature: Feature, enabled: bool, p: &Posture) -> Verdict {
     use DryRunOutcome::*;
     use FeatureState::*;
@@ -249,7 +244,6 @@ pub fn evaluate_feature(feature: Feature, enabled: bool, p: &Posture) -> Verdict
         },
     }
 }
-
 
 pub fn evaluate_alert(open: bool, reason: Option<&str>, alert: &Alert) -> Verdict {
     use DryRunOutcome::*;
@@ -278,7 +272,6 @@ pub fn evaluate_label(action: &QueueAction, existing: Option<&Label>) -> Verdict
         _ => (Ready, None),
     }
 }
-
 
 #[derive(Debug, Clone, Default)]
 pub struct BranchFacts {
@@ -353,17 +346,14 @@ async fn branch_facts(c: &GitHubClient, repo: &repos::Repo, action: &QueueAction
     Ok(f)
 }
 
-
 #[derive(Debug, Clone, Default)]
 pub struct MoveFacts {
-
     pub taken: bool,
 
     pub owner_exists: bool,
     pub owner_is_org: bool,
     pub can_create_in_org: bool,
 }
-
 
 pub fn evaluate_release(p: &releases::ReleasePlan) -> Verdict {
     if p.commits == 0 {
@@ -431,7 +421,6 @@ async fn move_facts(c: &GitHubClient, repo: &repos::Repo, action: &QueueAction) 
             Err(e) => return Err(e),
         }
         if f.owner_is_org {
-
             f.can_create_in_org = match c.get_json::<serde_json::Value>(&format!("/user/memberships/orgs/{}", crate::github::client::enc(new_owner))).await {
                 Ok(m) => m["state"].as_str() == Some("active"),
                 Err(e) if matches!(e.code.as_str(), "github.not_found" | "github.forbidden") => false,
@@ -441,7 +430,6 @@ async fn move_facts(c: &GitHubClient, repo: &repos::Repo, action: &QueueAction) 
     }
     if repos::valid_repo_name(&name) {
         match repos::get(c, &format!("{owner}/{name}")).await {
-
             Ok(other) => f.taken = other.id != repo.id,
             Err(e) if e.code == "github.not_found" => {}
             Err(e) => return Err(e),
@@ -456,7 +444,6 @@ fn blocked(item: NewQueueItem, e: AppError) -> DryRunResult {
 }
 
 pub async fn dry_run(c: &GitHubClient, scopes: Option<Vec<String>>, items: Vec<NewQueueItem>) -> Vec<DryRunResult> {
-
     let mut names: Vec<String> = items.iter().map(|i| i.repo.clone()).collect();
     names.sort();
     names.dedup();
@@ -466,7 +453,6 @@ pub async fn dry_run(c: &GitHubClient, scopes: Option<Vec<String>>, items: Vec<N
     })
     .await;
     let repo_map: HashMap<String, Result<repos::Repo, AppError>> = names.into_iter().zip(fetched).collect();
-
 
     concurrent(items, |item| {
         let c = c.clone();
@@ -770,7 +756,6 @@ mod tests {
         assert_eq!(evaluate_secrets(&up(0), &SecretsState::Env(Some(prod))).1, Some("will_update"));
         assert_eq!(evaluate_secrets(&up(0), &SecretsState::Env(None)).1, Some("will_create"));
         assert_eq!(evaluate_secrets(&QueueAction::EnvDelete { name: "x".into() }, &SecretsState::Env(None)).1, Some("env_absent"));
-
 
         let json = serde_json::to_string(&QueueAction::SecretSet { scope: repo_scope, name: "K".into(), value: "s3cret".into() }.redacted()).unwrap();
         assert!(!json.contains("s3cret"));

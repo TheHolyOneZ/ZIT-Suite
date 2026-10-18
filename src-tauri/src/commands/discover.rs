@@ -73,7 +73,6 @@ pub async fn stars_list(state: State<'_, AppState>) -> AppResult<Vec<Starred>> {
     stars::list(&state.active_client()?).await
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn stars_set(state: State<'_, AppState>, repos: Vec<String>, on: bool) -> AppResult<Vec<String>> {

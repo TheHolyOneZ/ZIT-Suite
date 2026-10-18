@@ -28,7 +28,6 @@ pub struct Contributor {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq)]
 pub struct Month {
-
     pub month: String,
     pub commits: u32,
     pub additions: f64,
@@ -57,7 +56,6 @@ pub struct AuditReport {
 
     pub local: bool,
 }
-
 
 pub fn language_of(path: &str) -> Option<&'static str> {
     let name = path.rsplit('/').next().unwrap_or(path);
@@ -109,7 +107,6 @@ pub fn language_of(path: &str) -> Option<&'static str> {
     })
 }
 
-
 pub fn count_lines(bytes: &[u8]) -> Option<(u32, u32)> {
     if bytes[..bytes.len().min(8000)].contains(&0) {
         return None;
@@ -145,7 +142,6 @@ fn callbacks<'a>(token: Option<&'a str>, progress: &'a dyn Fn(u32, u32)) -> Remo
     cb
 }
 
-
 pub fn sync_mirror(url: &str, dir: &Path, token: Option<&str>, progress: &dyn Fn(u32, u32)) -> AppResult<Repository> {
     let mut fo = FetchOptions::new();
     fo.remote_callbacks(callbacks(token, progress));
@@ -167,7 +163,6 @@ pub fn sync_mirror(url: &str, dir: &Path, token: Option<&str>, progress: &dyn Fn
         Ok(RepoBuilder::new().bare(true).fetch_options(fo).clone(url, dir)?)
     }
 }
-
 
 pub fn files_at_head(repo: &Repository) -> AppResult<(String, String, Vec<FileStat>)> {
     let head = repo.head().map_err(|_| AppError::new("audit.empty"))?;
@@ -203,7 +198,6 @@ pub struct FileChurn {
     pub deletions: f64,
 }
 
-
 fn top_churn(by_path: HashMap<String, FileChurn>, n: usize) -> Vec<FileChurn> {
     let mut v: Vec<_> = by_path.into_values().collect();
     v.sort_by(|a, b| b.commits.cmp(&a.commits).then((b.additions + b.deletions).total_cmp(&(a.additions + a.deletions))).then(a.path.cmp(&b.path)));
@@ -222,7 +216,6 @@ pub struct History {
     pub capped: bool,
     pub hot_files: Vec<FileChurn>,
 }
-
 
 pub fn history(repo: &Repository, line_cap: u32, progress: &dyn Fn(u32)) -> AppResult<History> {
     let head = repo.head()?.peel_to_commit()?;
@@ -285,7 +278,6 @@ pub fn history(repo: &Repository, line_cap: u32, progress: &dyn Fn(u32)) -> AppR
     monthly.sort_by(|a, b| a.month.cmp(&b.month));
     Ok(History { commits, additions: add, deletions: del, first, last, contributors, monthly, capped, hot_files: top_churn(by_path, 50) })
 }
-
 
 pub fn cache_dir(root: &Path, repo: &str) -> PathBuf {
     root.join(repo.replace('/', "__"))
@@ -376,7 +368,6 @@ mod tests {
         assert!(!h.capped);
         assert_eq!((h.hot_files[0].path.as_str(), h.hot_files[0].commits, h.hot_files[0].deletions), ("a.rs", 2, 2.0));
         assert!(h.hot_files.iter().any(|f| f.path == "img.bin" && f.additions == 0.0));
-
 
         commit(&src, &[("b.py", "print(1)\n")], "more", "Bob");
         let again = sync_mirror(&url, &base.join("mirror"), None, &|_, _| {}).unwrap();

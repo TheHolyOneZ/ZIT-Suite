@@ -7,7 +7,6 @@ import { useQueue } from "@/modules/queue/store";
 import { ROLES, type Grant, type Person } from "./model";
 import { RoleCell } from "./RoleChip";
 
-
 export function MatrixView({ people }: { people: Person[] }) {
   const { t } = useTranslation("collaborators");
   const repos = useMemo(() => [...new Set(people.flatMap((p) => p.grants.map((g) => g.repo)))].sort(), [people]);

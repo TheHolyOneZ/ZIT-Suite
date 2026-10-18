@@ -11,7 +11,6 @@ export const branchesKey = {
 
 export const useRepoMeta = (repo: string | null) => useRepoList().data?.find((r) => r.full_name === repo);
 
-
 export function useBranches(repo: string, defaultBranch: string | null) {
   return useQuery({
     queryKey: branchesKey.list(repo),
@@ -34,7 +33,6 @@ export const useProtection = (repo: string, branch: string) =>
     staleTime: 0,
     retry: false,
   });
-
 
 export function reloadBranches(repo: string) {
   void queryClient.invalidateQueries({ queryKey: ["branches", "list", repo] });

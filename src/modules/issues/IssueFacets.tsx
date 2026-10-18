@@ -20,7 +20,6 @@ import { LabelChip } from "./LabelChip";
 import { DEFAULT_ISSUE_FILTER, type BuiltinView, type IssueFilter } from "./query";
 import { useIssuesPrefs, useIssuesUi } from "./store";
 
-
 export function IssueFacets() {
   const { t } = useTranslation("issues");
   const ui = useIssuesUi();
@@ -337,7 +336,6 @@ export const VIEW_ICONS: Record<BuiltinView, typeof Inbox> = {
   stale: Clock,
   recentlyClosed: CheckCheck,
 };
-
 
 export function useIssueChips(): FilterChip[] {
   const { t } = useTranslation("issues");

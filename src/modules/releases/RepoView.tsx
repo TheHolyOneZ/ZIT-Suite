@@ -11,7 +11,6 @@ import { useUnreleased } from "./api";
 import { nextTag, suggestBump } from "./model";
 import { useReleasesUi } from "./store";
 
-
 export function RepoView({ repo }: { repo: string }) {
   const ui = useReleasesUi();
   const meta = useRepoList().data?.find((r) => r.full_name === repo);
@@ -28,7 +27,6 @@ export function RepoView({ repo }: { repo: string }) {
     />
   );
 }
-
 
 function Waiting({
   repo,

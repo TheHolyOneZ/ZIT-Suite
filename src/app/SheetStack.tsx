@@ -28,7 +28,6 @@ function useWideWindow() {
   return wide;
 }
 
-
 export function SheetStack() {
   const { t } = useTranslation();
   const stack = useActiveStack();
@@ -83,7 +82,6 @@ function Sheet({ ref_, index, role }: { ref_: SheetRef; index: number; role: "to
   );
 }
 
-
 function SheetTag({ index }: { index: number }) {
   return (
     <span className="num pointer-events-none absolute top-0 right-0 z-10 border-b border-l border-line px-1.5 py-[1px] text-[9px] tracking-[0.12em] text-faint">
@@ -91,7 +89,6 @@ function SheetTag({ index }: { index: number }) {
     </span>
   );
 }
-
 
 function Spine({ ref_, index }: { ref_: SheetRef; index: number }) {
   const { t } = useTranslation();

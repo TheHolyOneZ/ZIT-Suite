@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { Dialog, Input, Label, Mark } from "@/ui";
 import { sameSignature, signPayload } from "./signature";
 
-
 export function SignatureDialog({ onClose }: { onClose: () => void }) {
   const { t } = useTranslation(["webhooks", "common"]);
   const [secret, setSecret] = useState("");

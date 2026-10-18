@@ -23,7 +23,6 @@ fn token(state: &State<'_, AppState>) -> Option<String> {
     state.active_client().ok().map(|c| c.token().to_string())
 }
 
-
 fn apply_remotes(ws: &Workspace) -> AppResult<()> {
     let repo = git::open(&ws.path)?;
     if let Some(p) = &ws.push_repo {
@@ -59,7 +58,6 @@ pub struct FolderInfo {
 
     pub existing: Option<String>,
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -138,7 +136,6 @@ pub struct AddResult {
     pub warning: Option<AppError>,
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn ws_clone(state: State<'_, AppState>, repo: String, parent: String, folder: String) -> AppResult<Workspace> {
@@ -170,7 +167,6 @@ pub async fn ws_clone(state: State<'_, AppState>, repo: String, parent: String, 
     blocking(move || apply_remotes(&ws2)).await?;
     Ok(ws)
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -210,7 +206,6 @@ pub async fn ws_add(app: AppHandle, state: State<'_, AppState>, req: AddWorkspac
     let ws2 = ws.clone();
     blocking(move || apply_remotes(&ws2)).await?;
 
-
     let mut warning = None;
     if fresh {
         let (name, email) = state.git_identity();
@@ -239,7 +234,6 @@ pub async fn ws_add(app: AppHandle, state: State<'_, AppState>, req: AddWorkspac
     Ok(AddResult { workspace: ws, steps, warning })
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn ws_update(app: AppHandle, state: State<'_, AppState>, ws: Workspace) -> AppResult<Workspace> {
@@ -250,7 +244,6 @@ pub async fn ws_update(app: AppHandle, state: State<'_, AppState>, ws: Workspace
     state.watchers.restart(&app, &ws);
     Ok(ws)
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -395,7 +388,6 @@ fn failed(slug: &str, branch: &str, e: AppError) -> RemoteCompare {
     RemoteCompare { slug: slug.into(), branch: branch.into(), ahead: 0, behind: 0, related: true, exists: false, incoming: vec![], outgoing: vec![], error: Some(e), missing: false, renamed_to: None }
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn ws_sync(state: State<'_, AppState>, id: String, online: bool, reference_branch: Option<String>) -> AppResult<SyncState> {
@@ -473,7 +465,6 @@ pub struct CommitOutcome {
     pub push_error: Option<AppError>,
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn ws_commit(state: State<'_, AppState>, id: String, paths: Option<Vec<String>>, message: String, push: bool) -> AppResult<CommitOutcome> {
@@ -519,7 +510,6 @@ fn remote_for(ws: &Workspace, source: Source) -> AppResult<&'static str> {
         _ => Err(AppError::new("workspace.no_push_target")),
     }
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -599,14 +589,12 @@ pub async fn ws_suggestions(state: State<'_, AppState>, id: String) -> AppResult
     blocking(move || git::suggestions(&git::open(&ws.path)?)).await
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn ws_discard(state: State<'_, AppState>, id: String, paths: Vec<String>) -> AppResult<()> {
     let ws = get(&state, &id)?;
     blocking(move || git::discard(&git::open(&ws.path)?, &paths)).await
 }
-
 
 fn workflow_path(name: &str) -> AppResult<String> {
     let n = name.trim();
@@ -616,7 +604,6 @@ fn workflow_path(name: &str) -> AppResult<String> {
     }
     Ok(format!(".github/workflows/{n}"))
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -634,7 +621,6 @@ pub async fn ws_add_workflow(state: State<'_, AppState>, id: String, name: Strin
     })
     .await
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -661,7 +647,6 @@ pub async fn ws_save_workflow(state: State<'_, AppState>, id: String, name: Stri
     .await
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn ws_delete_workflow(state: State<'_, AppState>, id: String, path: String) -> AppResult<()> {
@@ -674,7 +659,6 @@ pub async fn ws_delete_workflow(state: State<'_, AppState>, id: String, path: St
     })
     .await
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -699,7 +683,6 @@ mod tests {
     }
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn ws_recreate(app: AppHandle, state: State<'_, AppState>, id: String, is_private: bool) -> AppResult<Workspace> {
@@ -720,14 +703,12 @@ pub async fn ws_recreate(app: AppHandle, state: State<'_, AppState>, id: String,
     Ok(ws)
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub fn ws_open_terminal(state: State<'_, AppState>, id: String) -> AppResult<String> {
     let ws = get(&state, &id)?;
     crate::platform::open_terminal(std::path::Path::new(&ws.path)).map_err(|e| AppError::new("workspace.no_terminal").detail(e.to_string()))
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -736,14 +717,12 @@ pub fn ws_open_editor(state: State<'_, AppState>, id: String) -> AppResult<Strin
     crate::platform::open_editor(std::path::Path::new(&ws.path)).map_err(|e| AppError::new("workspace.no_editor").detail(e.to_string()))
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn ws_diff(state: State<'_, AppState>, id: String, path: String) -> AppResult<WorkDiff> {
     let ws = get(&state, &id)?;
     blocking(move || tools::file_diff(&git::open(&ws.path)?, &path)).await
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -786,14 +765,12 @@ pub async fn ws_drop_parked(state: State<'_, AppState>, id: String, index: u32) 
     blocking(move || tools::drop_parked(&mut git::open(&ws.path)?, index)).await
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn ws_conflicts(state: State<'_, AppState>, id: String, source: Source, branch: String) -> AppResult<Vec<ConflictFile>> {
     let ws = get(&state, &id)?;
     blocking(move || tools::conflicts(&git::open(&ws.path)?, remote_for(&ws, source)?, &branch)).await
 }
-
 
 #[tauri::command]
 #[specta::specta]

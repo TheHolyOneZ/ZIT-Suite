@@ -7,7 +7,6 @@ import { cn } from "@/core/cn";
 
 const win = () => getCurrentWindow();
 
-
 export function WindowControls() {
   const { t } = useTranslation();
   const [max, setMax] = useState(false);
@@ -57,7 +56,6 @@ const EDGES: { dir: ResizeDirection; className: string; cursor: string }[] = [
   { dir: "SouthEast", className: "bottom-0 right-0 size-2", cursor: "nwse-resize" },
 ];
 
-
 export function ResizeEdges() {
   const [max, setMax] = useState(false);
   useEffect(() => {
@@ -86,7 +84,6 @@ export function ResizeEdges() {
     </>
   );
 }
-
 
 export function BareTitleBar() {
   return (

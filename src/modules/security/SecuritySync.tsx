@@ -4,7 +4,6 @@ import { refreshRepoSecurity } from "./api";
 
 const KINDS = new Set(["security_feature", "alert_set"]);
 
-
 export function SecuritySync() {
   useEffect(() => {
     const seen = new Set<string>();

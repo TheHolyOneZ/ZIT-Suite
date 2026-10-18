@@ -47,7 +47,6 @@ const ICON: Record<SearchKind, typeof SearchIcon> = {
   users: User,
 };
 
-
 function openHit(h: Hit) {
   if (h.kind === "issues" && h.repo && h.number != null) {
     sheets.push(h.is_pr ? "pulls" : "issues", h.is_pr ? "pull" : "issue", {
@@ -215,13 +214,11 @@ export function SearchPage() {
   );
 }
 
-
 function groupByRepo(hits: Hit[]): [string, Hit[]][] {
   const m = new Map<string, Hit[]>();
   for (const h of hits) m.set(h.repo ?? "", [...(m.get(h.repo ?? "") ?? []), h]);
   return [...m.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
 }
-
 
 function SaveSearch({ kind, q }: { kind: SearchKind; q: string }) {
   const { t } = useTranslation("search");

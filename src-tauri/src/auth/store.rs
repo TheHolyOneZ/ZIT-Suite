@@ -17,7 +17,6 @@ pub enum AuthMethod {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct Account {
-
     pub id: String,
     pub login: String,
     pub name: Option<String>,

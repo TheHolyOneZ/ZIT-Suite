@@ -15,7 +15,6 @@ import type { Thread } from "./threads";
 
 const key = (repo: string, number: number) => ["pulls", "reviewComments", repo, number];
 
-
 export function ReviewThread({
   repo,
   number,
@@ -176,7 +175,6 @@ function CommentRow({ repo, number, c }: { repo: string; number: number; c: Revi
     </div>
   );
 }
-
 
 function CommentBody({ repo, number, c }: { repo: string; number: number; c: ReviewComment }) {
   const { t } = useTranslation("pulls");

@@ -19,12 +19,10 @@ export const useQueue = create<QueueState>()((set) => ({
   closeRequest: () => set({ request: null }),
 }));
 
-
 export const requestQueue = (repos: string[], action: QueueAction) =>
   useQueue.getState().requestRun(repos.map((repo) => ({ repo, action })));
 
 export type ActionKind = QueueAction["kind"];
-
 
 export const DESTRUCTIVE: ActionKind[] = [
   "delete",

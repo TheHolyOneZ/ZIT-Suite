@@ -3,7 +3,6 @@ import { persist } from "zustand/middleware";
 import type { DraftComment } from "@/core/ipc";
 import { persistStorage } from "@/core/store/persist";
 
-
 interface DraftsState {
   pending: Record<string, (DraftComment & { id: string })[]>;
   add: (key: string, d: DraftComment) => void;

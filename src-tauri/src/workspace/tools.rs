@@ -9,7 +9,6 @@ use specta::Type;
 use super::git::{self, ChangeKind, CommitInfo, UpdateKind};
 use crate::error::{AppError, AppResult};
 
-
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, Type, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum LineKind {
@@ -74,7 +73,6 @@ pub fn file_diff(repo: &Repository, path: &str) -> AppResult<WorkDiff> {
     Ok(out)
 }
 
-
 fn on_any_remote(repo: &Repository, id: git2::Oid) -> AppResult<bool> {
     for r in repo.references_glob("refs/remotes/*")?.flatten() {
         if let Some(t) = r.target() {
@@ -85,7 +83,6 @@ fn on_any_remote(repo: &Repository, id: git2::Oid) -> AppResult<bool> {
     }
     Ok(false)
 }
-
 
 pub fn undo_since(repo: &Repository, sha: &str) -> AppResult<Vec<CommitInfo>> {
     let branch = git::current_branch(repo)?.ok_or_else(|| AppError::new("workspace.detached"))?;
@@ -128,7 +125,6 @@ pub fn undo_last(repo: &Repository) -> AppResult<CommitInfo> {
     Ok(undone)
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct Parked {
     pub index: u32,
@@ -136,7 +132,6 @@ pub struct Parked {
     pub branch: Option<String>,
     pub time: String,
 }
-
 
 fn split_stash_message(raw: &str) -> (Option<String>, String) {
     for prefix in ["On ", "WIP on "] {
@@ -148,7 +143,6 @@ fn split_stash_message(raw: &str) -> (Option<String>, String) {
     }
     (None, raw.to_string())
 }
-
 
 pub fn park(repo: &mut Repository, message: &str, sig: &Signature) -> AppResult<()> {
     let msg = message.trim();
@@ -175,7 +169,6 @@ pub fn parked(repo: &mut Repository) -> AppResult<Vec<Parked>> {
         .collect())
 }
 
-
 pub fn unpark(repo: &mut Repository, index: u32) -> AppResult<()> {
     repo.stash_pop(index as usize, None).map_err(|e| match e.code() {
         git2::ErrorCode::Conflict | git2::ErrorCode::MergeConflict | git2::ErrorCode::Uncommitted => AppError::new("workspace.unpark_conflict").detail(e.message().to_string()),
@@ -186,7 +179,6 @@ pub fn unpark(repo: &mut Repository, index: u32) -> AppResult<()> {
 pub fn drop_parked(repo: &mut Repository, index: u32) -> AppResult<()> {
     Ok(repo.stash_drop(index as usize)?)
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct ConflictFile {
@@ -224,12 +216,10 @@ fn conflicts_of(idx: &git2::Index) -> AppResult<BTreeMap<String, ConflictFile>> 
     Ok(out)
 }
 
-
 pub fn conflicts(repo: &Repository, remote: &str, branch: &str) -> AppResult<Vec<ConflictFile>> {
     let (_, _, idx) = merge_index(repo, remote, branch)?;
     Ok(conflicts_of(&idx)?.into_values().collect())
 }
-
 
 pub fn merge_with_picks(repo: &Repository, remote: &str, branch: &str, picks: &[(String, Pick)], sig: &Signature) -> AppResult<UpdateKind> {
     if git::changes(repo)?.iter().any(|c| c.kind != ChangeKind::New) {

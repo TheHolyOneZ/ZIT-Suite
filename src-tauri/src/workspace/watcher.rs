@@ -32,7 +32,6 @@ pub struct Watchers {
 }
 
 impl Watchers {
-
     pub fn restart(&self, app: &AppHandle, ws: &Workspace) {
         self.stop(&ws.id);
         if !ws.watch {
@@ -52,7 +51,6 @@ impl Watchers {
         self.tasks.lock().unwrap().contains_key(id)
     }
 }
-
 
 pub fn due(mode: AutoMode, minutes: u32, changes: usize, since_commit: Duration, since_change: Duration) -> bool {
     let wait = Duration::from_secs(u64::from(minutes) * 60);

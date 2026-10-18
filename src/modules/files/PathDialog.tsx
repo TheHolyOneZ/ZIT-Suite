@@ -14,7 +14,6 @@ const validPath = (p: string) =>
   p.split("/").every((s) => s && s !== "." && s !== ".." && s !== ".git") &&
   ![...p].some((c) => c === "\\" || c.charCodeAt(0) < 32);
 
-
 export function PathDialog({
   req,
   taken,

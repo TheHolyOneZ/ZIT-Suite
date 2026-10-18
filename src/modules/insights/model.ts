@@ -4,7 +4,6 @@ const DAY = 86_400_000;
 export const daysSince = (iso: string | null, now = Date.now()) =>
   iso ? Math.floor((now - Date.parse(iso)) / DAY) : Infinity;
 
-
 export function levenshtein(a: string, b: string): number {
   if (a === b) return 0;
   const prev = Array.from({ length: b.length + 1 }, (_, i) => i);
@@ -20,13 +19,11 @@ export function levenshtein(a: string, b: string): number {
   return prev[b.length];
 }
 
-
 export const normName = (n: string) =>
   n
     .toLowerCase()
     .replace(/[-_.\s]+/g, "")
     .replace(/(old|copy|backup|bak|new|v\d+|\d+)$/, "");
-
 
 export function nearDuplicates(repos: Repo[]): string[][] {
   const names = repos.map((r) => ({ full: r.full_name, n: normName(r.name) })).filter((x) => x.n.length >= 4);
@@ -58,7 +55,6 @@ export interface Rule {
   fix?: FixKind;
 }
 
-
 const SENSITIVE_WORDS = new Set([
   "secret",
   "secrets",
@@ -88,7 +84,6 @@ export const nameWords = (name: string) =>
 export const soundsSensitive = (name: string) => nameWords(name).some((w) => SENSITIVE_WORDS.has(w));
 
 export const RULES: Rule[] = [
-
   {
     id: "sensitivePublic",
     severity: "warning",
@@ -154,7 +149,6 @@ export interface Finding {
   repos: Repo[];
 }
 
-
 export function runChecks(
   repos: Repo[],
   dismissed: Record<string, string[]>,
@@ -167,7 +161,6 @@ export function runChecks(
   }));
 }
 
-
 export function tidyScore(repos: Repo[], findings: Finding[]): number {
   if (!repos.length) return 100;
   const bad = new Set(
@@ -175,7 +168,6 @@ export function tidyScore(repos: Repo[], findings: Finding[]): number {
   );
   return Math.round(((repos.length - bad.size) / repos.length) * 100);
 }
-
 
 export interface Count {
   key: string;
@@ -198,7 +190,6 @@ export function countBy<T>(
     .slice(0, top);
 }
 
-
 export function perYear(repos: Repo[]): Count[] {
   const c = countBy(repos, (r) => r.created_at.slice(0, 4));
   if (!c.length) return [];
@@ -208,7 +199,6 @@ export function perYear(repos: Repo[]): Count[] {
     out.push({ key: String(y), count: c.find((x) => x.key === String(y))?.count ?? 0 });
   return out;
 }
-
 
 export function pushesPerMonth(repos: Repo[], months = 24, now = new Date()): Count[] {
   const out: Count[] = [];

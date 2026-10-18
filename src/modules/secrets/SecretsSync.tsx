@@ -4,7 +4,6 @@ import { refreshRepoSecrets } from "./api";
 
 const KINDS = new Set(["secret_set", "secret_delete", "var_set", "var_delete", "env_upsert", "env_delete"]);
 
-
 export function SecretsSync() {
   useEffect(() => {
     const seen = new Set<string>();

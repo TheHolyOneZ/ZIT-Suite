@@ -1,6 +1,5 @@
 import type { Change, TreeItem } from "@/core/ipc";
 
-
 export type Staged =
   | { kind: "edit"; text: string; original: string; executable?: boolean }
   | { kind: "new"; text: string }
@@ -20,7 +19,6 @@ export interface FileEntry {
 
   status: "new" | "edit" | "delete" | "rename" | null;
 }
-
 
 export function effectiveFiles(items: TreeItem[], staged: StagedMap): FileEntry[] {
   const moved = new Set(Object.values(staged).flatMap((s) => (s.kind === "rename" ? [s.from] : [])));
@@ -114,7 +112,6 @@ export function buildTree(files: FileEntry[], filter = ""): Node {
   return root;
 }
 
-
 export function toChanges(staged: StagedMap): Change[] {
   const renames: Change[] = [];
   const content: Change[] = [];
@@ -133,7 +130,6 @@ export function toChanges(staged: StagedMap): Change[] {
   return [...renames, ...content, ...deletes];
 }
 
-
 export function stageEdit(staged: StagedMap, path: string, text: string, original: string): StagedMap {
   const cur = staged[path];
   const next = { ...staged };
@@ -149,7 +145,6 @@ export function stageEdit(staged: StagedMap, path: string, text: string, origina
     };
   return next;
 }
-
 
 export function stageDelete(staged: StagedMap, path: string): StagedMap {
   const cur = staged[path];
@@ -187,7 +182,6 @@ export function stageRename(staged: StagedMap, from: string, to: string, existsI
     delete next[to];
   return next;
 }
-
 
 export function languageName(path: string): string | null {
   const name = path.split("/").pop()!.toLowerCase();
@@ -264,7 +258,6 @@ export const imageMime = (p: string) => {
         : `image/${e}`;
 };
 
-
 export function suggestMessage(staged: StagedMap): string {
   const e = Object.entries(staged);
   if (!e.length) return "";
@@ -293,7 +286,6 @@ export function suggestMessage(staged: StagedMap): string {
 export type DiffRow =
   { kind: "same" | "add" | "del"; o?: number; n?: number; text: string } | { kind: "fold"; count: number };
 
-
 export function diffRows(parts: { value: string; added?: boolean; removed?: boolean }[]): DiffRow[] {
   const out: DiffRow[] = [];
   let o = 0;
@@ -312,7 +304,6 @@ export function diffRows(parts: { value: string; added?: boolean; removed?: bool
   }
   return out;
 }
-
 
 export function uploadText(base64: string): string | null {
   try {

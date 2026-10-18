@@ -7,7 +7,6 @@ interface State {
   error: Error | null;
 }
 
-
 export class ErrorBoundary extends Component<{ children: ReactNode; resetKey?: string }, State> {
   state: State = { error: null };
 

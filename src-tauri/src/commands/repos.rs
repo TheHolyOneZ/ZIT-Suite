@@ -17,7 +17,6 @@ pub async fn orgs_list(state: State<'_, AppState>) -> AppResult<Vec<Org>> {
     users::orgs(&state.active_client()?).await
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn repos_list(state: State<'_, AppState>, org: Option<String>, fresh: bool) -> AppResult<Vec<Repo>> {
@@ -72,7 +71,6 @@ struct Asset {
     name: String,
     url: String,
 }
-
 
 fn safe_segment(s: &str) -> AppResult<String> {
     crate::platform::sanitize_file_name(s).ok_or_else(|| AppError::new("export.unsafe_name").detail(s.to_string()))
@@ -165,7 +163,6 @@ pub async fn repos_export(
     }
     Ok(ExportReport { files_written, failures })
 }
-
 
 #[tauri::command]
 #[specta::specta]

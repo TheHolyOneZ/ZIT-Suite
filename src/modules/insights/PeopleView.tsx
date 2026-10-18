@@ -11,7 +11,6 @@ import { Button, EmptyState, Panel, Plotter } from "@/ui";
 import { ChartCard, Columns, Spark } from "./charts";
 import { useInsights } from "./store";
 
-
 export function PeopleView({ repos }: { repos: Repo[] }) {
   const { t } = useTranslation("insights");
   const picked = useInsights((s) => s.peopleRepo);

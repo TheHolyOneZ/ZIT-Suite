@@ -10,12 +10,10 @@ use crate::state::AppState;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type, Event)]
 pub struct DepsProgress {
-
     pub phase: String,
     pub done: u32,
     pub total: u32,
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -33,7 +31,6 @@ pub async fn deps_scan(app: AppHandle, state: State<'_, AppState>, targets: Vec<
     )
     .await)
 }
-
 
 #[tauri::command]
 #[specta::specta]

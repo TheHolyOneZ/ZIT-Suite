@@ -64,7 +64,6 @@ fn split(repo: &str) -> AppResult<(&str, &str)> {
     repo.split_once('/').ok_or_else(|| AppError::new("github.not_found"))
 }
 
-
 pub async fn list(c: &GitHubClient, repo: &str, default_branch: Option<&str>) -> AppResult<BranchList> {
     let (owner, name) = split(repo)?;
     let mut out = Vec::new();
@@ -130,12 +129,10 @@ pub fn valid_name(name: &str) -> bool {
         && !name.chars().any(|ch| ch.is_control() || ch.is_whitespace() || "~^:?*[\\".contains(ch))
 }
 
-
 pub async fn head(c: &GitHubClient, repo: &str, branch: &str) -> AppResult<String> {
     let v: Value = c.get_json(&format!("/repos/{repo}/git/ref/heads/{}", branch.split('/').map(enc).collect::<Vec<_>>().join("/"))).await?;
     v["object"]["sha"].as_str().map(str::to_string).ok_or_else(|| AppError::new("github.not_found"))
 }
-
 
 pub async fn create(c: &GitHubClient, repo: &str, name: &str, from: Option<&str>) -> AppResult<()> {
     if !valid_name(name) {
@@ -152,7 +149,6 @@ pub async fn create(c: &GitHubClient, repo: &str, name: &str, from: Option<&str>
         .map(drop)
 }
 
-
 pub async fn rename(c: &GitHubClient, repo: &str, from: &str, to: &str) -> AppResult<()> {
     if !valid_name(to) {
         return Err(AppError::new("branches.bad_name").detail(to.to_string()));
@@ -168,7 +164,6 @@ pub async fn delete(c: &GitHubClient, repo: &str, name: &str) -> AppResult<()> {
 pub async fn set_default(c: &GitHubClient, repo: &str, name: &str) -> AppResult<()> {
     c.send_json(Method::PATCH, &format!("/repos/{repo}"), Some(&json!({ "default_branch": name }))).await.map(drop)
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq, Eq, Default)]
 pub struct Protection {
@@ -200,7 +195,6 @@ fn unavailable(e: AppError) -> AppError {
 fn path_of(branch: &str) -> String {
     enc(branch)
 }
-
 
 pub async fn protection(c: &GitHubClient, repo: &str, branch: &str) -> AppResult<Option<Protection>> {
     match c.get_json::<Value>(&format!("/repos/{repo}/branches/{}/protection", path_of(branch))).await {
@@ -271,7 +265,6 @@ pub async fn unprotect(c: &GitHubClient, repo: &str, branch: &str) -> AppResult<
     }
 }
 
-
 pub async fn check_names(c: &GitHubClient, repo: &str, sha: &str) -> AppResult<Vec<String>> {
     let v: Value = c.get_json(&format!("/repos/{repo}/commits/{sha}/check-runs?per_page=100")).await?;
     let mut names: Vec<String> = v["check_runs"].as_array().into_iter().flatten().filter_map(|r| r["name"].as_str().map(str::to_string)).collect();
@@ -291,7 +284,6 @@ pub struct Ruleset {
     #[serde(default)]
     pub source_type: Option<String>,
 }
-
 
 pub async fn rulesets(c: &GitHubClient, repo: &str) -> AppResult<Vec<Ruleset>> {
     match c.get_json::<Vec<Ruleset>>(&format!("/repos/{repo}/rulesets?includes_parents=true&per_page=100")).await {

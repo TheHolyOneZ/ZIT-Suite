@@ -8,6 +8,8 @@ import { useSettings } from "./core/store/settings";
 import { useSheets } from "./core/sheets/store";
 import { App } from "./app/App";
 
+if (navigator.userAgent.includes("Linux")) document.documentElement.setAttribute("data-opaque-window", "");
+
 async function bootstrap() {
   await useSettings.persist.rehydrate();
   const settings = useSettings.getState();

@@ -16,12 +16,10 @@ export function isEnabled(m: ModuleManifest, disabled: string[]) {
   return m.required || !disabled.includes(m.id);
 }
 
-
 export function useEnabledModules() {
   const disabled = useSettings((s) => s.disabledModules);
   return useMemo(() => allModules.filter((m) => isEnabled(m, disabled)), [disabled]);
 }
-
 
 export function useNavModules() {
   const enabled = useEnabledModules();

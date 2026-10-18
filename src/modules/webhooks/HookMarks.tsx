@@ -17,7 +17,6 @@ export function StateMark({ state, size = 12 }: { state: HookState; size?: numbe
   return <Mark glyph={m.glyph} tone={m.tone} size={size} title={t(`states.${state}`)} />;
 }
 
-
 export function StateSpread({ states }: { states: Record<HookState, number> }) {
   return (
     <span className="flex items-center gap-2.5">
@@ -33,7 +32,6 @@ export function StateSpread({ states }: { states: Record<HookState, number> }) {
     </span>
   );
 }
-
 
 export function DeliveryCode({ d }: { d: Delivery }) {
   const ok = d.status_code >= 200 && d.status_code < 300;

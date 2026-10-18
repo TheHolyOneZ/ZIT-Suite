@@ -34,13 +34,11 @@ interface Draft {
   start: number | null;
 }
 
-
 function anchorOf(r: DiffRow): { side: Side; line: number } | null {
   if (r.kind === "del" && r.oldNo != null) return { side: "LEFT", line: r.oldNo };
   if ((r.kind === "add" || r.kind === "ctx") && r.newNo != null) return { side: "RIGHT", line: r.newNo };
   return null;
 }
-
 
 export function FileDiffSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["pulls", "common"]);
@@ -135,7 +133,6 @@ export function FileDiffSheet({ params }: { params: SheetParams }) {
       setBusy(false);
     }
   };
-
 
   const suggest = () => {
     if (!draft || draft.side !== "RIGHT") return;

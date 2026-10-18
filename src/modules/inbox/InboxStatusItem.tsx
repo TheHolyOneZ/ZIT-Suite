@@ -5,7 +5,6 @@ import { Mark } from "@/ui";
 import { useUnreadCount } from "./api";
 import { isUrgent } from "./model";
 
-
 export function InboxStatusItem() {
   const { t } = useTranslation("inbox");
   const { count, data } = useUnreadCount();

@@ -22,7 +22,6 @@ import { useReposUi } from "./store";
 import { MetaDialog } from "./MetaDialog";
 import { TagMenu } from "./TagMenu";
 
-
 export function SelectionBar() {
   const { t } = useTranslation("repos");
   const selected = useReposUi((s) => s.selected);

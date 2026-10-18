@@ -7,7 +7,6 @@ use crate::error::AppError;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct TrafficDay {
-
     pub day: String,
     pub count: u32,
     pub uniques: u32,

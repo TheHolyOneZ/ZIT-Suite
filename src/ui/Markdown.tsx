@@ -5,7 +5,6 @@ import { openUrl } from "@tauri-apps/plugin-opener";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/core/cn";
 
-
 export const Markdown = memo(function Markdown({ source, className }: { source: string; className?: string }) {
   return (
     <div className={cn("md", className)} data-selectable>
@@ -31,7 +30,6 @@ export const Markdown = memo(function Markdown({ source, className }: { source: 
     </div>
   );
 });
-
 
 export function MarkdownEditor({
   value,

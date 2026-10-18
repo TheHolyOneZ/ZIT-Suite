@@ -15,7 +15,6 @@ export function bumpManifest(
   let changed = false;
   let out: string;
   if (ecosystem === "npm") {
-
     out = text.replace(new RegExp(`("${esc}"\\s*:\\s*")([^"]*)(")`, "g"), (all, a, spec, b) => {
       const next = keep(spec);
       if (!next || next === spec) return all;
@@ -23,7 +22,6 @@ export function bumpManifest(
       return `${a}${next}${b}`;
     });
   } else if (ecosystem === "cargo") {
-
     out = text
       .replace(new RegExp(`^(\\s*${esc}\\s*=\\s*")([^"]*)(")`, "gm"), (all, a, spec, b) => {
         const next = keep(spec);
@@ -52,7 +50,6 @@ export function bumpManifest(
   } else return null;
   return changed ? out : null;
 }
-
 
 export const canBump = (ecosystem: string, path: string) =>
   ecosystem === "npm" ||

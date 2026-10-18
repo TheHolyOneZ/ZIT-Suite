@@ -19,7 +19,6 @@ pub async fn queue_dry_run(state: State<'_, AppState>, items: Vec<NewQueueItem>)
     Ok(queue::dry_run(&client, scopes, items).await)
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub fn queue_submit(

@@ -7,7 +7,6 @@ import { toast } from "@/core/store/toasts";
 import { homeKey, refreshAll, refreshLocal } from "./api";
 import type { Workspace } from "@/core/ipc";
 
-
 export function HomeSync() {
   const { t } = useTranslation("home");
   useEffect(() => {

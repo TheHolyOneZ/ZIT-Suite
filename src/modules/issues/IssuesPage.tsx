@@ -48,7 +48,6 @@ export function IssuesPage() {
   const set = useIssuesUi((s) => s.set);
   const setPrefs = useIssuesPrefs((s) => s.set);
 
-
   useIntent("issues", (intent) => {
     const repo = String(intent.repo);
     const t = intent.tab === "labels" || intent.tab === "milestones" ? intent.tab : "issues";
@@ -225,7 +224,6 @@ function IssuesTabView() {
     </>
   );
 }
-
 
 function QueryBar({
   total,

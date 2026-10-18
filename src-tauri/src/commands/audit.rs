@@ -29,7 +29,6 @@ fn root(app: &AppHandle) -> AppResult<PathBuf> {
     Ok(app.path().app_cache_dir().map_err(|e| AppError::new("audit.io").detail(e.to_string()))?.join("audit"))
 }
 
-
 fn measure(name: &str, repo: &git2::Repository, local: bool, emit: &dyn Fn(AuditStage, u32, u32)) -> AppResult<AuditReport> {
     emit(AuditStage::Files, 0, 0);
     let (branch, head, files) = audit::files_at_head(repo)?;
@@ -54,7 +53,6 @@ fn measure(name: &str, repo: &git2::Repository, local: bool, emit: &dyn Fn(Audit
     })
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn audit_local(app: AppHandle, path: String) -> AppResult<AuditReport> {
@@ -69,7 +67,6 @@ pub async fn audit_local(app: AppHandle, path: String) -> AppResult<AuditReport>
     .map_err(|e| AppError::new("internal.unknown").detail(e.to_string()))?
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn audit_run(app: AppHandle, state: State<'_, AppState>, repo: String) -> AppResult<AuditReport> {
@@ -81,7 +78,6 @@ pub async fn audit_run(app: AppHandle, state: State<'_, AppState>, repo: String)
         };
         let url = format!("https://github.com/{repo}.git");
         let mirror = audit::sync_mirror(&url, &dir, token.as_deref(), &|d, t| emit(AuditStage::Download, d, t)).inspect_err(|_| {
-
             if !dir.join("HEAD").exists() {
                 let _ = std::fs::remove_dir_all(&dir);
             }
@@ -107,7 +103,6 @@ pub fn audit_cache(app: AppHandle) -> AppResult<AuditCache> {
         .unwrap_or_default();
     Ok(AuditCache { bytes: audit::dir_size(&root) as f64, repos })
 }
-
 
 #[tauri::command]
 #[specta::specta]

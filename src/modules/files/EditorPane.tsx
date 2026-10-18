@@ -14,7 +14,6 @@ import { commands, unwrap } from "@/core/ipc";
 import { useQuery } from "@tanstack/react-query";
 import { useFiles } from "./store";
 
-
 export function EditorPane({
   k,
   repo,

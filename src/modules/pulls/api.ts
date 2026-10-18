@@ -13,7 +13,6 @@ export function useEffectivePullQuery() {
   return useMemo(() => (raw !== null ? raw : buildPullQuery(filter, login)), [raw, filter, login]);
 }
 
-
 export function usePullSearch() {
   const account = useSession((s) => s.session?.active);
   const query = useEffectivePullQuery();
@@ -43,7 +42,6 @@ export function usePullSearch() {
   }, [q.data]);
   return { ...q, pulls, total: q.data?.pages[0]?.total_count ?? 0 };
 }
-
 
 function useListedUpdatedAt(repo: string, number: number): string | null {
   return useSyncExternalStore(
@@ -153,7 +151,6 @@ export function useBranches(repo: string | null) {
     staleTime: 60_000,
   });
 }
-
 
 export async function refreshPull(repo: string, number: number) {
   await queryClient.invalidateQueries({ queryKey: ["pulls", "one", repo, number] });

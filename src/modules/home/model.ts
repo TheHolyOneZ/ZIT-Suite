@@ -1,7 +1,6 @@
 import type { ChangeKind, SyncState, WorkspaceStatus } from "@/core/ipc";
 import type { Glyph, Tone } from "@/ui";
 
-
 export type Headline =
   | {
       key:
@@ -56,12 +55,10 @@ const SECRET = [
   /^\.netrc$/i,
 ];
 
-
 export function isSensitive(path: string): boolean {
   const name = path.split("/").pop() ?? path;
   return SECRET.some((r) => r.test(name)) && !name.endsWith(".example") && !name.endsWith(".sample");
 }
-
 
 export const INTERVALS = [1, 2, 5, 10, 30, 60, 120, 300];
 
@@ -88,12 +85,10 @@ export function formatBytes(n: number): string {
   return `${(n / 1024 / 1024).toFixed(1)} MB`;
 }
 
-
 export function shortPath(p: string): string {
   const parts = p.replace(/\\/g, "/").split("/").filter(Boolean);
   return parts.length <= 2 ? p : `…/${parts.slice(-2).join("/")}`;
 }
-
 
 export function parseSlug(input: string): string | null {
   let s = input.trim().replace(/\/+$/, "");
@@ -105,7 +100,6 @@ export function parseSlug(input: string): string | null {
   s = s.replace(/\.git$/, "");
   return /^[\w.-]+\/[\w.-]+$/.test(s) ? s : null;
 }
-
 
 export function suggestMessage(changes: { path: string; kind: ChangeKind }[]): string {
   const name = (p: string) => p.split("/").pop() ?? p;

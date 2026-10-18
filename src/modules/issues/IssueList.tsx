@@ -39,7 +39,6 @@ export function IssueList({
   const items = v.getVirtualItems();
   const last = items[items.length - 1];
 
-
   useEffect(() => {
     if (last && last.index >= issues.length && hasMore && !loadingMore) onLoadMore();
   }, [last, issues.length, hasMore, loadingMore, onLoadMore]);

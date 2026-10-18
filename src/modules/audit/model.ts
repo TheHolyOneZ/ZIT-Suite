@@ -13,7 +13,6 @@ export interface Node {
   children: Node[];
 }
 
-
 export function isNoise(path: string): boolean {
   const name = path.split("/").pop() ?? path;
   return (
@@ -47,7 +46,6 @@ const emptyDir = (name: string, path: string): Node => ({
   binary: false,
   children: [],
 });
-
 
 export function buildTree(files: FileStat[], sort: SortBy, skipNoise: boolean): Node {
   const root = emptyDir("", "");
@@ -104,7 +102,6 @@ export interface LangTotal {
   share: number;
 }
 
-
 export function languageTotals(files: FileStat[], skipNoise: boolean): LangTotal[] {
   const m = new Map<string, { lines: number; files: number }>();
   for (const f of files) {
@@ -121,7 +118,6 @@ export function languageTotals(files: FileStat[], skipNoise: boolean): LangTotal
 
 const human = (n: number) =>
   n < 1024 ? `${n} B` : n < 1048576 ? `${(n / 1024).toFixed(1)} KB` : `${(n / 1048576).toFixed(1)} MB`;
-
 
 export function asciiTree(root: Node, title: string): string {
   const out = [
@@ -142,7 +138,6 @@ export function asciiTree(root: Node, title: string): string {
   walk(root, "");
   return out.join("\n") + "\n";
 }
-
 
 export function jsonTree(root: Node, meta: Record<string, unknown>): string {
   const strip = (n: Node): unknown =>
@@ -166,7 +161,6 @@ export function jsonTree(root: Node, meta: Record<string, unknown>): string {
         };
   return JSON.stringify({ ...meta, tree: strip(root) }, null, 2);
 }
-
 
 export interface Snapshot {
   at: string;
@@ -202,7 +196,6 @@ export function snapshotOf(r: AuditReport): Snapshot {
   };
 }
 
-
 export function addSnapshot(list: Snapshot[], s: Snapshot, keep = 20): Snapshot[] {
   return [s, ...list.filter((x) => x.head !== s.head)]
     .sort((a, b) => b.at.localeCompare(a.at))
@@ -210,7 +203,6 @@ export function addSnapshot(list: Snapshot[], s: Snapshot, keep = 20): Snapshot[
 }
 
 export type SnapshotMetric = "code" | "lines" | "files" | "size" | "commits" | "people";
-
 
 export function compareSnapshots(before: Snapshot, now: Snapshot) {
   const metrics = (["code", "lines", "files", "size", "commits", "people"] as const).map((k) => ({

@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { RotateCcw, TerminalSquare } from "lucide-react";
 import { cn } from "@/core/cn";
 
-
 export function QueryInput({
   value,
   raw,

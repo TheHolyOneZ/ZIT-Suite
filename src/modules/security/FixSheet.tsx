@@ -8,7 +8,6 @@ import { useQueue } from "@/modules/queue/store";
 import { useSecurityIndex } from "./api";
 import { SeverityBadge, SeverityMark } from "./parts";
 
-
 export function FixSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["security", "common"]);
   const id = String(params.id);

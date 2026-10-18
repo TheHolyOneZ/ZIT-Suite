@@ -9,7 +9,6 @@ import { useSecurityTargets } from "./api";
 import { FEATURES } from "./model";
 import { useSecurityUi } from "./store";
 
-
 export function FeaturesDialog() {
   const { t } = useTranslation(["security", "common"]);
   const req = useSecurityUi((s) => s.features);

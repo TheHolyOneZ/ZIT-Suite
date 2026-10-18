@@ -12,13 +12,11 @@ import { useHomeUi } from "./store";
 
 type State = "waiting" | "cloning" | "done" | "failed";
 
-
 export function CloneHost() {
   const clone = useHomeUi((s) => s.clone);
   const set = useHomeUi((s) => s.set);
   return clone ? <CloneDialog repos={clone} onClose={() => set({ clone: null })} /> : null;
 }
-
 
 export function CloneDialog({ repos: initial, onClose }: { repos: string[]; onClose: () => void }) {
   const { t } = useTranslation(["home", "common"]);

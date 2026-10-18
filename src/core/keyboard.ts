@@ -2,14 +2,12 @@ import { useEffect, useRef } from "react";
 
 export type HotkeyMap = Record<string, (e: KeyboardEvent) => void>;
 
-
 const TYPING_PASSTHROUGH = /^mod\+([kb]|[1-9])$/;
 
 const isTyping = (e: KeyboardEvent) => {
   const el = e.target as HTMLElement | null;
   return !!el && (el.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(el.tagName));
 };
-
 
 export function comboOf(e: KeyboardEvent) {
   const parts: string[] = [];
@@ -21,9 +19,7 @@ export function comboOf(e: KeyboardEvent) {
   return parts.join("+");
 }
 
-
 const modalOpen = () => typeof document !== "undefined" && !!document.querySelector('[role="dialog"][aria-modal="true"]');
-
 
 export function useHotkeys(map: HotkeyMap, enabled = true) {
   const ref = useRef(map);
@@ -35,7 +31,6 @@ export function useHotkeys(map: HotkeyMap, enabled = true) {
       const combo = comboOf(e);
       const handler = ref.current[combo];
       if (!handler) return;
-
 
       if (isTyping(e) && !TYPING_PASSTHROUGH.test(combo)) return;
 

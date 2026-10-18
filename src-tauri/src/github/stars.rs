@@ -8,7 +8,6 @@ use crate::error::AppResult;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct Starred {
-
     pub id: String,
     pub repo: String,
     pub description: String,
@@ -64,7 +63,6 @@ fn starred_of(edge: &Value) -> Starred {
         avatar: s("/owner/avatarUrl"),
     }
 }
-
 
 pub async fn list(c: &GitHubClient) -> AppResult<Vec<Starred>> {
     let mut out = Vec::new();
@@ -126,7 +124,6 @@ pub async fn delete_list(c: &GitHubClient, id: &str) -> AppResult<()> {
     let q = "mutation($i: DeleteUserListInput!) { deleteUserList(input: $i) { clientMutationId } }";
     c.graphql(q, json!({ "i": { "listId": id } })).await.map(drop)
 }
-
 
 pub async fn set_lists(c: &GitHubClient, item_id: &str, list_ids: &[String]) -> AppResult<()> {
     let q = "mutation($i: UpdateUserListsForItemInput!) { updateUserListsForItem(input: $i) { clientMutationId } }";

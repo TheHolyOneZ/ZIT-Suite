@@ -25,7 +25,6 @@ import {
 import { tags as t } from "@lezer/highlight";
 import { languageName } from "./model";
 
-
 const theme = EditorView.theme({
   "&": { height: "100%", fontSize: "12.5px", backgroundColor: "var(--bg)", color: "var(--text)" },
   ".cm-scroller": { fontFamily: "var(--font-mono)", lineHeight: "1.6" },
@@ -85,7 +84,6 @@ const highlight = HighlightStyle.define([
   { tag: t.invalid, color: "var(--danger)" },
 ]);
 
-
 export function CodeEditor({
   path,
   value,
@@ -143,10 +141,8 @@ export function CodeEditor({
     view.current = v;
     return () => v.destroy();
 
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path]);
-
 
   useEffect(() => {
     const v = view.current;

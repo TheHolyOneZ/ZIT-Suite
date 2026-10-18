@@ -27,7 +27,6 @@ import { hookState, splitUrl, urlKey } from "./model";
 
 type Tab = "deliveries" | "settings";
 
-
 export function HookSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["webhooks", "common"]);
   const repo = String(params.repo);

@@ -10,7 +10,6 @@ pub async fn inbox_list(state: State<'_, AppState>, all: bool, participating: bo
     notifications::list(&state.active_client()?, all, participating, fresh).await
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn inbox_act(state: State<'_, AppState>, ids: Vec<String>, action: InboxAction) -> AppResult<Vec<String>> {

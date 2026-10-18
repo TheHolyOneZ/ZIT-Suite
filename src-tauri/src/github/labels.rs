@@ -43,7 +43,6 @@ pub async fn create(c: &GitHubClient, repo: &str, l: &Label) -> AppResult<()> {
     Ok(())
 }
 
-
 pub async fn update(c: &GitHubClient, repo: &str, name: &str, l: &Label) -> AppResult<()> {
     let mut b = body(l);
     b["new_name"] = b["name"].take();
@@ -55,7 +54,6 @@ pub async fn delete(c: &GitHubClient, repo: &str, name: &str) -> AppResult<()> {
     c.send_json::<()>(Method::DELETE, &format!("/repos/{repo}/labels/{}", enc(name)), None).await?;
     Ok(())
 }
-
 
 pub fn same(a: &Label, b: &Label) -> bool {
     a.name.eq_ignore_ascii_case(&b.name)

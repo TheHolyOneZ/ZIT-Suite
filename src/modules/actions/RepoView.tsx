@@ -45,7 +45,6 @@ import { githubStore } from "./workflowStore";
 export const openRun = (repo: string, r: Run) =>
   sheets.push("actions", "run", { repo, run: r.id, title: `#${r.run_number}` });
 
-
 export function RepoView({ repo }: { repo: string }) {
   const { t } = useTranslation(["actions", "home", "common"]);
   const ui = useActionsUi();
@@ -70,7 +69,6 @@ export function RepoView({ repo }: { repo: string }) {
   if (workflows.error) return <EmptyState title={errorMessage(workflows.error)} />;
 
   return (
-
     <div className="@container h-full min-h-0">
       <div className="grid h-full min-h-0 grid-cols-1 @[760px]:grid-cols-[minmax(260px,340px)_minmax(0,1fr)]">
 

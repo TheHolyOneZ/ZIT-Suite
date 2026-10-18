@@ -72,7 +72,6 @@ pub struct UploadResult {
     pub failed: Vec<(String, crate::error::AppError)>,
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn release_upload(app: AppHandle, state: State<'_, AppState>, repo: String, release_id: u64, paths: Vec<String>) -> AppResult<UploadResult> {
@@ -177,7 +176,6 @@ pub async fn actions_artifacts(state: State<'_, AppState>, repo: String, run_id:
     actions::artifacts(&state.active_client()?, &repo, run_id, fresh).await
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn actions_download_artifact(state: State<'_, AppState>, repo: String, artifact_id: u64, dest: String) -> AppResult<f64> {
@@ -202,7 +200,6 @@ pub struct ActionsProgress {
     pub done: u32,
     pub total: u32,
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -231,7 +228,6 @@ pub struct ReleasesProgress {
     pub done: u32,
     pub total: u32,
 }
-
 
 #[tauri::command]
 #[specta::specta]

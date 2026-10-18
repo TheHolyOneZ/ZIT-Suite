@@ -4,7 +4,6 @@ import { tDynamic } from "@/core/i18n";
 import { useEnabledModules } from "@/core/modules/registry";
 import { CORE_SECTIONS, useSettingsNav } from "./sections";
 
-
 export function SettingsIndex() {
   const { t } = useTranslation("settings");
   const { section, go } = useSettingsNav();

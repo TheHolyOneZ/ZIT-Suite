@@ -7,7 +7,6 @@ import { useInboxPrefs, useInboxUi, type InboxView } from "./store";
 
 export const inboxKey = (scope: string[], view: InboxView) => ["inbox", ...scope, view] as const;
 
-
 export function useSubjectStates(threads: Thread[]): Map<string, string> {
   const refs = threads
     .filter((t) => t.number != null && (t.kind === "Issue" || t.kind === "PullRequest"))
@@ -22,7 +21,6 @@ export function useSubjectStates(threads: Thread[]): Map<string, string> {
   return new Map((q.data ?? []).map((s) => [`${s.repo}#${s.number}`, s.state]));
 }
 
-
 export function useInbox() {
   const scope = useScopeKey();
   const view = useInboxPrefs((s) => s.view);
@@ -34,7 +32,6 @@ export function useInbox() {
   });
 }
 
-
 export function useUnreadCount() {
   const scope = useScopeKey();
   const q = useQuery({
@@ -45,7 +42,6 @@ export function useUnreadCount() {
   });
   return { count: q.data?.filter((t) => t.unread).length ?? 0, data: q.data };
 }
-
 
 export async function act(ids: string[], action: InboxAction) {
   if (!ids.length) return;
@@ -81,7 +77,6 @@ export async function readAll(repo: string | null) {
 
   setTimeout(() => void queryClient.invalidateQueries({ queryKey: ["inbox"] }), 4000);
 }
-
 
 let freshNext = false;
 const takeFresh = () => {

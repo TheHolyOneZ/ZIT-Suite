@@ -37,7 +37,6 @@ pub struct Release {
     pub assets: Vec<Asset>,
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct ReleaseInput {
     pub tag_name: String,
@@ -69,7 +68,6 @@ fn release_body(i: &ReleaseInput) -> AppResult<Value> {
     Ok(b)
 }
 
-
 pub fn valid_tag(t: &str) -> bool {
     !t.is_empty()
         && t.len() <= 200
@@ -96,7 +94,6 @@ pub async fn update(c: &GitHubClient, repo: &str, id: u64, i: &ReleaseInput) -> 
     Ok(serde_json::from_value(v.unwrap_or_default())?)
 }
 
-
 pub async fn delete(c: &GitHubClient, repo: &str, id: u64, tag: Option<&str>) -> AppResult<()> {
     c.send_json::<()>(Method::DELETE, &format!("/repos/{repo}/releases/{id}"), None).await?;
     if let Some(t) = tag {
@@ -110,7 +107,6 @@ pub struct Notes {
     pub name: String,
     pub body: String,
 }
-
 
 pub async fn generate_notes(c: &GitHubClient, repo: &str, tag: &str, target: Option<&str>, previous: Option<&str>) -> AppResult<Notes> {
     let mut b = json!({ "tag_name": tag });
@@ -139,13 +135,11 @@ fn content_type(name: &str) -> &'static str {
     }
 }
 
-
 pub fn asset_name(path: &str) -> String {
     Path::new(path).file_name().map(|n| n.to_string_lossy().replace(' ', ".")).unwrap_or_else(|| "file".into())
 }
 
 pub type Progress = Arc<dyn Fn(u64, u64) + Send + Sync>;
-
 
 pub async fn upload_asset(c: &GitHubClient, repo: &str, release_id: u64, path: &str, progress: Progress) -> AppResult<Asset> {
     let bytes = tokio::fs::read(path).await.map_err(|e| AppError::new("releases.read_failed").detail(e.to_string()))?;
@@ -172,7 +166,6 @@ pub async fn delete_asset(c: &GitHubClient, repo: &str, asset_id: u64) -> AppRes
     c.send_json::<()>(Method::DELETE, &format!("/repos/{repo}/releases/assets/{asset_id}"), None).await.map(drop)
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct Tag {
     pub name: String,
@@ -194,7 +187,6 @@ pub async fn tags(c: &GitHubClient, repo: &str, fresh: bool) -> AppResult<Vec<Ta
     Ok(raw.into_iter().map(|t| Tag { name: t.name, sha: t.commit.sha }).collect())
 }
 
-
 pub async fn create_tag(c: &GitHubClient, repo: &str, name: &str, target: &str) -> AppResult<()> {
     if !valid_tag(name) {
         return Err(AppError::new("releases.bad_tag").detail(name.to_string()));
@@ -214,7 +206,6 @@ pub async fn create_tag(c: &GitHubClient, repo: &str, name: &str, target: &str) 
 pub async fn delete_tag(c: &GitHubClient, repo: &str, name: &str) -> AppResult<()> {
     c.send_json::<()>(Method::DELETE, &format!("/repos/{repo}/git/refs/tags/{}", enc(name)), None).await.map(drop)
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct ReleaseSummary {
@@ -243,7 +234,6 @@ pub struct RepoReleases {
     pub error: Option<AppError>,
 }
 
-
 pub fn base_tag(latest: Option<&ReleaseSummary>, tags: &[String]) -> Option<String> {
     latest.map(|l| l.tag.clone()).or_else(|| tags.first().cloned())
 }
@@ -255,7 +245,6 @@ pub fn summarize(list: &[Release]) -> (u32, u32, Option<ReleaseSummary>, u64) {
     let downloads = list.iter().flat_map(|r| &r.assets).map(|a| a.download_count).sum();
     (published.len() as u32, (list.len() - published.len()) as u32, latest, downloads)
 }
-
 
 async fn ahead(c: &GitHubClient, repo: &str, base: &str, head: &str, fresh: bool) -> AppResult<u32> {
     let (v, _) = c.get_page(&format!("/repos/{repo}/compare/{}...{}?per_page=1", enc(base), enc(head)), fresh).await?;
@@ -300,7 +289,6 @@ pub struct Unreleased {
     pub commits: Vec<CommitLine>,
 }
 
-
 pub async fn unreleased(c: &GitHubClient, repo: &str, base: &str, head: &str) -> AppResult<Unreleased> {
     let (v, _) = c.get_page(&format!("/repos/{repo}/compare/{}...{}?per_page=250", enc(base), enc(head)), false).await?;
     let mut commits: Vec<CommitLine> = v["commits"]
@@ -318,7 +306,6 @@ pub async fn unreleased(c: &GitHubClient, repo: &str, base: &str, head: &str) ->
     commits.reverse();
     Ok(Unreleased { base: base.into(), head: head.into(), total: v["ahead_by"].as_u64().unwrap_or(commits.len() as u64) as u32, commits })
 }
-
 
 pub fn next_tag(last: Option<&str>, bump: &str, today: chrono::NaiveDate) -> String {
     if bump == "date" {
@@ -362,7 +349,6 @@ pub struct ReleasePlan {
     pub commits: u32,
 }
 
-
 pub async fn plan_next(c: &GitHubClient, repo: &str, branch: &str, bump: &str) -> AppResult<ReleasePlan> {
     let last = match c.get_json::<Value>(&format!("/repos/{repo}/releases/latest")).await {
         Ok(v) => v["tag_name"].as_str().map(str::to_string),
@@ -376,7 +362,6 @@ pub async fn plan_next(c: &GitHubClient, repo: &str, branch: &str, bump: &str) -
     let tag = next_tag(last.as_deref(), bump, chrono::Local::now().date_naive());
     Ok(ReleasePlan { last, tag, branch: branch.to_string(), commits })
 }
-
 
 pub async fn release_next(c: &GitHubClient, repo: &str, branch: &str, bump: &str, draft: bool, prerelease: bool) -> AppResult<()> {
     let plan = plan_next(c, repo, branch, bump).await?;
@@ -412,7 +397,6 @@ mod tests {
         assert_eq!(next_tag(Some("v2026.10.05"), "date", d), "v2026.10.05.2");
         assert_eq!(next_tag(Some("v2026.10.05.2"), "date", d), "v2026.10.05.3");
     }
-
 
     fn rel(tag: &str, draft: bool, pre: bool, dl: u64) -> Release {
         Release {
@@ -468,7 +452,6 @@ mod tests {
         assert_eq!(content_type("x.ZIP"), "application/zip");
         assert_eq!(content_type("x.AppImage"), "application/octet-stream");
     }
-
 
     #[tokio::test]
     #[ignore]

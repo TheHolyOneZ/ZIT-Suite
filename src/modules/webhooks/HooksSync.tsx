@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { events } from "@/core/ipc";
 import { refreshRepoHooks } from "./api";
 
-
 export function HooksSync() {
   useEffect(() => {
     const seen = new Set<string>();

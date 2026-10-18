@@ -3,14 +3,12 @@ import { persist } from "zustand/middleware";
 import { persistStorage } from "@/core/store/persist";
 import type { Traffic, TrafficDay } from "@/core/ipc";
 
-
 export type DayLog = Record<string, [number, number]>;
 export interface RepoLog {
   v: DayLog;
   c: DayLog;
 }
 export type TrafficLog = Record<string, RepoLog>;
-
 
 export const KEEP_DAYS = 400;
 
@@ -30,7 +28,6 @@ function mergeDays(into: DayLog, days: TrafficDay[], oldest: string): DayLog {
   return out;
 }
 
-
 export function mergeTraffic(log: TrafficLog, data: Traffic[], today = dayOf(new Date())): TrafficLog {
   const oldest = shift(today, -KEEP_DAYS);
   const out: TrafficLog = { ...log };
@@ -42,11 +39,9 @@ export function mergeTraffic(log: TrafficLog, data: Traffic[], today = dayOf(new
   return out;
 }
 
-
 export function series(log: DayLog | undefined, days: number, today = dayOf(new Date())): number[] {
   return Array.from({ length: days }, (_, i) => log?.[shift(today, i - days + 1)]?.[0] ?? 0);
 }
-
 
 export function sumRange(log: DayLog | undefined, days: number, today = dayOf(new Date())) {
   const from = shift(today, -days + 1);
@@ -60,7 +55,6 @@ export function sumRange(log: DayLog | undefined, days: number, today = dayOf(ne
   return { count, uniques };
 }
 
-
 export function firstDay(log: TrafficLog): string | null {
   let first: string | null = null;
   for (const r of Object.values(log))
@@ -73,7 +67,6 @@ interface TrafficLogState {
   merge: (data: Traffic[]) => void;
   clear: () => void;
 }
-
 
 export const useTrafficLog = create<TrafficLogState>()(
   persist(

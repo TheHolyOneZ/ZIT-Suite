@@ -36,13 +36,11 @@ export function languageCounts(stars: Starred[]): { name: string; count: number;
   return [...m.entries()].map(([name, v]) => ({ name, ...v })).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
 }
 
-
 export function membership(lists: StarList[]): Map<string, string[]> {
   const m = new Map<string, string[]>();
   for (const l of lists) for (const id of l.items) m.set(id, [...(m.get(id) ?? []), l.id]);
   return m;
 }
-
 
 export function markdownExport(stars: Starred[], title: string): string {
   const groups = new Map<string, Starred[]>();

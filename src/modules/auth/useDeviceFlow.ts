@@ -9,7 +9,6 @@ export type DeviceState =
   | { phase: "done" }
   | { phase: "error"; error: AppError };
 
-
 export function useDeviceFlow(onComplete: () => void) {
   const [state, setState] = useState<DeviceState>({ phase: "idle" });
   const run = useRef(0);

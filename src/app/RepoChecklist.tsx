@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { Search } from "lucide-react";
 import { Checkbox, Input } from "@/ui";
 
-
 export function RepoChecklist({
   repos,
   value,
@@ -23,7 +22,6 @@ export function RepoChecklist({
 }) {
   const { t } = useTranslation();
   const [q, setQ] = useState("");
-
 
   const [pinned, setPinned] = useState(() => new Set(value));
   const touched = useRef(false);

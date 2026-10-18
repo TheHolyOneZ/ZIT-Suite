@@ -9,7 +9,6 @@ import { useScanTargets } from "./api";
 import { RoleSelect } from "./RoleSelect";
 import { useAccessUi } from "./store";
 
-
 export function GrantDialog() {
   const { t } = useTranslation(["collaborators", "common"]);
   const grant = useAccessUi((s) => s.grant);

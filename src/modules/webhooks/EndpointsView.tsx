@@ -12,7 +12,6 @@ export function openEndpoint(e: Endpoint) {
   sheets.push("webhooks", "endpoint", { key: e.key, title: e.host });
 }
 
-
 export function HealthCell({ checked, failed }: { checked: number; failed: number }) {
   const { t } = useTranslation("webhooks");
   if (checked === 0) return <span className="text-[11.5px] text-faint">{t("health.none")}</span>;
@@ -28,7 +27,6 @@ export function HealthCell({ checked, failed }: { checked: number; failed: numbe
     </span>
   );
 }
-
 
 export function EndpointsView({
   endpoints,

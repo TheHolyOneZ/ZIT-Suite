@@ -14,7 +14,6 @@ pub struct SecretsScanProgress {
     pub total: u32,
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn secrets_scan(app: AppHandle, state: State<'_, AppState>, repos: Vec<String>, fresh: bool) -> AppResult<Vec<RepoSecrets>> {

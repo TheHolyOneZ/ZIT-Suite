@@ -1,0 +1,18 @@
+{
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "ZIT-Suite",
+        "width": 1360,
+        "height": 860,
+        "minWidth": 1080,
+        "minHeight": 680,
+        "center": true,
+        "decorations": false,
+        "transparent": false,
+        "backgroundColor": "#0b0e12"
+      }
+    ]
+  }
+}

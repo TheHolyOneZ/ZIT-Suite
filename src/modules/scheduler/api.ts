@@ -5,7 +5,6 @@ import { queryClient } from "@/core/query";
 
 const KEY = ["scheduler", "list"] as const;
 
-
 export function useSchedules() {
   useEffect(() => {
     const un = events.schedulesChanged.listen((e) => queryClient.setQueryData(KEY, e.payload.schedules));

@@ -19,7 +19,6 @@ export const newDraft = (name = "", content = ""): Draft => ({
   removed: false,
 });
 
-
 export function DraftsEditor({ drafts, onChange }: { drafts: Draft[]; onChange: (d: Draft[]) => void }) {
   const { t } = useTranslation("gists");
   const [preview, setPreview] = useState<Set<string>>(new Set());

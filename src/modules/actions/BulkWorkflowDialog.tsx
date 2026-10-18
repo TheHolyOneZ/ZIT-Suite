@@ -16,7 +16,6 @@ import { WORKFLOW_TEMPLATES } from "@/modules/home/workflowTemplates";
 type Mode = "commit" | "pr";
 type State = { s: "running" | "done" | "skipped" | "failed"; note?: string; url?: string };
 
-
 export function BulkWorkflowDialog({ onClose }: { onClose: () => void }) {
   const { t } = useTranslation(["actions", "home", "common"]);
   const { data = [] } = useRepoList();

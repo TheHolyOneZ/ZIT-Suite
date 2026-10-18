@@ -7,6 +7,13 @@ Precompiled installers for every version are available **only** on the official 
 
 ---
 
+## [0.2.1] — 2026-10-19
+
+### Fixed
+- **Linux: parts of the window went invisible.** On some setups (e.g. KDE Plasma on Wayland with WebKitGTK 2.54) hovering or clicking made everything except the element you touched disappear, which made the app unusable. ZIT-Suite now uses an opaque window on Linux, so the whole window is always drawn. Window corners are square on Linux; Windows is unchanged.
+
+---
+
 ## [0.2.0] — 2026-10-06
 
 ### Added
@@ -39,5 +46,6 @@ First public release — a ground-up rebuild of ZRepoManager.
 - **Safety** — token in the OS keychain, persistent queue with real dry run and grace countdown, typed confirmation for deletes and transfers, no force pushes, secrets sealed on-device, no telemetry
 - **Workbench** — command palette, keyboard-first, light / dark / system theme, accent colors, English and German, tray icon and start at login, Linux and Windows
 
+[0.2.1]: https://zsync.eu/zit-suite/
 [0.2.0]: https://zsync.eu/zit-suite/
 [0.1.0]: https://zsync.eu/zit-suite/

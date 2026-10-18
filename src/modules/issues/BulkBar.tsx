@@ -30,7 +30,6 @@ import { useIssuesUi } from "./store";
 
 type PerIssue = (i: Issue) => QueueAction;
 
-
 export function BulkBar({ issues }: { issues: Issue[] }) {
   const { t } = useTranslation(["issues", "common"]);
   const selected = useIssuesUi((s) => s.selected);

@@ -1,6 +1,5 @@
 import type { Run, Tag } from "@/core/ipc";
 
-
 export function normalizeTopic(raw: string): string {
   let s = raw.trim().replace(/^#+/, "").toLowerCase().replace(/\+\+/g, "pp").replace(/#/g, "sharp");
   s = s
@@ -11,14 +10,12 @@ export function normalizeTopic(raw: string): string {
   return s.slice(0, 50).replace(/-+$/, "");
 }
 
-
 export function parseTopics(text: string): string[] {
   const out: string[] = [];
   for (const t of text.split(/[,\n;]/).map(normalizeTopic)) if (t && !out.includes(t)) out.push(t);
   return out;
 }
 export const MAX_TOPICS = 20;
-
 
 export function suggestTopics(names: string[], have: string[]): string[] {
   const has = (n: string) => names.some((x) => x.toLowerCase() === n.toLowerCase());
@@ -37,7 +34,6 @@ export function suggestTopics(names: string[], have: string[]): string[] {
   if (has("index.html")) add("html");
   return out.filter((t) => !have.includes(t));
 }
-
 
 export function nextVersions(tags: Tag[]): {
   patch: string;
@@ -106,7 +102,6 @@ export function runStats(runs: Run[]): RunStats {
   };
 }
 
-
 export interface DispatchInput {
   name: string;
   description: string;
@@ -115,7 +110,6 @@ export interface DispatchInput {
   default: string;
   options: string[];
 }
-
 
 export function dispatchInputs(doc: unknown): DispatchInput[] | null {
   if (!doc || typeof doc !== "object") return null;
@@ -143,7 +137,6 @@ export function dispatchInputs(doc: unknown): DispatchInput[] | null {
 }
 
 export interface WorkflowCheck {
-
   problem: null | {
     kind: "yaml" | "notMap" | "noOn" | "noJobs" | "jobNoRunner" | "jobNoSteps";
     detail?: string;
@@ -154,7 +147,6 @@ export interface WorkflowCheck {
   jobs: number;
   manual: boolean;
 }
-
 
 export function checkWorkflow(text: string, parse: (t: string) => unknown): WorkflowCheck {
   const base: WorkflowCheck = { problem: null, name: null, triggers: [], jobs: 0, manual: false };
@@ -205,7 +197,6 @@ export function checkWorkflow(text: string, parse: (t: string) => unknown): Work
   }
   return out;
 }
-
 
 export function notesFromCommits(
   commits: { sha: string; message: string }[],

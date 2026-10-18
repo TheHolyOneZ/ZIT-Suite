@@ -40,7 +40,6 @@ import {
 } from "./model";
 import { EMPTY_FILTER, useInboxPrefs, useInboxUi, type InboxView } from "./store";
 
-
 export function openThread(t: Thread) {
   if (t.unread) void act([t.id], "read");
   if (t.number != null && t.kind === "PullRequest")
@@ -435,7 +434,6 @@ function Row({
     </div>
   );
 }
-
 
 function GroupDone({ ids }: { ids: string[] }) {
   const { t } = useTranslation("inbox");

@@ -8,7 +8,6 @@ use super::issues::SimpleUser;
 use super::labels::Label;
 use crate::error::{AppError, AppResult};
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct PullSummary {
     pub repo: String,
@@ -124,7 +123,6 @@ pub async fn search(c: &GitHubClient, query: &str, after: Option<String>) -> App
         has_next: search.pointer("/pageInfo/hasNextPage").and_then(Value::as_bool).unwrap_or(false),
     })
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct BranchRef {
@@ -274,7 +272,6 @@ pub async fn get(c: &GitHubClient, repo: &str, number: u32) -> AppResult<Pull> {
     Ok(raw.into())
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct MergeSettings {
     pub merge: bool,
@@ -372,7 +369,6 @@ pub async fn reviews(c: &GitHubClient, repo: &str, number: u32) -> AppResult<Vec
         .collect())
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct DraftComment {
     pub path: String,
@@ -401,7 +397,6 @@ pub fn review_payload(event: &str, body: &str, comments: &[DraftComment]) -> Val
     }
     p
 }
-
 
 pub async fn submit_review(c: &GitHubClient, repo: &str, number: u32, event: &str, body: &str, comments: &[DraftComment]) -> AppResult<()> {
     let payload = review_payload(event, body, comments);
@@ -495,7 +490,6 @@ pub async fn request_reviewers(c: &GitHubClient, repo: &str, number: u32, review
     Ok(())
 }
 
-
 pub async fn set_draft(c: &GitHubClient, node_id: &str, draft: bool) -> AppResult<()> {
     let q = if draft {
         "mutation($id: ID!) { convertPullRequestToDraft(input: { pullRequestId: $id }) { clientMutationId } }"
@@ -505,7 +499,6 @@ pub async fn set_draft(c: &GitHubClient, node_id: &str, draft: bool) -> AppResul
     c.graphql(q, json!({ "id": node_id })).await?;
     Ok(())
 }
-
 
 pub async fn set_auto_merge(c: &GitHubClient, node_id: &str, method: Option<MergeMethod>) -> AppResult<()> {
     match method {
@@ -534,7 +527,6 @@ pub async fn set_auto_merge(c: &GitHubClient, node_id: &str, method: Option<Merg
     }
     Ok(())
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct ReviewComment {
@@ -648,7 +640,6 @@ pub async fn branches(c: &GitHubClient, repo: &str) -> AppResult<Vec<String>> {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct Compare {
-
     pub status: String,
     pub ahead_by: u32,
     pub behind_by: u32,

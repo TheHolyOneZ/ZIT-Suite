@@ -25,7 +25,6 @@ const STATUS_TONE: Record<PlanStatus, "ok" | "idle" | "warn" | "danger"> = {
   taken: "warn",
 };
 
-
 export function MigrationPage() {
   const { t } = useTranslation(["migration", "common"]);
   const { data = [] } = useRepoList();

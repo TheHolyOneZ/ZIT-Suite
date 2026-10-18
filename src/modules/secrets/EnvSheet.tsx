@@ -10,7 +10,6 @@ import { configKey, configOf } from "./model";
 import { RuleSummary } from "./shared";
 import { useSecretsUi } from "./store";
 
-
 export function EnvSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["secrets", "common"]);
   const name = String(params.name);

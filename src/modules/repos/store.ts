@@ -11,7 +11,6 @@ export interface FilterPreset {
   filter: RepoFilter;
 }
 
-
 interface ReposPrefs {
   tags: Record<string, string[]>;
   customTags: string[];
@@ -78,7 +77,6 @@ export const useReposPrefs = create<ReposPrefs>()(
     },
   ),
 );
-
 
 interface ReposUi {
   filter: RepoFilter;

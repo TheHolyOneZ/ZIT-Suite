@@ -17,7 +17,6 @@ import {
 import type { FixKind, Severity } from "./model";
 import { useInsights } from "./store";
 
-
 export function RuleDialog({
   rule,
   repos,
@@ -45,7 +44,6 @@ export function RuleDialog({
     const r = toRule(draft);
     const now = Date.now();
     return repos.filter((x) => r.test(x, now));
-
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [repos, conds]);
@@ -185,7 +183,6 @@ export function RuleDialog({
     </Dialog>
   );
 }
-
 
 export function useDescribe() {
   const { t } = useTranslation("insights");

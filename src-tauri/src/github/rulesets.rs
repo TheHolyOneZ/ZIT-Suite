@@ -18,7 +18,6 @@ pub struct PrRule {
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize, Type, PartialEq)]
 pub struct ChecksRule {
-
     pub strict: bool,
     pub contexts: Vec<String>,
 }
@@ -118,7 +117,6 @@ fn rules_of(d: &RulesetDraft) -> Vec<Value> {
     }
     out
 }
-
 
 pub fn payload(d: &RulesetDraft, keep: Vec<Value>) -> AppResult<Value> {
     if d.name.trim().is_empty() {

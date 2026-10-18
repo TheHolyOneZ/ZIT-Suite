@@ -24,7 +24,6 @@ export function ChartCard({
   );
 }
 
-
 export function Bars({
   data,
   color,
@@ -67,7 +66,6 @@ export function Bars({
   );
 }
 
-
 export function Columns({
   data,
   height = 110,
@@ -101,7 +99,6 @@ export function Columns({
     </div>
   );
 }
-
 
 export function Spark({
   values,

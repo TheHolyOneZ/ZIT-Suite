@@ -10,7 +10,6 @@ import { refreshAll, refreshList } from "./api";
 import { INTERVALS, intervalLabel, nearestInterval, parseSlug } from "./model";
 import { GitTerm } from "./parts";
 
-
 export function SettingsTab({ ws }: { ws: Workspace }) {
   const { t } = useTranslation(["home", "common"]);
   const [d, setD] = useState<Workspace>(ws);

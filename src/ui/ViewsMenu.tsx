@@ -11,7 +11,6 @@ export interface ViewItem {
   icon?: ReactNode;
 }
 
-
 export function ViewsMenu({
   builtin = [],
   saved,

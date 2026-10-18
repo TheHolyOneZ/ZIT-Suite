@@ -32,7 +32,6 @@ const lines = (s: string) =>
     .map((x) => x.trim())
     .filter(Boolean);
 
-
 export function RulesetsDialog({ repo, onClose }: { repo: string; onClose: () => void }) {
   const { t } = useTranslation("branches");
   const list = useRulesets(repo);

@@ -3,12 +3,10 @@ import type { WorkflowStore } from "@/modules/home/WorkflowEditor";
 
 type T = (k: string, o?: Record<string, unknown>) => string;
 
-
 async function commitTo(repo: string, branch: string, message: string, changes: Change[]) {
   const tree = await unwrap(commands.filesTree(repo, branch, true));
   return unwrap(commands.filesCommit(repo, branch, tree.commit, false, message, changes));
 }
-
 
 export function githubStore(repo: string, branch: string, t: T): WorkflowStore {
   return {

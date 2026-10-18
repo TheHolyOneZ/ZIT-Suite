@@ -67,7 +67,6 @@ export const EVENT_GROUPS = {
 export type EventGroup = keyof typeof EVENT_GROUPS;
 export const ALL_EVENTS: string[] = Object.values(EVENT_GROUPS).flat();
 
-
 export type EventMode = "push" | "all" | "custom";
 
 export function eventMode(events: string[]): EventMode {

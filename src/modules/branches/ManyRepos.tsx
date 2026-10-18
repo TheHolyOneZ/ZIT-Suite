@@ -11,7 +11,6 @@ import { cleanBranchName, validBranchName } from "./model";
 
 type Task = "create" | "protect";
 
-
 export function ManyRepos() {
   const { t } = useTranslation("branches");
   const [task, setTask] = useState<Task>("create");

@@ -122,6 +122,9 @@
     pointer-events: none;
     z-index: 200;
   }
+  html[data-opaque-window] {
+    --window-radius: 0px;
+  }
   html[data-maximized] #root {
     border-radius: 0;
     clip-path: none;

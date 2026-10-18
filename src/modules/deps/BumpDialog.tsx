@@ -12,7 +12,6 @@ import { freshness, type Package, type Use } from "./model";
 type Mode = "pr" | "commit";
 type State = { s: "running" | "done" | "skipped" | "failed"; note?: string };
 
-
 export function BumpDialog({
   pkg,
   onClose,

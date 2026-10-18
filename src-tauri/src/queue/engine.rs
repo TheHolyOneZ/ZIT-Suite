@@ -28,7 +28,6 @@ pub struct Queue {
     path: PathBuf,
 }
 
-
 fn redact(items: &[QueueItem]) -> Vec<QueueItem> {
     items.iter().map(|i| QueueItem { action: i.action.redacted(), ..i.clone() }).collect()
 }
@@ -44,8 +43,6 @@ fn new_id() -> String {
 }
 
 impl Queue {
-
-
     pub fn load(dir: &Path) -> Self {
         let path = dir.join("queue.json");
         let mut items: Vec<QueueItem> = fs::read(&path)
@@ -175,7 +172,6 @@ impl Queue {
     }
 
     async fn worker(self, app: AppHandle, token: u64) {
-
         loop {
             if !self.is_current(token, QueuePhase::Grace) {
                 break;

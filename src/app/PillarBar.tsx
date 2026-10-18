@@ -13,7 +13,6 @@ import { useSession } from "@/core/store/session";
 import { useSetLanguage } from "./LanguageThemeControls";
 import { StatusSegment } from "./StatusSegment";
 
-
 export function PillarBar() {
   const { t, i18n } = useTranslation();
   const setLanguage = useSetLanguage();
@@ -94,7 +93,6 @@ export function PillarBar() {
   );
 }
 
-
 function Tab({
   m,
   index,
@@ -167,7 +165,6 @@ function RateLimit() {
     </StatusSegment>
   );
 }
-
 
 function useSqueeze() {
   const ref = useRef<HTMLDivElement>(null);

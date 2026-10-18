@@ -2,7 +2,6 @@ import type { Hook, HookInput, HookPatch } from "@/core/ipc";
 
 export type SecretMode = "keep" | "set" | "remove";
 
-
 export interface HookDraft {
   url: string;
   content_type: "json" | "form";
@@ -52,7 +51,6 @@ export function draftToInput(d: HookDraft): HookInput {
 
 const sameSet = (a: string[], b: string[]) => a.length === b.length && a.every((x) => b.includes(x));
 
-
 export function draftPatch(initial: HookDraft, d: HookDraft): HookPatch {
   return {
     url: d.url.trim() !== initial.url.trim() ? d.url.trim() : null,
@@ -76,13 +74,11 @@ export function draftErrors(d: HookDraft): DraftError[] {
   return out;
 }
 
-
 export function generateSecret(): string {
   const b = new Uint8Array(32);
   crypto.getRandomValues(b);
   return [...b].map((x) => x.toString(16).padStart(2, "0")).join("");
 }
-
 
 export const NO_PATCH: HookPatch = {
   url: null,

@@ -11,7 +11,6 @@ import { Badge, Button, Checkbox, Dialog, Input, Mark, Plotter, type Glyph, type
 import { describeAction } from "./describe";
 import { isDestructive, useQueue } from "./store";
 
-
 export function confirmWordMatches(typed: string, word: string) {
   const norm = (v: string) => v.normalize("NFD").replace(/\p{M}/gu, "").trim().toLowerCase();
   const t = norm(typed);
@@ -20,7 +19,6 @@ export function confirmWordMatches(typed: string, word: string) {
 
 export const outcomeTone: Record<DryRunOutcome, Tone> = { ready: "ok", noop: "idle", blocked: "danger" };
 export const outcomeGlyph: Record<DryRunOutcome, Glyph> = { ready: "tick", noop: "equal", blocked: "block" };
-
 
 export function ConfirmDialog() {
   const { t } = useTranslation(["queue", "common"]);

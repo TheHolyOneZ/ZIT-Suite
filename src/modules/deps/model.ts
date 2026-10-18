@@ -1,6 +1,5 @@
 import type { Latest, RepoDeps } from "@/core/ipc";
 
-
 export type Freshness = "current" | "allowed" | "patch" | "minor" | "major" | "any" | "local" | "unknown";
 
 export const FRESH_ORDER: Freshness[] = [
@@ -16,14 +15,12 @@ export const FRESH_ORDER: Freshness[] = [
 
 type V = [number, number, number];
 
-
 export function baseVersion(s: string): V | null {
   const m = /(\d+)(?:\.(\d+))?(?:\.(\d+))?/.exec(s);
   return m ? [Number(m[1]), Number(m[2] ?? 0), Number(m[3] ?? 0)] : null;
 }
 
 const cmp = (a: V, b: V) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2];
-
 
 function accepts(spec: string, ecosystem: string, base: V, latest: V): boolean {
   const s = spec.trim();
@@ -85,7 +82,6 @@ export interface Package {
 export const keyOf = (ecosystem: string, name: string) =>
   `${ecosystem}:${ecosystem === "pypi" ? name.toLowerCase().replace(/[-_.]+/g, "-") : name}`;
 
-
 export function aggregate(scan: RepoDeps[], latest: Map<string, Latest>, includeDev: boolean): Package[] {
   const map = new Map<string, Package>();
   for (const r of scan)
@@ -137,19 +133,16 @@ export function aggregate(scan: RepoDeps[], latest: Map<string, Latest>, include
   return [...map.values()].sort((a, b) => b.uses.length - a.uses.length || a.name.localeCompare(b.name));
 }
 
-
 export const conflicts = (packages: Package[]) =>
   packages.filter((p) => p.versions.length > 1 && new Set(p.uses.map((u) => u.repo)).size > 1);
 
 export const isBehind = (f: Freshness) => f === "major" || f === "minor" || f === "patch";
-
 
 export function lookups(packages: Package[]): { ecosystem: string; name: string }[] {
   return packages
     .filter((p) => p.uses.some((u) => freshness(u.spec, p.ecosystem, "0") !== "local"))
     .map((p) => ({ ecosystem: p.ecosystem, name: p.name }));
 }
-
 
 export const TOOL_ORDER = [
   "pnpm",

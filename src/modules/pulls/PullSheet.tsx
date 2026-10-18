@@ -581,7 +581,6 @@ function TriageChip({
   );
 }
 
-
 const REVIEW_MARK: Record<string, { glyph: Glyph; tone: Tone }> = {
   APPROVED: { glyph: "tick", tone: "ok" },
   CHANGES_REQUESTED: { glyph: "warn", tone: "warn" },
@@ -597,7 +596,6 @@ function Conversation({ pr }: { pr: Pull }) {
   const inline = useReviewComments(pr.repo, pr.number);
   const [editing, setEditing] = useState(false);
   const [body, setBody] = useState(pr.body ?? "");
-
 
   const notesOf = useMemo(() => {
     const m = new Map<number, ReviewComment[]>();
@@ -619,7 +617,6 @@ function Conversation({ pr }: { pr: Pull }) {
       [];
     for (const c of comments.data ?? []) items.push({ kind: "comment", at: c.created_at, c });
     for (const r of reviews.data ?? []) {
-
       if (r.state === "PENDING" || (r.state === "COMMENTED" && !r.body.trim() && !notesOf.has(r.id)))
         continue;
       items.push({ kind: "review", at: r.submitted_at ?? "", r });
@@ -843,7 +840,6 @@ function ReviewComposer({ pr }: { pr: Pull }) {
     </section>
   );
 }
-
 
 export const FILE_STATUS: Record<string, { letter: string; tone: Tone }> = {
   added: { letter: "A", tone: "ok" },

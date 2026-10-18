@@ -18,7 +18,6 @@ const MAX_RETRY_WAIT_SECS: u64 = 60;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct RateLimit {
-
     pub resource: String,
     pub limit: u32,
     pub remaining: u32,
@@ -40,7 +39,6 @@ pub struct GitHubClient {
     dirty: Arc<AtomicBool>,
 }
 
-
 #[derive(Serialize, Deserialize)]
 pub struct DiskEntry {
     pub url: String,
@@ -49,7 +47,6 @@ pub struct DiskEntry {
     pub next: Option<String>,
     pub saved: i64,
 }
-
 
 fn persistable(url: &str) -> bool {
     !url.contains("/secret-scanning/")
@@ -70,7 +67,6 @@ impl GitHubClient {
         })
     }
 
-
     pub fn take_dirty_cache(&self) -> Option<Vec<DiskEntry>> {
         if !self.dirty.swap(false, Ordering::Relaxed) {
             return None;
@@ -87,7 +83,6 @@ impl GitHubClient {
         )
     }
 
-
     pub fn load_cache(&self, entries: Vec<DiskEntry>, max_age_secs: i64) {
         let now = chrono::Utc::now().timestamp();
         let mut map = self.etags.lock().unwrap();
@@ -96,11 +91,9 @@ impl GitHubClient {
         }
     }
 
-
     pub(crate) fn token(&self) -> &str {
         &self.token
     }
-
 
     pub fn rate_limits(&self) -> Vec<RateLimit> {
         let mut v: Vec<RateLimit> = self.rate.lock().unwrap().values().cloned().collect();
@@ -124,7 +117,6 @@ impl GitHubClient {
             .header("X-GitHub-Api-Version", "2022-11-28")
             .header(USER_AGENT, UA)
     }
-
 
     pub async fn execute(&self, rb: RequestBuilder) -> AppResult<Response> {
         let retry = rb.try_clone();
@@ -159,7 +151,6 @@ impl GitHubClient {
         Ok(res.json().await?)
     }
 
-
     pub async fn get_json_accept<T: DeserializeOwned>(&self, path: &str, query: &[(&str, String)], accept: &str) -> AppResult<T> {
         let rb = self
             .http
@@ -176,7 +167,6 @@ impl GitHubClient {
         let res = self.execute(self.request(Method::GET, path)).await?;
         Ok(res.json().await?)
     }
-
 
     async fn get_cached(&self, url: &str, fresh: bool) -> AppResult<(Value, Option<String>)> {
         let mut rb = self.request(Method::GET, url);
@@ -207,16 +197,13 @@ impl GitHubClient {
         Ok((body, next))
     }
 
-
     pub async fn get_page(&self, path: &str, fresh: bool) -> AppResult<(Value, Option<String>)> {
         self.get_cached(&Self::url(path), fresh).await
     }
 
-
     pub async fn paginate<T: DeserializeOwned>(&self, path: &str) -> AppResult<Vec<T>> {
         self.paginate_with(path, false).await
     }
-
 
     pub async fn paginate_with<T: DeserializeOwned>(&self, path: &str, fresh: bool) -> AppResult<Vec<T>> {
         let mut out = Vec::new();
@@ -230,7 +217,6 @@ impl GitHubClient {
         Ok(out)
     }
 
-
     pub async fn paginate_key<T: DeserializeOwned>(&self, path: &str, key: &str, fresh: bool) -> AppResult<Vec<T>> {
         let mut out = Vec::new();
         let mut next = Some(Self::url(path));
@@ -242,7 +228,6 @@ impl GitHubClient {
         }
         Ok(out)
     }
-
 
     pub async fn send_json<B: Serialize + ?Sized>(
         &self,
@@ -265,7 +250,6 @@ impl GitHubClient {
         Ok(Some(serde_json::from_slice(&bytes)?))
     }
 
-
     pub async fn graphql(&self, query: &str, variables: Value) -> AppResult<Value> {
         let body = serde_json::json!({ "query": query, "variables": variables });
         let res = self.execute(self.request(Method::POST, "/graphql").json(&body)).await?;
@@ -284,7 +268,6 @@ impl GitHubClient {
         Ok(v.get_mut("data").map(Value::take).unwrap_or(Value::Null))
     }
 
-
     pub async fn graphql_lenient(&self, query: &str, variables: Value) -> AppResult<Value> {
         let body = serde_json::json!({ "query": query, "variables": variables });
         let res = self.execute(self.request(Method::POST, "/graphql").json(&body)).await?;
@@ -295,14 +278,12 @@ impl GitHubClient {
         }
     }
 
-
     pub async fn get_bytes(&self, path: &str, accept: &str) -> AppResult<Vec<u8>> {
         let rb = self.request(Method::GET, path).header(ACCEPT, accept);
         let res = self.execute(rb).await?;
         Ok(res.bytes().await?.to_vec())
     }
 }
-
 
 pub fn enc(segment: &str) -> String {
     let mut out = String::with_capacity(segment.len());
@@ -315,7 +296,6 @@ pub fn enc(segment: &str) -> String {
     out
 }
 
-
 pub fn merge_rate(current: Option<&RateLimit>, incoming: RateLimit) -> RateLimit {
     match current {
         Some(c) if incoming.reset < c.reset => c.clone(),
@@ -323,7 +303,6 @@ pub fn merge_rate(current: Option<&RateLimit>, incoming: RateLimit) -> RateLimit
         _ => incoming,
     }
 }
-
 
 fn retry_after(res: &Response) -> Option<u64> {
     let s = res.status();
@@ -370,7 +349,6 @@ pub fn map_status(status: StatusCode, remaining_zero: bool, message: &str) -> Ap
     };
     AppError::new(code)
 }
-
 
 pub fn parse_next_link(header: &str) -> Option<String> {
     header.split(',').find_map(|part| {

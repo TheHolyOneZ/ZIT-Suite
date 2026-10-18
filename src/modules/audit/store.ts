@@ -3,7 +3,6 @@ import { persist } from "zustand/middleware";
 import { persistStorage } from "@/core/store/persist";
 import { addSnapshot, type Snapshot, type SortBy } from "./model";
 
-
 export type AuditTarget = string;
 export const isLocal = (t: AuditTarget) => t.startsWith("local:");
 export const localPath = (t: AuditTarget) => t.slice("local:".length);

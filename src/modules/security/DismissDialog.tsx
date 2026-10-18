@@ -6,7 +6,6 @@ import { useQueue } from "@/modules/queue/store";
 import { REASONS, reasonKey } from "./model";
 import { useSecurityUi } from "./store";
 
-
 export function DismissDialog() {
   const { t } = useTranslation(["security", "common"]);
   const req = useSecurityUi((s) => s.dismiss);

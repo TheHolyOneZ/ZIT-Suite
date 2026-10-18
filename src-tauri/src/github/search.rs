@@ -27,7 +27,6 @@ impl SearchKind {
     }
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq)]
 pub struct Fragment {
     pub text: String,
@@ -60,7 +59,6 @@ pub struct SearchPage {
     pub incomplete: bool,
     pub items: Vec<Hit>,
 }
-
 
 fn fragments(v: &Value) -> Vec<Fragment> {
     v.get("text_matches")
@@ -161,7 +159,6 @@ fn hit_of(kind: SearchKind, v: &Value) -> Hit {
         },
     }
 }
-
 
 pub async fn search(c: &GitHubClient, kind: SearchKind, q: &str, page: u32, sort: Option<&str>) -> AppResult<SearchPage> {
     let mut query = vec![("q", q.to_string()), ("per_page", "30".to_string()), ("page", page.clamp(1, 34).to_string())];

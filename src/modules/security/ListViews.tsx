@@ -40,7 +40,6 @@ const repoNames = (repos: string[]) => {
   return uniq.slice(0, 3).join(", ") + (uniq.length > 3 ? ` +${uniq.length - 3}` : "");
 };
 
-
 export function AlertGroupsList({ groups, empty }: { groups: AlertGroup[]; empty: ReactNode }) {
   const { t } = useTranslation("security");
   const open = useTopSheet("security", "group")?.id;
@@ -94,7 +93,6 @@ export function AlertGroupsList({ groups, empty }: { groups: AlertGroup[]; empty
     </div>
   );
 }
-
 
 export function ReposList({ rows }: { rows: RepoRow[] }) {
   const { t } = useTranslation("security");
@@ -162,7 +160,6 @@ export function ReposList({ rows }: { rows: RepoRow[] }) {
     </div>
   );
 }
-
 
 export function FixesList({ plans, empty }: { plans: FixPlan[]; empty: ReactNode }) {
   const { t } = useTranslation("security");

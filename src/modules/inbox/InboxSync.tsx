@@ -6,7 +6,6 @@ import { useUnreadCount } from "./api";
 import { newlyUrgent, reasonKey } from "./model";
 import { useInboxPrefs } from "./store";
 
-
 export function InboxSync() {
   const { data } = useUnreadCount();
   const desktop = useInboxPrefs((s) => s.desktop);

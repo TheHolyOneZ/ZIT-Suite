@@ -29,7 +29,6 @@ export function FilesPage() {
   const count = Object.keys(staged).length;
   const onStage = (s: StagedMap) => ui.setStaged(k, s);
 
-
   useIntent("files", (i) => {
     ui.set({ repo: String(i.repo), branch: i.branch ? String(i.branch) : null, folder: "", pane: "editor" });
 

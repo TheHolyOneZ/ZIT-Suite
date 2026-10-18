@@ -1,6 +1,5 @@
 import { parse } from "yaml";
 
-
 export interface IssueTemplate {
   file: string;
   name: string;
@@ -20,7 +19,6 @@ const list = (v: unknown): string[] =>
           .map((s) => s.trim())
           .filter(Boolean)
       : [];
-
 
 function fromMarkdown(file: string, text: string): IssueTemplate | null {
   const m = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/.exec(text);
@@ -46,7 +44,6 @@ function fromMarkdown(file: string, text: string): IssueTemplate | null {
 }
 
 type FormItem = { type?: string; attributes?: Record<string, unknown> };
-
 
 function fromForm(file: string, text: string): IssueTemplate | null {
   let doc: Record<string, unknown>;

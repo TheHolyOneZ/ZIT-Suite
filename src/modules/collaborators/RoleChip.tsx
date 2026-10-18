@@ -4,7 +4,6 @@ import { cn } from "@/core/cn";
 import { toneVar } from "@/ui/Status";
 import { ROLE_LETTER, ROLE_TONE } from "./model";
 
-
 export function RoleCell({ role, invited, size = 20, className }: { role: Role; invited?: boolean; size?: number; className?: string }) {
   const { t } = useTranslation("collaborators");
   const c = toneVar[ROLE_TONE[role]];

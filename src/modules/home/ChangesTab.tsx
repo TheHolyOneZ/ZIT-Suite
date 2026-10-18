@@ -23,7 +23,6 @@ import { ParkButton, ParkedList, UndoLastButton, WorkDiffView } from "./WorkTool
 import { formatBytes, isSensitive, KIND_MARK, suggestMessage } from "./model";
 import { GitTerm } from "./parts";
 
-
 export function ChangesTab({ ws, status }: { ws: Workspace; status: WorkspaceStatus }) {
   const { t } = useTranslation(["home", "common"]);
   const act = useWorkspaceActions(ws);

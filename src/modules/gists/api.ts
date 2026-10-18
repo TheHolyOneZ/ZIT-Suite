@@ -28,7 +28,6 @@ export function refreshGists() {
   return queryClient.invalidateQueries({ queryKey: ["gists"] });
 }
 
-
 export const useGist = (id: string, rev: string | null) =>
   useQuery({
     queryKey: ["gist", id, rev ?? "head"],
@@ -43,7 +42,6 @@ export const useRevisions = (id: string, enabled: boolean) =>
     enabled,
     staleTime: 30_000,
   });
-
 
 export function putGist(g: Gist) {
   queryClient.setQueryData(["gist", g.id, "head"], g);

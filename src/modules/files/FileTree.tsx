@@ -31,7 +31,6 @@ const MARK: Record<string, { sign: string; color: string }> = {
   rename: { sign: "→", color: "var(--info)" },
 };
 
-
 export function FileTree({
   k,
   items,
@@ -306,7 +305,6 @@ function Row({
     </div>
   );
 }
-
 
 function languageOfName(name: string): string | null {
   const ext = name.toLowerCase().split(".").pop() ?? "";

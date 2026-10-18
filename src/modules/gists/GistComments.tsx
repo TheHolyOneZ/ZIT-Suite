@@ -10,7 +10,6 @@ import { Button, IconButton, Markdown, MarkdownEditor, Panel, Plotter, RelTime, 
 
 const key = (id: string) => ["gist", id, "comments"];
 
-
 export function GistComments({ id, owner }: { id: string; owner: string }) {
   const { t } = useTranslation("gists");
   const me = useActiveAccount()?.login;

@@ -33,18 +33,15 @@ pub fn open(path: &str) -> AppResult<Repository> {
     Repository::open(path).map_err(|e| AppError::new("workspace.not_repo").detail(e.message().to_string()))
 }
 
-
 pub fn discover(path: &str) -> Option<PathBuf> {
     Repository::discover(path).ok().and_then(|r| r.workdir().map(Path::to_path_buf))
 }
-
 
 pub fn init(path: &str) -> AppResult<Repository> {
     let mut o = RepositoryInitOptions::new();
     o.initial_head("main");
     Ok(Repository::init_opts(path, &o)?)
 }
-
 
 pub fn parse_slug(input: &str) -> Option<String> {
     let s = input.trim().trim_end_matches('/');
@@ -65,7 +62,6 @@ pub fn parse_slug(input: &str) -> Option<String> {
 pub fn github_url(slug: &str) -> String {
     format!("https://github.com/{slug}.git")
 }
-
 
 pub fn set_remote(repo: &Repository, name: &str, url: &str) -> AppResult<()> {
     match repo.find_remote(name) {
@@ -94,7 +90,6 @@ fn callbacks(token: Option<&str>) -> RemoteCallbacks<'_> {
     cb
 }
 
-
 pub fn clone(url: &str, dest: &Path, token: Option<&str>) -> AppResult<Repository> {
     if dest.exists() && fs::read_dir(dest)?.next().is_some() {
         return Err(AppError::new("workspace.clone_target_not_empty").detail(dest.to_string_lossy().into_owned()));
@@ -105,7 +100,6 @@ pub fn clone(url: &str, dest: &Path, token: Option<&str>) -> AppResult<Repositor
     match res {
         Ok(r) => Ok(r),
         Err(e) => {
-
             let _ = fs::remove_dir_all(dest);
             Err(e.into())
         }
@@ -119,7 +113,6 @@ pub fn fetch(repo: &Repository, remote: &str, token: Option<&str>) -> AppResult<
     r.fetch(&[] as &[&str], Some(&mut fo), None)?;
     Ok(())
 }
-
 
 pub fn push(repo: &Repository, remote: &str, token: Option<&str>) -> AppResult<()> {
     let branch = current_branch(repo)?.ok_or_else(|| AppError::new("workspace.detached"))?;
@@ -149,7 +142,6 @@ pub fn push(repo: &Repository, remote: &str, token: Option<&str>) -> AppResult<(
     }
     Ok(())
 }
-
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, Type, PartialEq, Eq, Hash)]
 #[serde(rename_all = "snake_case")]
@@ -187,7 +179,6 @@ fn kind_of(s: Status) -> Option<ChangeKind> {
     })
 }
 
-
 pub fn changes(repo: &Repository) -> AppResult<Vec<FileChange>> {
     let mut o = StatusOptions::new();
     o.include_untracked(true).recurse_untracked_dirs(true).include_ignored(false).renames_head_to_index(true).renames_index_to_workdir(true);
@@ -207,7 +198,6 @@ pub fn changes(repo: &Repository) -> AppResult<Vec<FileChange>> {
     out.sort_by(|a, b| a.path.cmp(&b.path));
     Ok(out)
 }
-
 
 pub fn fingerprint(repo: &Repository) -> AppResult<(u64, usize, Option<std::time::SystemTime>)> {
     let list = changes(repo)?;
@@ -242,7 +232,6 @@ pub(crate) fn head_commit(repo: &Repository) -> Option<git2::Commit<'_>> {
     repo.head().ok().and_then(|h| h.peel_to_commit().ok())
 }
 
-
 pub fn ahead_behind(repo: &Repository, remote: &str, branch: &str) -> AppResult<Option<(usize, usize)>> {
     let Ok(theirs) = repo.find_reference(&format!("refs/remotes/{remote}/{branch}")) else { return Ok(None) };
     let Some(their) = theirs.target() else { return Ok(None) };
@@ -256,7 +245,6 @@ pub fn ahead_behind(repo: &Repository, remote: &str, branch: &str) -> AppResult<
         }
     }
 }
-
 
 pub fn signature<'a>(repo: &Repository, fallback_name: &str, fallback_email: &str) -> AppResult<Signature<'a>> {
     match repo.signature() {
@@ -290,7 +278,6 @@ pub(crate) fn info(c: &git2::Commit, pushed: bool) -> CommitInfo {
         pushed,
     }
 }
-
 
 pub fn commit(repo: &Repository, paths: Option<&[String]>, message: &str, sig: &Signature) -> AppResult<CommitInfo> {
     let message = message.trim();
@@ -342,7 +329,6 @@ pub fn commit(repo: &Repository, paths: Option<&[String]>, message: &str, sig: &
     Ok(info(&repo.find_commit(id)?, false))
 }
 
-
 pub fn suggest_message(changes: &[FileChange]) -> String {
     let name = |c: &FileChange| Path::new(&c.path).file_name().map(|n| n.to_string_lossy().into_owned()).unwrap_or_default();
     let count = |k: ChangeKind| changes.iter().filter(|c| c.kind == k).count();
@@ -359,10 +345,8 @@ pub fn suggest_message(changes: &[FileChange]) -> String {
     }
 }
 
-
 pub fn history(repo: &Repository, limit: usize, push_remote: Option<&str>) -> AppResult<Vec<CommitInfo>> {
     let Some(head) = head_commit(repo) else { return Ok(vec![]) };
-
 
     let unpushed: Option<HashSet<git2::Oid>> = match push_remote {
         Some(r) => {
@@ -389,7 +373,6 @@ pub fn history(repo: &Repository, limit: usize, push_remote: Option<&str>) -> Ap
     Ok(out)
 }
 
-
 pub fn incoming(repo: &Repository, remote: &str, branch: &str, limit: usize) -> AppResult<Vec<CommitInfo>> {
     let Ok(r) = repo.find_reference(&format!("refs/remotes/{remote}/{branch}")) else { return Ok(vec![]) };
     let Some(tip) = r.target() else { return Ok(vec![]) };
@@ -402,7 +385,6 @@ pub fn incoming(repo: &Repository, remote: &str, branch: &str, limit: usize) -> 
     walk.take(limit).map(|id| Ok(info(&repo.find_commit(id?)?, true))).collect()
 }
 
-
 pub fn outgoing(repo: &Repository, remote: &str, branch: &str, limit: usize) -> AppResult<Vec<CommitInfo>> {
     let Some(h) = head_commit(repo) else { return Ok(vec![]) };
     let mut walk = repo.revwalk()?;
@@ -414,7 +396,6 @@ pub fn outgoing(repo: &Repository, remote: &str, branch: &str, limit: usize) -> 
     walk.take(limit).map(|id| Ok(info(&repo.find_commit(id?)?, false))).collect()
 }
 
-
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, Type, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum UpdateKind {
@@ -422,7 +403,6 @@ pub enum UpdateKind {
     FastForward,
     Merged,
 }
-
 
 fn unsaved_in_the_way(repo: &Repository, target: &git2::Tree) -> AppResult<(Vec<String>, Vec<String>)> {
     let root = repo.workdir().map(Path::to_path_buf).ok_or_else(|| AppError::new("workspace.bare"))?;
@@ -563,7 +543,6 @@ pub fn get_latest(repo: &Repository, remote: &str, branch: &str, sig: &Signature
     Ok(UpdateKind::Merged)
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct BranchInfo {
     pub name: String,
@@ -603,7 +582,6 @@ pub fn valid_branch_name(name: &str) -> bool {
     git2::Branch::name_is_valid(name).unwrap_or(false)
 }
 
-
 pub fn switch_branch(repo: &Repository, name: &str) -> AppResult<()> {
     let refname = format!("refs/heads/{name}");
     let obj = repo.revparse_single(&refname).map_err(|_| AppError::new("workspace.no_branch").detail(name.to_string()))?;
@@ -631,7 +609,6 @@ pub fn create_branch(repo: &Repository, name: &str, switch: bool) -> AppResult<(
     }
     Ok(())
 }
-
 
 pub fn discard(repo: &Repository, paths: &[String]) -> AppResult<()> {
     let root = repo.workdir().map(Path::to_path_buf).ok_or_else(|| AppError::new("workspace.bare"))?;
@@ -670,7 +647,6 @@ pub fn discard(repo: &Repository, paths: &[String]) -> AppResult<()> {
     Ok(())
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct TreeEntry {
     pub name: String,
@@ -685,7 +661,6 @@ pub struct TreeEntry {
 fn rel(p: &str) -> String {
     p.trim_matches('/').replace('\\', "/")
 }
-
 
 pub fn tree(repo: &Repository, dir: &str) -> AppResult<Vec<TreeEntry>> {
     let root = repo.workdir().map(Path::to_path_buf).ok_or_else(|| AppError::new("workspace.bare"))?;
@@ -733,7 +708,6 @@ pub fn write_gitignore(repo: &Repository, text: &str) -> AppResult<()> {
     Ok(())
 }
 
-
 pub fn add_ignore_patterns(repo: &Repository, patterns: &[String]) -> AppResult<usize> {
     let text = read_gitignore(repo)?;
     let mut lines: Vec<String> = text.lines().map(str::to_string).collect();
@@ -751,15 +725,12 @@ pub fn add_ignore_patterns(repo: &Repository, patterns: &[String]) -> AppResult<
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct ShareResult {
-
     pub ok: bool,
-
 
     pub untracked: bool,
 
     pub blocked_by: Option<String>,
 }
-
 
 pub fn set_shared(path_to_repo: &str, path: &str, dir: bool, shared: bool) -> AppResult<ShareResult> {
     let path = rel(path);
@@ -773,7 +744,6 @@ pub fn set_shared(path_to_repo: &str, path: &str, dir: bool, shared: bool) -> Ap
     let ignored_now = |repo_path: &str| -> AppResult<bool> { Ok(open(repo_path)?.is_path_ignored(&path)?) };
     if shared {
         if ignored_now(path_to_repo)? {
-
             let mut parent = Path::new(&path).parent();
             while let Some(p) = parent.filter(|p| !p.as_os_str().is_empty()) {
                 let ps = p.to_string_lossy().replace('\\', "/");
@@ -785,7 +755,6 @@ pub fn set_shared(path_to_repo: &str, path: &str, dir: bool, shared: bool) -> Ap
             lines.push(negation);
             write_gitignore(&repo, &lines.join("\n"))?;
         }
-
 
         if let Some(head) = head_commit(&repo) {
             repo.reset_default(Some(head.as_object()), [path.as_str()])?;
@@ -817,12 +786,10 @@ pub struct Suggestion {
     pub reason: String,
 }
 
-
 pub fn suggestions(repo: &Repository) -> AppResult<Vec<Suggestion>> {
     let root = repo.workdir().map(Path::to_path_buf).ok_or_else(|| AppError::new("workspace.bare"))?;
     suggestions_at(&root, Some(repo))
 }
-
 
 pub fn suggestions_at(root: &Path, repo: Option<&Repository>) -> AppResult<Vec<Suggestion>> {
     let root = root.to_path_buf();
@@ -1152,7 +1119,6 @@ mod tests {
         assert!(dest.0.join("busy/x.txt").exists());
     }
 
-
     #[test]
     fn push_fetch_get_latest_and_conflicts() {
         let bare = Tmp::new("bare");
@@ -1168,7 +1134,6 @@ mod tests {
         assert_eq!(ahead_behind(&ra, "origin", "main").unwrap(), Some((0, 0)));
         assert!(history(&ra, 5, Some("origin")).unwrap()[0].pushed);
 
-
         let b = Tmp::new("b");
         let rb = init(b.s()).unwrap();
         set_remote(&rb, "origin", &url).unwrap();
@@ -1179,13 +1144,11 @@ mod tests {
         commit(&rb, None, "b adds other", &sig()).unwrap();
         push(&rb, "origin", None).unwrap();
 
-
         fetch(&ra, "origin", None).unwrap();
         assert_eq!(ahead_behind(&ra, "origin", "main").unwrap(), Some((0, 1)));
         assert_eq!(incoming(&ra, "origin", "main", 10).unwrap()[0].summary, "b adds other");
         assert_eq!(get_latest(&ra, "origin", "main", &sig()).unwrap(), UpdateKind::FastForward);
         assert_eq!(get_latest(&ra, "origin", "main", &sig()).unwrap(), UpdateKind::UpToDate);
-
 
         a.write("a-only.txt", "a");
         commit(&ra, None, "a work", &sig()).unwrap();
@@ -1212,7 +1175,6 @@ mod tests {
         assert!(!h[0].pushed && h[1].pushed);
         switch_branch(&ra, "main").unwrap();
 
-
         fetch(&rb, "origin", None).unwrap();
         get_latest(&rb, "origin", "main", &sig()).unwrap();
         b.write("shared.txt", "from b\n");
@@ -1226,7 +1188,6 @@ mod tests {
         assert_eq!(e.detail.as_deref(), Some("shared.txt"));
         assert_eq!(fs::read_to_string(a.0.join("shared.txt")).unwrap(), "from a\n");
         assert!(changes(&ra).unwrap().is_empty());
-
 
         a.write("shared.txt", "dirty\n");
         assert_eq!(get_latest(&ra, "origin", "main", &sig()).unwrap_err().code, "workspace.uncommitted");

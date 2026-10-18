@@ -1,7 +1,6 @@
 import type { Repo } from "@/core/ipc";
 import { daysSince, type FixKind, type Rule, type Severity } from "./model";
 
-
 export const FIELDS = {
   pushedDays: "number",
   createdDays: "number",
@@ -109,7 +108,6 @@ export function matches(r: Repo, c: Cond, now = Date.now()): boolean {
       return !texts.some((x) => x.includes(want));
   }
 }
-
 
 export const condComplete = (c: Cond) =>
   FIELDS[c.field] === "flag" ||

@@ -11,7 +11,6 @@ pub fn schedules_list(state: State<'_, AppState>) -> Vec<Schedule> {
     state.scheduler.all()
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub fn schedule_save(app: AppHandle, state: State<'_, AppState>, mut schedule: Schedule) -> AppResult<Schedule> {
@@ -32,7 +31,6 @@ pub fn schedule_delete(app: AppHandle, state: State<'_, AppState>, id: String) {
 pub fn schedule_set_enabled(app: AppHandle, state: State<'_, AppState>, id: String, enabled: bool) -> AppResult<Schedule> {
     state.scheduler.set_enabled(&app, &id, enabled)
 }
-
 
 #[tauri::command]
 #[specta::specta]

@@ -10,7 +10,6 @@ import { Button, useConfirmClick } from "@/ui";
 import { refreshAll, refreshList } from "./api";
 import { openWorkspace } from "./WorkspaceCard";
 
-
 export function RepoGone({
   ws,
   push,

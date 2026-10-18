@@ -1,14 +1,11 @@
 use crate::error::AppResult;
 
-
 #[tauri::command]
 #[specta::specta]
 pub fn export_text_file(path: String, contents: String) -> AppResult<()> {
-
     std::fs::write(&path, contents)?;
     Ok(())
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -20,7 +17,6 @@ pub fn read_secret_file(path: String) -> AppResult<String> {
     }
     String::from_utf8(std::fs::read(&path)?).map_err(|_| AppError::new("secrets.not_text"))
 }
-
 
 #[tauri::command]
 #[specta::specta]

@@ -445,7 +445,6 @@ function TreeRow({
   );
 }
 
-
 function Activity({ r }: { r: AuditReport }) {
   const { t } = useTranslation("audit");
   const max = Math.max(1, ...r.monthly.map((m) => Math.max(m.additions, m.deletions)));
@@ -484,7 +483,6 @@ function Activity({ r }: { r: AuditReport }) {
   );
 }
 
-
 function LocalPicker({ value, onChange }: { value: string | null; onChange: (t: string) => void }) {
   const { t } = useTranslation("audit");
   const ws = useWorkspaces();
@@ -502,7 +500,6 @@ function LocalPicker({ value, onChange }: { value: string | null; onChange: (t: 
     </Select>
   );
 }
-
 
 function HotFiles({ r }: { r: AuditReport }) {
   const { t } = useTranslation("audit");
@@ -545,7 +542,6 @@ function HotFiles({ r }: { r: AuditReport }) {
     </Panel>
   );
 }
-
 
 function Compare({ r }: { r: AuditReport }) {
   const { t } = useTranslation("audit");

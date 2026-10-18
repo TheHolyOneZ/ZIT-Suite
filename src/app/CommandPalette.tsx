@@ -13,7 +13,6 @@ import { combo } from "@/core/platform";
 import { switchAccount } from "@/modules/auth/api";
 import { useSetLanguage } from "./LanguageThemeControls";
 
-
 export function CommandPalette() {
   const { t } = useTranslation();
   const open = useUi((s) => s.paletteOpen);

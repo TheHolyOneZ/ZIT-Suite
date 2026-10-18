@@ -8,7 +8,6 @@ import { draftErrors, draftFrom, draftPatch, isEmptyPatch, type HookDraft } from
 import { HookForm } from "./HookForm";
 import { useHooksUi } from "./store";
 
-
 export function EditEndpointDialog() {
   const { t } = useTranslation(["webhooks", "common"]);
   const key = useHooksUi((s) => s.edit);
@@ -22,7 +21,6 @@ export function EditEndpointDialog() {
       setDraft(initial);
       setTried(false);
     }
-
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);

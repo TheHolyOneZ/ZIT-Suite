@@ -12,7 +12,6 @@ import { GitTerm } from "./parts";
 
 type Filter = "all" | "shared" | "notShared";
 
-
 export function FilesTab({ ws, status }: { ws: Workspace; status: WorkspaceStatus }) {
   const { t } = useTranslation(["home", "common"]);
   const [filter, setFilter] = useState<Filter>("all");

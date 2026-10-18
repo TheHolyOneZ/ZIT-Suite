@@ -10,7 +10,6 @@ import { SLA, isOverdue } from "./model";
 import { KindLabel, SeverityBadge } from "./parts";
 import { useSecurityPrefs, useSecurityUi } from "./store";
 
-
 export function GroupSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["security", "common"]);
   const id = String(params.id);

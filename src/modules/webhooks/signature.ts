@@ -11,7 +11,6 @@ export async function signPayload(secret: string, payload: string): Promise<stri
   return `sha256=${[...sig].map((b) => b.toString(16).padStart(2, "0")).join("")}`;
 }
 
-
 export function sameSignature(a: string, b: string): boolean {
   const x = a.trim().toLowerCase();
   const y = b.trim().toLowerCase();

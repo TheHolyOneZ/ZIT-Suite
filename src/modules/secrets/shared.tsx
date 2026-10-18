@@ -3,7 +3,6 @@ import type { Environment } from "@/core/ipc";
 import { Badge } from "@/ui";
 import type { Place } from "./model";
 
-
 export function PlaceLabel({ place, short }: { place: Place; short?: boolean }) {
   return (
     <span className="flex min-w-0 items-center gap-1.5">
@@ -14,7 +13,6 @@ export function PlaceLabel({ place, short }: { place: Place; short?: boolean }) 
     </span>
   );
 }
-
 
 export function RuleSummary({ env }: { env: Environment }) {
   const { t } = useTranslation("secrets");

@@ -10,7 +10,6 @@ import { useReposPrefs, useReposUi } from "./store";
 
 export { refreshRepos, useRepoList as useRepos } from "@/core/data/repos";
 
-
 export function useRepoRows(): { rows: RepoRow[]; query: ReturnType<typeof useRepos> } {
   const query = useRepos();
   const activeDays = useModuleSetting<number>("repos", "activeDays");

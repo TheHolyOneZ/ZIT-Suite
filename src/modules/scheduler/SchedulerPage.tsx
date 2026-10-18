@@ -35,7 +35,6 @@ const OUTCOME: Record<string, { glyph: Glyph; tone: Tone }> = {
   failed: { glyph: "cross", tone: "danger" },
 };
 
-
 export function SchedulerPage() {
   const { t } = useTranslation(["scheduler", "common"]);
   const q = useSchedules();

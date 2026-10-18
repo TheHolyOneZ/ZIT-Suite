@@ -210,7 +210,6 @@ function ErrorNote({ error }: { error: unknown }) {
   );
 }
 
-
 function BrandSheet() {
   const { t } = useTranslation("auth");
   const pillars = [t("pillars.build"), t("pillars.manage"), t("pillars.ship")];

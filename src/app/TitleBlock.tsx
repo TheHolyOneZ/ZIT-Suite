@@ -14,7 +14,6 @@ import { NotificationCenter } from "./NotificationCenter";
 import { WindowControls } from "./WindowControls";
 import { sheetTitle } from "./SheetStack";
 
-
 export function TitleBlock() {
   const { t } = useTranslation();
   const stack = useActiveStack();
@@ -26,7 +25,6 @@ export function TitleBlock() {
   const mod = getModule(active);
 
   return (
-
     <header data-tauri-drag-region className="relative z-20 flex h-[var(--title-h)] shrink-0 items-center gap-3 border-b border-line-strong bg-surface pr-2 pl-3">
       <div data-tauri-drag-region className="flex items-center gap-2 border-r border-line pr-3">
         <Logo size={22} />

@@ -11,7 +11,6 @@ export interface TabDef<T extends string> {
   group?: string | true;
 }
 
-
 export function TabBar<T extends string>({ tabs, value, onChange, className }: { tabs: TabDef<T>[]; value: T; onChange: (t: T) => void; className?: string }) {
   const ref = useRef<HTMLElement>(null);
 

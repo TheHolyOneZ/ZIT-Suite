@@ -2,14 +2,12 @@ use std::fs;
 use std::io;
 use std::path::Path;
 
-
 pub fn init() {
     #[cfg(target_os = "linux")]
     linux::init();
     #[cfg(windows)]
     windows::init();
 }
-
 
 pub fn write_atomic(path: &Path, bytes: &[u8]) -> io::Result<()> {
     let tmp = path.with_extension("tmp");
@@ -28,7 +26,6 @@ pub fn write_atomic(path: &Path, bytes: &[u8]) -> io::Result<()> {
     }
 }
 
-
 #[allow(unused_variables)]
 pub fn restrict_permissions(path: &Path) {
     #[cfg(unix)]
@@ -38,12 +35,10 @@ pub fn restrict_permissions(path: &Path) {
     }
 }
 
-
 const RESERVED: &[&str] = &[
     "CON", "PRN", "AUX", "NUL", "COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9", "LPT1",
     "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9",
 ];
-
 
 pub fn sanitize_file_name(name: &str) -> Option<String> {
     let mut s: String = name
@@ -76,7 +71,6 @@ pub fn sanitize_file_name(name: &str) -> Option<String> {
     Some(s)
 }
 
-
 pub fn keyring_hint() -> &'static str {
     #[cfg(target_os = "linux")]
     return "No Secret Service provider is running. Install/unlock GNOME Keyring or KWallet (with the Secret Service API enabled).";
@@ -88,7 +82,6 @@ pub fn keyring_hint() -> &'static str {
     ""
 }
 
-
 pub fn find_program(prog: &str) -> Option<std::path::PathBuf> {
     let p = Path::new(prog);
     if p.is_absolute() {
@@ -98,17 +91,14 @@ pub fn find_program(prog: &str) -> Option<std::path::PathBuf> {
     std::env::split_paths(&std::env::var_os("PATH")?).find_map(|dir| exts.iter().map(|e| dir.join(format!("{prog}{e}"))).find(|f| present(f)))
 }
 
-
 fn present(f: &Path) -> bool {
     f.is_file() || (cfg!(windows) && f.extension().is_some() && fs::symlink_metadata(f).is_ok_and(|m| !m.is_dir()))
 }
-
 
 fn spawn_first(dir: &Path, candidates: &[(String, Vec<String>, bool)]) -> io::Result<String> {
     use std::process::{Command, Stdio};
     for (prog, args, console) in candidates {
         let Some(exe) = find_program(prog) else { continue };
-
 
         let mut cmd = Command::new(&exe);
         cmd.args(args).current_dir(dir);
@@ -137,14 +127,12 @@ fn args(list: &[&str]) -> Vec<String> {
     list.iter().map(|s| s.to_string()).collect()
 }
 
-
 pub fn open_terminal(dir: &Path) -> io::Result<String> {
     let d = dir.to_string_lossy().into_owned();
     #[allow(unused_mut)]
     let mut list: Vec<(String, Vec<String>, bool)> = Vec::new();
     #[cfg(target_os = "linux")]
     {
-
         if let Ok(t) = std::env::var("TERMINAL") {
             list.push((t, vec![], false));
         }
@@ -168,7 +156,6 @@ pub fn open_terminal(dir: &Path) -> io::Result<String> {
     spawn_first(dir, &list)
 }
 
-
 pub fn open_editor(dir: &Path) -> io::Result<String> {
     let d = dir.to_string_lossy().into_owned();
     let list: Vec<(String, Vec<String>, bool)> = ["code", "codium", "zed", "zeditor", "subl"].iter().map(|p| (p.to_string(), vec![d.clone()], false)).collect();
@@ -178,8 +165,6 @@ pub fn open_editor(dir: &Path) -> io::Result<String> {
 #[cfg(target_os = "linux")]
 mod linux {
     pub fn init() {
-
-
         if std::env::var_os("WEBKIT_DISABLE_DMABUF_RENDERER").is_none() {
             std::env::set_var("WEBKIT_DISABLE_DMABUF_RENDERER", "1");
         }
@@ -189,8 +174,6 @@ mod linux {
 #[cfg(windows)]
 mod windows {
     pub fn init() {
-
-
     }
 }
 

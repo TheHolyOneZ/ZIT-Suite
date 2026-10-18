@@ -15,7 +15,6 @@ pub struct SimpleUser {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct Issue {
-
     pub repo: String,
     pub number: u32,
     pub title: String,
@@ -160,7 +159,6 @@ pub struct NewIssue {
     pub milestone: Option<u32>,
 }
 
-
 #[derive(Debug, Clone, Default, Serialize, Deserialize, Type)]
 pub struct IssuePatch {
     pub title: Option<String>,
@@ -208,7 +206,6 @@ impl IssuePatch {
 }
 
 pub const SEARCH_PER_PAGE: u32 = 50;
-
 
 pub async fn search(c: &GitHubClient, query: &str, sort: &str, order: &str, page: u32) -> AppResult<IssueSearch> {
     let mut q = vec![

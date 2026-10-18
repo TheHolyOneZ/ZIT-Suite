@@ -22,7 +22,6 @@ pub struct Org {
     pub description: Option<String>,
 }
 
-
 pub async fn current_user(c: &GitHubClient) -> AppResult<(User, Option<Vec<String>>)> {
     let res = c.execute(c.request(Method::GET, "/user")).await?;
     let scopes = res

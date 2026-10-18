@@ -22,7 +22,6 @@ import { HEALTH_ORDER, healthGlyph, healthTone } from "./health";
 import { languageColor } from "./languageColors";
 import { BUILTIN_TAGS, tagTone, useReposPrefs, useReposUi } from "./store";
 
-
 export function RepoFacets() {
   const { t } = useTranslation(["repos", "common"]);
   const { rows } = useRepoRows();
@@ -245,7 +244,6 @@ function TagsSection() {
   const [adding, setAdding] = useState(false);
   const [name, setName] = useState("");
 
-
   const counts = useMemo(() => {
     const c: Record<string, number> = {};
     for (const r of rows) for (const tg of r.tags) c[tg] = (c[tg] ?? 0) + 1;
@@ -322,7 +320,6 @@ function TagsSection() {
     </Section>
   );
 }
-
 
 export function useRepoChips(): FilterChip[] {
   const { t } = useTranslation("repos");

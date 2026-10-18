@@ -13,7 +13,6 @@ import { useSecretsPrefs, useSecretsUi } from "./store";
 
 const run = useQueue.getState;
 
-
 export function SecretSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["secrets", "common"]);
   const name = String(params.name);

@@ -8,7 +8,6 @@ use crate::error::{AppError, AppResult};
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, Type, PartialEq, Eq, Default)]
 #[serde(rename_all = "snake_case")]
 pub enum AutoMode {
-
     #[default]
     Manual,
 
@@ -24,7 +23,6 @@ pub struct Workspace {
     pub path: String,
 
     pub push_repo: Option<String>,
-
 
     pub reference_repo: Option<String>,
 
@@ -60,11 +58,9 @@ impl Workspace {
         }
     }
 
-
     pub fn distinct_reference(&self) -> Option<&str> {
         self.reference_repo.as_deref().filter(|r| !self.push_repo.as_deref().is_some_and(|p| p.eq_ignore_ascii_case(r)))
     }
-
 
     pub fn normalized(mut self) -> Self {
         self.interval_secs = self.interval_secs.clamp(1, 300);
@@ -78,7 +74,6 @@ impl Workspace {
         self
     }
 }
-
 
 pub fn render_template(template: &str, summary: &str, count: usize) -> String {
     let time = chrono::Local::now().format("%Y-%m-%d %H:%M").to_string();

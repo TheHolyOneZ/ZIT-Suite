@@ -280,7 +280,6 @@ function QueueSettings() {
   );
 }
 
-
 function Background() {
   const { t } = useTranslation("settings");
   const [prefs, setPrefs] = useState<TrayPrefs | null>(null);
@@ -436,7 +435,6 @@ function ModuleField({ moduleId, field }: { moduleId: string; field: ModuleSetti
 
 const REPO_URL = "https://github.com/TheHolyOneZ/ZIT-Suite";
 const HOMEPAGE = "https://zsync.eu/zit-suite/";
-
 
 function About() {
   const { t } = useTranslation("settings");

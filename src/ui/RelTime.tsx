@@ -1,7 +1,6 @@
 import { useSyncExternalStore } from "react";
 import { formatRelative } from "@/core/i18n/format";
 
-
 const listeners = new Set<() => void>();
 let now = Date.now();
 let timer: ReturnType<typeof setInterval> | undefined;
@@ -21,11 +20,9 @@ function subscribe(cb: () => void) {
   };
 }
 
-
 export function useNow() {
   return useSyncExternalStore(subscribe, () => now);
 }
-
 
 export function RelTime({ at }: { at: string | number | null | undefined }) {
   useNow();

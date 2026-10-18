@@ -22,7 +22,6 @@ export function HeadlineText({ h, className }: { h: Headline | null; className?:
   );
 }
 
-
 export function GitTerm({
   term,
 }: {
@@ -45,7 +44,6 @@ export function BranchChip({ name }: { name: string | null }) {
     </span>
   );
 }
-
 
 export function AheadBehind({ c, reference }: { c: RemoteCompare; reference?: boolean }) {
   const { t } = useTranslation("home");
@@ -73,7 +71,6 @@ export function AheadBehind({ c, reference }: { c: RemoteCompare; reference?: bo
     </span>
   );
 }
-
 
 export function AutomationLine({ ws, className }: { ws: Workspace; className?: string }) {
   const { t } = useTranslation("home");

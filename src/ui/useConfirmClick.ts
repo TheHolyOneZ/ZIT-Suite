@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-
 export function useConfirmClick(action: () => void, ms = 3000) {
   const [armed, setArmed] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);

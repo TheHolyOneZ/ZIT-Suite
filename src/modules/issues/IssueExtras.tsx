@@ -25,7 +25,6 @@ export const REACTIONS: { content: string; emoji: string }[] = [
 
 const reactKey = (repo: string, target: string) => ["issues", "reactions", repo, target] as const;
 
-
 export function Reactions({ repo, target, known }: { repo: string; target: string; known?: number }) {
   const { t } = useTranslation("issues");
   const me = useActiveAccount()?.login;
@@ -110,7 +109,6 @@ export const useTimeline = (repo: string, number: number) =>
     staleTime: 30_000,
   });
 
-
 export function TimelineLine({ e }: { e: TimelineEvent }) {
   const { t } = useTranslation("issues");
   const what = t(`timeline.${e.event.replace(/-/g, "_") as "labeled"}`, {
@@ -140,7 +138,6 @@ export function TimelineLine({ e }: { e: TimelineEvent }) {
     </div>
   );
 }
-
 
 export function IssueActions({ issue }: { issue: Issue }) {
   const { t } = useTranslation("issues");
@@ -239,7 +236,6 @@ function TransferDialog({ issue, nodeId, onClose }: { issue: Issue; nodeId: stri
     </Dialog>
   );
 }
-
 
 export function SubIssues({ issue }: { issue: Issue }) {
   const { t } = useTranslation("issues");

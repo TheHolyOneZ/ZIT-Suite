@@ -14,7 +14,6 @@ pub const HIDDEN_ARG: &str = "--hidden";
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq, Eq)]
 pub struct TrayPrefs {
-
     pub close_to_tray: bool,
 
     pub start_hidden: bool,
@@ -25,7 +24,6 @@ impl Default for TrayPrefs {
         Self { close_to_tray: true, start_hidden: true }
     }
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct TrayLabels {
@@ -104,12 +102,10 @@ fn toggle(app: &AppHandle) {
     }
 }
 
-
 fn refresh_toggle(app: &AppHandle) {
     let visible = main_window(app).and_then(|w| w.is_visible().ok()).unwrap_or(false);
     set_toggle(app, visible);
 }
-
 
 fn set_toggle(app: &AppHandle, visible: bool) {
     let st = app.state::<crate::state::AppState>();
@@ -152,7 +148,6 @@ pub fn build(app: &AppHandle) -> tauri::Result<()> {
     Ok(())
 }
 
-
 pub fn on_window_event(window: &Window, event: &WindowEvent) {
     if window.label() != "main" {
         return;
@@ -174,7 +169,6 @@ pub fn on_window_event(window: &Window, event: &WindowEvent) {
     }
 }
 
-
 pub fn hide_on_start(app: &AppHandle) {
     let st = app.state::<crate::state::AppState>();
     let hidden = std::env::args().any(|a| a == HIDDEN_ARG) && st.tray.prefs().start_hidden;
@@ -185,7 +179,6 @@ pub fn hide_on_start(app: &AppHandle) {
     }
     set_toggle(app, !hidden);
 }
-
 
 use crate::state::AppState;
 use tauri::State;
@@ -202,7 +195,6 @@ pub fn tray_set_prefs(state: State<'_, AppState>, prefs: TrayPrefs) -> AppResult
     state.tray.set_prefs(prefs)
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub fn tray_set_labels(app: AppHandle, state: State<'_, AppState>, labels: TrayLabels) {
@@ -215,7 +207,6 @@ pub fn tray_set_labels(app: AppHandle, state: State<'_, AppState>, labels: TrayL
     *state.tray.labels.lock().unwrap() = labels;
     refresh_toggle(&app);
 }
-
 
 #[tauri::command]
 #[specta::specta]

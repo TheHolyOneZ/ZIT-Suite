@@ -36,7 +36,6 @@ pub enum PollResult {
     Token(String),
 }
 
-
 pub fn default_client_id() -> Option<String> {
     option_env!("ZIT_GITHUB_CLIENT_ID").map(str::to_string).filter(|s| !s.is_empty())
 }

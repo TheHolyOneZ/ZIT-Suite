@@ -12,12 +12,9 @@ import { CodeBox } from "@/modules/gists/CodeBox";
 import { checkWorkflow } from "./ghmodel";
 import { WORKFLOW_TEMPLATES } from "./workflowTemplates";
 
-
 export type WorkflowEdit = { mode: "new" } | { mode: "edit"; path: string; repo: string };
 
-
 export interface WorkflowStore {
-
   load: (path: string) => Promise<{ text: string; copy: boolean }>;
 
   save: (name: string, content: string, oldPath: string | null) => Promise<string>;
@@ -33,7 +30,6 @@ export interface WorkflowStore {
     deletedBody?: string;
   };
 }
-
 
 export function folderStore(
   wsId: string,
@@ -61,9 +57,7 @@ export function folderStore(
   };
 }
 
-
 const fileOf = (path: string) => path.split(/[\\/]/).pop() ?? path;
-
 
 export function WorkflowEditor({
   store,
@@ -102,7 +96,6 @@ export function WorkflowEditor({
         setLoading(false);
       }
     })();
-
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

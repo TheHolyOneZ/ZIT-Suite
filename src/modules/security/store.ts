@@ -42,7 +42,6 @@ export const useSecurityPrefs = create<SecurityPrefs>()(
   ),
 );
 
-
 export type AlertTarget = { repo: string; number: number; title: string };
 export type DismissRequest = { kind: AlertKind; alerts: AlertTarget[] };
 

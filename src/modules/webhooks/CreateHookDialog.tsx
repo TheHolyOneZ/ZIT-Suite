@@ -10,7 +10,6 @@ import { HookForm } from "./HookForm";
 import { urlKey } from "./model";
 import { useHooksUi } from "./store";
 
-
 export function CreateHookDialog() {
   const { t } = useTranslation(["webhooks", "common"]);
   const req = useHooksUi((s) => s.create);
@@ -27,7 +26,6 @@ export function CreateHookDialog() {
     setRepos(new Set(req.repos));
     setTried(false);
   }, [req]);
-
 
   const has = useMemo(() => {
     const k = urlKey(draft.url);

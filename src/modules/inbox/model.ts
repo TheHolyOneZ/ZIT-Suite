@@ -1,7 +1,6 @@
 import type { Thread } from "@/core/ipc";
 import type { Glyph, Tone } from "@/ui";
 
-
 export const REASONS: Record<string, { rank: number; glyph: Glyph; tone: Tone }> = {
   review_requested: { rank: 0, glyph: "open", tone: "accent" },
   security_alert: { rank: 0, glyph: "warn", tone: "danger" },
@@ -48,7 +47,6 @@ export const KINDS = [
 ] as const;
 export const kindKey = (k: string) =>
   ((KINDS as readonly string[]).includes(k) ? k : "Other") as (typeof KINDS)[number] | "Other";
-
 
 export const isUrgent = (t: Thread) => t.unread && reasonOf(t.reason).rank <= 1;
 
@@ -101,7 +99,6 @@ export function filterThreads(threads: Thread[], f: InboxFilter): Thread[] {
   );
 }
 
-
 export function noisiest(threads: Thread[], n = 5): { repo: string; count: number }[] {
   const m = new Map<string, number>();
   for (const t of threads) m.set(t.repo, (m.get(t.repo) ?? 0) + 1);
@@ -110,7 +107,6 @@ export function noisiest(threads: Thread[], n = 5): { repo: string; count: numbe
     .sort((a, b) => b.count - a.count || a.repo.localeCompare(b.repo))
     .slice(0, n);
 }
-
 
 export function newlyUrgent(prev: Thread[] | undefined, next: Thread[]): Thread[] {
   if (!prev) return [];

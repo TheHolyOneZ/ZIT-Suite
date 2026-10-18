@@ -1,7 +1,6 @@
 import type { HTMLAttributes, ReactNode } from "react";
 import { cn } from "@/core/cn";
 
-
 export function Ticks({ className }: { className?: string }) {
   const c = "pointer-events-none absolute size-2 border-[color-mix(in_srgb,var(--accent)_70%,transparent)]";
   return (
@@ -23,7 +22,6 @@ export function Panel({ ticks, className, children, ...rest }: HTMLAttributes<HT
   );
 }
 
-
 export function PageHeader({
   kicker,
   title,
@@ -36,7 +34,6 @@ export function PageHeader({
   actions?: ReactNode;
 }) {
   return (
-
     <header className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3 border-b border-line px-6 pt-5 pb-4">
       <div className="min-w-[240px] flex-1">
         <div className="annot mb-1 flex items-center gap-2">

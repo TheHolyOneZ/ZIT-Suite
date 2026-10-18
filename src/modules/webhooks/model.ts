@@ -1,6 +1,5 @@
 import type { Hook, HookHealth, RepoHooks } from "@/core/ipc";
 
-
 export type HookState = "ok" | "failing" | "unused" | "inactive";
 export const HOOK_STATES: HookState[] = ["failing", "ok", "unused", "inactive"];
 
@@ -10,7 +9,6 @@ export function hookState(h: Hook): HookState {
   if (code == null) return "unused";
   return code >= 200 && code < 300 ? "ok" : "failing";
 }
-
 
 export const urlKey = (url: string) => url.trim().replace(/\/+$/, "").toLowerCase();
 
@@ -27,7 +25,6 @@ export interface HookAt {
   repo: string;
   hook: Hook;
 }
-
 
 export interface Endpoint {
   key: string;
@@ -98,7 +95,6 @@ export function buildIndex(scan: RepoHooks[]): HookIndex {
 
 export const healthKey = (repo: string, id: number) => `${repo}#${id}`;
 
-
 export function sumHealth(hooks: HookAt[], health: Map<string, HookHealth> | undefined) {
   if (!health) return null;
   let checked = 0;
@@ -112,7 +108,6 @@ export function sumHealth(hooks: HookAt[], health: Map<string, HookHealth> | und
   }
   return { checked, failed };
 }
-
 
 export function eventSummary(events: string[], max = 2): { shown: string[]; more: number; all: boolean } {
   if (events.includes("*")) return { shown: [], more: 0, all: true };

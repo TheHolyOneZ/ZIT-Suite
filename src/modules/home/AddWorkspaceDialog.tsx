@@ -15,13 +15,11 @@ import { openWorkspace } from "./WorkspaceCard";
 
 type UploadMode = "existing" | "create" | "pick" | "none";
 
-
 const repoNameFrom = (s: string) =>
   s
     .trim()
     .replace(/[^\w.-]+/g, "-")
     .replace(/^-+|-+$/g, "") || "my-project";
-
 
 export function AddWorkspaceDialog() {
   const { t } = useTranslation(["home", "common"]);

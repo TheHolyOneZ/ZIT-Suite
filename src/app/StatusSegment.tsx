@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "@/core/cn";
 
-
 export function StatusSegment({ children, onClick, title, className }: { children: ReactNode; onClick?: () => void; title?: string; className?: string }) {
   const Tag = onClick ? "button" : "div";
   return (

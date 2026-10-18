@@ -6,7 +6,6 @@ use specta::Type;
 use super::client::{enc, GitHubClient};
 use crate::error::{AppError, AppResult};
 
-
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, Type, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "snake_case")]
 pub enum Role {
@@ -18,7 +17,6 @@ pub enum Role {
 }
 
 impl Role {
-
     pub fn api(self) -> &'static str {
         match self {
             Role::Read => "pull",
@@ -28,7 +26,6 @@ impl Role {
             Role::Admin => "admin",
         }
     }
-
 
     pub fn parse(s: &str) -> Option<Role> {
         Some(match s {
@@ -96,7 +93,6 @@ pub fn parse_collaborator(v: &Value) -> Collaborator {
     }
 }
 
-
 pub async fn list(c: &GitHubClient, repo: &str, fresh: bool) -> AppResult<Vec<Collaborator>> {
     let raw: Vec<Value> = c.paginate_with(&format!("/repos/{repo}/collaborators?affiliation=all&per_page=100"), fresh).await?;
     Ok(raw.iter().map(parse_collaborator).collect())
@@ -118,7 +114,6 @@ pub async fn invitations(c: &GitHubClient, repo: &str, fresh: bool) -> AppResult
         .collect())
 }
 
-
 pub async fn permission_of(c: &GitHubClient, repo: &str, user: &str) -> AppResult<Option<Role>> {
     let v: Value = c.get_json(&format!("/repos/{repo}/collaborators/{}/permission", enc(user))).await?;
     let name = v.get("role_name").and_then(Value::as_str).unwrap_or_else(|| v.get("permission").and_then(Value::as_str).unwrap_or("none"));
@@ -132,7 +127,6 @@ pub async fn is_collaborator(c: &GitHubClient, repo: &str, user: &str) -> AppRes
         Err(e) => Err(e),
     }
 }
-
 
 pub async fn set(c: &GitHubClient, repo: &str, user: &str, role: Role) -> AppResult<()> {
     let path = format!("/repos/{repo}/collaborators/{}", enc(user));

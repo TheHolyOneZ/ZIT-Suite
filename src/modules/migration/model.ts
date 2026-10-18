@@ -22,10 +22,8 @@ export const NO_RULES: RenameRules = {
   suffix: "",
 };
 
-
 export const validRepoName = (n: string) =>
   !!n && n.length <= 100 && n !== "." && n !== ".." && /^[A-Za-z0-9._-]+$/.test(n);
-
 
 const words = (s: string) =>
   s
@@ -34,7 +32,6 @@ const words = (s: string) =>
     .split(/[\s._-]+/)
     .filter(Boolean)
     .map((w) => w.toLowerCase());
-
 
 export function applyRules(name: string, r: RenameRules): string {
   let n = name;
@@ -66,7 +63,6 @@ export interface PlanRow {
   to: string;
   status: PlanStatus;
 }
-
 
 export function planRenames(
   repos: string[],

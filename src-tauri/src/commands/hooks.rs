@@ -26,7 +26,6 @@ pub struct HookRef {
     pub id: u64,
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn hooks_scan(app: AppHandle, state: State<'_, AppState>, repos: Vec<String>, fresh: bool) -> AppResult<Vec<RepoHooks>> {
@@ -49,7 +48,6 @@ pub async fn hooks_scan(app: AppHandle, state: State<'_, AppState>, repos: Vec<S
 pub async fn hooks_list(state: State<'_, AppState>, repo: String, fresh: bool) -> AppResult<RepoHooks> {
     Ok(hooks::repo_hooks(&state.active_client()?, &repo, fresh).await)
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -93,7 +91,6 @@ pub async fn hooks_delivery(state: State<'_, AppState>, repo: String, id: u64, d
 pub async fn hooks_redeliver(state: State<'_, AppState>, repo: String, id: u64, delivery_id: String) -> AppResult<()> {
     hooks::redeliver(&state.active_client()?, &repo, id, &delivery_id).await
 }
-
 
 #[tauri::command]
 #[specta::specta]

@@ -14,7 +14,6 @@ use crate::queue::QueueAction;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq, Eq)]
 pub struct Cadence {
-
     pub every: String,
 
     pub hours: u32,
@@ -67,7 +66,6 @@ pub struct DueRun {
     pub trigger: String,
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type, Event)]
 pub struct ScheduleNudge {}
 
@@ -96,7 +94,6 @@ fn days_in_month(y: i32, m: u32) -> u32 {
     let (ny, nm) = if m == 12 { (y + 1, 1) } else { (y, m + 1) };
     NaiveDate::from_ymd_opt(ny, nm, 1).and_then(|d| d.pred_opt()).map(|d| d.day()).unwrap_or(28)
 }
-
 
 pub fn next_after(c: &Cadence, from: DateTime<Local>) -> DateTime<Local> {
     let t = time_of(c);
@@ -153,7 +150,6 @@ impl Scheduler {
         self.list.lock().unwrap().clone()
     }
 
-
     pub fn upsert(&self, app: &AppHandle, mut s: Schedule) -> AppResult<Schedule> {
         if s.name.trim().is_empty() {
             return Err(AppError::new("scheduler.no_name"));
@@ -195,7 +191,6 @@ impl Scheduler {
         Ok(out)
     }
 
-
     pub fn claim_due(&self, now: DateTime<Local>) -> Vec<DueRun> {
         let list = self.list.lock().unwrap();
         let mut claimed = self.claimed.lock().unwrap();
@@ -221,14 +216,12 @@ impl Scheduler {
         list.iter().filter(|s| s.enabled && !claimed.get(&s.id).is_some_and(|at| at.elapsed() < CLAIM_TIMEOUT)).any(|s| s.next_run.as_deref().and_then(|n| DateTime::parse_from_rfc3339(n).ok()).is_some_and(|n| n <= now))
     }
 
-
     pub fn claim_now(&self, id: &str) -> AppResult<DueRun> {
         let list = self.list.lock().unwrap();
         let s = list.iter().find(|s| s.id == id).ok_or_else(|| AppError::new("scheduler.not_found"))?;
         self.claimed.lock().unwrap().insert(id.to_string(), Instant::now());
         Ok(DueRun { schedule: s.clone(), trigger: "manual".into() })
     }
-
 
     pub fn record(&self, app: &AppHandle, id: &str, rec: RunRecord) -> AppResult<Schedule> {
         let mut list = self.list.lock().unwrap();
@@ -244,11 +237,9 @@ impl Scheduler {
     }
 }
 
-
 pub fn spawn_timer(app: AppHandle) {
     use tauri::Manager;
     tauri::async_runtime::spawn(async move {
-
         tokio::time::sleep(Duration::from_secs(8)).await;
         loop {
             let st = app.state::<crate::state::AppState>();
@@ -276,7 +267,6 @@ mod tests {
 
     #[test]
     fn daily_weekly_monthly_hourly() {
-
         assert_eq!(fmt(next_after(&cad("day", "09:00", 0, 1, 0), at("2026-10-05 08:00"))), "2026-10-05 09:00");
         assert_eq!(fmt(next_after(&cad("day", "09:00", 0, 1, 0), at("2026-10-05 09:00"))), "2026-10-06 09:00");
         assert_eq!(fmt(next_after(&cad("week", "07:30", 4, 1, 0), at("2026-10-05 12:00"))), "2026-10-09 07:30");

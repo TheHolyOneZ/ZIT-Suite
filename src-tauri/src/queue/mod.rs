@@ -27,7 +27,6 @@ pub enum CloseReason {
     NotPlanned,
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq, Eq)]
 #[serde(tag = "kind", rename_all = "snake_case")]
 pub enum QueueAction {
@@ -92,15 +91,12 @@ pub enum QueueAction {
 
     RepoTopics { add: Vec<String>, remove: Vec<String> },
 
-
     ReleaseNext { bump: String, draft: bool, prerelease: bool },
 }
-
 
 pub const REDACTED: &str = "\u{2022}redacted\u{2022}";
 
 impl QueueAction {
-
     pub fn is_repo_level(&self) -> bool {
         matches!(self, Self::Delete | Self::Archive | Self::Unarchive | Self::SetPrivate | Self::SetPublic) || self.is_access() || self.is_hook() || self.is_secrets()
             || matches!(self, Self::SecurityFeature { .. } | Self::BranchProtect { .. } | Self::BranchUnprotect { .. } | Self::RepoRename { .. } | Self::RepoTransfer { .. } | Self::RepoDescription { .. } | Self::RepoTopics { .. })
@@ -121,7 +117,6 @@ impl QueueAction {
         matches!(self, Self::HookCreate { .. } | Self::HookUpdate { .. } | Self::HookDelete { .. })
     }
 
-
     pub fn redacted(&self) -> QueueAction {
         let hide = |s: &Option<String>| s.as_ref().map(|x| if x.is_empty() { String::new() } else { REDACTED.to_string() });
         match self {
@@ -131,7 +126,6 @@ impl QueueAction {
             other => other.clone(),
         }
     }
-
 
     fn lost_secret(&self) -> bool {
         match self {
@@ -169,7 +163,6 @@ impl QueueAction {
             _ => None,
         }
     }
-
 
     pub async fn execute(&self, c: &GitHubClient, repo: &str) -> AppResult<()> {
         use QueueAction::*;
@@ -266,7 +259,6 @@ impl QueueAction {
         }
     }
 }
-
 
 pub async fn target_branch(c: &GitHubClient, repo: &str, branch: Option<&str>) -> AppResult<String> {
     match branch {

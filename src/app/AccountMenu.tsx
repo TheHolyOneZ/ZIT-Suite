@@ -18,7 +18,6 @@ export function useOrgs() {
   });
 }
 
-
 export function AccountMenu() {
   const { t } = useTranslation();
   const account = useActiveAccount();

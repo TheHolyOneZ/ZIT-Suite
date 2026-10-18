@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { events } from "@/core/ipc";
 import { reloadBranches } from "./api";
 
-
 export function BranchesQueueSync() {
   useEffect(() => {
     const seen = new Set<string>();

@@ -12,7 +12,7 @@ Manage hundreds of repositories at once, triage issues and pull requests across 
 **built-in Git** — no terminal, no installed `git` needed.
 
 <p>
-  <a href="https://zsync.eu/zit-suite/#download"><img alt="Version 0.2.0" src="https://img.shields.io/badge/version-0.2.0-FF7A1A?style=for-the-badge&labelColor=0f1115"></a>
+  <a href="https://zsync.eu/zit-suite/#download"><img alt="Version 0.2.1" src="https://img.shields.io/badge/version-0.2.1-FF7A1A?style=for-the-badge&labelColor=0f1115"></a>
   <a href="LICENSE"><img alt="License: GPL-3.0" src="https://img.shields.io/badge/license-GPL--3.0-FF7A1A?style=for-the-badge&labelColor=0f1115"></a>
   <img alt="Platforms: Linux and Windows" src="https://img.shields.io/badge/platform-Linux%20%7C%20Windows-FF7A1A?style=for-the-badge&labelColor=0f1115">
 </p>
@@ -273,7 +273,7 @@ Managing 200 repositories means one wrong click could hurt. ZIT-Suite is built s
 
 ## ✦ Install
 
-> **Version 0.2.0** — Linux and Windows.
+> **Version 0.2.1** — Linux and Windows.
 
 > [!IMPORTANT]
 > **Precompiled installers are only available on the official website: [zsync.eu/zit-suite](https://zsync.eu/zit-suite/#download).**
@@ -285,9 +285,9 @@ Managing 200 repositories means one wrong click could hurt. ZIT-Suite is built s
 
    | System | File | Install |
    |---|---|---|
-   | Windows 10 / 11 (64-bit) | `ZIT-Suite_0.2.0_x64-setup.exe` | run the installer |
-   | Debian, Ubuntu, Linux Mint, Pop!_OS | `ZIT-Suite_0.2.0_amd64.deb` | `sudo apt install ./ZIT-Suite_0.2.0_amd64.deb` |
-   | Fedora, openSUSE, RHEL | `ZIT-Suite-0.2.0-1.x86_64.rpm` | `sudo dnf install ./ZIT-Suite-0.2.0-1.x86_64.rpm` |
+   | Windows 10 / 11 (64-bit) | `ZIT-Suite_0.2.1_x64-setup.exe` | run the installer |
+   | Debian, Ubuntu, Linux Mint, Pop!_OS | `ZIT-Suite_0.2.1_amd64.deb` | `sudo apt install ./ZIT-Suite_0.2.1_amd64.deb` |
+   | Fedora, openSUSE, RHEL | `ZIT-Suite-0.2.1-1.x86_64.rpm` | `sudo dnf install ./ZIT-Suite-0.2.1-1.x86_64.rpm` |
 
    …or [build it yourself from source](#-build-from-source) — the only alternative to the website.
 2. Start ZIT-Suite and sign in with a **GitHub personal access token** (classic) or the device flow.

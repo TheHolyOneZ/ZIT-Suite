@@ -72,7 +72,6 @@ const SEV: Record<Severity, { tone: Tone; glyph: "warn" | "info" | "block" }> = 
   info: { tone: "info", glyph: "info" },
 };
 
-
 function useMine() {
   const { data, isLoading, error } = useRepoList();
   const includeArchived = useInsights((s) => s.includeArchived);
@@ -603,7 +602,6 @@ interface Row {
   referrers: Traffic["referrers"];
   error: boolean;
 }
-
 
 const weekly = (days: number[]) => {
   const out: number[] = [];

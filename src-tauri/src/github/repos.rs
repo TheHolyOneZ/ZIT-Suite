@@ -96,11 +96,9 @@ pub async fn set_private(c: &GitHubClient, full_name: &str, private: bool) -> Ap
     patch(c, full_name, json!({ "private": private })).await
 }
 
-
 pub fn valid_repo_name(name: &str) -> bool {
     !name.is_empty() && name.len() <= 100 && name != "." && name != ".." && name.chars().all(|c| c.is_ascii_alphanumeric() || "-_.".contains(c))
 }
-
 
 pub async fn rename(c: &GitHubClient, full_name: &str, new_name: &str) -> AppResult<()> {
     if !valid_repo_name(new_name) {
@@ -108,7 +106,6 @@ pub async fn rename(c: &GitHubClient, full_name: &str, new_name: &str) -> AppRes
     }
     patch(c, full_name, json!({ "name": new_name })).await
 }
-
 
 pub async fn transfer(c: &GitHubClient, full_name: &str, new_owner: &str, new_name: Option<&str>) -> AppResult<()> {
     let mut body = json!({ "new_owner": new_owner });
@@ -126,13 +123,11 @@ pub async fn delete(c: &GitHubClient, full_name: &str) -> AppResult<()> {
     Ok(())
 }
 
-
 pub async fn create(c: &GitHubClient, name: &str, private: bool, description: Option<&str>) -> AppResult<Repo> {
     let body = json!({ "name": name, "private": private, "description": description, "auto_init": false });
     let v = c.send_json(Method::POST, "/user/repos", Some(&body)).await?.unwrap_or_default();
     Ok(serde_json::from_value(v)?)
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct RepoDraft {
@@ -180,7 +175,6 @@ pub async fn create_new(c: &GitHubClient, n: &RepoDraft) -> AppResult<Repo> {
     Ok(serde_json::from_value(v.unwrap_or_default())?)
 }
 
-
 pub async fn gitignore_templates(c: &GitHubClient) -> AppResult<Vec<String>> {
     c.get_json("/gitignore/templates").await
 }
@@ -195,12 +189,10 @@ pub async fn licenses(c: &GitHubClient) -> AppResult<Vec<LicenseChoice>> {
     c.get_json("/licenses?per_page=100").await
 }
 
-
 pub async fn set_description(c: &GitHubClient, full_name: &str, description: &str) -> AppResult<()> {
     let d: String = description.trim().replace(['\n', '\r'], " ").chars().take(350).collect();
     patch(c, full_name, json!({ "description": d })).await
 }
-
 
 pub fn merged_topics(current: &[String], add: &[String], remove: &[String]) -> AppResult<Vec<String>> {
     let remove: Vec<String> = remove.iter().map(|t| super::about::normalize_topic(t)).collect();
@@ -217,7 +209,6 @@ pub async fn edit_topics(c: &GitHubClient, full_name: &str, add: &[String], remo
 
 #[cfg(test)]
 mod live_tests {
-
     #[tokio::test]
     #[ignore]
     async fn live_lists_all_pages() {

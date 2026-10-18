@@ -6,7 +6,6 @@ import { queryClient } from "@/core/query";
 import { useScopeKey } from "@/core/store/session";
 import { keyOf } from "./model";
 
-
 export function useTargets(days: number, forks: boolean): DepsTarget[] {
   const { data = [] } = useRepoList();
   return useMemo(() => {
@@ -49,7 +48,6 @@ export function useScan(targets: DepsTarget[], enabled: boolean) {
   const rescan = async () => queryClient.setQueryData(key, await unwrap(commands.depsScan(targets, true)));
   return { ...q, rescan };
 }
-
 
 export function useLatest() {
   return useQuery({

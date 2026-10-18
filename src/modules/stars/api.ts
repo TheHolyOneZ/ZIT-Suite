@@ -16,7 +16,6 @@ export function useStarLists() {
 
 export const refreshStars = () => queryClient.invalidateQueries({ queryKey: ["stars"] });
 
-
 export async function unstar(repos: string[]): Promise<number> {
   const snap = queryClient.getQueriesData<Starred[]>({ queryKey: ["stars"] });
   const hit = new Set(repos);

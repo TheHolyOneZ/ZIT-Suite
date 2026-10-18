@@ -22,7 +22,6 @@ pub struct AppState {
     cache_dir: PathBuf,
 }
 
-
 const CACHE_MAX_AGE: i64 = 7 * 24 * 3600;
 
 impl AppState {
@@ -64,7 +63,6 @@ impl AppState {
         }
     }
 
-
     pub fn save_caches(&self) {
         let clients: Vec<(String, GitHubClient)> = self.clients.lock().unwrap().iter().map(|(k, v)| (k.clone(), v.clone())).collect();
         for (id, c) in clients {
@@ -77,7 +75,6 @@ impl AppState {
             }
         }
     }
-
 
     pub fn forget_cache(&self, account_id: &str) {
         let _ = std::fs::remove_file(self.cache_file(account_id));
@@ -105,7 +102,6 @@ impl AppState {
     pub fn active_client(&self) -> AppResult<GitHubClient> {
         self.client_for(&self.active_account_id()?)
     }
-
 
     pub fn git_identity(&self) -> (String, String) {
         let accounts = self.accounts.lock().unwrap();

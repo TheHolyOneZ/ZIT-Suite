@@ -8,10 +8,8 @@ use crate::error::AppResult;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct Thread {
-
     pub id: String,
     pub unread: bool,
-
 
     pub reason: String,
     pub updated_at: String,
@@ -28,13 +26,11 @@ pub struct Thread {
     pub web_url: String,
 }
 
-
 fn number_of(api_url: &str) -> Option<u32> {
     let mut parts = api_url.rsplit('/');
     let n = parts.next()?.parse().ok()?;
     matches!(parts.next(), Some("issues" | "pulls")).then_some(n)
 }
-
 
 pub fn web_url(repo: &str, kind: &str, api_url: Option<&str>) -> String {
     let base = format!("https://github.com/{repo}");
@@ -84,7 +80,6 @@ fn thread_of(v: &Value) -> Thread {
     }
 }
 
-
 pub async fn list(c: &GitHubClient, all: bool, participating: bool, fresh: bool) -> AppResult<Vec<Thread>> {
     let raw: Vec<Value> = c.paginate_with(&format!("/notifications?per_page=50&all={all}&participating={participating}"), fresh).await?;
     Ok(raw.iter().map(thread_of).collect())
@@ -94,16 +89,13 @@ pub async fn mark_read(c: &GitHubClient, id: &str) -> AppResult<()> {
     c.send_json::<()>(Method::PATCH, &format!("/notifications/threads/{id}"), None).await.map(drop)
 }
 
-
 pub async fn mark_done(c: &GitHubClient, id: &str) -> AppResult<()> {
     c.send_json::<()>(Method::DELETE, &format!("/notifications/threads/{id}"), None).await.map(drop)
 }
 
-
 pub async fn mute(c: &GitHubClient, id: &str) -> AppResult<()> {
     c.send_json(Method::PUT, &format!("/notifications/threads/{id}/subscription"), Some(&json!({ "ignored": true }))).await.map(drop)
 }
-
 
 pub async fn mark_all_read(c: &GitHubClient, repo: Option<&str>, before: &str) -> AppResult<()> {
     let path = match repo {
@@ -112,7 +104,6 @@ pub async fn mark_all_read(c: &GitHubClient, repo: Option<&str>, before: &str) -
     };
     c.send_json(Method::PUT, &path, Some(&json!({ "last_read_at": before, "read": true }))).await.map(drop)
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct Watched {
@@ -123,7 +114,6 @@ pub struct Watched {
     pub owner: String,
     pub pushed_at: Option<String>,
 }
-
 
 pub async fn watched(c: &GitHubClient, fresh: bool) -> AppResult<Vec<Watched>> {
     let raw: Vec<Value> = c.paginate_with("/user/subscriptions?per_page=100", fresh).await?;
@@ -143,7 +133,6 @@ pub async fn watched(c: &GitHubClient, fresh: bool) -> AppResult<Vec<Watched>> {
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, Type, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum WatchMode {
-
     Watching,
 
     Ignoring,
@@ -202,7 +191,6 @@ pub struct SubjectState {
     pub state: String,
 }
 
-
 pub fn states_query(refs: &[SubjectRef]) -> String {
     let parts: Vec<String> = refs
         .iter()
@@ -238,7 +226,6 @@ pub fn parse_state(v: &Value) -> Option<String> {
 pub async fn subject_states(c: &GitHubClient, refs: &[SubjectRef]) -> AppResult<Vec<SubjectState>> {
     let mut out = Vec::new();
     for chunk in refs.chunks(40) {
-
         let d = match c.graphql_lenient(&states_query(chunk), json!({})).await {
             Ok(d) => d,
             Err(e) if e.code == "github.graphql" || e.code == "github.not_found" => continue,

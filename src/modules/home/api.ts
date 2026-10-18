@@ -17,7 +17,6 @@ export function useWorkspaces() {
   return useQuery({ queryKey: homeKey.list, queryFn: () => commands.wsList() });
 }
 
-
 export function useStatus(id: string) {
   return useQuery({
     queryKey: homeKey.status(id),
@@ -25,7 +24,6 @@ export function useStatus(id: string) {
     staleTime: 3_000,
   });
 }
-
 
 export function useSync(id: string, enabled = true) {
   return useQuery({
@@ -80,7 +78,6 @@ export function useGitignore(id: string, enabled: boolean) {
   });
 }
 
-
 export function refreshLocal(id: string) {
   for (const k of [
     homeKey.status(id),
@@ -93,7 +90,6 @@ export function refreshLocal(id: string) {
   void queryClient.invalidateQueries({ queryKey: ["home", "tree", id] });
   void recompare(id);
 }
-
 
 async function recompare(id: string) {
   const prev = queryClient.getQueryData<SyncState>(homeKey.sync(id));
@@ -121,7 +117,6 @@ async function recompare(id: string) {
       },
   );
 }
-
 
 export const refreshWorkspaces = () => void queryClient.invalidateQueries({ queryKey: homeKey.list });
 

@@ -15,7 +15,6 @@ export function findSuggestion(body: string): Suggestion | null {
   };
 }
 
-
 export function applySuggestion(text: string, start: number, end: number, code: string): string {
   const eol = text.includes("\r\n") ? "\r\n" : "\n";
   const trailing = text.endsWith(eol);
@@ -24,6 +23,5 @@ export function applySuggestion(text: string, start: number, end: number, code: 
   lines.splice(start - 1, end - start + 1, ...repl);
   return lines.join(eol) + (trailing ? eol : "");
 }
-
 
 export const suggestionBlock = (lines: string[]) => `\`\`\`suggestion\n${lines.join("\n")}\n\`\`\``;

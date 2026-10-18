@@ -13,7 +13,6 @@ import { placeKey, scopeOf, validName, type Place } from "./model";
 import { PlaceLabel } from "./shared";
 import { useSecretsUi } from "./store";
 
-
 export function ValueDialog() {
   const { t } = useTranslation(["secrets", "common"]);
   const req = useSecretsUi((s) => s.value);
@@ -30,7 +29,6 @@ export function ValueDialog() {
   const secret = req?.kind === "secret";
 
   useEffect(() => {
-
     setName(req?.name ?? "");
     setValue(req?.value ?? "");
     setMultiline((req?.value ?? "").includes("\n"));
@@ -76,7 +74,6 @@ export function ValueDialog() {
       else n.add(k);
       return n;
     });
-
 
   const masked = secret && !reveal;
   return (

@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useSettings } from "../store/settings";
 
-
 export function accentForeground(hex: string) {
   const m = hex.replace("#", "").match(/.{2}/g);
   if (!m) return "#000";
@@ -9,7 +8,6 @@ export function accentForeground(hex: string) {
   const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
   return luminance > 0.36 ? "#120a02" : "#ffffff";
 }
-
 
 export function useApplyTheme() {
   const theme = useSettings((s) => s.theme);

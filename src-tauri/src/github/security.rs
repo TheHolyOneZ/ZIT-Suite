@@ -35,7 +35,6 @@ impl Severity {
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, Type, PartialEq, Eq, Hash)]
 #[serde(rename_all = "snake_case")]
 pub enum AlertKind {
-
     Dependency,
 
     Code,
@@ -52,7 +51,6 @@ impl AlertKind {
         }
     }
 
-
     pub fn reasons(self) -> &'static [&'static str] {
         match self {
             Self::Dependency => &["fix_started", "inaccurate", "no_bandwidth", "not_used", "tolerable_risk"],
@@ -61,7 +59,6 @@ impl AlertKind {
         }
     }
 }
-
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type, PartialEq)]
 pub struct Alert {
@@ -174,11 +171,9 @@ impl Alert {
         }
     }
 
-
     pub fn from_secret(v: &Value) -> Self {
         let validity = s(v, "/validity");
         Alert {
-
             severity: if validity.as_deref() == Some("active") { Severity::Critical } else { Severity::High },
             key: s(v, "/secret_type").unwrap_or_default(),
             title: s(v, "/secret_type_display_name").or_else(|| s(v, "/secret_type")).unwrap_or_default(),
@@ -191,7 +186,6 @@ impl Alert {
         }
     }
 }
-
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, Type, PartialEq, Eq, Hash)]
 #[serde(rename_all = "snake_case")]
@@ -256,11 +250,9 @@ pub struct RepoSecurity {
     pub error: Option<AppError>,
 }
 
-
 fn sa_status(repo: &Value, name: &str) -> Option<bool> {
     repo.pointer(&format!("/security_and_analysis/{name}/status")).and_then(Value::as_str).map(|s| s == "enabled")
 }
-
 
 const NEGATIVE_TTL: Duration = Duration::from_secs(30 * 60);
 
@@ -268,7 +260,6 @@ fn negative() -> &'static Mutex<HashMap<String, (Instant, AppError)>> {
     static CACHE: OnceLock<Mutex<HashMap<String, (Instant, AppError)>>> = OnceLock::new();
     CACHE.get_or_init(Default::default)
 }
-
 
 async fn remembering<T, F>(path: &str, fresh: bool, fetch: F) -> AppResult<T>
 where
@@ -294,7 +285,6 @@ where
     res
 }
 
-
 pub fn forget(repo: &str) {
     let prefix = format!("/repos/{repo}/");
     negative().lock().unwrap().retain(|k, _| !k.starts_with(&prefix));
@@ -303,7 +293,6 @@ pub fn forget(repo: &str) {
 fn is_disabled_msg(e: &AppError) -> bool {
     e.detail.as_deref().is_some_and(|d| d.to_lowercase().contains("disabled"))
 }
-
 
 async fn list_alerts(c: &GitHubClient, repo: &str, kind: AlertKind, closed: bool, fresh: bool) -> AppResult<Option<Vec<Alert>>> {
     let state = if closed { "" } else { "&state=open" };
@@ -330,7 +319,6 @@ async fn get_value(c: &GitHubClient, path: &str, fresh: bool) -> AppResult<Value
     Ok(remembering(path, fresh, c.get_page(path, fresh)).await?.0)
 }
 
-
 pub async fn scan_repo(c: &GitHubClient, repo: &str, closed: bool, fresh: bool) -> RepoSecurity {
     match scan_inner(c, repo, Some(closed), fresh).await {
         Ok(r) => r,
@@ -352,7 +340,6 @@ pub async fn scan_repo(c: &GitHubClient, repo: &str, closed: bool, fresh: bool) 
         },
     }
 }
-
 
 async fn scan_inner(c: &GitHubClient, repo: &str, alerts_mode: Option<bool>, fresh: bool) -> AppResult<RepoSecurity> {
     use FeatureState::*;
@@ -418,7 +405,6 @@ async fn scan_inner(c: &GitHubClient, repo: &str, alerts_mode: Option<bool>, fre
             Err(_) => Unavailable,
         };
         if setup != Unavailable && alerts_mode.is_some() {
-
             match list_alerts(c, repo, AlertKind::Code, closed, fresh).await {
                 Ok(Some(a)) => {
                     alerts.extend(a);
@@ -438,7 +424,6 @@ async fn scan_inner(c: &GitHubClient, repo: &str, alerts_mode: Option<bool>, fre
     Ok(RepoSecurity { repo: repo.into(), private, archived, posture, alerts, partial, error: None })
 }
 
-
 pub async fn posture(c: &GitHubClient, repo: &str) -> AppResult<Posture> {
     Ok(scan_inner(c, repo, None, true).await?.posture)
 }
@@ -446,7 +431,6 @@ pub async fn posture(c: &GitHubClient, repo: &str) -> AppResult<Posture> {
 fn sa_patch(name: &str, on: bool) -> Value {
     json!({ "security_and_analysis": { name: { "status": if on { "enabled" } else { "disabled" } } } })
 }
-
 
 pub async fn set_feature(c: &GitHubClient, repo: &str, f: Feature, on: bool) -> AppResult<()> {
     forget(repo);
@@ -484,7 +468,6 @@ pub async fn get_alert(c: &GitHubClient, repo: &str, kind: AlertKind, number: u3
         AlertKind::Secret => Alert::from_secret(&v),
     })
 }
-
 
 pub fn alert_body(kind: AlertKind, open: bool, reason: Option<&str>, comment: Option<&str>) -> AppResult<Value> {
     let comment = comment.map(str::trim).filter(|c| !c.is_empty());

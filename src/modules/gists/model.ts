@@ -14,7 +14,6 @@ export function filterGists(gists: Gist[], q: string, vis: Visibility, lang: str
   );
 }
 
-
 export function languages(gists: Gist[]): { name: string; count: number }[] {
   const m = new Map<string, number>();
   for (const g of gists)
@@ -25,9 +24,7 @@ export function languages(gists: Gist[]): { name: string; count: number }[] {
     .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
 }
 
-
 export const titleOf = (g: Gist) => g.description.trim() || g.files[0]?.filename || g.id;
-
 
 export interface Draft {
   key: string;
@@ -48,7 +45,6 @@ export const draftsOf = (g: Gist): Draft[] =>
     removed: false,
   }));
 
-
 export function editsOf(drafts: Draft[]): FileEdit[] {
   const out: FileEdit[] = [];
   for (const d of drafts) {
@@ -68,7 +64,6 @@ export function editsOf(drafts: Draft[]): FileEdit[] {
   }
   return out;
 }
-
 
 export function draftProblem(drafts: Draft[]): "empty" | "name" | "duplicate" | "none" | null {
   const live = drafts.filter((d) => !d.removed);

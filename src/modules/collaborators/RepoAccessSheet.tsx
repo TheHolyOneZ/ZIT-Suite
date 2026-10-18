@@ -16,7 +16,6 @@ import { RoleCell } from "./RoleChip";
 import { RoleSelect } from "./RoleSelect";
 import { useAccessUi } from "./store";
 
-
 export function RepoAccessSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["collaborators", "common"]);
   const repo = String(params.repo);

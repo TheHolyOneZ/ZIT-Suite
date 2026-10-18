@@ -32,7 +32,6 @@ pub async fn files_at_commit(state: State<'_, AppState>, repo: String, commit: S
     files::at_commit(&state.active_client()?, &repo, &commit, &path).await
 }
 
-
 #[tauri::command]
 #[specta::specta]
 pub async fn files_commit(state: State<'_, AppState>, repo: String, branch: String, base_commit: String, new_branch: bool, message: String, changes: Vec<Change>) -> AppResult<CommitResult> {
@@ -40,7 +39,6 @@ pub async fn files_commit(state: State<'_, AppState>, repo: String, branch: Stri
     let items = files::items_at(&c, &repo, &base_commit).await?;
     files::commit(&c, &repo, &branch, &base_commit, new_branch, &message, &changes, &items).await
 }
-
 
 #[tauri::command]
 #[specta::specta]
@@ -53,7 +51,6 @@ pub fn files_read_local(path: String) -> AppResult<String> {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub struct LocalFile {
-
     pub rel: String,
 
     pub abs: String,
@@ -77,7 +74,6 @@ const MAX_FOLDER_FILES: usize = 2000;
 const FILE_LIMIT: u64 = 25 * 1024 * 1024;
 
 const ALWAYS_SKIP: &[&str] = &[".git", "node_modules", "target", ".DS_Store", "Thumbs.db", "__pycache__", ".venv", ".idea"];
-
 
 #[tauri::command]
 #[specta::specta]

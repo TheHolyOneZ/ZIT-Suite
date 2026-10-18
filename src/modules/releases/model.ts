@@ -3,19 +3,16 @@ import { nextVersions } from "@/modules/home/ghmodel";
 
 export type Bump = "patch" | "minor" | "major";
 
-
 export function suggestBump(messages: string[]): Bump {
   if (messages.some((m) => /^\w+(\([^)]*\))?!:/.test(m) || /BREAKING[ -]CHANGE/.test(m))) return "major";
   if (messages.some((m) => /^feat(ure)?(\([^)]*\))?:/i.test(m) || /^add(ed)?\b/i.test(m))) return "minor";
   return "patch";
 }
 
-
 export const nextTag = (tags: string[], bump: Bump) =>
   nextVersions(tags.map((name) => ({ name, sha: "" })))[bump];
 
 export type BoardFilter = "all" | "waiting" | "never";
-
 
 export function sortBoard(rows: RepoReleases[]): RepoReleases[] {
   const rank = (r: RepoReleases) => ((r.since ?? 0) > 0 ? 0 : r.releases === 0 ? 1 : 2);

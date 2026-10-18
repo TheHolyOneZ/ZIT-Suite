@@ -1,7 +1,6 @@
 import { KeyRound } from "lucide-react";
 import { defineModule } from "@/core/modules/types";
 
-
 export default defineModule({
   id: "auth",
   pillar: "system",

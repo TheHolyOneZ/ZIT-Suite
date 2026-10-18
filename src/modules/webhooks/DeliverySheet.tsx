@@ -12,7 +12,6 @@ import { deliveriesKey, refreshRepoHooks, useDelivery } from "./api";
 import { DeliveryCode } from "./HookMarks";
 import { JsonView } from "./JsonView";
 
-
 export function DeliverySheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["webhooks", "common"]);
   const qc = useQueryClient();

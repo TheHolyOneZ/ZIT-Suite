@@ -50,7 +50,6 @@ const copy = async (text: string, done: string) => {
   }
 };
 
-
 export function GistSheet({ params }: { params: SheetParams }) {
   const { t } = useTranslation(["gists", "common"]);
   const id = String(params.id);

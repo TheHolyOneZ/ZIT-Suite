@@ -27,7 +27,6 @@ fn session(state: &AppState) -> Session {
     Session { accounts: store.accounts().to_vec(), active: store.active().map(str::to_string) }
 }
 
-
 async fn register(state: &AppState, token: String, method: AuthMethod) -> AppResult<Account> {
     let client = GitHubClient::new(token.clone())?;
     let (user, scopes) = users::current_user(&client).await.map_err(|e| {

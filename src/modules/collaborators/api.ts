@@ -7,7 +7,6 @@ import { useActiveAccount, useScopeKey } from "@/core/store/session";
 import { buildIndex, roleRank, type AccessIndex, type Person } from "./model";
 import { useAccessPrefs, useAccessUi } from "./store";
 
-
 export function useScanTargets(): string[] {
   const { data = [] } = useRepoList();
   const includeArchived = useAccessPrefs((s) => s.includeArchived);
@@ -24,13 +23,11 @@ export function useScanTargets(): string[] {
 
 export const scanKey = (scope: string[], targets: string[]) => ["access", "scan", ...scope, targets.length, targets.join("|").length];
 
-
 let freshNext = false;
 export function rescanAccess() {
   freshNext = true;
   return queryClient.invalidateQueries({ queryKey: ["access"] });
 }
-
 
 export function useAccessScan() {
   const scope = useScopeKey();
@@ -79,7 +76,6 @@ export function useFilteredPeople(people: Person[]): Person[] {
 export function useRepoAccess(repo: string) {
   return useQuery({ queryKey: ["access", "repo", repo], queryFn: () => unwrap(commands.collabAccess(repo, false)), staleTime: 15_000 });
 }
-
 
 export async function refreshRepoAccess(repo: string) {
   const fresh = await unwrap(commands.collabAccess(repo, true));

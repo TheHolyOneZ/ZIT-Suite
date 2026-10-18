@@ -10,7 +10,6 @@ const PER_PAGE = 50;
 
 export const SEARCH_CAP = 1000;
 
-
 export function useEffectiveQuery() {
   const login = useActiveAccount()?.login ?? "";
   const filter = useIssuesUi((s) => s.filter);
@@ -104,7 +103,6 @@ export function useAssignable(repo: string | null) {
   });
 }
 
-
 export function putIssue(issue: Issue) {
   queryClient.setQueryData(["issues", "one", issue.repo, issue.number], issue);
 
@@ -121,7 +119,6 @@ export function putIssue(issue: Issue) {
       : data,
   );
 }
-
 
 export async function refreshIssues(keys: { repo: string; number: number }[]) {
   await Promise.all(

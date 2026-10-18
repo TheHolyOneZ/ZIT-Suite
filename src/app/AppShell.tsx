@@ -9,7 +9,6 @@ import { SheetStack } from "./SheetStack";
 import { ShortcutsOverlay } from "./ShortcutsOverlay";
 import { TitleBlock } from "./TitleBlock";
 
-
 function useEscapeFoldsSheet() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -32,7 +31,6 @@ export function AppShell() {
   const active = useSheets((s) => s.active);
   const open = useSheets((s) => s.open);
   const setUi = useUi((s) => s.set);
-
 
   useEffect(() => {
     if (nav.length && !nav.some((m) => m.id === active)) open(nav[0].id);

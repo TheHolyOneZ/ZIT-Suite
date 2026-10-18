@@ -11,7 +11,6 @@ import { usePullsUi } from "@/modules/pulls/store";
 import { refreshAll, useBranches, useStatus } from "./api";
 import { GitTerm } from "./parts";
 
-
 export function BranchMenu({ ws, current }: { ws: Workspace; current: string | null }) {
   const { t } = useTranslation("home");
   const [open, setOpen] = useState(false);

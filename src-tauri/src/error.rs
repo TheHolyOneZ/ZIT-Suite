@@ -4,7 +4,6 @@ use specta::Type;
 #[derive(Debug, Clone, Serialize, Deserialize, Type, thiserror::Error)]
 #[error("{code}")]
 pub struct AppError {
-
     pub code: String,
 
     pub detail: Option<String>,
@@ -32,7 +31,6 @@ impl AppError {
 
 impl From<reqwest::Error> for AppError {
     fn from(e: reqwest::Error) -> Self {
-
         let e = e.without_url();
         let code = if e.is_timeout() {
             "network.timeout"

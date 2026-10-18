@@ -2,7 +2,6 @@ import type { SearchKind } from "@/core/ipc";
 
 export const KINDS: SearchKind[] = ["repos", "code", "issues", "commits", "users"];
 
-
 export type SortKey =
   | "best-match"
   | "stars"
@@ -24,7 +23,6 @@ export const SORTS: Record<SearchKind, SortKey[]> = {
   users: ["best-match", "followers", "repositories", "joined"],
 };
 
-
 export const HINTS: Record<SearchKind, string[]> = {
   repos: ["language:rust", "stars:>100", "pushed:>2026-01-01", "topic:cli", "archived:false", "is:public"],
   code: ["language:typescript", "path:src/", "extension:rs", "filename:Cargo.toml", "symbol:main"],
@@ -42,19 +40,16 @@ export const HINTS: Record<SearchKind, string[]> = {
   users: ["type:user", "type:org", "followers:>100", "location:berlin", "language:rust"],
 };
 
-
 export function scoped(q: string, kind: SearchKind, mine: boolean, login: string | null): string {
   if (!mine || !login || kind === "users") return q.trim();
   const qual = kind === "issues" ? `involves:${login}` : `user:${login}`;
   return q.includes(qual) ? q.trim() : `${q.trim()} ${qual}`.trim();
 }
 
-
 export function toggleHint(q: string, hint: string): string {
   const parts = q.split(/\s+/).filter(Boolean);
   return parts.includes(hint) ? parts.filter((p) => p !== hint).join(" ") : [...parts, hint].join(" ");
 }
-
 
 export function runs(text: string, matches: [number, number][]): { text: string; hit: boolean }[] {
   const chars = [...text];
@@ -69,7 +64,6 @@ export function runs(text: string, matches: [number, number][]): { text: string;
   if (at < chars.length) out.push({ text: chars.slice(at).join(""), hit: false });
   return out;
 }
-
 
 export const remember = (list: { kind: SearchKind; q: string }[], next: { kind: SearchKind; q: string }) =>
   [next, ...list.filter((x) => !(x.kind === next.kind && x.q === next.q))].slice(0, 12);

@@ -6,8 +6,6 @@ function applySession(session: Session) {
   const prev = useSession.getState().session?.active;
   useSession.getState().setSession(session);
   if (prev !== session.active) {
-
-
     queryClient.removeQueries();
   }
 }
@@ -38,7 +36,6 @@ export async function signOut(accountId: string) {
 export const RECOMMENDED_SCOPES = ["repo", "delete_repo", "workflow", "read:org", "notifications", "gist", "admin:repo_hook"];
 
 export const NEW_TOKEN_URL = `https://github.com/settings/tokens/new?description=ZIT-Suite&scopes=${RECOMMENDED_SCOPES.join(",")}`;
-
 
 export function missingScopes(scopes: string[] | null, required: string[]): string[] | null {
   if (!scopes) return null;

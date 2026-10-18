@@ -95,7 +95,6 @@ export function applyFilter(rows: RepoRow[], f: RepoFilter, sort: Sort): RepoRow
   return rows.filter((r) => matches(r, f)).sort((a, b) => cmp[sort.key](a, b) * dir || cmp.name(a, b));
 }
 
-
 export function activeFilterCount(f: RepoFilter): number {
   return (Object.keys(DEFAULT_FILTER) as (keyof RepoFilter)[]).filter(
     (k) => k !== "search" && JSON.stringify(f[k]) !== JSON.stringify(DEFAULT_FILTER[k]),

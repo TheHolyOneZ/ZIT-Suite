@@ -10,7 +10,6 @@ export function formatCompact(n: number) {
   return formatNumber(n, { notation: "compact", maximumFractionDigits: 1 });
 }
 
-
 export function formatSizeKb(kb: number) {
   const units = ["kilobyte", "megabyte", "gigabyte"] as const;
   let v = kb;

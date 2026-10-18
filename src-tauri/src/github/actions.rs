@@ -49,7 +49,6 @@ pub async fn workflows(c: &GitHubClient, repo: &str, fresh: bool) -> AppResult<V
     c.paginate_key(&format!("/repos/{repo}/actions/workflows?per_page=100"), "workflows", fresh).await
 }
 
-
 pub async fn runs(c: &GitHubClient, repo: &str, workflow: Option<u64>, per_page: u32, fresh: bool) -> AppResult<Vec<Run>> {
     let base = match workflow {
         Some(w) => format!("/repos/{repo}/actions/workflows/{w}/runs"),
@@ -60,13 +59,11 @@ pub async fn runs(c: &GitHubClient, repo: &str, workflow: Option<u64>, per_page:
     Ok(serde_json::from_value(items)?)
 }
 
-
 pub async fn dispatch(c: &GitHubClient, repo: &str, workflow_id: u64, git_ref: &str, inputs: &BTreeMap<String, String>) -> AppResult<()> {
     let body = json!({ "ref": git_ref, "inputs": inputs });
     c.send_json(Method::POST, &format!("/repos/{repo}/actions/workflows/{workflow_id}/dispatches"), Some(&body))
         .await
         .map_err(|e| {
-
             if e.code == "github.validation" && e.detail.as_deref().is_some_and(|d| d.contains("workflow_dispatch")) {
                 AppError::new("actions.not_dispatchable")
             } else {
@@ -89,7 +86,6 @@ pub async fn set_enabled(c: &GitHubClient, repo: &str, workflow_id: u64, on: boo
     let what = if on { "enable" } else { "disable" };
     c.send_json::<()>(Method::PUT, &format!("/repos/{repo}/actions/workflows/{workflow_id}/{what}"), None).await.map(drop)
 }
-
 
 pub async fn source(c: &GitHubClient, repo: &str, path: &str, git_ref: Option<&str>) -> AppResult<String> {
     let path = path.split('/').map(enc).collect::<Vec<_>>().join("/");
@@ -134,14 +130,11 @@ pub struct Artifact {
     pub expires_at: Option<String>,
 }
 
-
 pub async fn jobs(c: &GitHubClient, repo: &str, run_id: u64, fresh: bool) -> AppResult<Vec<Job>> {
     c.paginate_key(&format!("/repos/{repo}/actions/runs/{run_id}/jobs?per_page=100"), "jobs", fresh).await
 }
 
-
 pub const LOG_TAIL: usize = 3 * 1024 * 1024;
-
 
 pub async fn job_log(c: &GitHubClient, repo: &str, job_id: u64) -> AppResult<JobLog> {
     let bytes = c.get_bytes(&format!("/repos/{repo}/actions/jobs/{job_id}/logs"), "application/vnd.github+json").await?;
@@ -169,7 +162,6 @@ pub fn tail_log(bytes: &[u8], max: usize) -> JobLog {
 pub async fn artifacts(c: &GitHubClient, repo: &str, run_id: u64, fresh: bool) -> AppResult<Vec<Artifact>> {
     c.paginate_key(&format!("/repos/{repo}/actions/runs/{run_id}/artifacts?per_page=100"), "artifacts", fresh).await
 }
-
 
 pub async fn download_artifact(c: &GitHubClient, repo: &str, artifact_id: u64, dest: &std::path::Path) -> AppResult<u64> {
     use tokio::io::AsyncWriteExt;

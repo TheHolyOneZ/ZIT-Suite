@@ -7,7 +7,6 @@ import { useScopeKey } from "@/core/store/session";
 import { buildIndex, healthKey, hookState, urlKey, type Endpoint, type HookIndex } from "./model";
 import { useHooksPrefs, useHooksUi } from "./store";
 
-
 export function useHookTargets(): string[] {
   const { data = [] } = useRepoList();
   const includeArchived = useHooksPrefs((s) => s.includeArchived);
@@ -29,7 +28,6 @@ const scanKey = (scope: string[], targets: string[]) => [
   targets.length,
   targets.join("|").length,
 ];
-
 
 let freshNext = false;
 export function rescanHooks() {
@@ -73,7 +71,6 @@ export function useHookIndex(): { index: HookIndex; scan: ReturnType<typeof useH
   return { index, scan };
 }
 
-
 export function useFilteredEndpoints(endpoints: Endpoint[]): Endpoint[] {
   const f = useHooksUi((s) => s.filter);
   return useMemo(() => {
@@ -95,7 +92,6 @@ export function useFilteredEndpoints(endpoints: Endpoint[]): Endpoint[] {
   }, [endpoints, f]);
 }
 
-
 export function useEndpoint(key: string): Endpoint | undefined {
   const { index } = useHookIndex();
   return index.endpoints.find((e) => e.key === key);
@@ -109,7 +105,6 @@ export function useRepoHooks(repo: string) {
   });
 }
 
-
 export async function refreshRepoHooks(repo: string) {
   const fresh = await unwrap(commands.hooksList(repo, true));
   queryClient.setQueryData(["hooks", "repo", repo], fresh);
@@ -120,7 +115,6 @@ export async function refreshRepoHooks(repo: string) {
 }
 
 export const deliveriesKey = (repo: string, id: number) => ["hooks", "deliveries", repo, id];
-
 
 export function useDeliveries(repo: string, id: number) {
   return useInfiniteQuery({
@@ -140,7 +134,6 @@ export function useDelivery(repo: string, id: number, deliveryId: string) {
     staleTime: Infinity,
   });
 }
-
 
 export function useHookHealth(index: HookIndex) {
   const depth = useHooksPrefs((s) => s.healthDepth);

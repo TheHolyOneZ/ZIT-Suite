@@ -38,7 +38,6 @@ export const useSecretsPrefs = create<SecretsPrefs>()(
   ),
 );
 
-
 export type ValueRequest = {
   kind: "secret" | "variable";
   name?: string;

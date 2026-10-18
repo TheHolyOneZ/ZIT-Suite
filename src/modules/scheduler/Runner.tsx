@@ -14,7 +14,6 @@ import { useScheduler } from "./store";
 
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-
 export function SchedulerRunner() {
   const { rows, query } = useRepoRows();
   const rowsRef = useRef<{ rows: RepoRow[]; ready: boolean }>({ rows: [], ready: false });
@@ -114,7 +113,6 @@ async function runOne(d: DueRun, rowsRef: { current: { rows: RepoRow[]; ready: b
     await done({ outcome: "failed", note: errorMessage(e) });
   }
 }
-
 
 export function openReview(id: string) {
   const r = useScheduler.getState().reviews.find((x) => x.scheduleId === id);

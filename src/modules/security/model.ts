@@ -22,7 +22,6 @@ export const DEFAULT_BASELINE: Feature[] = [
 const rank = (s: Severity) => SEVERITIES.indexOf(s);
 export const worse = (a: Severity, b: Severity) => (rank(a) <= rank(b) ? a : b);
 
-
 export type SlaPreset = "strict" | "standard" | "relaxed";
 export const SLA: Record<SlaPreset, Record<Severity, number>> = {
   strict: { critical: 3, high: 14, medium: 45, low: 90, unknown: 90 },
@@ -37,7 +36,6 @@ export const isOverdue = (a: Alert, sla: Record<Severity, number>, now = Date.no
   a.state === "open" && ageDays(a.created_at, now) > sla[a.severity];
 
 export const postureOf = (p: Posture, f: Feature): FeatureState => p[f];
-
 
 export interface AlertGroup {
   id: string;
@@ -73,7 +71,6 @@ export interface RepoRow {
   partial: AlertKind[];
 }
 
-
 export interface FixPlan {
   id: string;
   package: string;
@@ -86,7 +83,6 @@ export interface FixPlan {
   unfixable: number;
   repos: { repo: string; manifests: string[]; alerts: number }[];
 }
-
 
 export function compareVersions(a: string, b: string): number {
   const pa = a
@@ -151,7 +147,6 @@ export interface SecurityIndex {
   overdue: number;
   gaps: number;
 }
-
 
 export function scoreOf(counts: SeverityCounts, gaps: number): number {
   const penalty = counts.critical * 25 + counts.high * 10 + counts.medium * 3 + counts.low + gaps * 8;
@@ -245,7 +240,6 @@ export function buildIndex(
   };
 }
 
-
 export const REASONS: Record<AlertKind, string[]> = {
   dependency: ["fix_started", "inaccurate", "no_bandwidth", "not_used", "tolerable_risk"],
   code: ["false positive", "won't fix", "used in tests"],
@@ -264,7 +258,6 @@ export type ReasonKey =
   | "used_in_tests"
   | "revoked";
 export const reasonKey = (r: string) => r.replace(/[^a-z]+/g, "_") as ReasonKey;
-
 
 export function baselinePlan(rows: RepoRow[]): { repo: string; feature: Feature }[] {
   return rows.flatMap((r) => r.gaps.map((feature) => ({ repo: r.repo, feature })));

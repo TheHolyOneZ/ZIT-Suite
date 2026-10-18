@@ -15,7 +15,6 @@ export async function notifyDesktop(title: string, body: string) {
   }
 }
 
-
 export function QueueBridge() {
   useEffect(() => {
     let alive = true;

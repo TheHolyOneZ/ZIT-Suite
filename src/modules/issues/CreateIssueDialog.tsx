@@ -70,7 +70,6 @@ export function CreateIssueDialog() {
     setTemplate(null);
   }, [open, scope]);
 
-
   const pickRepo = (r: string) => {
     setRepo(r);
     setLabels([]);

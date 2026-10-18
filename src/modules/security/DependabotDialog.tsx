@@ -13,7 +13,6 @@ import { dependabotYml, detectTargets, type Interval } from "./dependabot";
 type State = { s: "running" | "done" | "skipped" | "failed"; note?: string };
 const PATH = ".github/dependabot.yml";
 
-
 export function DependabotDialog({ onClose }: { onClose: () => void }) {
   const { t } = useTranslation(["security", "common"]);
   const { data = [] } = useRepoList();
